@@ -50,7 +50,7 @@ create table castell_type (
   foreign key (colla_id) references colla(id)
 ) engine=InnoDB default character set utf8;
 
-create table position (
+create table castell_position (
   id   	     int	not null auto_increment,     
   castell_type_id int 	not null,
   role_id     int 	not null,
@@ -61,17 +61,19 @@ create table position (
   foreign key (role_id) references role (id)
 ) engine=InnoDB default character set utf8;
 
+
 create table executed_castell (
-  id   	       int  not null auto_increment,     
+  id   	       int  not null auto_increment,
   colla_id     int  not null,
   castell_type_id int not null,
   ts 	       timestamp default current_timestamp,
   member_id    int  not null,
   role_id      int  not null,
   position_id  int  not null,
+  primary key (id),
   foreign key (colla_id) references colla(id),
   foreign key (castell_type_id) references castell_type (id),
   foreign key (member_id) references member(id),
   foreign key (role_id) references role (id),
-  foreign key (position_id) references position(id)
+  foreign key (position_id) references castell_position (id)
 ) engine=InnoDB default character set utf8;

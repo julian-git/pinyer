@@ -1,4 +1,4 @@
-insert into colla values
+insert into colla (id, name, city) values
   (1, "cvg", "Barcelona/Gràcia");
 
 insert into role values
@@ -42,5 +42,5 @@ insert into castell_type values
   (1, 1, "p4", "Pilar de 4"),
   (2, 1, "2de8f", "Torre de vuit amb folre");
 
-insert into position values
+insert into castell_position values
   (1, 1, 1, 0, 0);
