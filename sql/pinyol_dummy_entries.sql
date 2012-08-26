@@ -42,5 +42,7 @@ insert into castell_type values
   (1, 1, "p4", "Pilar de 4"),
   (2, 1, "2de8f", "Torre de vuit amb folre");
 
-insert into castell_position values
-  (1, 1, 1, 0, 0);
+insert into castell_position (id, castell_type_id, role_id, svg_id, svg_text, x, y) values
+  (1, 1, 1, "crossa1", "Crossa 1", 500, -100),
+  (2, 1, 1, "crossa2", "Crossa 2", 500, -500),
+  (3, 1, 5, "ma1", "Ma 1", 100, 600);
