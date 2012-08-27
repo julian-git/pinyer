@@ -61,5 +61,5 @@ for rel in get_relations(db, castell_type_id):
         to_mems = members_in_position[rel[3]]
         for to_mem in to_mems:
             ineq = ineq + var(to_mem, rel[3]) + " - "
-        ineqs.append(ineq[:-3] + " <= 0")
+        ineqs.append(ineq[:-3] + " <= " + str(rel[4]))
 print ineqs
