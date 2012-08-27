@@ -5,3 +5,6 @@ sql/all:
 
 test: all
 	python run_unit_tests.py
+
+clean:
+	rm -f *~ 

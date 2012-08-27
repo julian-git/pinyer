@@ -12,7 +12,7 @@ def get_castellers(db, colla, pos):
     """
     c = db.cursor()
     c.execute("""
-select casteller.id, total_height, shoulder_height, hip_height, stretched_height, weight 
+select casteller.id, total_height, shoulder_height, hip_height, stretched_height, weight, strength 
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role_id = castell_position.role_id 
@@ -53,7 +53,7 @@ def make_ineq2(from_pos, to_pos, castellers_in_position, prop_index):
     """
     return make_ineq1(from_pos, castellers_in_position, prop_index) + " - " + make_ineq1(to_pos, castellers_in_position, prop_index, " - ")
 
-def make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs):
+def make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, obj_val, ineqs):
     """ 
     make the inequalities that say that in each position, there may be at most one casteller
     """
@@ -62,43 +62,66 @@ def make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_
         castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
         ineq = ''
         for mem in castellers_in_position[pos_id]:
-            ineq = ineq + var(mem, pos_id) + " + "
+            v = var(mem, pos_id)
+            obj_val[v] = mem[6]
+            ineq = ineq + v + " + "
         ineqs.append(ineq[:-3] + " <= 1")
 
-def make_relation_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs):
+def make_relation_ineqs(db, castell_type_id, castellers_in_position, ineqs):
     """
     make the inequalities that express relations between different positions in the castell
     """ 
     for rel in get_relations(db, castell_type_id):
         rel_type, from_pos, to_pos, tolerance = rel[2:6]
 
-        if rel_type == 1: # (total height at from_pos) - (total_height at to_pos) <= tolerance
+        if rel_type == 1: 
+            # rengla descends weakly: 
+            # 0 <= (total height at from_pos) - (total_height at to_pos) <= tolerance
             if from_pos is None or to_pos is None:
                 print "Error in relation ", rel, ": from_pos or to_pos is None"
                 break
-            ineqs.append(make_ineq2(from_pos, to_pos, castellers_in_position, 1) + " <= " + str(tolerance))
+            ineq_terms = make_ineq2(from_pos, to_pos, castellers_in_position, 1)
+            ineqs.append(ineq_terms + " >= 0")
+            ineqs.append(ineq_terms + " <= " + str(tolerance))
 
-        elif rel_type == 2: # stretched_height at position is at least fparam1
+        elif rel_type == 2: 
+            # Ma can support segon:
+            # stretched_height at position is at least fparam1
             if from_pos is None:
                 print "Error in relation ", rel, ": from_pos is None"
                 break
             ineqs.append(make_ineq1(from_pos, castellers_in_position, 5) + " >= " + str(tolerance))
 
         elif rel_type == 3: # weight at position is at least fparam1
-            print
+            print "implement me!\n"
 
 
-def build_an_ip(castell_type_id = 1, colla_id = 1): # CVG and p4 
+def ip_ineqs(castell_type_id = 1, colla_id = 1): # CVG and p4 
     import MySQLdb
 
     db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
     ineqs = []
     castellers_in_position = dict()
-    make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs)
-    make_relation_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs)
+    obj_val = dict()
+    make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, obj_val, ineqs)
+    make_relation_ineqs(db, castell_type_id, castellers_in_position, ineqs)
 
-    return ineqs
+    return [obj_val, ineqs]
+
+def lp_format(t):
+    obj_val, ineqs = t
+    f = "maximize\n"
+    variables = sorted(obj_val.keys())
+    for v in variables:
+        f = f + str(obj_val[v]) + " " + str(v) + " + "
+    f = f[:-3] + "\nsubject to\n"
+    for ineq in ineqs:
+        f = f + ineq + "\n"
+    f = f + "binary\n"
+    for v in variables:
+        f = f + v + " "
+    return f
 
 if __name__ == "__main__":
-    print build_an_ip()
+    print lp_format(ip_ineqs())

@@ -36,6 +36,7 @@ create table casteller (
   stretched_height  float(10,2) default 220,
   shoulder_width    float(10,2) default 70,
   weight            float(10,2) default 60,
+  strength 	    float(10,2) default 5,
   primary key (id)
 ) engine=InnoDB default character set utf8;
 
