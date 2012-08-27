@@ -45,12 +45,14 @@ insert into castell_type values
 insert into castell_position (id, castell_type_id, role_id, svg_id, svg_text, x, y) values
   (1, 1, 1, "crossa1", "Crossa 1", 500, -100),
   (2, 1, 1, "crossa2", "Crossa 2", 500, -500),
-  (3, 1, 5, "ma1", "Ma 1", 100, 600);
+  (3, 1, 5, "ma1", "Ma 1", 100, 600),
+  (4, 1, 7, "pinya1", "Pinya 1", 100, 700),
+  (5, 1, 7, "pinya2", "Pinya 2", 100, 800);
 
 insert into castell_relation (id, castell_type_id, relation_type, from_position, to_position, fparam1, fparam2) values
   (1, 1, 1, 1, 2, 10, 0),
-  (2, 1, 1, 2, 3, 8, 0),
-  (3, 1, 1, 1, 3, 7, 0),
+  (2, 1, 1, 3, 4, 7, 0),
+  (3, 1, 1, 4, 5, 5, 0),
   (4, 1, 2, 2, null, 65, 0);
 
 insert into incompatible_castellers (id, colla_id, mem1_id, mem2_id) values 
