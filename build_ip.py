@@ -1,8 +1,3 @@
-import MySQLdb
-
-colla_id = 1  # CVG
-castell_type_id = 1  # p4
-
 def get_positions(db, castell_type_id):
     """
     returns all id numbers of the positions in the given castell type
@@ -58,7 +53,7 @@ def make_ineq2(from_pos, to_pos, castellers_in_position, prop_index):
     """
     return make_ineq1(from_pos, castellers_in_position, prop_index) + " - " + make_ineq1(to_pos, castellers_in_position, prop_index, " - ")
 
-def make_castellers_in_position_ineqs(db, castellers_in_position, ineqs):
+def make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs):
     """ 
     make the inequalities that say that in each position, there may be at most one casteller
     """
@@ -70,7 +65,7 @@ def make_castellers_in_position_ineqs(db, castellers_in_position, ineqs):
             ineq = ineq + var(mem, pos_id) + " + "
         ineqs.append(ineq[:-3] + " <= 1")
 
-def make_relation_ineqs(db, castellers_in_position, ineqs):
+def make_relation_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs):
     """
     make the inequalities that express relations between different positions in the castell
     """ 
@@ -93,12 +88,14 @@ def make_relation_ineqs(db, castellers_in_position, ineqs):
             print
 
 
-db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
+def build_an_ip(castell_type_id = 1, colla_id = 1): # CVG and p4 
+    import MySQLdb
 
-ineqs = []
-castellers_in_position = dict()
-make_castellers_in_position_ineqs(db, castellers_in_position, ineqs)
-make_relation_ineqs(db, castellers_in_position, ineqs)
+    db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
-        
-print ineqs
+    ineqs = []
+    castellers_in_position = dict()
+    make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs)
+    make_relation_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs)
+
+    return ineqs
