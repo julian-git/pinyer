@@ -99,3 +99,6 @@ def build_an_ip(castell_type_id = 1, colla_id = 1): # CVG and p4
     make_relation_ineqs(db, castell_type_id, colla_id, castellers_in_position, ineqs)
 
     return ineqs
+
+if __name__ == "__main__":
+    print build_an_ip()
