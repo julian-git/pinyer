@@ -29,11 +29,11 @@ create table role (
 create table member (
   id   	     int	not null auto_increment,
   name 	     varchar(100) not null,
-  total_height      float(3,2) default 0,
-  shoulder_height   float(3,2) default 0,
-  hip_height        float(3,2) default 0,
-  stretched_height  float(3,2) default 0,
-  weight            float(3,2) default 0,
+  total_height      float(10,2) default 0,
+  shoulder_height   float(10,2) default 0,
+  hip_height        float(10,2) default 0,
+  stretched_height  float(10,2) default 0,
+  weight            float(10,2) default 0,
   primary key (id)
 ) engine=InnoDB default character set utf8;
 
@@ -78,12 +78,12 @@ create table castell_position (
   role_id     int 	not null,
   svg_id     varchar(20) not null,
   svg_text   varchar(20) not null,
-  x 	     float(4,2)	not null,
-  y 	     float(4,2) not null,
-  w 	     float(4,2) default null,
-  h 	     float(4,2) default null,
-  rx 	     float(4,2) default null,
-  ry 	     float(4,2) default null,
+  x 	     float(10,2) not null,
+  y 	     float(10,2) not null,
+  w 	     float(10,2) default null,
+  h 	     float(10,2) default null,
+  rx 	     float(10,2) default null,
+  ry 	     float(10,2) default null,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
   foreign key (role_id) references role (id)

@@ -46,3 +46,9 @@ insert into castell_position (id, castell_type_id, role_id, svg_id, svg_text, x,
   (1, 1, 1, "crossa1", "Crossa 1", 500, -100),
   (2, 1, 1, "crossa2", "Crossa 2", 500, -500),
   (3, 1, 5, "ma1", "Ma 1", 100, 600);
+
+insert into castell_relation values
+  (1, 1, 1, 2, 10),
+  (2, 1, 2, 3, 8),
+  (3, 1, 1, 3, 7),
+  (4, 1, 2, null, 3);
