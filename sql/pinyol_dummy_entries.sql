@@ -47,8 +47,11 @@ insert into castell_position (id, castell_type_id, role_id, svg_id, svg_text, x,
   (2, 1, 1, "crossa2", "Crossa 2", 500, -500),
   (3, 1, 5, "ma1", "Ma 1", 100, 600);
 
-insert into castell_relation values
+insert into castell_relation (id, castell_type_id, relation_type, from_position, to_position, fparam1, fparam2) values
   (1, 1, 1, 1, 2, 10, 0),
   (2, 1, 1, 2, 3, 8, 0),
   (3, 1, 1, 1, 3, 7, 0),
   (4, 1, 2, 2, null, 3, 0);
+
+insert into incompatible_members (id, colla_id, mem1_id, mem2_id) values 
+  (1, 1, 1, 3);

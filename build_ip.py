@@ -40,6 +40,30 @@ def var(member, pos):
     """
     return "x_" + str(member[0]) + "_" + str(pos)
 
+def make_ineq1(pos, members_in_position, prop_index):
+    """
+    make the LHS of an inequality using the position pos and the property indexed by prop_index
+    """
+    ineq = ''
+    from_mems = members_in_position[pos]
+    for from_mem in from_mems:
+        prop = from_mem[prop_index]
+        ineq = ineq + str(prop) + " " + var(from_mem, pos) + " + "
+        ineq = ineq[:-3] 
+    return ineq
+
+def make_ineq2(from_pos, to_pos, members_in_position, prop_index):
+    """
+    make the LHS of an inequality using two positions and the property indexed by prop_index
+    """
+    ineq = make_ineq1(from_pos, members_in_position, prop_index) + " - "
+    to_mems = members_in_position[to_pos]
+    for to_mem in to_mems:
+        prop = to_mem[prop_index]
+        ineq = ineq + str(prop) + " " + var(to_mem, to_pos) + " - "
+    return ineq
+
+
 db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
 ineqs = []
@@ -54,19 +78,22 @@ for pos in get_positions(db, castell_type_id):
 
 for rel in get_relations(db, castell_type_id):
     rel_type, from_pos, to_pos, tolerance = rel[2:6]
-    if rel_type == 1: # total height must weakly decrease from from_pos to to_pos
-        if to_pos is None:
-            print "Error in relation ", rel, ": to_pos is None"
+    if rel_type == 1: # (total height at from_pos) - (total_height at to_pos) <= tolerance
+        if from_pos is None or to_pos is None:
+            print "Error in relation ", rel, ": from_pos or to_pos is None"
             break
-        ineq = ''
-        from_mems = members_in_position[from_pos]
-        for from_mem in from_mems:
-            total_height = from_mem[1]
-            ineq = ineq + str(total_height) + " " + var(from_mem, from_pos) + " + "
-        ineq = ineq[:-3] + " - "
-        to_mems = members_in_position[to_pos]
-        for to_mem in to_mems:
-            total_height = to_mem[1]
-            ineq = ineq + str(total_height) + " " + var(to_mem, to_pos) + " - "
+        ineq = make_ineq2(from_pos, to_pos, members_in_position, 1)
         ineqs.append(ineq[:-3] + " <= " + str(tolerance))
+
+    elif rel_type == 2: # stretched_height at position is at least fparam1
+        if from_pos is None:
+            print "Error in relation ", rel, ": from_pos is None"
+            break
+        ineq = make_ineq1(from_pos, members_in_position, 5)
+        ineqs.append(ineq[:-3] + " <= " + str(tolerance))
+
+    elif rel_type == 3: # weight at position is at least fparam1
+        print
+
+        
 print ineqs

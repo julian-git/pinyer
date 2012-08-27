@@ -98,14 +98,30 @@ create table castell_relation (
   id   	       int  not null auto_increment,
   castell_type_id int 	not null,
   relation_type int not null,
-  from_position int not null,
+  from_position int default null,
   to_position   int default null,
-  param1 	float(10,4) default 0,
-  param2 	float(10,4) default 0,
+  fparam1 	float(10,4) default 0,
+  fparam2 	float(10,4) default 0,
+  iparam1 	int default 0,
+  iparam2 	int default 0,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
   foreign key (from_position) references castell_position (id),
   foreign key (to_position) references castell_position (id)
+) engine=InnoDB default character set utf8;
+
+/** 
+ *  Which members dont get along and have to be separated?
+ */ 
+create table incompatible_members (
+  id   	   int  not null auto_increment,
+  colla_id int not null,
+  mem1_id  int not null,
+  mem2_id  int not null,
+  primary key (id),
+  foreign key (colla_id) references colla(id),
+  foreign key (mem1_id) references member(id),         
+  foreign key (mem2_id) references member(id)
 ) engine=InnoDB default character set utf8;
 
 /**
@@ -116,7 +132,7 @@ create table executed_castell (
   colla_id     int  not null,
   castell_type_id int not null,
   execution_date  timestamp default current_timestamp,
-  result       varchar(20) default null,
+  result       varchar(20) default 'descarregat',
   comment      varchar(255) default null,
   primary key (id),
   foreign key (colla_id) references colla(id),
