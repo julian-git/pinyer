@@ -49,8 +49,8 @@ def make_ineq1(pos, members_in_position, prop_index):
     for from_mem in from_mems:
         prop = from_mem[prop_index]
         ineq = ineq + str(prop) + " " + var(from_mem, pos) + " + "
-        ineq = ineq[:-3] 
-    return ineq
+    ineq = ineq[:-3] 
+    return ineq 
 
 def make_ineq2(from_pos, to_pos, members_in_position, prop_index):
     """
@@ -90,7 +90,7 @@ for rel in get_relations(db, castell_type_id):
             print "Error in relation ", rel, ": from_pos is None"
             break
         ineq = make_ineq1(from_pos, members_in_position, 5)
-        ineqs.append(ineq[:-3] + " <= " + str(tolerance))
+        ineqs.append(ineq + " >= " + str(tolerance))
 
     elif rel_type == 3: # weight at position is at least fparam1
         print

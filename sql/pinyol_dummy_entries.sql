@@ -51,7 +51,7 @@ insert into castell_relation (id, castell_type_id, relation_type, from_position,
   (1, 1, 1, 1, 2, 10, 0),
   (2, 1, 1, 2, 3, 8, 0),
   (3, 1, 1, 1, 3, 7, 0),
-  (4, 1, 2, 2, null, 3, 0);
+  (4, 1, 2, 2, null, 65, 0);
 
 insert into incompatible_members (id, colla_id, mem1_id, mem2_id) values 
   (1, 1, 1, 3);
