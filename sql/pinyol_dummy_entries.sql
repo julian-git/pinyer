@@ -10,7 +10,7 @@ insert into role values
   (6, "agulla"), 
   (7, "pinya");
 
-insert into member (name, total_height, shoulder_height, axle_height, hip_height, stretched_height, shoulder_width, weight)  values 
+insert into casteller (name, total_height, shoulder_height, axle_height, hip_height, stretched_height, shoulder_width, weight)  values 
   ("crossa1", 150, 130, 120, 50, 200, 70, 65),
   ("crossa2", 155, 135, 125, 55, 205, 70, 70),	
   ("baix1", 155, 135, 115, 55, 200, 70, 65),
@@ -30,11 +30,11 @@ insert into member (name, total_height, shoulder_height, axle_height, hip_height
   ("pinya5", 190, 170, 160, 80, 220, 70, 80),  
   ("pinya6", 155, 135, 115, 55, 200, 70, 65);
 
-insert into member_colla values
+insert into casteller_colla values
   (1,1), (2,1), (3,1), (4,1), (5,1), (6,1), (7,1), (8,1), (9,1), (10,1),
   (11,1), (12,1), (13,1), (14,1), (15,1), (16,1), (17,1), (18,1);
 
-insert into member_role values
+insert into casteller_role values
   (1,1), (2,1), (3,2), (4,2), (5,3), (6,3), (7,4), (8,4), (9,5), (10,5),
   (11,6), (12,6), (13,7), (14,7), (15,7), (16,7), (17,7), (18,7);
 
@@ -53,5 +53,5 @@ insert into castell_relation (id, castell_type_id, relation_type, from_position,
   (3, 1, 1, 1, 3, 7, 0),
   (4, 1, 2, 2, null, 65, 0);
 
-insert into incompatible_members (id, colla_id, mem1_id, mem2_id) values 
+insert into incompatible_castellers (id, colla_id, mem1_id, mem2_id) values 
   (1, 1, 1, 3);

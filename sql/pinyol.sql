@@ -26,7 +26,7 @@ create table role (
  *   Some information about the members of a colla, 
  *   especially their physical characteristics
  */
-create table member (
+create table casteller (
   id   	     int	not null auto_increment,
   name 	     varchar(100) not null,
   total_height      float(10,2) default 170,
@@ -40,22 +40,22 @@ create table member (
 ) engine=InnoDB default character set utf8;
 
 /** 
- *   The collas that a certain member belongs to
+ *   The collas that a certain casteller belongs to
  */
-create table member_colla (
-  member_id  int  not null,
+create table casteller_colla (
+  casteller_id  int  not null,
   colla_id   int  not null,
-  foreign key (member_id) references member(id),
+  foreign key (casteller_id) references casteller(id),
   foreign key (colla_id) references colla(id)
 ) engine=InnoDB default character set utf8;
 
 /**
- *  The roles that a certain member can fulfill in a castell
+ *  The roles that a certain casteller can fulfill in a castell
  */
-create table member_role (
-  member_id  int  not null,
+create table casteller_role (
+  casteller_id  int  not null,
   role_id   int  not null,
-  foreign key (member_id) references member(id),
+  foreign key (casteller_id) references casteller(id),
   foreign key (role_id) references role(id)
 ) engine=InnoDB default character set utf8;
 
@@ -111,17 +111,17 @@ create table castell_relation (
 ) engine=InnoDB default character set utf8;
 
 /** 
- *  Which members dont get along and have to be separated?
+ *  Which castellers dont get along and have to be separated?
  */ 
-create table incompatible_members (
+create table incompatible_castellers (
   id   	   int  not null auto_increment,
   colla_id int not null,
   mem1_id  int not null,
   mem2_id  int not null,
   primary key (id),
   foreign key (colla_id) references colla(id),
-  foreign key (mem1_id) references member(id),         
-  foreign key (mem2_id) references member(id)
+  foreign key (mem1_id) references casteller(id),         
+  foreign key (mem2_id) references casteller(id)
 ) engine=InnoDB default character set utf8;
 
 /**
@@ -140,19 +140,19 @@ create table executed_castell (
 ) engine=InnoDB default character set utf8;
 
 /** 
- *  What has each member done in each executed castell, 
+ *  What has each casteller done in each executed castell, 
  *  and what was his strength that day?
  */
 create table executed_castell_position (
   id   	       int  not null auto_increment,
   executed_castell_id int not null,
-  member_id    int  not null,
+  casteller_id    int  not null,
   role_id      int  not null,
   position_id  int  not null,
   current_strength     int default 5,
   primary key (id),
   foreign key (executed_castell_id) references executed_castell(id),
-  foreign key (member_id) references member(id),
+  foreign key (casteller_id) references casteller(id),
   foreign key (role_id) references role (id),
   foreign key (position_id) references castell_position (id)
 ) engine=InnoDB default character set utf8;
