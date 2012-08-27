@@ -58,36 +58,47 @@ def make_ineq2(from_pos, to_pos, castellers_in_position, prop_index):
     """
     return make_ineq1(from_pos, castellers_in_position, prop_index) + " - " + make_ineq1(to_pos, castellers_in_position, prop_index, " - ")
 
+def make_castellers_in_position_ineqs(db, castellers_in_position, ineqs):
+    """ 
+    make the inequalities that say that in each position, there may be at most one casteller
+    """
+    for pos in get_positions(db, castell_type_id):
+        pos_id = pos[0]
+        castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
+        ineq = ''
+        for mem in castellers_in_position[pos_id]:
+            ineq = ineq + var(mem, pos_id) + " + "
+        ineqs.append(ineq[:-3] + " <= 1")
+
+def make_relation_ineqs(db, castellers_in_position, ineqs):
+    """
+    make the inequalities that express relations between different positions in the castell
+    """ 
+    for rel in get_relations(db, castell_type_id):
+        rel_type, from_pos, to_pos, tolerance = rel[2:6]
+
+        if rel_type == 1: # (total height at from_pos) - (total_height at to_pos) <= tolerance
+            if from_pos is None or to_pos is None:
+                print "Error in relation ", rel, ": from_pos or to_pos is None"
+                break
+            ineqs.append(make_ineq2(from_pos, to_pos, castellers_in_position, 1) + " <= " + str(tolerance))
+
+        elif rel_type == 2: # stretched_height at position is at least fparam1
+            if from_pos is None:
+                print "Error in relation ", rel, ": from_pos is None"
+                break
+            ineqs.append(make_ineq1(from_pos, castellers_in_position, 5) + " >= " + str(tolerance))
+
+        elif rel_type == 3: # weight at position is at least fparam1
+            print
+
 
 db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
 ineqs = []
 castellers_in_position = dict()
-for pos in get_positions(db, castell_type_id):
-    pos_id = pos[0]
-    castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
-    ineq = ''
-    for mem in castellers_in_position[pos_id]:
-        ineq = ineq + var(mem, pos_id) + " + "
-    ineqs.append(ineq[:-3] + " <= 1")
-
-for rel in get_relations(db, castell_type_id):
-    rel_type, from_pos, to_pos, tolerance = rel[2:6]
-
-    if rel_type == 1: # (total height at from_pos) - (total_height at to_pos) <= tolerance
-        if from_pos is None or to_pos is None:
-            print "Error in relation ", rel, ": from_pos or to_pos is None"
-            break
-        ineqs.append(make_ineq2(from_pos, to_pos, castellers_in_position, 1) + " <= " + str(tolerance))
-
-    elif rel_type == 2: # stretched_height at position is at least fparam1
-        if from_pos is None:
-            print "Error in relation ", rel, ": from_pos is None"
-            break
-        ineqs.append(make_ineq1(from_pos, castellers_in_position, 5) + " >= " + str(tolerance))
-
-    elif rel_type == 3: # weight at position is at least fparam1
-        print
+make_castellers_in_position_ineqs(db, castellers_in_position, ineqs)
+make_relation_ineqs(db, castellers_in_position, ineqs)
 
         
 print ineqs
