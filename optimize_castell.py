@@ -17,15 +17,14 @@ def get_members(db, colla, pos):
     """
     c = db.cursor()
     c.execute("""
-select distinct member_role.member_id 
-from member_role
+select member.id 
+from member
+left join member_role on member_role.member_id = member.id
 left join castell_position on member_role.role_id = castell_position.role_id 
-left join member_colla on member_role.member_id = member_colla.colla_id 
-where castell_position.id = %s and colla_id = %s
+left join member_colla on member.id = member_colla.member_id 
+where castell_position.id = %s and member_colla.colla_id = %s
 """, (pos,colla,))
-    res = c.fetchall()
-    print "get_members(", pos, "): ", res
-    return res
+    return c.fetchall()
 
 def get_relations(db, castell_type_id):
     """
@@ -43,18 +42,20 @@ def var(member, pos):
 
 db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
-
+ineqs = []
 members_in_position = dict()
 for pos in get_positions(db, castell_type_id):
     members_in_position[pos[0]] = get_members(db, colla_id, pos[0])
+    ineq = ''
+    for mem in members_in_position[pos[0]]:
+        ineq = ineq + var(mem, pos[0]) + " + "
+    ineqs.append(ineq[:-3] + " <= 1")
 
-ineqs = []
 for rel in get_relations(db, castell_type_id):
     if rel[3] is not None:
         ineq = ''
         from_mems = members_in_position[rel[2]]
         for from_mem in from_mems:
-            print from_mem
             ineq = ineq + var(from_mem, rel[2]) + " + "
         ineq = ineq[:-3] + " - "
         to_mems = members_in_position[rel[3]]
