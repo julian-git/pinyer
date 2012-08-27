@@ -10,25 +10,25 @@ insert into role values
   (6, "agulla"), 
   (7, "pinya");
 
-insert into member (name)  values 
-  ("crossa1"),
-  ("crossa2"),	
-  ("baix1"),
-  ("baix2"),
-  ("contrafort1"),
-  ("contrafort2"),
-  ("vent1"),
-  ("vent2"),
-  ("mà1"),
-  ("mà2"),
-  ("agulla1"), 
-  ("agulla2"), 
-  ("pinya1"),  
-  ("pinya2"),  
-  ("pinya3"),  
-  ("pinya4"),  
-  ("pinya5"),  
-  ("pinya6");
+insert into member (name, total_height, shoulder_height, axle_height, hip_height, stretched_height, shoulder_width, weight)  values 
+  ("crossa1", 150, 130, 120, 50, 200, 70, 65),
+  ("crossa2", 155, 135, 125, 55, 205, 70, 70),	
+  ("baix1", 155, 135, 115, 55, 200, 70, 65),
+  ("baix2", 160, 140, 120, 60, 205, 70, 70),
+  ("contrafort1", 155, 135, 115, 55, 200, 70, 65),
+  ("contrafort2", 160, 140, 120, 60, 205, 70, 70),
+  ("vent1", 180, 160, 150, 70, 210, 70, 70),
+  ("vent2", 185, 165, 155, 75, 215, 70, 75),
+  ("mà1", 190, 170, 160, 80, 220, 70, 80),
+  ("mà2", 195, 175, 165, 85, 225, 70, 85),
+  ("agulla1", 155, 135, 115, 55, 200, 70, 65),
+  ("agulla2", 160, 140, 120, 60, 205, 70, 70), 
+  ("pinya1", 150, 130, 120, 50, 200, 70, 65),  
+  ("pinya2", 155, 135, 115, 55, 200, 70, 65),  
+  ("pinya3", 155, 135, 115, 55, 200, 70, 65),  
+  ("pinya4", 180, 160, 150, 70, 210, 70, 70),  
+  ("pinya5", 190, 170, 160, 80, 220, 70, 80),  
+  ("pinya6", 155, 135, 115, 55, 200, 70, 65);
 
 insert into member_colla values
   (1,1), (2,1), (3,1), (4,1), (5,1), (6,1), (7,1), (8,1), (9,1), (10,1),
@@ -48,7 +48,7 @@ insert into castell_position (id, castell_type_id, role_id, svg_id, svg_text, x,
   (3, 1, 5, "ma1", "Ma 1", 100, 600);
 
 insert into castell_relation values
-  (1, 1, 1, 2, 10),
-  (2, 1, 2, 3, 8),
-  (3, 1, 1, 3, 7),
-  (4, 1, 2, null, 3);
+  (1, 1, 1, 1, 2, 10, 0),
+  (2, 1, 1, 2, 3, 8, 0),
+  (3, 1, 1, 1, 3, 7, 0),
+  (4, 1, 2, 2, null, 3, 0);

@@ -29,11 +29,13 @@ create table role (
 create table member (
   id   	     int	not null auto_increment,
   name 	     varchar(100) not null,
-  total_height      float(10,2) default 0,
-  shoulder_height   float(10,2) default 0,
-  hip_height        float(10,2) default 0,
-  stretched_height  float(10,2) default 0,
-  weight            float(10,2) default 0,
+  total_height      float(10,2) default 170,
+  shoulder_height   float(10,2) default 150,
+  axle_height       float(10,2) default 140,
+  hip_height        float(10,2) default 60,
+  stretched_height  float(10,2) default 220,
+  shoulder_width    float(10,2) default 70,
+  weight            float(10,2) default 60,
   primary key (id)
 ) engine=InnoDB default character set utf8;
 
@@ -95,9 +97,11 @@ create table castell_position (
 create table castell_relation (
   id   	       int  not null auto_increment,
   castell_type_id int 	not null,
+  relation_type int not null,
   from_position int not null,
   to_position   int default null,
-  weight 	float(10,4) default 0,
+  param1 	float(10,4) default 0,
+  param2 	float(10,4) default 0,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
   foreign key (from_position) references castell_position (id),
@@ -129,7 +133,7 @@ create table executed_castell_position (
   member_id    int  not null,
   role_id      int  not null,
   position_id  int  not null,
-  strength     int default 5,
+  current_strength     int default 5,
   primary key (id),
   foreign key (executed_castell_id) references executed_castell(id),
   foreign key (member_id) references member(id),
