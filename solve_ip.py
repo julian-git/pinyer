@@ -1,4 +1,6 @@
 def get_solutions(filename):
+    from gurobipy import read
+
     model=read(filename)
     model.optimize()
     if model.status == 2:
