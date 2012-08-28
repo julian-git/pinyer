@@ -5,6 +5,10 @@
 .#*
 *#
 
+# Project
+*log
+*up-to-date
+
 # Packages
 *.egg
 *.egg-info
