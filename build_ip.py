@@ -29,21 +29,21 @@ def get_relations(db, castell_type_id):
     c.execute("""select * from castell_relation where castell_type_id=%s""", (castell_type_id,))
     return c.fetchall()
 
-def var(casteller, pos):
+def var(casteller_id, pos):
     """
     converts a pair of (casteller_id, position_id) into an integer optimization variable name
     """
-    return "c" + str(casteller[0]) + "p" + str(pos)
+    return "c" + str(casteller_id) + "p" + str(pos)
 
 def make_ineq1(pos, castellers_in_position, prop_index, operator=" + "):
     """
     make part of an inequality using the position pos and the property indexed by prop_index
     """
     ineq = ''
-    from_mems = castellers_in_position[pos]
-    for from_mem in from_mems:
-        prop = from_mem[prop_index]
-        ineq = ineq + str(prop) + " " + var(from_mem, pos) + operator
+    from_castellers = castellers_in_position[pos]
+    for from_casteller in from_castellers:
+        prop = from_casteller[prop_index]
+        ineq = ineq + str(prop) + " " + var(from_casteller[0], pos) + operator
     ineq = ineq[:-3] 
     return ineq 
 
@@ -53,25 +53,35 @@ def make_ineq2(from_pos, to_pos, castellers_in_position, prop_index):
     """
     return make_ineq1(from_pos, castellers_in_position, prop_index) + " - " + make_ineq1(to_pos, castellers_in_position, prop_index, " - ")
 
-def make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, obj_val, ineqs):
+def make_castellers_in_position_ineqs(castellers_in_position, obj_val, ineqs):
     """ 
     make the inequalities that say that in each position, there may be at most one casteller
     """
-    for pos in get_positions(db, castell_type_id):
-        pos_id = pos[0]
-        castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
-        ineq = ''
-        for mem in castellers_in_position[pos_id]:
-            v = var(mem, pos_id)
-            obj_val[v] = mem[6]
-            ineq = ineq + v + " + "
-        ineqs.append(ineq[:-3] + " <= 1")
+    pos_of_casteller = dict() # The transposed array of castellers_in_position
 
-def make_relation_ineqs(db, castell_type_id, castellers_in_position, ineqs):
+    for pos_id, castellers in castellers_in_position.iteritems():
+        position_ineq = '' # in position pos_id, there may be at most one casteller
+        for casteller in castellers:
+            v = var(casteller[0], pos_id)
+            obj_val[v] = casteller[6]
+            position_ineq = position_ineq + v + " + "
+            if casteller[0] not in pos_of_casteller:
+                pos_of_casteller[casteller[0]] = []
+            pos_of_casteller[casteller[0]].append(pos_id)
+        ineqs.append("pos" + str(pos_id) + ": " + position_ineq[:-3] + " = 1")
+
+    for casteller_id, positions in pos_of_casteller.iteritems():
+        casteller_ineq = '' # the casteller can be in at most one position
+        for pos_id in positions:
+            casteller_ineq = casteller_ineq + var(casteller_id, pos_id) + " + "
+        ineqs.append("cas" + str(casteller_id) + ": " + casteller_ineq[:-3] + " <= 1")
+
+
+def make_relation_ineqs(relations, castellers_in_position, ineqs):
     """
     make the inequalities that express relations between different positions in the castell
     """ 
-    for rel in get_relations(db, castell_type_id):
+    for rel in relations:
         rel_type, from_pos, to_pos, tolerance = rel[2:6]
 
         if rel_type == 1: 
@@ -81,8 +91,9 @@ def make_relation_ineqs(db, castell_type_id, castellers_in_position, ineqs):
                 print "Error in relation ", rel, ": from_pos or to_pos is None"
                 break
             ineq_terms = make_ineq2(from_pos, to_pos, castellers_in_position, 1)
-            ineqs.append(ineq_terms + " >= 0")
-            ineqs.append(ineq_terms + " <= " + str(tolerance))
+            label = "rel" + str(from_pos) + "_" + str(to_pos) + ": "
+            ineqs.append(label + ineq_terms + " >= 0")
+            ineqs.append(label + ineq_terms + " <= " + str(tolerance))
 
         elif rel_type == 2: 
             # Ma can support segon:
@@ -90,7 +101,7 @@ def make_relation_ineqs(db, castell_type_id, castellers_in_position, ineqs):
             if from_pos is None:
                 print "Error in relation ", rel, ": from_pos is None"
                 break
-            ineqs.append(make_ineq1(from_pos, castellers_in_position, 5) + " >= " + str(tolerance))
+            ineqs.append("h" + str(from_pos) + ": " + make_ineq1(from_pos, castellers_in_position, 5) + " >= " + str(tolerance))
 
         elif rel_type == 3: # weight at position is at least fparam1
             print "implement me!\n"
@@ -101,11 +112,17 @@ def ip_ineqs(castell_type_id = 1, colla_id = 1): # CVG and p4
 
     db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
-    ineqs = []
     castellers_in_position = dict()
+    for pos in get_positions(db, castell_type_id):
+        pos_id = pos[0]
+        castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
+
     obj_val = dict()
-    make_castellers_in_position_ineqs(db, castell_type_id, colla_id, castellers_in_position, obj_val, ineqs)
-    make_relation_ineqs(db, castell_type_id, castellers_in_position, ineqs)
+    ineqs = []
+    make_castellers_in_position_ineqs(castellers_in_position, obj_val, ineqs)
+
+    relations = get_relations(db, castell_type_id)
+    make_relation_ineqs(relations, castellers_in_position, ineqs)
 
     return [obj_val, ineqs]
 

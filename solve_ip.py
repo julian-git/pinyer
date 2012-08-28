@@ -5,9 +5,10 @@ def get_solutions(filename):
     model.optimize()
     if model.status == 2:
         sv = model.getVars()
-        sol = dict()
+        sol = []
         for v in sv:
-            sol[v.var_name] = v.x
+            if v.x == 1:
+                sol.append(v.var_name)
         return sol
     else:
         return False
