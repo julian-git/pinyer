@@ -79,6 +79,7 @@ create table castell_position (
   id   	     int	not null auto_increment,     
   castell_type_id int 	not null,
   role_id     int 	not null,
+  is_essential bool     not null default true,
   svg_id     varchar(20) not null,
   svg_text   varchar(20) not null,
   x 	     float(10,2) not null,

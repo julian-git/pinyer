@@ -3,7 +3,7 @@ def get_positions(db, castell_type_id):
     returns all id numbers of the positions in the given castell type
     """
     c = db.cursor()
-    c.execute("""select id from castell_position where castell_type_id=%s""", (castell_type_id,))
+    c.execute("""select id, is_essential from castell_position where castell_type_id=%s""", (castell_type_id,))
     return c.fetchall()
 
 def get_castellers(db, colla, pos):
@@ -53,7 +53,7 @@ def make_ineq2(from_pos, to_pos, castellers_in_position, prop_index):
     """
     return make_ineq1(from_pos, castellers_in_position, prop_index) + " - " + make_ineq1(to_pos, castellers_in_position, prop_index, " - ")
 
-def make_castellers_in_position_ineqs(castellers_in_position, obj_val, ineqs):
+def make_castellers_in_position_ineqs(castellers_in_position, is_essential, obj_val, ineqs):
     """ 
     make the inequalities that say that in each position, there may be at most one casteller
     """
@@ -62,13 +62,17 @@ def make_castellers_in_position_ineqs(castellers_in_position, obj_val, ineqs):
     for pos_id, castellers in castellers_in_position.iteritems():
         position_ineq = '' # in position pos_id, there may be at most one casteller
         for casteller in castellers:
-            v = var(casteller[0], pos_id)
-            obj_val[v] = casteller[6]
+            casteller_id = casteller[0]; casteller_strength = casteller[6]
+            v = var(casteller_id, pos_id)
+            obj_val[v] = casteller_strength
             position_ineq = position_ineq + v + " + "
-            if casteller[0] not in pos_of_casteller:
-                pos_of_casteller[casteller[0]] = []
-            pos_of_casteller[casteller[0]].append(pos_id)
-        ineqs.append("pos" + str(pos_id) + ": " + position_ineq[:-3] + " = 1")
+            if casteller_id not in pos_of_casteller:
+                pos_of_casteller[casteller_id] = []
+            pos_of_casteller[casteller_id].append(pos_id)
+        rel = " = 1"
+        if not is_essential[pos_id]:
+            rel = " <= 1"
+        ineqs.append("pos" + str(pos_id) + ": " + position_ineq[:-3] + rel)
 
     for casteller_id, positions in pos_of_casteller.iteritems():
         casteller_ineq = '' # the casteller can be in at most one position
@@ -113,13 +117,15 @@ def ip_ineqs(castell_type_id = 1, colla_id = 1): # CVG and p4
     db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
     castellers_in_position = dict()
+    is_essential = dict()
     for pos in get_positions(db, castell_type_id):
         pos_id = pos[0]
+        is_essential[pos_id] = pos[1]
         castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
 
     obj_val = dict()
     ineqs = []
-    make_castellers_in_position_ineqs(castellers_in_position, obj_val, ineqs)
+    make_castellers_in_position_ineqs(castellers_in_position, is_essential, obj_val, ineqs)
 
     relations = get_relations(db, castell_type_id)
     make_relation_ineqs(relations, castellers_in_position, ineqs)
