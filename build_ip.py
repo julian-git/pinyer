@@ -79,12 +79,21 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
         for pos_id in positions:
             casteller_ineq = casteller_ineq + var(casteller_id, pos_id) + " + "
         rel = " <= 1"
+        label = "cas" + str(casteller_id) + ": "
+        flag = True
         if casteller_id in participation: # decide whether to definitely include or exclude her
-            if participation[casteller_id]:
-                rel = " = 1"
-            else:
+            if participation[casteller_id] == 0:
                 rel = " = 0"
-        ineqs.append("cas" + str(casteller_id) + ": " + casteller_ineq[:-3] + rel)
+            else:
+                flag = False
+                rel = " = 1"
+                for pos_id in positions:
+                    rel2 = " = 0"
+                    if pos_id == participation[casteller_id]:
+                        rel2 = " = 1"
+                    ineqs.append(label + var(casteller_id, pos_id) + rel2)
+        if flag:
+            ineqs.append(label + casteller_ineq[:-3] + rel)
 
 
 def make_relation_ineqs(relations, castellers_in_position, ineqs):
@@ -153,5 +162,5 @@ def lp_format(t):
     return f
 
 if __name__ == "__main__":
-    participation = dict([(9, False), (17, True)])
+    participation = dict([(9, 0), (17, 5)])
     print lp_format(ip_ineqs(participation))

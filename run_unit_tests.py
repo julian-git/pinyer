@@ -11,7 +11,7 @@ class IPTest(unittest.TestCase):
 
     def test_build_ip(self):
         f = open('tests/test.lp', 'r')
-        participation = dict([(9, False), (17, True)])
+        participation = dict([(9, 0), (17, 5)])
         self.assertEqual(build_ip.lp_format(build_ip.ip_ineqs(participation)) + "\n", f.read())
 
     def test_solve_ip(self):
