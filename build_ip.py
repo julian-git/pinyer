@@ -80,19 +80,18 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
             casteller_ineq = casteller_ineq + var(casteller_id, pos_id) + " + "
         rel = " <= 1"
         label = "cas" + str(casteller_id) + ": "
-        flag = True
+        is_position_prescribed = False
         if casteller_id in participation: # decide whether to definitely include or exclude her
             if participation[casteller_id] == 0:
                 rel = " = 0"
-            else:
-                flag = False
-                rel = " = 1"
+            else: # We fix the position where she must go
+                is_position_prescribed = True
                 for pos_id in positions:
-                    rel2 = " = 0"
+                    rel2 = " = 0" # usually, she won't go to the current position
                     if pos_id == participation[casteller_id]:
-                        rel2 = " = 1"
+                        rel2 = " = 1" # except when we're told she does
                     ineqs.append(label + var(casteller_id, pos_id) + rel2)
-        if flag:
+        if not is_position_prescribed:
             ineqs.append(label + casteller_ineq[:-3] + rel)
 
 
