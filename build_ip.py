@@ -83,7 +83,7 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
         is_position_prescribed = False
         if casteller_id in participation: # decide whether to definitely include or exclude her
             if participation[casteller_id] == 0:
-                rel = " = 0"
+                rel = " = 0" # She won't participate
             else: # We fix the position where she must go
                 is_position_prescribed = True
                 for pos_id in positions:
