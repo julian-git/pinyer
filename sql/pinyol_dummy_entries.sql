@@ -19,8 +19,8 @@ insert into casteller (name, total_height, shoulder_height, axle_height, hip_hei
   ("contrafort2", 160, 140, 120, 60, 205, 70, 70, 7),
   ("vent1", 180, 160, 150, 70, 210, 70, 70, 5),
   ("vent2", 185, 165, 155, 75, 215, 70, 75, 7),
-  ("mà1", 185, 170, 160, 80, 220, 70, 80, 5),
-  ("mà2", 190, 175, 165, 85, 225, 70, 85, 7),
+  ("ma1", 185, 170, 160, 80, 220, 70, 80, 5),
+  ('mà2', 190, 175, 165, 85, 225, 70, 85, 7),
   ("agulla1", 155, 135, 115, 55, 200, 70, 65, 5),
   ("agulla2", 160, 140, 120, 60, 205, 70, 70, 7), 
   ("pinya1", 150, 130, 120, 50, 200, 70, 65, 2),  
@@ -49,11 +49,11 @@ insert into castell_position (id, castell_type_id, role_id, is_essential, svg_id
   (4, 1, 7, true, "pinya1", "Pinya 1", 100, 700),
   (5, 1, 7, false, "pinya2", "Pinya 2", 100, 800);
 
-insert into castell_relation (id, castell_type_id, relation_type, from_position, to_position, fparam1, fparam2) values
-  (1, 1, 1, 1, 2, 10, 0),
-  (2, 1, 1, 3, 4, 7, 0),
-  (3, 1, 1, 4, 5, 5, 0),
-  (4, 1, 2, 2, null, 65, 0);
+insert into castell_relation (id, castell_type_id, relation_type, field_name, from_pos_id, to_pos_id, fparam1, fparam2) values
+  (1, 1, 1, 'total_height', 1, 2, 10, 0),
+  (2, 1, 1, 'total_height', 3, 4, 7, 0),
+  (3, 1, 1, 'total_height', 4, 5, 5, 0),
+  (4, 1, 2, 'weight', 2, null, 65, 0);
 
 insert into incompatible_castellers (id, colla_id, mem1_id, mem2_id) values 
   (1, 1, 1, 3);

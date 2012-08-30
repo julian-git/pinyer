@@ -12,14 +12,18 @@ def get_castellers(db, colla_id, pos_id):
     """
     c = db.cursor()
     c.execute("""
-select casteller.id, total_height, shoulder_height, hip_height, stretched_height, weight, strength 
+select casteller.id, name, total_height, shoulder_height, hip_height, stretched_height, weight, strength 
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role_id = castell_position.role_id 
 left join casteller_colla on casteller.id = casteller_colla.casteller_id 
 where castell_position.id = %s and casteller_colla.colla_id = %s
 """, (pos_id,colla_id,))
-    return c.fetchall()
+    res = c.fetchall()
+    ans = []
+    for row in res:
+        ans.append(dict([('id', int(row[0])), ('name', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7])]))
+    return ans
 
 def get_relations(db, castell_type_id):
     """
@@ -27,7 +31,12 @@ def get_relations(db, castell_type_id):
     """
     c = db.cursor()
     c.execute("""select * from castell_relation where castell_type_id=%s""", (castell_type_id,))
-    return c.fetchall()
+    res = c.fetchall()
+    ans = []
+    for row in res:
+        ans.append(dict([('id', int(row[0])), ('castell_type_id', int(row[1])), ('relation_type', int(row[2])), ('field_name', row[3]), ('from_pos_id', row[4]), ('to_pos_id', row[5]), ('fparam1', row[6]), ('fparam2', row[7]), ('iparam2', row[8]), ('iparam2', row[9])]))
+    return ans
+
 
 def var(casteller_id, pos_id):
     """
@@ -35,23 +44,22 @@ def var(casteller_id, pos_id):
     """
     return "c" + str(casteller_id) + "p" + str(pos_id)
 
-def make_ineq1(pos_id, castellers_in_position, prop_index, operator=" + "):
+def make_ineq1(pos_id, castellers_in_position, prop, operator=" + "):
     """
     make part of an inequality using the position pos and the property indexed by prop_index
     """
     ineq = ''
     from_castellers = castellers_in_position[pos_id]
     for from_casteller in from_castellers:
-        prop = from_casteller[prop_index]
-        ineq = ineq + str(prop) + " " + var(from_casteller[0], pos_id) + operator
+        ineq = ineq + str(from_casteller[prop]) + " " + var(from_casteller['id'], pos_id) + operator
     ineq = ineq[:-3] 
     return ineq 
 
-def make_ineq2(from_pos_id, to_pos_id, castellers_in_position, prop_index):
+def make_ineq2(from_pos_id, to_pos_id, castellers_in_position, prop):
     """
     make the LHS of an inequality using two positions and the property indexed by prop_index
     """
-    return make_ineq1(from_pos_id, castellers_in_position, prop_index) + " - " + make_ineq1(to_pos_id, castellers_in_position, prop_index, " - ")
+    return make_ineq1(from_pos_id, castellers_in_position, prop) + " - " + make_ineq1(to_pos_id, castellers_in_position, prop, " - ")
 
 def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs):
     """ 
@@ -62,9 +70,9 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
     for pos_id, castellers in castellers_in_position.iteritems():
         position_ineq = '' # in position pos_id, there may be at most one casteller
         for casteller in castellers:
-            casteller_id = casteller[0]; casteller_strength = casteller[6]
+            casteller_id = casteller['id']
             v = var(casteller_id, pos_id)
-            obj_val[v] = casteller_strength
+            obj_val[v] = casteller['strength']
             position_ineq = position_ineq + v + " + "
             if casteller_id not in pos_of_casteller:
                 pos_of_casteller[casteller_id] = []
@@ -100,37 +108,28 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs):
     make the inequalities that express relations between different positions in the castell
     """ 
     for rel in relations:
-        rel_type, from_pos, to_pos, tolerance = rel[2:6]
-
-        if rel_type == 1: 
-            # rengla descends weakly: 
-            # 0 <= (total height at from_pos) - (total_height at to_pos) <= tolerance
-            if from_pos is None or to_pos is None:
-                print "Error in relation ", rel, ": from_pos or to_pos is None"
-                break
-            ineq_terms = make_ineq2(from_pos, to_pos, castellers_in_position, 1)
-            label = "rel" + str(from_pos) + "_" + str(to_pos) + ": "
+        if rel['relation_type'] == 1: 
+            # compare two values
+            # 0 <= (value of field_name at from_pos) - (value of field_name at to_pos) <= tolerance
+            ineq_terms = make_ineq2(rel['from_pos_id'], rel['to_pos_id'], castellers_in_position, rel['field_name'])
+            label = "rel" + str(rel['from_pos_id']) + "_" + str(rel['to_pos_id']) + ": "
             ineqs.append(label + ineq_terms + " >= 0")
-            ineqs.append(label + ineq_terms + " <= " + str(tolerance))
+            ineqs.append(label + ineq_terms + " <= " + str(rel['fparam1']))
 
-        elif rel_type == 2: 
+        elif rel['relation_type'] == 2: 
             # Ma can support segon:
-            # stretched_height at position is at least fparam1
-            if from_pos is None:
-                print "Error in relation ", rel, ": from_pos is None"
-                break
-            ineqs.append("h" + str(from_pos) + ": " + make_ineq1(from_pos, castellers_in_position, 5) + " >= " + str(tolerance))
+            # value of field_name at position is at least fparam1
+            ineqs.append("h" + str(rel['from_pos_id']) + ": " + make_ineq1(rel['from_pos_id'], castellers_in_position, rel['field_name']) + " >= " + str(rel['fparam1']))
 
         elif rel_type == 3: # weight at position is at least fparam1
             print "implement me!\n"
 
 
-def ip_ineqs(participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
+def ip_ineqs(castellers_in_position, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
     import MySQLdb
 
     db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
-    castellers_in_position = dict()
     is_essential_pos = dict()
     for pos in get_positions(db, castell_type_id):
         pos_id = pos[0]
@@ -146,7 +145,7 @@ def ip_ineqs(participation = dict(), castell_type_id = 1, colla_id = 1): # CVG a
 
     return [obj_val, ineqs]
 
-def lp_format(t):
+def make_lp_file(t):
     obj_val, ineqs = t
     f = "maximize\n"
     variables = sorted(obj_val.keys())
@@ -160,6 +159,39 @@ def lp_format(t):
         f = f + v + " "
     return f
 
+def write_lp_file(castellers_in_position, participation, filename='pinya.lp'):
+    f = open(filename, 'w')
+    f.write(make_lp_file(ip_ineqs(castellers_in_position, participation)))
+    f.close()
+
+def find_pinya(participation, filename='pinya.lp'):
+    import sys
+    sys.path.append('/opt/gurobi500/linux32/lib/python2.7')
+    from gurobipy import read
+
+    castellers_in_position = dict()
+    write_lp_file(castellers_in_position, participation, filename)
+
+    model=read(filename)
+    model.optimize()
+    if model.status == 2:
+        sv = model.getVars()
+        sol = dict()
+        for v in sv:
+            if v.x == 1:
+                vname = v.var_name
+                cast_id = vname[1:vname.find('p')]
+                pos_id = long(vname[vname.find('p')+1:])
+                for casteller in castellers_in_position[pos_id]:
+                    if casteller['id'] == int(cast_id):
+                        sol[int(pos_id)] = casteller['name']
+        return sol
+    else:
+        return False
+    
+
 if __name__ == "__main__":
+    castellers_in_position = dict()
     participation = dict([(9, 0), (17, 5)])
-    print lp_format(ip_ineqs(participation))
+#    print lp_file(ip_ineqs(castellers_in_position, participation))
+    print find_pinya(participation)

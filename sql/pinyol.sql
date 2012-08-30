@@ -35,6 +35,7 @@ create table casteller (
   hip_height        float(10,2) default 60,
   stretched_height  float(10,2) default 220,
   shoulder_width    float(10,2) default 70,
+  circumference     float(10,2) default 100,
   weight            float(10,2) default 60,
   strength 	    float(10,2) default 5,
   primary key (id)
@@ -100,16 +101,17 @@ create table castell_relation (
   id   	       int  not null auto_increment,
   castell_type_id int 	not null,
   relation_type int not null,
-  from_position int default null,
-  to_position   int default null,
+  field_name    varchar(20) not null,
+  from_pos_id int default null,
+  to_pos_id   int default null,
   fparam1 	float(10,4) default 0,
   fparam2 	float(10,4) default 0,
   iparam1 	int default 0,
   iparam2 	int default 0,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
-  foreign key (from_position) references castell_position (id),
-  foreign key (to_position) references castell_position (id)
+  foreign key (from_pos_id) references castell_position (id),
+  foreign key (to_pos_id) references castell_position (id)
 ) engine=InnoDB default character set utf8;
 
 /** 
