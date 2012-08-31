@@ -36,3 +36,11 @@ def get_relations(db, castell_type_id):
     for row in res:
         ans.append(dict([('id', int(row[0])), ('castell_type_id', int(row[1])), ('relation_type', int(row[2])), ('field_name', row[3]), ('from_pos_id', row[4]), ('to_pos_id', row[5]), ('fparam1', row[6]), ('fparam2', row[7]), ('iparam2', row[8]), ('iparam2', row[9])]))
     return ans
+
+def get_incompatible_castellers(db, colla_id):
+    """
+    returns all pairs of incompatible castellers in a colla
+    """
+    c = db.cursor()
+    c.execute("""select cast1_id, cast2_id from incompatible_castellers where colla_id=%s""", (colla_id,))
+    return c.fetchall()

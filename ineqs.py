@@ -1,4 +1,4 @@
-import db_interaction 
+from db_interaction import *
 
 def var(casteller_id, pos_id):
     """
@@ -8,27 +8,25 @@ def var(casteller_id, pos_id):
 
 def make_ineq1(pos_id, castellers_in_position, prop, operator=" + "):
     """
-    make part of an inequality using the position pos and the property indexed by prop_index
+    make the sum of all variables using the position pos, with the value of the property prop as coefficient
     """
     ineq = ''
-    from_castellers = castellers_in_position[pos_id]
-    for from_casteller in from_castellers:
-        ineq = ineq + str(from_casteller[prop]) + " " + var(from_casteller['id'], pos_id) + operator
+    castellers = castellers_in_position[pos_id]
+    for casteller in castellers:
+        ineq = ineq + str(casteller[prop]) + " " + var(casteller['id'], pos_id) + operator
     ineq = ineq[:-3] 
     return ineq 
 
 def make_ineq2(from_pos_id, to_pos_id, castellers_in_position, prop):
     """
-    make the LHS of an inequality using two positions and the property indexed by prop_index
+    make the LHS of an inequality using two positions and the property prop
     """
     return make_ineq1(from_pos_id, castellers_in_position, prop) + " - " + make_ineq1(to_pos_id, castellers_in_position, prop, " - ")
 
-def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs):
+def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs, pos_of_casteller):
     """ 
     make the inequalities that say that in each position, there may be at most one casteller
     """
-    pos_of_casteller = dict() # The transposed array of castellers_in_position
-
     for pos_id, castellers in castellers_in_position.iteritems():
         position_ineq = '' # in position pos_id, there may be at most one casteller
         for casteller in castellers:
@@ -87,6 +85,20 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs):
         elif rel_type == 3: # weight at position is at least fparam1
             print "implement me!\n"
 
+def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
+    incompatible_castellers = get_incompatible_castellers(db, colla_id)
+    for pair in incompatible_castellers:
+        p0 = int(pair[0])
+        p1 = int(pair[1])
+        label = "incomp_" + str(p0) + "_" + str(p1) + ": "
+        positions = pos_of_casteller[p0]
+        positions.extend(pos_of_casteller[p1])
+        positions = set(positions)
+        for rel in relations:
+            if rel['relation_type'] == 1 and rel['from_pos_id'] in positions and rel['to_pos_id'] in positions:
+                ineqs.append(label + var(p0, rel['from_pos_id']) + " + " + var(p1, rel['to_pos_id']) + " <= 1")
+                ineqs.append(label + var(p0, rel['to_pos_id']) + " + " + var(p1, rel['from_pos_id']) + " <= 1")
+                
 
 def ip_ineqs(castellers_in_position, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
     import MySQLdb
@@ -94,17 +106,21 @@ def ip_ineqs(castellers_in_position, participation = dict(), castell_type_id = 1
     db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
     is_essential_pos = dict()
-    for pos in db_interaction.get_positions(db, castell_type_id):
+    for pos in get_positions(db, castell_type_id):
         pos_id = pos[0]
         is_essential_pos[pos_id] = pos[1]
-        castellers_in_position[pos_id] = db_interaction.get_castellers(db, colla_id, pos_id)
+        castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
 
-    obj_val = dict()
-    ineqs = []
-    make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs)
+    obj_val = dict()          # The objective coefficient of each variable
+    ineqs = []                # the linear inequalities
+    pos_of_casteller = dict() # The transposed array of castellers_in_position
+    make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs, pos_of_casteller)
 
-    relations = db_interaction.get_relations(db, castell_type_id)
+    relations = get_relations(db, castell_type_id)
     make_relation_ineqs(relations, castellers_in_position, ineqs)
+
+    make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
+
 
     return [obj_val, ineqs]
 

@@ -55,5 +55,5 @@ insert into castell_relation (id, castell_type_id, relation_type, field_name, fr
   (3, 1, 1, 'total_height', 4, 5, 5, 0),
   (4, 1, 2, 'weight', 2, null, 65, 0);
 
-insert into incompatible_castellers (id, colla_id, mem1_id, mem2_id) values 
-  (1, 1, 1, 3);
+insert into incompatible_castellers (id, colla_id, cast1_id, cast2_id) values 
+  (1, 1, 16, 18);

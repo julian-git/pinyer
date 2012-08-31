@@ -120,12 +120,12 @@ create table castell_relation (
 create table incompatible_castellers (
   id   	   int  not null auto_increment,
   colla_id int not null,
-  mem1_id  int not null,
-  mem2_id  int not null,
+  cast1_id  int not null,
+  cast2_id  int not null,
   primary key (id),
   foreign key (colla_id) references colla(id),
-  foreign key (mem1_id) references casteller(id),         
-  foreign key (mem2_id) references casteller(id)
+  foreign key (cast1_id) references casteller(id),         
+  foreign key (cast2_id) references casteller(id)
 ) engine=InnoDB default character set utf8;
 
 /**
