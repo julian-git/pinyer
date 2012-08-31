@@ -46,7 +46,5 @@ def find_pinya(participation, filename='pinya.lp'):
     
 
 if __name__ == "__main__":
-    castellers_in_position = dict()
     participation = dict([(9, 0), (17, 5)])
-#    print lp_file(ip_ineqs(castellers_in_position, participation))
     print find_pinya(participation)

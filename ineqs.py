@@ -74,14 +74,15 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs):
             # compare two values
             # 0 <= (value of field_name at from_pos) - (value of field_name at to_pos) <= tolerance
             ineq_terms = make_ineq2(rel['from_pos_id'], rel['to_pos_id'], castellers_in_position, rel['field_name'])
-            label = "rel" + str(rel['from_pos_id']) + "_" + str(rel['to_pos_id']) + ": "
+            label = rel['field_name'] + "_" + str(rel['from_pos_id']) + "_" + str(rel['to_pos_id']) + ": "
             ineqs.append(label + ineq_terms + " >= 0")
             ineqs.append(label + ineq_terms + " <= " + str(rel['fparam1']))
 
         elif rel['relation_type'] == 2: 
             # Ma can support segon:
             # value of field_name at position is at least fparam1
-            ineqs.append("h" + str(rel['from_pos_id']) + ": " + make_ineq1(rel['from_pos_id'], castellers_in_position, rel['field_name']) + " >= " + str(rel['fparam1']))
+            label = rel['field_name'] + "_" + str(rel['from_pos_id']) + ": "
+            ineqs.append(label + make_ineq1(rel['from_pos_id'], castellers_in_position, rel['field_name']) + " >= " + str(rel['fparam1']))
 
         elif rel_type == 3: # weight at position is at least fparam1
             print "implement me!\n"
