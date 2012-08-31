@@ -48,10 +48,18 @@ def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
     
 def solution_as_svg(participation):
     from string import Template
-    svg_t = Template("""
+    svg_rect = Template("""
  <svg id="${_svg_id}">
    <g transform="translate(${_x} ${_y})">
-     <${_svg_elem} width="${_w}" height="${_h}" x="-60" y="-20" fill="lightblue"/>
+     <rect width="${_w}" height="${_h}" x="-60" y="-20" fill="lightblue"/>
+     <text text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
+   </g>
+ </svg>
+""")
+    svg_circle = Template("""
+ <svg id="${_svg_id}">
+   <g transform="translate(${_x} ${_y})">
+     <circle x="-60" y="-20" r="${_rx}" fill="lightblue"/>
      <text text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
    </g>
  </svg>
@@ -61,7 +69,10 @@ def solution_as_svg(participation):
     svg = ''
     for pos, name in solution.iteritems():
         pd = position_data[pos]
-        svg = svg + svg_t.substitute(_svg_id=pd['svg_id'], _svg_elem=pd['svg_elem'], _name=name, _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
+        if pd['svg_elem'] == 'rect':
+            svg = svg + svg_rect.substitute(_svg_id=pd['svg_id'], _name=name, _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
+        elif pd['svg_elem'] == 'circle':
+            svg = svg + svg_circle.substitute(_svg_id=pd['svg_id'], _name=name, _x=pd['x'], _y=pd['y'], _rx=pd['rx'])
     return svg
 
 if __name__ == "__main__":
