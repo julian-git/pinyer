@@ -1,15 +1,12 @@
-def get_positions(db, castell_type_id):
+def get_positions(db, castell_type_id, position_data):
     """
     returns all id numbers of the positions in the given castell type
     """
     c = db.cursor()
     c.execute("""select id, role_id, is_essential, svg_id, svg_text, x, y, w, h, rx, ry from castell_position where castell_type_id=%s""", (castell_type_id,))
     res = c.fetchall()
-    ans = []
     for row in res:
-        ans.append(dict([('id', int(row[0])), ('role_id', int(row[1])), ('is_essential', row[2]), ('svg_id', row[3]), ('svg_text', row[4]), ('x', row[5]), ('y', row[6]), ('w', row[7]), ('h', row[8]), ('rx', row[9]), ('ry', row[10])]))
-    return ans
-    return c.fetchall()
+        position_data[int(row[0])] = dict([('role_id', int(row[1])), ('is_essential', row[2]), ('svg_id', row[3]), ('svg_text', row[4]), ('x', row[5]), ('y', row[6]), ('w', row[7]), ('h', row[8]), ('rx', row[9]), ('ry', row[10])])
 
 def get_castellers(db, colla_id, pos_id):
     """

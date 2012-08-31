@@ -100,20 +100,17 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
                 ineqs.append(label + var(p0, rel['to_pos_id']) + " + " + var(p1, rel['from_pos_id']) + " <= 1")
                 
 
-def ip_ineqs(castellers_in_position, position_data, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
+def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
     import MySQLdb
 
     db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
     is_essential_pos = dict()
-    position_data = get_positions(db, castell_type_id)
-    for pos in position_data:
-        pos_id = pos['id']
+    get_positions(db, castell_type_id, position_data)
+    for pos_id, pos in position_data.iteritems():
         is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
 
-    obj_val = dict()          # The objective coefficient of each variable
-    ineqs = []                # the linear inequalities
     pos_of_casteller = dict() # The transposed array of castellers_in_position
     make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs, pos_of_casteller)
 
@@ -121,7 +118,4 @@ def ip_ineqs(castellers_in_position, position_data, participation = dict(), cast
     make_relation_ineqs(relations, castellers_in_position, ineqs)
 
     make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
-
-
-    return [obj_val, ineqs]
 
