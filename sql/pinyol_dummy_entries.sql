@@ -1,12 +1,12 @@
 insert into colla (id, name, city) values
-  (1, "test_colla", "Barcelona/Gr‡cia");
+  (1, "test_colla", "Barcelona/Gr√†cia");
 
 insert into role values
   (1, "crossa"),
   (2, "baix"),
   (3, "contrafort"),
   (4, "vent"),
-  (5, "m‡"),
+  (5, "m√†"),
   (6, "agulla"), 
   (7, "pinya");
 
@@ -20,7 +20,7 @@ insert into casteller (name, total_height, shoulder_height, axle_height, hip_hei
   ("vent1", 180, 160, 150, 70, 210, 70, 70, 5),
   ("vent2", 185, 165, 155, 75, 215, 70, 75, 7),
   ("ma1", 185, 170, 160, 80, 220, 70, 80, 5),
-  ('m‡2', 190, 175, 165, 85, 225, 70, 85, 7),
+  ('m√†2', 190, 175, 165, 85, 225, 70, 85, 7),
   ("agulla1", 155, 135, 115, 55, 200, 70, 65, 5),
   ("agulla2", 160, 140, 120, 60, 205, 70, 70, 7), 
   ("pinya1", 150, 130, 120, 50, 200, 70, 65, 2),  
