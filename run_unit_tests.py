@@ -7,6 +7,7 @@ import solve_ip
 
 make_lp_file = build_ip.make_lp_file
 ip_ineqs = build_ip.ip_ineqs
+find_pinya = build_ip.find_pinya
 
 class IPTest(unittest.TestCase):
 
@@ -18,8 +19,14 @@ class IPTest(unittest.TestCase):
 
     def test_solve_ip(self):
         f = open('tests/test.solutions', 'r')
-        from gurobipy import read
+        #from gurobipy import read
         self.assertEqual(str(solve_ip.get_solutions("tests/test.lp")), f.read())
+
+    def test_find_pinya(self):
+        f = open('tests/test.find_pinya', 'r')
+        participation = dict([(9, 0), (17, 5)])
+        self.assertEqual(str(find_pinya(participation)) + "\n", f.read())
+        
 
 unittest.main() # Calling from the command line invokes all tests
 

@@ -7,4 +7,4 @@ test: all
 	python run_unit_tests.py
 
 clean:
-	rm -f *~ 
+	rm -f *~ gurobi.log
