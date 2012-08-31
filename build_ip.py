@@ -14,9 +14,9 @@ def make_lp_file(t):
         f = f + v + " "
     return f
 
-def write_lp_file(castellers_in_position, participation, filename='pinya.lp'):
+def write_lp_file(castellers_in_position, position_data, participation, filename='pinya.lp'):
     f = open(filename, 'w')
-    f.write(make_lp_file(ip_ineqs(castellers_in_position, participation)))
+    f.write(make_lp_file(ip_ineqs(castellers_in_position, position_data, participation)))
     f.close()
 
 def find_pinya(participation, filename='pinya.lp'):
@@ -25,7 +25,8 @@ def find_pinya(participation, filename='pinya.lp'):
     from gurobipy import read
 
     castellers_in_position = dict()
-    write_lp_file(castellers_in_position, participation, filename)
+    position_data = dict()
+    write_lp_file(castellers_in_position, position_data, participation, filename)
 
     model=read(filename)
     model.optimize()

@@ -100,15 +100,16 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
                 ineqs.append(label + var(p0, rel['to_pos_id']) + " + " + var(p1, rel['from_pos_id']) + " <= 1")
                 
 
-def ip_ineqs(castellers_in_position, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
+def ip_ineqs(castellers_in_position, position_data, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
     import MySQLdb
 
     db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
 
     is_essential_pos = dict()
-    for pos in get_positions(db, castell_type_id):
-        pos_id = pos[0]
-        is_essential_pos[pos_id] = pos[1]
+    position_data = get_positions(db, castell_type_id)
+    for pos in position_data:
+        pos_id = pos['id']
+        is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
 
     obj_val = dict()          # The objective coefficient of each variable
