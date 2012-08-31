@@ -49,9 +49,9 @@ def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
 def solution_as_svg(participation):
     from string import Template
     svg_t = Template("""
- <svg>
+ <svg id="${_svg_id}">
    <g transform="translate(${_x} ${_y})">
-     <rect width="120" height="40" x="-60" y="-20" fill="lightblue"/>
+     <${_svg_elem} width="${_w}" height="${_h}" x="-60" y="-20" fill="lightblue"/>
      <text text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
    </g>
  </svg>
@@ -60,7 +60,8 @@ def solution_as_svg(participation):
     solution = find_pinya(participation, position_data)
     svg = ''
     for pos, name in solution.iteritems():
-        svg = svg + svg_t.substitute(_name=name, _x=position_data[pos]['x'], _y=position_data[pos]['y'])
+        pd = position_data[pos]
+        svg = svg + svg_t.substitute(_svg_id=pd['svg_id'], _svg_elem=pd['svg_elem'], _name=name, _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
     return svg
 
 if __name__ == "__main__":
