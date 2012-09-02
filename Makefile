@@ -1,7 +1,7 @@
 all: sql/all
 
 sql/all:
-	make -C sql
+	$(MAKE) -C sql
 
 test: all
 	python run_unit_tests.py

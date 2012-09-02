@@ -13,6 +13,7 @@ create table colla (
   primary key (id)
 ) engine=InnoDB default character set utf8;
 
+
 /**
  *  The different roles in a castell: crosses, mans, vents, ...
  */
@@ -21,6 +22,7 @@ create table role (
   name 	     varchar(100) not null,
   primary key (id)
 ) engine=InnoDB default character set utf8;
+
 
 /**
  *   Some information about the members of a colla, 
@@ -43,6 +45,7 @@ create table casteller (
   key(is_present)
 ) engine=InnoDB default character set utf8;
 
+
 /**
  *  When has a casteller become available/unavailable for making castells?
  */
@@ -52,8 +55,10 @@ create table casteller_availability (
   available  bool   not null,
   ts        timestamp default current_timestamp,
   primary key (id),
-  foreign key (casteller_id) references casteller (id)
+  foreign key (casteller_id) references casteller (id),
+  key (ts)
 ) engine=InnoDB default character set utf8;
+
 
 /** 
  *   The collas that a certain casteller belongs to
@@ -65,6 +70,7 @@ create table casteller_colla (
   foreign key (colla_id) references colla(id)
 ) engine=InnoDB default character set utf8;
 
+
 /**
  *  The roles that a certain casteller can fulfill in a castell
  */
@@ -74,6 +80,7 @@ create table casteller_role (
   foreign key (casteller_id) references casteller(id),
   foreign key (role_id) references role(id)
 ) engine=InnoDB default character set utf8;
+
 
 /** 
  *  The different types of castell that each colla does: p4, 2de8f, ...
@@ -86,6 +93,7 @@ create table castell_type (
   primary key (id),
   foreign key (colla_id) references colla(id)
 ) engine=InnoDB default character set utf8;
+
 
 /** 
  *  The data for displaying the positions in each type of castell
@@ -109,6 +117,7 @@ create table castell_position (
   foreign key (role_id) references role (id)
 ) engine=InnoDB default character set utf8;
 
+
 /**
  *  The data for establishing relations between two positions in a given castell
  */
@@ -129,8 +138,24 @@ create table castell_relation (
   foreign key (to_pos_id) references castell_position (id)
 ) engine=InnoDB default character set utf8;
 
+
+/**
+ *  Data for establishing relations between more than two positions in a given castell
+ */
+create table castell_extended_relation (
+  id   	       int  not null auto_increment,
+  castell_type_id int 	not null,
+  relation_id   int not null,
+  relation_type int not null,
+  pos_id 	int not null,
+  primary key (id),
+  foreign key (castell_type_id) references castell_type(id),
+  foreign key (pos_id) references castell_position(id)
+) engine=InnoDB default character set utf8;
+
+
 /** 
- *  Which castellers dont get along and have to be separated?
+ *  Which castellers don't get along and have to be separated?
  */ 
 create table incompatible_castellers (
   id   	   int  not null auto_increment,
@@ -142,6 +167,7 @@ create table incompatible_castellers (
   foreign key (cast1_id) references casteller(id),         
   foreign key (cast2_id) references casteller(id)
 ) engine=InnoDB default character set utf8;
+
 
 /**
  *  Which castells has a colla executed, and with which result?
@@ -157,6 +183,7 @@ create table executed_castell (
   foreign key (colla_id) references colla(id),
   foreign key (castell_type_id) references castell_type (id)
 ) engine=InnoDB default character set utf8;
+
 
 /** 
  *  What has each casteller done in each executed castell, 

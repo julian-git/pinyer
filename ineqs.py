@@ -103,7 +103,7 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
 def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
     import MySQLdb
 
-    db = MySQLdb.connect(user="pinyol", passwd="pinyol01", db="pinyol")
+    db = MySQLdb.connect(user="pinyol", passwd="", db="pinyol")
 
     is_essential_pos = dict()
     get_positions(db, castell_type_id, position_data)
