@@ -1,0 +1,97 @@
+\documentclass[11pt]{amsart}
+\usepackage{a4wide}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\begin{document}
+
+\title{Pinyol -- una herramienta \\para montar pinyes de castells}
+\author{Julian Pfeifle}
+
+\maketitle
+
+\section{Introducción}
+
+Cuando esté acabada, \textsf{\bfseries Pinyol} será una aplicación web
+diseñada para ayudar a montar pinyes de castells. Está pensada para
+ser utilizada por varias collas. Internamente, el código se formula en
+inglés, y dispondrá de varios ficheros de traducción para que el
+idioma de la interfície con el usuario pueda configurarse
+libremente. La idea detrás de este planteamiento es facilitar,
+pensando en el futuro lejano, que la práctica castillera se pueda
+extender a otros ambientes geográficos fuera de Catalunya, como está
+sucediendo por ejemplo en Canadá.
+
+\medskip En líneas generales, consiste de una base de datos y un
+programa de optimización matemática instalados en un servidor fijo
+(por ejemplo, de la colla CVG). Se podrá acceder a él mediante
+cualquier navegador (Firefox, Opera, Chrome, Explorer, etc),
+garantizando así al máximo la independencia tanto del sistema
+operativo como del tipo de dispositivo (móvil, tableta, PC, etc) que
+se usa para conectarse.
+
+\medskip
+El procedimiento para generar una pinya es el siguiente: 
+
+\begin{enumerate}
+\item Con antelación al ensayo o a la actuación, cada colla mete los
+  datos de sus castellers en la base de datos, y diseña varios planos
+  generales de castells (3de8, 2de8f, etc). Estos datos serán bastante
+  detallados. Para cada castillero, se apuntan varias medidas
+  corporales y una estimación general de su fortaleza física en el
+  momento presente; y para cada plano de un castell, se incorporan las
+  restricciones que han de respetarse para cada pinya concreta. Tales
+  restricciones pueden ser de medidas corporales, como  por
+  ejemplo que el valor de 
+  \[
+     (\text{altura hombros baix})  + (\text{altura trasero segon}) - (\text{altura
+     manos alzadas $1^a$ mà})
+  \]
+  varíe entre unos valores máximos y mínimos permitidos; o que el peso
+  mínimo de un baix ha de ser por lo menos cierto valor; o que el
+  total de la anchura de hombros de los castilleros en un ``quesito''
+  ha de ser aproximadamente cierto valor; etc. También se pueden
+  incorporar restricciones como la incompatibilidad entre ciertos
+  castilleros, etc.
+
+  La arquitectura está pensada para ser lo más flexible que sea
+  posible, para dejar la máxima libertad a las juntas técnicas a la
+  hora de diseñar sus pinyas.
+
+\item Para cada castell a ejecutar, la junta técnica decide, por
+  ejemplo, a quién poner como baixos y segons, y quién ha de figurar
+  como primeres mans; además, apunta quiénes de los castilleros de la
+  colla están disponibles en el momento concreto de montar la pinya.
+
+\item Usando los datos acerca de los castilleros en la base de datos,
+  y las restricciones entre las diversas posiciones en la pinya, el
+  programa de optimización calcula la óptima disposición de los
+  castilleros disponibles en esta pinya, y la envía al navegador del
+  usuario en el formato \texttt{html5/css3/svg}.
+\end{enumerate}
+
+A continuación describiremos los elementos del software con un poco más de detalle.
+
+\subsection{Base de datos}
+
+Los datos de los castilleros residen en una base de datos MySQL con el
+esquema de la Figura~\ref{fig:pinyol-db}.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../sql/pinyol-db}
+  \caption{Las diferentes tablas y las relaciones entre sus campos clave}
+  \label{fig:pinyol-db}
+\end{figure}
+
+Las entradas en estas tablas se gestionan via requests web. Ello
+garantiza que todos los miembros de la junta técnica tengan acceso a
+los mismos datos en todo momento, evitando confusiones porque un
+miembro de la junta no se haya dado cuenta de que cierto castillero ha
+dejado de estar disponible en el ensayo, etc.
+
+\subsection{Servidor web}
+
+Una serie de ficheros en Python para procesar 
+
+\end{document}
