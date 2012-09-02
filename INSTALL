@@ -1,5 +1,15 @@
 Install the following packages on Ubuntu 12.04 / Linux Mint 13:
-libmysqlclient-dev python-dev python-setuptools python-mysqldb
+sudo apt-get install libmysqlclient-dev python-dev python-setuptools python-mysqldb
 
 Create MySQL database pinyol, and a user pinyol with some password and all privileges
+
+Enable apache2 to run python scripts. For this, make a symbolic link 
+sudo ln -s /path/to/your/local/dir /var/www/pinyol
+and add the following lines
+        <Directory /var/www/pinyol>
+                Options +ExecCGI
+                AddHandler cgi-script .py
+        </Directory>
+to /etc/apache2/sites-available/default , and run 
+sudo /etc/init.d/apache2 restart
 

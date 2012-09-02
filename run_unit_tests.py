@@ -12,7 +12,10 @@ class IPTest(unittest.TestCase):
         participation = dict([(9, 0), (17, 5)])
         castellers_in_position = dict()
         position_data = dict()
-        self.assertEqual(build_ip.make_lp_file(build_ip.ip_ineqs(castellers_in_position, position_data, participation)), f.read())
+        obj_val = dict()
+        ineqs = []
+        build_ip.ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participation)
+        self.assertEqual(build_ip.make_lp_file(obj_val, ineqs), f.read())
 
     def test_solve_ip(self):
         f = open('tests/test.solutions', 'r')

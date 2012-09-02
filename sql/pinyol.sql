@@ -38,7 +38,21 @@ create table casteller (
   circumference     float(10,2) default 100,
   weight            float(10,2) default 60,
   strength 	    float(10,2) default 5,
-  primary key (id)
+  is_present 	    bool default true,
+  primary key (id),
+  key(is_present)
+) engine=InnoDB default character set utf8;
+
+/**
+ *  When has a casteller become available/unavailable for making castells?
+ */
+create table casteller_availability (
+  id   	     int	not null auto_increment,
+  casteller_id int  not null,
+  available  bool   not null,
+  ts        timestamp default current_timestamp,
+  primary key (id),
+  foreign key (casteller_id) references casteller (id)
 ) engine=InnoDB default character set utf8;
 
 /** 

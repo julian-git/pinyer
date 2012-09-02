@@ -10,7 +10,8 @@ def get_positions(db, castell_type_id, position_data):
 
 def get_castellers(db, colla_id, pos_id):
     """
-    returns all castellers of the given colla that can be employed at the given position pos
+    returns all castellers of the given colla that are present
+    and can be employed at the given position pos
     """
     c = db.cursor()
     c.execute("""
@@ -19,7 +20,7 @@ from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role_id = castell_position.role_id 
 left join casteller_colla on casteller.id = casteller_colla.casteller_id 
-where castell_position.id = %s and casteller_colla.colla_id = %s
+where is_present=true and castell_position.id = %s and casteller_colla.colla_id = %s
 """, (pos_id,colla_id,))
     res = c.fetchall()
     ans = []
