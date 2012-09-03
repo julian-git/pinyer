@@ -71,16 +71,17 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
 def make_relation_ineqs(relations, castellers_in_position, ineqs):
     """
     make the inequalities that express relations between different positions in the castell.
-    Each relation carries two meanings:
-    - "pinyas have no holes": 
-       this means that the position to_pos_id in the castell may not be filled, unless 
-       the position from_pos_id is also filled.
-    - the relation between the values in field_name in from_pos_id and to_pos_id
+    We always build an inequality that expresses the relation between the values in 
+    field_name in from_pos_id and to_pos_id.
+    In case that both from_pos_id and to_pos_id exist, we also implement that
+    "pinyas have no holes": 
+    this means that the position to_pos_id in the castell may not be filled, unless 
+    the position from_pos_id is also filled.
     """ 
     for rel in relations:
         fpi = rel['from_pos_id']; tpi = rel['to_pos_id']
         if fpi is not None and tpi is not None:
-            # we implement "pinyas have no holes using binary indicator variables y_pos_id
+            # we implement "pinyas have no holes" using binary indicator variables y_pos_id
             # that are 1 if the position pos_id is filled, and 0 otherwise
             # To simplify the system, we don't create these indicator variables explicitly,
             # but substitute them by a call to sum_vars
