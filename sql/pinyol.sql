@@ -29,8 +29,10 @@ create table role (
  *   especially their physical characteristics
  */
 create table casteller (
-  id   	     int	not null auto_increment,
-  name 	     varchar(100) not null,
+  id   	     	    int	not null auto_increment,
+  name 	     	    varchar(20) not null,
+  full_name  	    varchar(100) default '',
+  picture_path 	    varchar(150) default '',
   total_height      float(10,2) default 170,
   shoulder_height   float(10,2) default 150,
   axle_height       float(10,2) default 140,
@@ -112,6 +114,7 @@ create table castell_position (
   h 	     float(10,2) default 40,
   rx 	     float(10,2) default null,
   ry 	     float(10,2) default null,
+  angle      float(10,2) default null,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
   foreign key (role_id) references role (id)

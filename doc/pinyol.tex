@@ -5,7 +5,7 @@
 \usepackage{graphicx}
 \begin{document}
 
-\title{Pinyol -- una herramienta \\para montar pinyes de castells}
+\title{Pinyol\\\ \\ una herramienta para\\ montar pinyes de castells}
 \author{Julian Pfeifle}
 
 \includegraphics[width=3cm]{../img/cvg} \hfill
@@ -51,29 +51,29 @@ El procedimiento para generar una pinya es el siguiente:
      (\text{altura hombros baix})  + (\text{altura trasero segon}) - (\text{altura
      manos alzadas $1^a$ mà})
   \]
-  varíe entre unos valores máximos y mínimos permitidos; o que el peso
-  mínimo de un baix ha de ser por lo menos cierto valor; o que el
+  varíe entre unos valores máximos y mínimos permitidos; que el peso
+  mínimo de un baix haya de ser por lo menos cierto valor; o que el
   total de la anchura de hombros de los castilleros en un ``quesito''
-  ha de ser aproximadamente cierto valor; etc. También se pueden
+  haya de ser aproximadamente cierto valor; etc. También se pueden
   incorporar restricciones como la incompatibilidad entre ciertos
   castilleros, etc.
 
-  La arquitectura está pensada para ser lo más flexible que sea
-  posible, para dejar la máxima libertad a las juntas técnicas a la
-  hora de diseñar sus pinyas.
+  La arquitectura del software será lo más flexible que sea posible,
+  para dejar la máxima libertad a las juntas técnicas a la hora de
+  diseñar sus pinyas.
 
-\item[Asistencia y castilleros deseados] Para cada castell a ejecutar,
-  la junta técnica puede decidir que ciertas posiciones se han de
-  ocupar necesariamente por ciertos castilleros; además, apunta
-  quiénes de los castilleros de la colla están disponibles en el
-  momento concreto de montar la pinya.
+\item[Castilleros deseados y asistencia] Para cada castell a ejecutar,
+  la junta técnica puede decidir que ciertas posiciones se hayan de
+  ocupar necesariamente por ciertos castilleros; además, podrán
+  apuntar en la base de datos qué castilleros de la colla están
+  disponibles en el momento concreto de montar la pinya.
 
-\item[Cálcuco de la pinya óptima] Usando los datos acerca de los
-  castilleros en la base de datos, y las restricciones entre las
-  diversas posiciones en la pinya, el programa de optimización calcula
-  la óptima disposición de los castilleros disponibles en esta pinya,
-  y la envía al navegador del usuario en el formato
-  \texttt{html5/css3/svg}.
+\item[Cálculo de la pinya óptima] Usando los datos acerca de los
+  castilleros en la base de datos, los castilleros requeridos por la
+  junta técnica y las restricciones entre las diversas posiciones en
+  la pinya, el programa de optimización calcula la óptima disposición
+  de los castilleros disponibles en esta pinya, y la envía al
+  navegador del usuario en el formato \texttt{html5/css3/svg}.
 \end{description}
 
 A continuación describiremos los elementos del software con un poco más de detalle.

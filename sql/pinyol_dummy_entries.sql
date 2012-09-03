@@ -43,13 +43,13 @@ insert into castell_type values
   (2, 1, "2de8f", "Torre de vuit amb folre");
 
 insert into castell_position (id, castell_type_id, role_id, is_essential, svg_id, svg_text, svg_elem, x, y, rx) values
-  (1, 1, 1, true, "crossa1", "Crossa 1", "circle", 500, -100, 30),
-  (2, 1, 1, true, "crossa2", "Crossa 2", "circle", 500, -500, 30);
+  (1, 1, 1, true, "crossa1", "Crossa 1", "circle", 0, 10, 30),
+  (2, 1, 1, true, "crossa2", "Crossa 2", "circle", 0, 20, 30);
 
 insert into castell_position (id, castell_type_id, role_id, is_essential, svg_id, svg_text, x, y) values
-  (3, 1, 5, true, "ma1", "Ma 1", 100, 600),
-  (4, 1, 7, true, "pinya1", "Pinya 1", 100, 700),
-  (5, 1, 7, false, "pinya2", "Pinya 2", 100, 800);
+  (3, 1, 5, true, "ma1", "Ma 1", 0, 30),
+  (4, 1, 7, true, "pinya1", "Pinya 1", 0, 40),
+  (5, 1, 7, false, "pinya2", "Pinya 2", 0, 50);
 
 insert into castell_relation (id, castell_type_id, relation_type, field_name, from_pos_id, to_pos_id, fparam1, fparam2) values
   (1, 1, 1, 'total_height', 1, 2, 10, 0),
