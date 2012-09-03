@@ -11,7 +11,7 @@ def make_lp_file(obj_val, ineqs):
     f = f + "binary\n"
     for v in variables:
         f = f + v + " "
-    f = f + "end\n"
+    f = f + "\nend"
     return f
 
 def write_lp_file(castellers_in_position, position_data, participation, filename='pinya.lp'):
@@ -22,13 +22,19 @@ def write_lp_file(castellers_in_position, position_data, participation, filename
     f.write(make_lp_file(obj_val, ineqs))
     f.close()
 
-def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
+def sol_from_v(sol, vname, castellers_in_position):
+     cast_id = vname[1:vname.find('p')]
+     pos_id = long(vname[vname.find('p')+1:])
+     for casteller in castellers_in_position[pos_id]:
+         if casteller['id'] == int(cast_id):
+             sol[int(pos_id)] = casteller['name']
+
+
+def solve_lp_with_gurobi(filename, castellers_in_position):
     import sys
     sys.path.append('/opt/gurobi500/linux32/lib/python2.7')
+    sys.path.append('/opt/gurobi500/linux64/lib/python2.7')
     from gurobipy import read
-
-    castellers_in_position = dict()
-    write_lp_file(castellers_in_position, position_data, participation, filename)
 
     model=read(filename)
     model.optimize()
@@ -37,15 +43,32 @@ def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
         sol = dict()
         for v in sv:
             if v.x == 1:
-                vname = v.var_name
-                cast_id = vname[1:vname.find('p')]
-                pos_id = long(vname[vname.find('p')+1:])
-                for casteller in castellers_in_position[pos_id]:
-                    if casteller['id'] == int(cast_id):
-                        sol[int(pos_id)] = casteller['name']
+                sol_from_v(sol, v.varname, castellers_in_position)
         return sol
     else:
         return False
+
+
+def solve_lp_with_cbc(filename, castellers_in_position):
+    import subprocess
+    subprocess.call(["cbc", '-import', filename, '-solve', '-solu', 'solution.txt', '-quit'])
+    f = open("solution.txt", 'r')
+    sol = dict()
+    first_line = True
+    for line in f:
+        if first_line:
+            first_line = False
+        else:
+            a = line.split()
+            if a[2] == '1':
+                sol_from_v(sol, a[1], castellers_in_position)
+    return sol
+
+
+def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
+    castellers_in_position = dict()
+    write_lp_file(castellers_in_position, position_data, participation, filename)
+    return solve_lp_with_cbc(filename, castellers_in_position)
     
 def solution_as_svg(participation):
     from string import Template

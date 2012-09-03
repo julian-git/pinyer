@@ -28,3 +28,4 @@ incomp_16_18: c16p4 + c18p5 <= 1
 incomp_16_18: c16p5 + c18p4 <= 1
 binary
 c10p3 c13p4 c13p5 c14p4 c14p5 c15p4 c15p5 c16p4 c16p5 c17p4 c17p5 c18p4 c18p5 c1p1 c1p2 c2p1 c2p2 c9p3 
+end

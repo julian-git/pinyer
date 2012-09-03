@@ -1,4 +1,7 @@
 def get_solutions(filename):
+    import sys
+    sys.path.append('/opt/gurobi500/linux32/lib/python2.7')
+    sys.path.append('/opt/gurobi500/linux64/lib/python2.7')
     from gurobipy import read
 
     model=read(filename)
@@ -16,6 +19,7 @@ def get_solutions(filename):
 if __name__ == "__main__":
     import sys
     sys.path.append('/opt/gurobi500/linux32/lib/python2.7')
+    sys.path.append('/opt/gurobi500/linux64/lib/python2.7')
     from gurobipy import *
     s = get_solutions("tests/test.lp")
     print s
