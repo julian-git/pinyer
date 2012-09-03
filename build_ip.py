@@ -11,6 +11,7 @@ def make_lp_file(obj_val, ineqs):
     f = f + "binary\n"
     for v in variables:
         f = f + v + " "
+    f = f + "end\n"
     return f
 
 def write_lp_file(castellers_in_position, position_data, participation, filename='pinya.lp'):

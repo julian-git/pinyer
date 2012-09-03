@@ -1,5 +1,5 @@
 Install the following packages on Ubuntu 12.04 / Linux Mint 13:
-sudo apt-get install libmysqlclient-dev python-dev python-setuptools python-mysqldb
+sudo apt-get install libmysqlclient-dev python-dev python-setuptools python-mysqldb coinor-libcbc0
 
 Create MySQL database pinyol, and a user pinyol with some password and all privileges
 
