@@ -31,9 +31,6 @@ def sol_from_v(sol, vname, castellers_in_position):
 
 
 def solve_lp_with_gurobi(filename, castellers_in_position):
-    import sys
-    sys.path.append('/opt/gurobi500/linux32/lib/python2.7')
-    sys.path.append('/opt/gurobi500/linux64/lib/python2.7')
     from gurobipy import read
 
     model=read(filename)

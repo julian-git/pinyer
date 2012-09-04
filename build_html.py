@@ -1,4 +1,4 @@
-import build_ip
+from build_ip import find_pinya
 
 def solution_as_svg(solution):
     from string import Template
@@ -35,6 +35,6 @@ viewBox="0 0 200 200">
 if __name__ == "__main__":
     participation = dict([(9, 0), (17, 5)])
     position_data = dict()
-    solution = build_ip.find_pinya(participation, position_data)
+    solution = find_pinya(participation, position_data)
     f = open("web/index.html", 'w')
     f.write(solution_as_svg(solution))
