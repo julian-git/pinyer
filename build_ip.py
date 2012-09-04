@@ -12,12 +12,12 @@ def make_lp_file(obj_val, ineqs):
     f = f + "\nend"
     return f
 
-def write_lp_file(castellers_in_position, position_data, participation, filename):
+def write_lp_file(castellers_in_position, position_data, prescribed, filename):
     from ineqs import ip_ineqs
     f = open(filename, 'w')
     obj_val = dict()          # The objective coefficient of each variable
     ineqs = []                # the linear inequalities
-    ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participation)
+    ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed)
     f.write(make_lp_file(obj_val, ineqs))
     f.close()
 
@@ -26,7 +26,7 @@ def sol_from_v(sol, vname, castellers_in_position):
      pos_id = long(vname[vname.find('p')+1:])
      for casteller in castellers_in_position[pos_id]:
          if casteller['id'] == int(cast_id):
-             sol[int(pos_id)] = casteller['name']
+             sol[int(pos_id)] = [casteller['id'], casteller['name']]
 
 
 def solve_lp_with_gurobi(filename, castellers_in_position):
@@ -60,10 +60,10 @@ def solve_lp_with_cbc(filename, castellers_in_position):
     return sol
 
 
-def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
+def find_pinya(prescribed, position_data=dict(), filename='pinya.lp'):
     import local_config
     castellers_in_position = dict()
-    write_lp_file(castellers_in_position, position_data, participation, filename)
+    write_lp_file(castellers_in_position, position_data, prescribed, filename)
     if local_config.UseCBC:
         return solve_lp_with_cbc(filename, castellers_in_position)
     else:
@@ -71,5 +71,5 @@ def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
     
 
 if __name__ == "__main__":
-    participation = dict([(9, 0), (17, 5)])
-    print find_pinya(participation)
+    prescribed = dict([(9, 0), (17, 5)])
+    print find_pinya(prescribed)

@@ -4,12 +4,18 @@
 circle {
     fill:     lightblue;
 }
+circle:hover {
+    fill:     red;
+}
 rect   {
-    fill:lightblue;
+    fill: lightblue;
+}
+rect.prescribed {
+    fill: lightgreen;
 }
 /*
 text {
-    text-anchor:       "middle"
-    dominant-baseline: "mathematical"
+    text-anchor:       "middle";
+    dominant-baseline: "mathematical";
 }
 */
