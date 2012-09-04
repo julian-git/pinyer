@@ -1,5 +1,3 @@
-from ineqs import * 
-
 def make_lp_file(obj_val, ineqs):
     f = "maximize\n"
     variables = sorted(obj_val.keys())
@@ -14,7 +12,8 @@ def make_lp_file(obj_val, ineqs):
     f = f + "\nend"
     return f
 
-def write_lp_file(castellers_in_position, position_data, participation, filename='pinya.lp'):
+def write_lp_file(castellers_in_position, position_data, participation, filename):
+    from ineqs import ip_ineqs
     f = open(filename, 'w')
     obj_val = dict()          # The objective coefficient of each variable
     ineqs = []                # the linear inequalities
@@ -32,7 +31,6 @@ def sol_from_v(sol, vname, castellers_in_position):
 
 def solve_lp_with_gurobi(filename, castellers_in_position):
     from gurobipy import read
-
     model=read(filename)
     model.optimize()
     if model.status == 2:
@@ -47,8 +45,8 @@ def solve_lp_with_gurobi(filename, castellers_in_position):
 
 
 def solve_lp_with_cbc(filename, castellers_in_position):
-    import subprocess
-    subprocess.call(["cbc", '-import', filename, '-solve', '-solu', 'solution.txt', '-quit'])
+    from subprocess import call 
+    call(["cbc", '-import', filename, '-solve', '-solu', 'solution.txt', '-quit'])
     f = open("solution.txt", 'r')
     sol = dict()
     first_line = True
