@@ -1,4 +1,4 @@
-all: sql/all doc/all
+all: sql/all doc/all tests/all
 
 sql/all:
 	$(MAKE) -C sql
@@ -6,7 +6,7 @@ sql/all:
 doc/all:
 	$(MAKE) -C doc
 
-test: all
+tests/all:
 	$(MAKE) -C tests
 
 clean:
