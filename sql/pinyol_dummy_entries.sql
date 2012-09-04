@@ -43,8 +43,8 @@ insert into castell_type values
   (2, 1, "2de8f", "Torre de vuit amb folre");
 
 insert into castell_position (id, castell_type_id, role_id, is_essential, svg_id, svg_text, svg_elem, x, y, rx) values
-  (1, 1, 1, true, "crossa1", "Crossa 1", "circle", -50, -50, 30),
-  (2, 1, 1, true, "crossa2", "Crossa 2", "circle", -50, 50, 30);
+  (1, 1, 1, true, "crossa1", "Crossa 1", "circle", -50, -40, 30),
+  (2, 1, 1, true, "crossa2", "Crossa 2", "circle", -50, 40, 30);
 
 insert into castell_position (id, castell_type_id, role_id, is_essential, svg_id, svg_text, x, y) values
   (3, 1, 5, true, "ma1", "Ma 1", 0, 100),

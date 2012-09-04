@@ -11,18 +11,44 @@ def solution_as_svg(solution, prescribed):
 </head>
 """
     body = """<body>
-<svg xmlns="http://www.w3.org/2000/svg" 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 """
+    script = """
+<script><![CDATA[
+function startMove(evt){
+	 x1 = evt.clientX;
+ 	 y1 = evt.clientY;
+ 	 evt.target.parentNode.parentNode.setAttribute("onmousemove","moveIt(evt)")
+ 	 C = evt.target.parentNode;
+}
+
+function moveIt(evt){
+    translation = C.getAttributeNS(null, "transform").slice(10,-1).split(' ');
+	sx = parseInt(translation[0]);
+ 	sy = parseInt(translation[1]);
+
+ 	C.setAttributeNS(null, "transform", "translate(" + (sx + evt.clientX - x1) + " " + (sy + evt.clientY - y1) + ")");
+	x1 = evt.clientX;
+ 	y1 = evt.clientY;
+}
+
+function endMove(evt){
+ 	C.parentNode.setAttributeNS(null, "onmousemove",null)
+}
+
+]]></script>
+"""
+    dyn_props = ' onmousedown="startMove(evt)" onmouseup="endMove(evt)" '
     svg_rect = Template("""
 <g transform="translate(${_x} ${_y})">
-  <rect id="${_svg_id}" class="${_class}" width="${_w}" height="${_h}" x="-60" y="-20"/>
-  <text id="${_svg_id}_text" class="${_class}" text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
+  <rect id="${_svg_id}" class="${_class}" ${_dyn_props} width="${_w}" height="${_h}" x="-60" y="-20"/>
+  <text id="${_svg_id}_text" class="${_class}" ${_dyn_props} text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
 </g>
 """)
     svg_circle = Template("""
 <g transform="translate(${_x} ${_y})">
-  <circle id="${_svg_id}" class="${_class}" x="-60" y="-20" r="${_rx}"/>
-  <text id="${_svg_id}_text" class="${_class}" text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
+  <circle id="${_svg_id}" class="${_class}" ${_dyn_props} x="-60" y="-20" r="${_rx}"/>
+  <text id="${_svg_id}_text" class="${_class}" ${_dyn_props} text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
 </g>
 """)
     svg = ''
@@ -35,16 +61,16 @@ def solution_as_svg(solution, prescribed):
         else:
             svgclass = "calculated"
         if pd['svg_elem'] == 'rect':
-            svg = svg + svg_rect.substitute(_svg_id=pd['svg_id'], _class=svgclass, _name=name, _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
+            svg = svg + svg_rect.substitute(_svg_id=pd['svg_id'], _class=svgclass, _dyn_props=dyn_props, _name=name, _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
             min_x = min(min_x, pd['x']); max_x = max(max_x, pd['x']+pd['w'])
             min_y = min(min_y, pd['y']); max_y = max(max_y, pd['y']+pd['h'])
         elif pd['svg_elem'] == 'circle':
-            svg = svg + svg_circle.substitute(_svg_id=pd['svg_id'], _class=svgclass, _name=name, _x=pd['x'], _y=pd['y'], _rx=pd['rx'])
+            svg = svg + svg_circle.substitute(_svg_id=pd['svg_id'], _class=svgclass, _dyn_props=dyn_props, _name=name, _x=pd['x'], _y=pd['y'], _rx=pd['rx'])
             min_x = min(min_x, pd['x']-pd['rx']); max_x = max(max_x, pd['x']+pd['rx'])
             min_y = min(min_y, pd['y']-pd['rx']); max_y = max(max_y, pd['y']+pd['rx'])
     min_x = min_x - 500; max_x = max_x + 500; # center the image a little
     viewbox = 'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' + str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
-    return head + body + viewbox + svg + "</svg>" + "</html>"
+    return head + body + viewbox + script + svg + "</svg>" + "</html>"
 
 if __name__ == "__main__":
     prescribed = dict([(9, 0), (17, 5)])
