@@ -1,6 +1,6 @@
 from build_ip import find_pinya
 
-def solution_as_svg(solution, prescribed):
+def solution_as_svg(solution, position_data, prescribed):
     from string import Template
     head = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -16,27 +16,22 @@ def solution_as_svg(solution, prescribed):
     script = """
 <script><![CDATA[
 function startMove(evt){
-	 x1 = evt.clientX;
- 	 y1 = evt.clientY;
- 	 C = evt.target.parentNode;
- 	 C.parentNode.setAttribute("onmousemove","moveIt(evt)")
-
+   x1 = evt.clientX;
+   y1 = evt.clientY;
+   C = evt.target.parentNode;
+   C.parentNode.setAttribute("onmousemove","moveIt(evt)")
 }
-
 function moveIt(evt){
-    translation = C.getAttributeNS(null, "transform").slice(10,-1).split(' ');
-	sx = parseInt(translation[0]);
- 	sy = parseInt(translation[1]);
-
- 	C.setAttributeNS(null, "transform", "translate(" + (sx + evt.clientX - x1) + " " + (sy + evt.clientY - y1) + ")");
-	x1 = evt.clientX;
- 	y1 = evt.clientY;
+   translation = C.getAttributeNS(null, "transform").slice(10,-1).split(' ');
+   sx = parseInt(translation[0]);
+   sy = parseInt(translation[1]);
+   C.setAttributeNS(null, "transform", "translate(" + (sx + evt.clientX - x1) + " " + (sy + evt.clientY - y1) + ")");
+   x1 = evt.clientX;
+   y1 = evt.clientY;
 }
-
 function endMove(){
- 	C.parentNode.setAttributeNS(null, "onmousemove",null)
+   C.parentNode.setAttributeNS(null, "onmousemove", null)
 }
-
 ]]></script>
 """
     dyn_props = ' onmousedown="startMove(evt)" onmouseup="endMove(evt)" '
@@ -78,4 +73,4 @@ if __name__ == "__main__":
     position_data = dict()
     solution = find_pinya(prescribed, position_data)
     f = open("web/index.html", 'w')
-    f.write(solution_as_svg(solution, prescribed))
+    f.write(solution_as_svg(solution, position_data, prescribed))
