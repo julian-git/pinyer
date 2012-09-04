@@ -7,7 +7,7 @@ doc/all:
 	$(MAKE) -C doc
 
 test: all
-	python run_unit_tests.py
+	$(MAKE) -C tests
 
 clean:
 	rm -f *~ gurobi.log
