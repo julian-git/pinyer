@@ -18,8 +18,9 @@ def solution_as_svg(solution, prescribed):
 function startMove(evt){
 	 x1 = evt.clientX;
  	 y1 = evt.clientY;
- 	 evt.target.parentNode.parentNode.setAttribute("onmousemove","moveIt(evt)")
  	 C = evt.target.parentNode;
+ 	 C.parentNode.setAttribute("onmousemove","moveIt(evt)")
+
 }
 
 function moveIt(evt){
@@ -32,7 +33,7 @@ function moveIt(evt){
  	y1 = evt.clientY;
 }
 
-function endMove(evt){
+function endMove(){
  	C.parentNode.setAttributeNS(null, "onmousemove",null)
 }
 
