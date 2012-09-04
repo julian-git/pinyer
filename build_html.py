@@ -7,20 +7,21 @@ def solution_as_svg(solution):
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Pinyol</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/pinyol.css" />
 </head>
 """
     body = """<body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 """
     svg_rect = Template("""
-<g id="${_svg_id}" transform="translate(${_x} ${_y})">
-  <rect width="${_w}" height="${_h}" x="-60" y="-20" fill="lightblue"/>
+<g transform="translate(${_x} ${_y})">
+  <rect id="${_svg_id}" width="${_w}" height="${_h}" x="-60" y="-20"/>
   <text text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
 </g>
 """)
     svg_circle = Template("""
-<g id="${_svg_id}" transform="translate(${_x} ${_y})">
-  <circle x="-60" y="-20" r="${_rx}" fill="lightblue"/>
+<g transform="translate(${_x} ${_y})">
+  <circle id="${_svg_id}" x="-60" y="-20" r="${_rx}"/>
   <text text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
 </g>
 """)

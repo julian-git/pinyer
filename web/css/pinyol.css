@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+circle {
+    fill:     lightblue;
+}
+rect   {
+    fill:lightblue;
+}
+/*
+text {
+    text-anchor:       "middle"
+    dominant-baseline: "mathematical"
+}
+*/
