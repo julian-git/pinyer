@@ -8,6 +8,9 @@
 # Project
 *log
 *up-to-date
+pinya.lp
+solution.txt
+tests/index.html
 
 # Packages
 *.egg

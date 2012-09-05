@@ -12,8 +12,11 @@ head = Template("""<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN
 body = Template("""<body>
 <h1>${_name}</h1>
 <h2>${_desc}</h2>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 """)
+
+svg_head = """
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+"""
 
 svg_rect = Template("""
 <g transform="translate(${_x} ${_y})">
@@ -30,23 +33,5 @@ svg_circle = Template("""
 """)
 
 move_script = """
-<script><![CDATA[
-function startMove(evt){
-   x1 = evt.clientX;
-   y1 = evt.clientY;
-   C = evt.target.parentNode;
-   C.parentNode.setAttribute("onmousemove","moveIt(evt)")
-}
-function moveIt(evt){
-   translation = C.getAttributeNS(null, "transform").slice(10,-1).split(' ');
-   sx = parseInt(translation[0]);
-   sy = parseInt(translation[1]);
-   C.setAttributeNS(null, "transform", "translate(" + (sx + evt.clientX - x1) + " " + (sy + evt.clientY - y1) + ")");
-   x1 = evt.clientX;
-   y1 = evt.clientY;
-}
-function endMove(){
-   C.parentNode.setAttributeNS(null, "onmousemove", null)
-}
-]]></script>
+<script type="text/javascript" src="js/move.js"></script>
 """

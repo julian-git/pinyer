@@ -27,13 +27,22 @@ def editable_castell_plan(castell_type_id):
     svgclass = 'design'
     [min_x, max_x, min_y, max_y] = [1000000, -1000000, 1000000, -1000000]
     for pos, pd in position_data.iteritems():
-        [svg, min_x, max_x, min_y, max_y] = fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'], dyn_props)
+        [svg, min_x, max_x, min_y, max_y] = \
+            fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'], dyn_props)
     [min_x, max_x, min_y, max_y] = center_image(min_x, max_x, min_y, max_y)
-    viewbox = 'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' + str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
+    viewbox = \
+        'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' + \
+        str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
     castell_data = get_castell(db, castell_type_id)
-    return common_html.head.substitute(_title=castell_data['name']) + \
-        common_html.body.substitute(_name=castell_data['name'], _desc=castell_data['description']) + \
-        viewbox + common_html.move_script + svg + "</svg>" + "</html>"
+    return \
+        common_html.head.substitute(_title=castell_data['name']) + \
+        common_html.body.substitute(_name=castell_data['name'], \
+                                        _desc=castell_data['description']) + \
+        common_html.move_script + \
+        common_html.svg_head + \
+        viewbox + \
+        svg + \
+        "</svg>" + "</html>"
 
 
 def solution_as_svg(solution, position_data, prescribed):
@@ -48,13 +57,14 @@ def solution_as_svg(solution, position_data, prescribed):
             svgclass = "calculated"
         [svg, min_x, max_x, min_y, max_y] = fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'])
     [min_x, max_x, min_y, max_y] = center_image(min_x, max_x, min_y, max_y)
-    viewbox = 'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' + str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
+    viewbox = 'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' \
+        + str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
     return common_html.head + common_html.body + viewbox + svg + "</svg>" + "</html>"
 
 if __name__ == "__main__":
     prescribed = dict([(9, 0), (17, 5)])
     position_data = dict()
 #    solution = find_pinya(prescribed, position_data)
-    f = open("www/index.html", 'w')
+    f = open("tests/index.html", 'w')
 #    f.write(solution_as_svg(solution, position_data, prescribed))
     f.write(editable_castell_plan(1))
