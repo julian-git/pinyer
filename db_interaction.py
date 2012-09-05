@@ -16,6 +16,17 @@ def get_positions(db, castell_type_id):
         position_data[int(row[0])] = dict([('role_id', int(row[1])), ('role_name', row[2]), ('is_essential', row[3]), ('svg_id', row[4]), ('svg_text', row[5]), ('svg_elem', row[6]), ('x', row[7]), ('y', row[8]), ('w', row[9]), ('h', row[10]), ('rx', row[11]), ('ry', row[12])])
     return position_data
 
+
+def get_castell(db, castell_type_id):
+    """
+    returns the characteristics of the castell with the given id
+    """
+    c = db.cursor()
+    c.execute("""select name, description from castell_type where id=%s""", (castell_type_id,))
+    res = c.fetchall()[0]
+    return dict([('name', res[0]), ('description', res[1])])
+
+
 def get_castellers(db, colla_id, pos_id):
     """
     returns all castellers of the given colla that are present

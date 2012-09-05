@@ -1,6 +1,6 @@
 from build_ip import find_pinya
 import common_html 
-from db_interaction import get_db, get_positions
+from db_interaction import get_db, get_positions, get_castell
 
 def fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, name='', dyn_props=''):
     if pd['svg_elem'] == 'rect':
@@ -20,7 +20,8 @@ def center_image(min_x, max_x, min_y, max_y):
 
 
 def editable_castell_plan(castell_type_id):
-    position_data = get_positions(get_db(), castell_type_id)
+    db = get_db()
+    position_data = get_positions(db, castell_type_id)
     dyn_props = ' onmousedown="startMove(evt)" onmouseup="endMove(evt)" '
     svg = ''
     svgclass = 'design'
@@ -29,7 +30,10 @@ def editable_castell_plan(castell_type_id):
         [svg, min_x, max_x, min_y, max_y] = fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'], dyn_props)
     [min_x, max_x, min_y, max_y] = center_image(min_x, max_x, min_y, max_y)
     viewbox = 'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' + str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
-    return common_html.head + common_html.body + viewbox + common_html.move_script + svg + "</svg>" + "</html>"
+    castell_data = get_castell(db, castell_type_id)
+    return common_html.head.substitute(_title=castell_data['name']) + \
+        common_html.body.substitute(_name=castell_data['name'], _desc=castell_data['description']) + \
+        viewbox + common_html.move_script + svg + "</svg>" + "</html>"
 
 
 def solution_as_svg(solution, position_data, prescribed):
