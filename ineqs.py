@@ -8,8 +8,9 @@ def var(casteller_id, pos_id):
 
 def sum_vars(pos_id, castellers_in_position, prop = None, operator=" + "):
     """
-    make the sum of all variables using the position pos.
-    If prop is not None, use the value of the property prop as coefficient
+    make the sum of all casteller indicator variables that involve the position pos.
+    If prop is None, use 1 as a coefficient; else, use casteller[prop] if this property exists in the dictionary casteller.
+    If prop does not happen to be a key of the casteller dictionary, we directly use the value of prop as a coefficient.
     """
     ineq = ''
     castellers = castellers_in_position[pos_id]
@@ -24,7 +25,7 @@ def sum_vars(pos_id, castellers_in_position, prop = None, operator=" + "):
 
 def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
     """
-    make the LHS of an inequality using two positions and the property prop
+    make the difference of two sets of casteller indicator variables, with coefficient given by prop
     """
     return sum_vars(from_pos_id, castellers_in_position, prop) + " - " + sum_vars(to_pos_id, castellers_in_position, prop, " - ")
 
@@ -84,23 +85,25 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs):
             # we implement "pinyas have no holes" using binary indicator variables y_pos_id
             # that are 1 if the position pos_id is filled, and 0 otherwise
             # To simplify the system, we don't create these indicator variables explicitly,
-            # but substitute them by a call to sum_vars
+            # but substitute them by a call to sum_vars. So, in the comments below,
+            # y_fpi = sum_vars(fpi, castellers_in_position)
+            # y_tpi = sum_vars(tpi, castellers_in_position)
             label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
             ineqs.append(label + sum_vars(fpi, castellers_in_position) + " - " + sum_vars(tpi, castellers_in_position, None, " - ") + " >= 0")
 
         if rel['relation_type'] == 1: 
-            # If y_to_pos_id = 1, then the constraint 
+            # If y_tpi = 1, then the constraint 
             #   0 <= x <= tolerance
             # must hold, where 
             #   x = (value of field_name at from_pos) - (value of field_name at to_pos).
             # We model this as
-            # " either y_to_pos_id = 0  or  0 <= x <= tolerance  must hold ",
+            # " either y_tpi = 0  or  0 <= x <= tolerance  must hold ",
             # and this in turn as
-            #   x <= tolerance + M (1 - y_to_pos_id)
-            #   x >= M (y_to_pos_id - 1),
+            #   x <= tolerance + M (1 - y_tpi)
+            #   x >= M (y_tpi - 1),
             # where M is a suitably large constant. In LP format, this reads
-            #   x + M y_to_pos_id <= tolerance + M
-            #   x - M y_to_pos_id >= -M
+            #   x + M y_tpi <= tolerance + M
+            #   x - M y_tpi >= -M
             x = combine_vars(fpi, tpi, castellers_in_position, rel['field_name'])
             M = 1000000
             label = rel['field_name'] + "_" + str(fpi) + "_" + str(tpi) + ": "
@@ -144,7 +147,7 @@ def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participatio
     """
     db = get_db()
     is_essential_pos = dict()
-    get_positions(db, castell_type_id, position_data)
+    position_data = get_positions(db, castell_type_id)
     for pos_id, pos in position_data.iteritems():
         is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
