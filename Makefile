@@ -1,4 +1,4 @@
-all: sql/all doc/all
+all: sql/all doc/all tests/all
 
 sql/all:
 	$(MAKE) -C sql
@@ -6,8 +6,8 @@ sql/all:
 doc/all:
 	$(MAKE) -C doc
 
-test: all
-	python run_unit_tests.py
+tests/all:
+	$(MAKE) -C tests
 
 clean:
 	rm -f *~ gurobi.log

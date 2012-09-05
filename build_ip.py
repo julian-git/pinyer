@@ -1,5 +1,3 @@
-from ineqs import * 
-
 def make_lp_file(obj_val, ineqs):
     f = "maximize\n"
     variables = sorted(obj_val.keys())
@@ -14,11 +12,12 @@ def make_lp_file(obj_val, ineqs):
     f = f + "\nend"
     return f
 
-def write_lp_file(castellers_in_position, position_data, participation, filename='pinya.lp'):
+def write_lp_file(castellers_in_position, position_data, prescribed, filename):
+    from ineqs import ip_ineqs
     f = open(filename, 'w')
     obj_val = dict()          # The objective coefficient of each variable
     ineqs = []                # the linear inequalities
-    ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participation)
+    ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed)
     f.write(make_lp_file(obj_val, ineqs))
     f.close()
 
@@ -27,15 +26,11 @@ def sol_from_v(sol, vname, castellers_in_position):
      pos_id = long(vname[vname.find('p')+1:])
      for casteller in castellers_in_position[pos_id]:
          if casteller['id'] == int(cast_id):
-             sol[int(pos_id)] = casteller['name']
+             sol[int(pos_id)] = [casteller['id'], casteller['name']]
 
 
 def solve_lp_with_gurobi(filename, castellers_in_position):
-    import sys
-    sys.path.append('/opt/gurobi500/linux32/lib/python2.7')
-    sys.path.append('/opt/gurobi500/linux64/lib/python2.7')
     from gurobipy import read
-
     model=read(filename)
     model.optimize()
     if model.status == 2:
@@ -50,8 +45,8 @@ def solve_lp_with_gurobi(filename, castellers_in_position):
 
 
 def solve_lp_with_cbc(filename, castellers_in_position):
-    import subprocess
-    subprocess.call(["cbc", '-import', filename, '-solve', '-solu', 'solution.txt', '-quit'])
+    from subprocess import call 
+    call(["cbc", '-import', filename, '-solve', '-solu', 'solution.txt', '-quit'])
     f = open("solution.txt", 'r')
     sol = dict()
     first_line = True
@@ -65,40 +60,16 @@ def solve_lp_with_cbc(filename, castellers_in_position):
     return sol
 
 
-def find_pinya(participation, position_data=dict(), filename='pinya.lp'):
+def find_pinya(prescribed, position_data=dict(), filename='pinya.lp'):
+    import local_config
     castellers_in_position = dict()
-    write_lp_file(castellers_in_position, position_data, participation, filename)
-    return solve_lp_with_cbc(filename, castellers_in_position)
+    write_lp_file(castellers_in_position, position_data, prescribed, filename)
+    if local_config.UseCBC:
+        return solve_lp_with_cbc(filename, castellers_in_position)
+    else:
+        return solve_lp_with_gurobi(filename, castellers_in_position)
     
-def solution_as_svg(participation):
-    from string import Template
-    svg_rect = Template("""
- <svg id="${_svg_id}">
-   <g transform="translate(${_x} ${_y})">
-     <rect width="${_w}" height="${_h}" x="-60" y="-20" fill="lightblue"/>
-     <text text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
-   </g>
- </svg>
-""")
-    svg_circle = Template("""
- <svg id="${_svg_id}">
-   <g transform="translate(${_x} ${_y})">
-     <circle x="-60" y="-20" r="${_rx}" fill="lightblue"/>
-     <text text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
-   </g>
- </svg>
-""")
-    position_data = dict()
-    solution = find_pinya(participation, position_data)
-    svg = ''
-    for pos, name in solution.iteritems():
-        pd = position_data[pos]
-        if pd['svg_elem'] == 'rect':
-            svg = svg + svg_rect.substitute(_svg_id=pd['svg_id'], _name=name, _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
-        elif pd['svg_elem'] == 'circle':
-            svg = svg + svg_circle.substitute(_svg_id=pd['svg_id'], _name=name, _x=pd['x'], _y=pd['y'], _rx=pd['rx'])
-    return svg
 
 if __name__ == "__main__":
-    participation = dict([(9, 0), (17, 5)])
-    print solution_as_svg(participation)
+    prescribed = dict([(9, 0), (17, 5)])
+    print find_pinya(prescribed)
