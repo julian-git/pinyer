@@ -142,10 +142,7 @@ def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participatio
     Fill the dictionaries castellers_in_position, position_data and obj_val.
     as a side effect, calculate the dictionary pos_of_casteller.
     """
-    import MySQLdb
-
-    db = MySQLdb.connect(user="pinyol", passwd="", db="pinyol")
-
+    db = get_db()
     is_essential_pos = dict()
     get_positions(db, castell_type_id, position_data)
     for pos_id, pos in position_data.iteritems():

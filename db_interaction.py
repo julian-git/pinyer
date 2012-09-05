@@ -1,12 +1,20 @@
-def get_positions(db, castell_type_id, position_data):
+from MySQLdb import connect
+
+def get_db():
+    return connect(user="pinyol", passwd="", db="pinyol")
+
+
+def get_positions(db, castell_type_id):
     """
     returns all id numbers of the positions in the given castell type
     """
+    position_data = dict()
     c = db.cursor()
-    c.execute("""select id, role_id, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry from castell_position where castell_type_id=%s""", (castell_type_id,))
+    c.execute("""select p.id, role_id, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry from castell_position p left join role on p.role_id=role.id where castell_type_id=%s""", (castell_type_id,))
     res = c.fetchall()
     for row in res:
-        position_data[int(row[0])] = dict([('role_id', int(row[1])), ('is_essential', row[2]), ('svg_id', row[3]), ('svg_text', row[4]), ('svg_elem', row[5]), ('x', row[6]), ('y', row[7]), ('w', row[8]), ('h', row[9]), ('rx', row[10]), ('ry', row[11])])
+        position_data[int(row[0])] = dict([('role_id', int(row[1])), ('role_name', row[2]), ('is_essential', row[3]), ('svg_id', row[4]), ('svg_text', row[5]), ('svg_elem', row[6]), ('x', row[7]), ('y', row[8]), ('w', row[9]), ('h', row[10]), ('rx', row[11]), ('ry', row[12])])
+    return position_data
 
 def get_castellers(db, colla_id, pos_id):
     """

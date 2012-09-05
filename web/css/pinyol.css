@@ -7,11 +7,25 @@ circle {
 circle:hover {
     fill:     red;
 }
+circle.prescribed {
+    fill: lightgreen;
+}
+circle.design {
+    stroke: green;
+}
+
 rect   {
     fill: lightblue;
 }
 rect.prescribed {
     fill: lightgreen;
+}
+rect.design {
+    stroke: green;
+}
+
+text:hover {
+    fill: red;
 }
 /*
 text {
