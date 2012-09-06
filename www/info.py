@@ -4,22 +4,29 @@
 import cgi
 import cgitb
 import sys
+import json 
+import zlib
+import httplib
 
 cgitb.enable()
 sys.path.append('../python')
-sys.path.append('sql')
 
 from build_html import editable_castell_plan
-from sql_castellers import get_colla
+import db_interaction
 
 form = cgi.FieldStorage()
 what = form["what"].value
 
-print "Content-Type: text/html"     # HTML is following
+db = db_interaction.get_db()
+
+print "Content-Type: application/json"     # HTML is following
 print                               # blank line, end of headers
 
-if what=='colla':
-    print get_colla(form["colla_id"].value)
+if what=='get_colla':
+    colla_id = form["colla_id"].value
+#    print json.dumps(db_interaction.get_colla(db, colla_id), separators=(',', ':'))
+    res = {'Price':54,'Cost':'99'}
+    print json.dumps(res)
 
 else:
     print "Unexpected argument: ", what
