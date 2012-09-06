@@ -28,7 +28,7 @@ def center_image(min_x, max_x, min_y, max_y):
 def editable_castell_plan(castell_type_id):
     db = get_db()
     position_data = get_positions(db, castell_type_id)
-    dyn_props = ' onmousedown="startMove(evt)" onmouseup="endMove(evt)" '
+    dyn_props = ' class="ui-draggable" '
     svg = ''
     svgclass = 'design'
     [min_x, max_x, min_y, max_y] = [1000000, -1000000, 1000000, -1000000]

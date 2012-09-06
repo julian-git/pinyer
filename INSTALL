@@ -13,3 +13,8 @@ and add the following lines
 to /etc/apache2/sites-available/default , and run 
 sudo /etc/init.d/apache2 restart
 
+This project uses Nicola Hibbert's liteAccordion code, which is included as a git submodule.
+Thus, after cloning the git repository for pinyol, you must issue the following commands:
+git submodule init
+git submodule update
+See http://git-scm.com/book/en/Git-Tools-Submodules for more information.
