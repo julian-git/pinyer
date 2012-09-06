@@ -11,6 +11,7 @@
 pinya.lp
 solution.txt
 tests/index.html
+www/js/jquery-ui-1.8.23/*
 
 # Packages
 *.egg
