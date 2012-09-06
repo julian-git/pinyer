@@ -20,7 +20,7 @@ svg_head = """
 
 svg_rect = Template("""
 <g transform="translate(${_x} ${_y})">
-  <rect id="${_svg_id}" class="${_class}" ${_dyn_props} width="${_w}" height="${_h}" x="-60" y="-20"/>
+  <rect id="${_svg_id}_cont" class="${_class}" ${_dyn_props} width="${_w}" height="${_h}" x="-60" y="-20"/>
   <text id="${_svg_id}_text" class="${_class}" ${_dyn_props} text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
 </g>
 """)

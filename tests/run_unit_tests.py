@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.append('..')
+sys.path.append('../python')
 from build_ip import make_lp_file, find_pinya
 from ineqs import ip_ineqs
 
