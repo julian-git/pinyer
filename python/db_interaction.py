@@ -47,6 +47,25 @@ where is_present=true and castell_position.id = %s and casteller_colla.colla_id 
         ans.append(dict([('id', int(row[0])), ('name', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7])]))
     return ans
 
+
+def get_colla(db, colla_id):
+    """
+    returns all castellers of the given colla 
+    """
+    c = db.cursor()
+    c.execute("""
+select casteller.id, name, total_height, shoulder_height, hip_height, stretched_height, weight, strength, is_present 
+from casteller
+left join casteller_colla on casteller_colla.casteller_id=casteller.id
+where casteller_colla.colla_id = %s
+""", (colla_id,))
+    res = c.fetchall()
+    ans = []
+    for row in res:
+        ans.append(dict([('id', int(row[0])), ('name', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7]), ('is_present', row[8])]))
+    return ans
+
+
 def get_relations(db, castell_type_id):
     """
     returns all relations between positions in the given castell_type_id

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Sortable - Connect lists</title>
+  <link rel="stylesheet" href="css/jquery.ui.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <style>
+    #sortable1, #sortable2 { list-style-type: none; margin: 0;
+    padding: 0 0 2.5em; margin-right: 10px;  }
+    #sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 20px; float: left;}
+  </style>
+  <script>
+    $(function() {
+    $.ajax({
+    url: 'http://localhost/pinyol/info.py?what=get_colla&colla_id=1',
+    dataType: "json",
+    success: function(res) {
+    alert(res);
+    },
+    error : function(XMLHttpRequest, textStatus, errorThrown){
+    alert('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: 'An + XMLHttpRequest.responseText);
+    }
+    }); // end ajax
+    $( "#sortable1, #sortable2" ).sortable({
+    connectWith: ".connectedSortable"
+    });
+    });
+  </script>
+</head>
+<body>
+  
+  <div class="demo" style="height: 10em;">
+    
+    <ul id="sortable1" class="connectedSortable">
+      <li class="ui-state-default">Item 1</li>
+      <li class="ui-state-default">Item 2</li>
+      <li class="ui-state-default">Item 3</li>
+      <li class="ui-state-default">Item 4</li>
+      <li class="ui-state-default">Item 5</li>
+    </ul>
+  </div>
+  <br/><br/>
+  <div>
+<ul id=561664"sortable2" class="connectedSortable">
+  <li class="ui-state-highlight">Item 1</li>
+  <li class="ui-state-highlight">Item 2</li>
+  <li class="ui-state-highlight">Item 3</li>
+  <li class="ui-state-highlight">Item 4</li>
+  <li class="ui-state-highlight">Item 5</li>
+</ul>
+
+  </div><!-- End demo -->
+  
+
+</body>
+</html>
