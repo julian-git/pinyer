@@ -32,6 +32,7 @@ svg_circle = Template("""
 </g>
 """)
 
-move_script = """
+script = """
 <script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 """

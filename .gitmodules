@@ -1,0 +1,3 @@
+[submodule "www/js/liteAccordion"]
+	path = www/js/liteAccordion
+	url = git://github.com/nikki/liteAccordion.git

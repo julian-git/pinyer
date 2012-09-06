@@ -4,11 +4,17 @@ from db_interaction import get_db, get_positions, get_castell
 
 def fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, name='', dyn_props=''):
     if pd['svg_elem'] == 'rect':
-        svg = svg + common_html.svg_rect.substitute(_svg_id=pd['svg_id'], _class=svgclass, _dyn_props=dyn_props, _name=name, _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
+        svg = svg + \
+            common_html.svg_rect.substitute(_svg_id=pd['svg_id'], _class=svgclass, \
+                                                _dyn_props=dyn_props, _name=name, \
+                                                _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
         min_x = min(min_x, pd['x']); max_x = max(max_x, pd['x']+pd['w'])
         min_y = min(min_y, pd['y']); max_y = max(max_y, pd['y']+pd['h'])
     elif pd['svg_elem'] == 'circle':
-        svg = svg + common_html.svg_circle.substitute(_svg_id=pd['svg_id'], _class=svgclass, _dyn_props=dyn_props, _name=name, _x=pd['x'], _y=pd['y'], _rx=pd['rx'])
+        svg = svg + \
+            common_html.svg_circle.substitute(_svg_id=pd['svg_id'], _class=svgclass, \
+                                                  _dyn_props=dyn_props, _name=name, \
+                                                  _x=pd['x'], _y=pd['y'], _rx=pd['rx'])
         min_x = min(min_x, pd['x']-pd['rx']); max_x = max(max_x, pd['x']+pd['rx'])
         min_y = min(min_y, pd['y']-pd['rx']); max_y = max(max_y, pd['y']+pd['rx'])
     return [svg, min_x, max_x, min_y, max_y]
@@ -38,7 +44,7 @@ def editable_castell_plan(castell_type_id):
         common_html.head.substitute(_title=castell_data['name']) + \
         common_html.body.substitute(_name=castell_data['name'], \
                                         _desc=castell_data['description']) + \
-        common_html.move_script + \
+        common_html.script + \
         common_html.svg_head + \
         viewbox + \
         svg + \
@@ -55,7 +61,8 @@ def solution_as_svg(solution, position_data, prescribed):
             svgclass = "prescribed"
         else:
             svgclass = "calculated"
-        [svg, min_x, max_x, min_y, max_y] = fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'])
+        [svg, min_x, max_x, min_y, max_y] = \
+            fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'])
     [min_x, max_x, min_y, max_y] = center_image(min_x, max_x, min_y, max_y)
     viewbox = 'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' \
         + str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
