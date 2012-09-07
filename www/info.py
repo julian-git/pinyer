@@ -24,9 +24,7 @@ print                               # blank line, end of headers
 
 if what=='get_colla':
     colla_id = form["colla_id"].value
-#    print json.dumps(db_interaction.get_colla(db, colla_id), separators=(',', ':'))
-    res = {'Price':54,'Cost':'99'}
-    print json.dumps(res)
+    print json.dumps(db_interaction.get_colla(db, colla_id), separators=(',', ':'))
 
 else:
     print "Unexpected argument: ", what
