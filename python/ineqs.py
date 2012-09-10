@@ -29,9 +29,10 @@ def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
     """
     return sum_vars(from_pos_id, castellers_in_position, prop) + " - " + sum_vars(to_pos_id, castellers_in_position, prop, " - ")
 
-def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs, pos_of_casteller):
+def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, obj_val, ineqs, pos_of_casteller):
     """ 
-    make the inequalities that say that in each position, there may be at most one casteller
+    make the inequalities that say that in each position, there may be at most one casteller.
+    Fill in pos_of_casteller
     """
     for pos_id, castellers in castellers_in_position.iteritems():
         position_ineq = '' # in position pos_id, there may be at most one casteller
@@ -55,14 +56,14 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
         rel = " <= 1"
         label = "cas" + str(casteller_id) + ": "
         is_position_prescribed = False
-        if casteller_id in participation: # decide whether to definitely include or exclude her
-            if participation[casteller_id] == 0:
+        if casteller_id in prescribed: # decide whether to definitely include or exclude her
+            if prescribed[casteller_id] == 0:
                 rel = " = 0" # She won't participate
             else: # We fix the position where she must go
                 is_position_prescribed = True
                 for pos_id in positions:
                     rel2 = " = 0" # usually, she won't go to the current position
-                    if pos_id == participation[casteller_id]:
+                    if pos_id == prescribed[casteller_id]:
                         rel2 = " = 1" # except when we're told she does
                     ineqs.append(label + var(casteller_id, pos_id) + rel2)
         if not is_position_prescribed:
@@ -139,7 +140,7 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
                 ineqs.append(label + var(p0, rel['to_pos_id']) + " + " + var(p1, rel['from_pos_id']) + " <= 1")
                 
 
-def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participation = dict(), castell_type_id = 1, colla_id = 1): # CVG and p4 
+def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, castell_type_id, colla_id):
     """
     Create the linear inequalities that define the integer program to be solved.
     Fill the dictionaries castellers_in_position, position_data and obj_val.
@@ -154,7 +155,7 @@ def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participatio
         castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
 
     pos_of_casteller = dict() # The transposed array of castellers_in_position
-    make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, participation, obj_val, ineqs, pos_of_casteller)
+    make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, obj_val, ineqs, pos_of_casteller)
 
     relations = get_relations(db, castell_type_id)
     make_relation_ineqs(relations, castellers_in_position, ineqs)

@@ -13,13 +13,14 @@ class IPTest(unittest.TestCase):
         position_data = dict()
         obj_val = dict()
         ineqs = []
-        ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed)
+        ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, 1000, 2)
         self.assertEqual(make_lp_file(obj_val, ineqs), f.read())
 
     def test_find_pinya(self):
         f = open('test.find_pinya', 'r')
         prescribed = dict([(9, 0), (17, 5)])
-        self.assertEqual(str(find_pinya(prescribed)) + "\n", f.read())
+        position_data = dict()
+        self.assertEqual(str(find_pinya(prescribed, position_data, 1000, 2)) + "\n", f.read())
         
 
 unittest.main() # Calling from the command line invokes all tests

@@ -12,12 +12,12 @@ def make_lp_file(obj_val, ineqs):
     f = f + "\nend"
     return f
 
-def write_lp_file(castellers_in_position, position_data, prescribed, filename):
+def write_lp_file(castellers_in_position, position_data, prescribed, castell_type_id, colla_id, filename):
     from ineqs import ip_ineqs
     f = open(filename, 'w')
     obj_val = dict()          # The objective coefficient of each variable
     ineqs = []                # the linear inequalities
-    ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed)
+    ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, castell_type_id, colla_id)
     f.write(make_lp_file(obj_val, ineqs))
     f.close()
 
@@ -60,10 +60,10 @@ def solve_lp_with_cbc(filename, castellers_in_position):
     return sol
 
 
-def find_pinya(prescribed, position_data=dict(), filename='pinya.lp'):
+def find_pinya(prescribed, position_data, castell_type_id, colla_id, filename='pinya.lp'):
     import local_config
     castellers_in_position = dict()
-    write_lp_file(castellers_in_position, position_data, prescribed, filename)
+    write_lp_file(castellers_in_position, position_data, prescribed, castell_type_id, colla_id, filename)
     if local_config.UseCBC:
         return solve_lp_with_cbc(filename, castellers_in_position)
     else:
