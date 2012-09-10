@@ -5,18 +5,21 @@
 \usepackage{graphicx}
 \begin{document}
 
-\title{Pinyol\\\ \\ una herramienta para\\ montar pinyes de castells}
+\title{El pinyer gra\,cienc\\\ \\ 
+  una herramienta para\\ montar pinyes de castells\\\ \\
+  desarrollado en el barrio de Gr\`acia, Barcelona
+}
 \author{Julian Pfeifle}
 
-\includegraphics[width=3cm]{../img/cvg} \hfill
-\includegraphics[width=3cm]{../img/math-inside}
+\includegraphics[width=3cm]{../www/img/cvg} \hfill
+\includegraphics[width=3cm]{../www/img/math-inside}
 
 \bigskip
 \maketitle
 
 \section{Introducción}
 
-Cuando esté acabada, \textsf{\bfseries Pinyol} será una aplicación web
+Cuando esté acabada, \textsf{\bfseries Pinyer} será una aplicación web
 diseñada para ayudar a montar pinyes de castells. Está pensada para
 ser utilizada por varias collas. Internamente, el código se formula en
 inglés, y dispondrá de varios ficheros de traducción para que el
@@ -81,12 +84,12 @@ A continuación describiremos los elementos del software con un poco más de detal
 \subsection{Base de datos}
 
 Los datos de los castilleros residen en una base de datos MySQL con el
-esquema de la Figura~\ref{fig:pinyol-db}.
+esquema de la Figura~\ref{fig:pinyer-db}.
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\linewidth]{../sql/pinyol-db}
+  \includegraphics[width=\linewidth]{../sql/pinyer-db}
   \caption{Las diferentes tablas y las relaciones entre sus campos clave}
-  \label{fig:pinyol-db}
+  \label{fig:pinyer-db}
 \end{figure}
 
 Las entradas en estas tablas se gestionan via requests web. Ello

@@ -1,7 +1,7 @@
 from MySQLdb import connect
 
 def get_db():
-    return connect(user="pinyol", passwd="", db="pinyol")
+    return connect(user="pinyer", passwd="", db="pinyer")
 
 
 def get_positions(db, castell_type_id):

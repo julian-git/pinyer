@@ -1,2 +1,2 @@
-pinyol.pdf: pinyol.tex ../sql/pinyol-db.png 
-	pdflatex pinyol
+pinyer.pdf: pinyer.tex ../sql/pinyer-db.png 
+	pdflatex pinyer

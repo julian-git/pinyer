@@ -1,12 +1,12 @@
 Install the following packages on Ubuntu 12.04 / Linux Mint 13:
 sudo apt-get install libmysqlclient-dev python-dev python-setuptools python-mysqldb coinor-libcbc0
 
-Create MySQL database pinyol, and a user pinyol with some password and all privileges
+Create MySQL database pinyer, and a user pinyer with some password and all privileges
 
 Enable apache2 to run python scripts. For this, make a symbolic link 
-sudo ln -s /path/to/your/local/dir /var/www/pinyol
+sudo ln -s /path/to/your/local/dir /var/www/pinyer
 and add the following lines
-        <Directory /var/www/pinyol>
+        <Directory /var/www/pinyer>
                 Options +ExecCGI
                 AddHandler cgi-script .py
         </Directory>
@@ -14,7 +14,7 @@ to /etc/apache2/sites-available/default , and run
 sudo /etc/init.d/apache2 restart
 
 This project uses Nicola Hibbert's liteAccordion code, which is included as a git submodule.
-Thus, after cloning the git repository for pinyol, you must issue the following commands:
+Thus, after cloning the git repository for pinyer, you must issue the following commands:
 git submodule init
 git submodule update
 See http://git-scm.com/book/en/Git-Tools-Submodules for more information.

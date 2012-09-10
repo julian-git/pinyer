@@ -1,9 +1,9 @@
-all: pinyol-db.png database-definition.up-to-date
+all: pinyer-db.png database-definition.up-to-date
 
-pinyol-db.png: pinyol.sql
-	sqlt-diagram -d=MySQL pinyol.sql -o pinyol-db.png --color
+pinyer-db.png: pinyer.sql
+	sqlt-diagram -d=MySQL pinyer.sql -o pinyer-db.png --color
 
-database-definition.up-to-date: pinyol.sql pinyol_dummy_entries.sql
-	mysql -u pinyol -e "drop database pinyol; create database pinyol; use pinyol; source pinyol.sql; source pinyol_dummy_entries.sql;" 
+database-definition.up-to-date: pinyer.sql pinyer_dummy_entries.sql
+	mysql -u pinyer -e "drop database pinyer; create database pinyer; use pinyer; source pinyer.sql; source pinyer_dummy_entries.sql;" 
 	touch database-definition.up-to-date
 
