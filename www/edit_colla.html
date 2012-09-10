@@ -13,12 +13,13 @@
   </style>
   <script>
     $(function() {
-    console.log("here");
     $.ajax({
-    url: "http://localhost/pinyer/info.py?what=get_colla&colla_id=1&char=total_height",
+    url: "http://localhost/pinyer/info.py?what=get_colla&colla_id=2&char=total_height",
     dataType: 'json',
     success: function(res) {
-    console.log(res);
+    for (r in res) {
+    console.log(r.total_height);
+    }
     },
     error: function(XMLHttpRequest, textStatus, errorThrown){
     console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest.responseText);
