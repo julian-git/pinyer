@@ -75,7 +75,7 @@ def get_nicknames_and_char(db, colla_id, char):
 select casteller.id, nickname, ${_char}
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
-where casteller_colla.colla_id = %s
+where casteller_colla.colla_id = %s order by ${_char}
 """)
     c.execute(tpl.substitute(_char=char), (colla_id,))
     res = c.fetchall()

@@ -16,33 +16,38 @@
     $.ajax({
     url: "http://localhost/pinyer/info.py?what=get_colla&colla_id=2&char=total_height",
     dataType: 'json',
-    success: function(res) {
-    for (r in res) {
-    console.log(r.total_height);
-    }
+
+    success: function(data) {
+      var items = [];
+      $.each(data, function(key, casteller) {
+        items.push('<li id="' + casteller.id + 
+		   '" class="ui-state-default">' +
+		   '<div style="height:' + casteller.total_height +
+	           'px">' + casteller.nickname + '</li>');
+      });    
+      $('<ul/>', {
+         'id'   : 'sortable1',
+         'class': 'connectedSortable',
+         'html' : items.join('')
+      }).appendTo("#sortable1-wrap");
+    
+      $( "#sortable1, #sortable2" ).sortable({
+        connectWith: ".connectedSortable"
+      });
     },
+
     error: function(XMLHttpRequest, textStatus, errorThrown){
     console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest.responseText);
     }
     });
 
-    $( "#sortable1, #sortable2" ).sortable({
-    connectWith: ".connectedSortable"
-    });
     });
   </script>
 </head>
 <body>
   
-  <div class="demo" style="height: 10em;">
+  <div id="sortable1-wrap" class="demo" style="height: 230px;">
     
-    <ul id="sortable1" class="connectedSortable">
-      <li class="ui-state-default">Item 1</li>
-      <li class="ui-state-default">Item 2</li>
-      <li class="ui-state-default">Item 3</li>
-      <li class="ui-state-default">Item 4</li>
-      <li class="ui-state-default">Item 5</li>
-    </ul>
   </div>
   <br/><br/>
   <div>
