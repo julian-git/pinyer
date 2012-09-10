@@ -9,12 +9,12 @@
   <style>
     #sortable1, #sortable2 { list-style-type: none; margin: 0;
     padding: 0 0 2.5em; margin-right: 10px;  }
-    #sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 20px; float: left;}
+    #sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 2px; float: left;}
   </style>
   <script>
     $(function() {
     $.ajax({
-    url: "http://localhost/pinyer/info.py?what=get_colla&colla_id=2&char=total_height",
+    url: "http://localhost/pinyer/info.py?what=get_colla&colla_id=1&char=stretched_height",
     dataType: 'json',
 
     success: function(data) {
@@ -22,7 +22,7 @@
       $.each(data, function(key, casteller) {
         items.push('<li id="' + casteller.id + 
 		   '" class="ui-state-default">' +
-		   '<div style="height:' + casteller.total_height +
+		   '<div style="height:' + casteller.c +
 	           'px">' + casteller.nickname + '</li>');
       });    
       $('<ul/>', {

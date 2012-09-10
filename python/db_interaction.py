@@ -72,16 +72,16 @@ def get_nicknames_and_char(db, colla_id, char):
     """
     c = db.cursor()
     tpl = Template("""
-select casteller.id, nickname, ${_char}
+select casteller.id, nickname, ${_char} as c
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
-where casteller_colla.colla_id = %s order by ${_char}
+where casteller_colla.colla_id = %s order by c
 """)
     c.execute(tpl.substitute(_char=char), (colla_id,))
     res = c.fetchall()
     ans = []
     for row in res:
-        ans.append(dict([('id', int(row[0])), ('nickname', row[1]), (char, row[2])]))
+        ans.append(dict([('id', int(row[0])), ('nickname', row[1]), ('c', row[2])]))
     return ans
 
 
