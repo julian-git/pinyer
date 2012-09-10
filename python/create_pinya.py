@@ -1,7 +1,7 @@
 from math import cos, sin, pi
 from html_common import svg_rect
 
-def ring(period, n_in_slice, r, dim):
+def ring(period, n_in_slice, r, dim, init_svg_id):
     """
     create the svg elements in the outer rings.
     period = k if the ring has 2pi/k symmetry
@@ -10,8 +10,8 @@ def ring(period, n_in_slice, r, dim):
     dim: The dimensions of the box to place, of the form {w:20 h:30}
     """
     svg = ''
-    svg_id = 0
     dyn_props = ''
+    svg_id = init_svg_id
     for j in range(2*period):
         for s in range(n_in_slice+1):
             a = 2 * pi * ( j  + (s)/float(n_in_slice + 1) ) / float(2*period)
@@ -26,8 +26,18 @@ def ring(period, n_in_slice, r, dim):
             svg = svg + svg_rect.substitute(_x=round(r*cos(a), 2), _y=round(r*sin(a), 2), \
                                                 _w=dim['w'], _h=dim['h'], \
                                                 _svg_id=svg_id, _class=c, _name=svg_id, _dyn_props=dyn_props)
+    return [svg, svg_id]
+
+
+def make_rings(period, start_n_in_slice, end_n_in_slice, start_radius, radius_offset, dim):
+    svg = ''
+    svg_id = 0
+    r = start_radius
+    for s in range(start_n_in_slice, end_n_in_slice+1):
+        [_svg, svg_id] = ring(period, s, r, dim, svg_id) 
+        svg = svg + _svg
+        r += radius_offset
     return svg
 
-
 if __name__ == "__main__":
-    print ring(2, 3, 100, dict([('w',20),('h',40)]))
+    print make_rings(2, 3, 5, 100, 10, dict([('w',20),('h',40)]))
