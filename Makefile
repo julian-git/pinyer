@@ -1,4 +1,4 @@
-all: sql/all doc/all tests/all
+all: sql/all doc/all # tests/all
 
 sql/all:
 	$(MAKE) -C sql
