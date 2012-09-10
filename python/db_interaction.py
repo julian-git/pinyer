@@ -34,7 +34,7 @@ def get_castellers(db, colla_id, pos_id):
     """
     c = db.cursor()
     c.execute("""
-select casteller.id, name, total_height, shoulder_height, hip_height, stretched_height, weight, strength 
+select casteller.id, nickname, total_height, shoulder_height, hip_height, stretched_height, weight, strength 
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role_id = castell_position.role_id 
@@ -44,7 +44,7 @@ where is_present=true and castell_position.id = %s and casteller_colla.colla_id 
     res = c.fetchall()
     ans = []
     for row in res:
-        ans.append(dict([('id', int(row[0])), ('name', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7])]))
+        ans.append(dict([('id', int(row[0])), ('nickname', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7])]))
     return ans
 
 
@@ -54,7 +54,7 @@ def get_colla(db, colla_id):
     """
     c = db.cursor()
     c.execute("""
-select casteller.id, name, total_height, shoulder_height, hip_height, stretched_height, weight, strength, is_present 
+select casteller.id, nickname, total_height, shoulder_height, hip_height, stretched_height, weight, strength, is_present 
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
 where casteller_colla.colla_id = %s
@@ -62,7 +62,7 @@ where casteller_colla.colla_id = %s
     res = c.fetchall()
     ans = []
     for row in res:
-        ans.append(dict([('id', int(row[0])), ('name', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7]), ('is_present', row[8])]))
+        ans.append(dict([('id', int(row[0])), ('nickname', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7]), ('is_present', row[8])]))
     return ans
 
 

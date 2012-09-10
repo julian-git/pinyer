@@ -30,8 +30,9 @@ create table role (
  */
 create table casteller (
   id   	     	    int	not null auto_increment,
-  name 	     	    varchar(20) not null,
-  full_name  	    varchar(100) default '',
+  nickname     	    varchar(20) not null,
+  first_name  	    varchar(100) default '',
+  last_name  	    varchar(100) default '',
   picture_path 	    varchar(150) default '',
   total_height      float(10,2) default 170,
   shoulder_height   float(10,2) default 150,
@@ -43,6 +44,7 @@ create table casteller (
   weight            float(10,2) default 60,
   strength 	    float(10,2) default 5,
   is_present 	    bool default true,
+  last_revision     timestamp default current_timestamp,
   primary key (id),
   key(is_present)
 ) engine=InnoDB default character set utf8;
