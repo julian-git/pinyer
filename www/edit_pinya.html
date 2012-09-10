@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pinyer - Edit pinya</title>
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <style>
+  </style>
+  <script>
+    $(function() {
+    $.ajax({
+    url: "http://localhost/pinyer/info.py?what=get_pinys&pinya_id=1",
+    dataType: 'json',
+
+    success: function(data) {
+      var items = [];
+      $.each(data, function(key, pos) {
+        items.push('<li id="' + casteller.id + 
+		   '" class="ui-state-default">' +
+		   '<div style="height:' + casteller.c +
+	           'px">' + casteller.nickname + '</li>');
+      });    
+      $('<ul/>', {
+         'id'   : 'sortable1',
+         'class': 'connectedSortable',
+         'html' : items.join('')
+      }).appendTo("#sortable1-wrap");
+    
+      $( "#sortable1, #sortable2" ).sortable({
+        connectWith: ".connectedSortable"
+      });
+    },
+
+    error: function(XMLHttpRequest, textStatus, errorThrown){
+    console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest.responseText);
+    }
+    });
+
+    });
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -13,6 +13,7 @@ solution.txt
 tests/index.html
 tests/test.py
 www/js/jquery-ui-1.8.23/*
+www/js/css/ui-lightness/images/
 www/test.html
 cvg/*
 sql/init-cvg.sql
