@@ -40,4 +40,4 @@ def make_rings(period, start_n_in_slice, end_n_in_slice, start_radius, radius_of
     return svg
 
 if __name__ == "__main__":
-    print make_rings(2, 3, 5, 100, 10, dict([('w',20),('h',40)]))
+    print make_rings(2, 1, 1, 100, 50, dict([('w',20),('h',40)]))
