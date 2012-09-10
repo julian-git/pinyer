@@ -148,6 +148,7 @@ def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, participatio
     db = get_db()
     is_essential_pos = dict()
     position_data = get_positions(db, castell_type_id)
+    print position_data
     for pos_id, pos in position_data.iteritems():
         is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)

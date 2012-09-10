@@ -26,7 +26,7 @@ def sol_from_v(sol, vname, castellers_in_position):
      pos_id = long(vname[vname.find('p')+1:])
      for casteller in castellers_in_position[pos_id]:
          if casteller['id'] == int(cast_id):
-             sol[int(pos_id)] = [casteller['id'], casteller['name']]
+             sol[int(pos_id)] = [casteller['id'], casteller['nickname']]
 
 
 def solve_lp_with_gurobi(filename, castellers_in_position):
