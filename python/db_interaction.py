@@ -1,4 +1,5 @@
 from MySQLdb import connect
+from string import Template
 
 def get_db():
     return connect(user="pinyer", passwd="", db="pinyer")
@@ -63,6 +64,24 @@ where casteller_colla.colla_id = %s
     ans = []
     for row in res:
         ans.append(dict([('id', int(row[0])), ('nickname', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7]), ('is_present', row[8])]))
+    return ans
+
+def get_nicknames_and_char(db, colla_id, char):
+    """
+    returns the nicknames of all castellers of the given colla 
+    """
+    c = db.cursor()
+    tpl = Template("""
+select casteller.id, nickname, ${_char}
+from casteller
+left join casteller_colla on casteller_colla.casteller_id=casteller.id
+where casteller_colla.colla_id = %s
+""")
+    c.execute(tpl.substitute(_char=char), (colla_id,))
+    res = c.fetchall()
+    ans = []
+    for row in res:
+        ans.append(dict([('id', int(row[0])), ('nickname', row[1]), (char, row[2])]))
     return ans
 
 

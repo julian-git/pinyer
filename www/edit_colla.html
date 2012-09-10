@@ -15,7 +15,7 @@
     $(function() {
     console.log("here");
     $.ajax({
-    url: "http://localhost/pinyer/info.py?what=get_colla&colla_id=1",
+    url: "http://localhost/pinyer/info.py?what=get_colla&colla_id=1,char=total_height",
     dataType: 'json',
     success: function(res) {
     console.log(res);
