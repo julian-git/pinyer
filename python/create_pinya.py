@@ -23,7 +23,7 @@ def ring(period, n_in_slice, r, dim, init_svg_id):
                     c = 'vent'
             else:
                 c = 'quesito'
-            svg = svg + '<div id="c' + str(svg_id) + '">' + svg_head + \
+            svg = svg + '<div id="c' + str(svg_id) + '" class="cast">' + svg_head + \
                 svg_rect.substitute(_x=round(r*cos(a), 2), _y=round(r*sin(a), 2), \
                                         _w=dim['w'], _h=dim['h'], \
                                         _svg_id=svg_id, _class=c, _name=svg_id, \
