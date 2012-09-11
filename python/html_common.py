@@ -14,14 +14,15 @@ body = Template("""<body>
 <h2>${_desc}</h2>
 """)
 
-svg_head = """
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
-"""
+svg_head = Template("""
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+ viewBox="${_vx} ${_vy} ${_vw} ${_vh}"> 
+""")
 
 svg_rect = Template("""
-<g transform="translate(${_x} ${_y})">
-  <rect id="${_svg_id}_cont" class="${_class}" ${_dyn_props} width="${_w}" height="${_h}" x="-60" y="-20"/>
-  <text id="${_svg_id}_text" class="${_class}" ${_dyn_props} text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
+<g id="${_svg_id}" index="${_index_props}" transform="translate(${_x} ${_y}) rotate(${_alpha})">
+  <rect id="${_svg_id}_cont" class="${_class}"  width="${_rw}" height="${_rh}" x="${_rx}" y="${_ry}"/>
+  <text id="${_svg_id}_text" class="${_class}" text-anchor="middle" dominant-baseline="mathematical">${_name}</text>
 </g>
 """)
 

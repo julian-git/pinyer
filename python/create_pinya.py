@@ -23,24 +23,25 @@ def ring(period, n_in_slice, r, dim, init_svg_id):
                     c = 'vent'
             else:
                 c = 'quesito'
-            svg = svg + '<div id="c' + str(svg_id) + '" class="cast">' + svg_head + \
-                svg_rect.substitute(_x=round(r*cos(a), 2), _y=round(r*sin(a), 2), \
-                                        _w=dim['w'], _h=dim['h'], \
-                                        _svg_id=svg_id, _class=c, _name=svg_id, \
-                                        _dyn_props=dyn_props) + \
-                                        '</svg></div>\n'
+            svg = svg + svg_rect.substitute(_x=round(r*cos(a), 2), _y=round(r*sin(a), 2), \
+                                                _rx=-0.5*dim['w'], _ry=-0.5*dim['h'],
+                                                _rw=dim['w'], _rh=dim['h'], \
+                                                _alpha=a*180/pi, \
+                                                _svg_id=svg_id, _class=c, _name=svg_id, \
+                                                _index_props=[j,s])
     return [svg, svg_id]
 
 
 def make_rings(period, start_n_in_slice, end_n_in_slice, start_radius, radius_offset, dim):
-    svg = ''
+    r = start_radius + (end_n_in_slice - start_n_in_slice) * radius_offset
+    svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80)
     svg_id = 0
     r = start_radius
     for s in range(start_n_in_slice, end_n_in_slice+1):
         [_svg, svg_id] = ring(period, s, r, dim, svg_id) 
         svg = svg + _svg
         r += radius_offset
-    return svg
+    return svg + '</svg>'
 
 def tresde8f():
     return make_rings(3, 1, 3, 100, 50, dict([('w',20),('h',40)])) 
