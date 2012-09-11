@@ -23,7 +23,7 @@ svg_rect = Template("""
 <g id="${_svg_id}" index="${_index_props}" transform="translate(${_x} ${_y}) rotate(${_alpha})">
   <rect id="${_svg_id}_cont" class="${_class}"  width="${_rw}" height="${_rh}" x="${_rx}" y="${_ry}"/>
   <g transform="rotate(90) translate(0 6)">
-  <text id="${_svg_id}_text" class="${_class} vtext" text-anchor="middle">${_name}</text>
+  <text id="${_svg_id}_text" class="${_class} vtext" text-anchor="middle">${_index_props}</text>
   </g>
 </g>
 """)
