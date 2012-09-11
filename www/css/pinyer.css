@@ -27,11 +27,18 @@ circle.design {
 rect   {
     fill: lightblue;
 }
-rect.prescribed {
+rect.ma {
+    fill: seagreen;
+}
+rect.vent {
     fill: lightgreen;
 }
-rect.design {
-    stroke: green;
+
+.vtext {
+-webkit-transform:rotate(-90deg);
+-moz-transform:rotate(-90deg);
+-o-transform: rotate(-90deg);
+display:block;
 }
 
 text:hover {
