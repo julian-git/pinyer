@@ -8,10 +8,17 @@ def ring(period, n_in_slice, r, dim, init_svg_id):
     n_in_slice: how many people between each of the rays at 2pi j / k
     r: the radius of the ring
     dim: The dimensions of the box to place, of the form {w:20 h:30}
+    init_svg_id: The first free id for an svg element
+
+    returns:
+    svg: the string with the svg representation
+    svg_id: the next free id number
+    id_at: The dictionary telling the id of an element at the position (j, s)
     """
     svg = ''
     dyn_props = ''
     svg_id = init_svg_id
+    id_at = dict()
     for j in range(2*period):
         for s in range(n_in_slice+1):
             a = 2 * pi * ( j  + (s)/float(n_in_slice + 1) ) / float(2*period)
@@ -24,12 +31,13 @@ def ring(period, n_in_slice, r, dim, init_svg_id):
             else:
                 c = 'quesito'
             svg = svg + svg_rect.substitute(_x=round(r*cos(a), 2), _y=round(r*sin(a), 2), \
-                                                _rx=-0.5*dim['w'], _ry=-0.5*dim['h'],
+                                                _rx=-0.5*dim['w'], _ry=-0.5*dim['h'], \
                                                 _rw=dim['w'], _rh=dim['h'], \
                                                 _alpha=a*180/pi, \
                                                 _svg_id=svg_id, _class=c, _name=svg_id, \
                                                 _index_props=[j,s])
-    return [svg, svg_id]
+            id_at[j,s] = svg_id
+    return [svg, svg_id, id_at]
 
 
 def make_rings(period, start_n_in_slice, end_n_in_slice, start_radius, radius_offset, dim):
@@ -37,15 +45,18 @@ def make_rings(period, start_n_in_slice, end_n_in_slice, start_radius, radius_of
     svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80)
     svg_id = 0
     r = start_radius
+    id_at = dict()
     for s in range(start_n_in_slice, end_n_in_slice+1):
-        [_svg, svg_id] = ring(period, s, r, dim, svg_id) 
+        [_svg, svg_id, _id_at] = ring(period, s, r, dim, svg_id) 
         svg = svg + _svg
+        id_at = _id_at
         r += radius_offset
+    print id_at
     return svg + '</svg>'
 
 def tresde8f():
-    return make_rings(3, 1, 3, 100, 50, dict([('w',20),('h',40)])) 
+    return make_rings(3, 1, 3, 100, 35, dict([('w',20),('h',40)])) 
 
 
 if __name__ == "__main__":
-    print make_rings(2, 1, 1, 100, 50, dict([('w',20),('h',40)]))
+    print make_rings(2, 1, 1, 100, 35, dict([('w',20),('h',40)]))
