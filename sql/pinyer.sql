@@ -18,9 +18,8 @@ create table colla (
  *  The different roles in a castell: crosses, mans, vents, ...
  */
 create table role (
-  id   	     int	not null auto_increment,
-  name 	     varchar(100) not null,
-  primary key (id)
+  name 	     varchar(20) not null,
+  primary key (name)
 ) engine=InnoDB default character set utf8;
 
 
@@ -74,15 +73,14 @@ create table casteller_colla (
   foreign key (colla_id) references colla(id)
 ) engine=InnoDB default character set utf8;
 
-
 /**
- *  The roles that a certain casteller can fulfill in a castell
- */
-create table casteller_role (
-  casteller_id  int  not null,
-  role_id   int  not null,
-  foreign key (casteller_id) references casteller(id),
-  foreign key (role_id) references role(id)
+  *  The roles that a certain casteller can fulfill in a castell
+  */
+ create table casteller_role (
+   casteller_id  int  not null,
+   role   varchar(20)  not null,
+   foreign key (casteller_id) references casteller(id),
+   foreign key (role) references role(name)
 ) engine=InnoDB default character set utf8;
 
 
@@ -105,8 +103,8 @@ create table castell_type (
 create table castell_position (
   id   	     int	not null auto_increment,     
   castell_type_id int 	not null,
-  role_id     int 	not null,
-  is_essential bool     not null default true,
+  role       varchar(20) not null,
+  is_essential bool      not null default true,
   svg_id     varchar(20) not null,
   svg_text   varchar(20) not null,
   svg_elem   varchar(20) not null default 'rect',
@@ -119,7 +117,7 @@ create table castell_position (
   angle      float(10,2) default null,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
-  foreign key (role_id) references role (id)
+  foreign key (role) references role (name)
 ) engine=InnoDB default character set utf8;
 
 
@@ -198,12 +196,12 @@ create table executed_castell_position (
   id   	       int  not null auto_increment,
   executed_castell_id int not null,
   casteller_id    int  not null,
-  role_id      int  not null,
+  role      varchar(20)  not null,
   position_id  int  not null,
   current_strength     int default 5,
   primary key (id),
   foreign key (executed_castell_id) references executed_castell(id),
   foreign key (casteller_id) references casteller(id),
-  foreign key (role_id) references role (id),
+  foreign key (role) references role (name),
   foreign key (position_id) references castell_position (id)
 ) engine=InnoDB default character set utf8;

@@ -44,8 +44,8 @@ if what=='get_colla':
 
 if what=='get_pinya':
     pinya_id = form["pinya_id"].value
-    pinya = tresde8f()
-    print pinya
+    [pinya_svg, relations] = tresde8f()
+    print pinya_svg
 
 else:
     print "Unexpected argument: ", what
