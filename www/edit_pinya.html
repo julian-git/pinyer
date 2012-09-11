@@ -11,26 +11,16 @@
   <script>
     $(function() {
     $.ajax({
-    url: "http://localhost/pinyer/info.py?what=get_pinys&pinya_id=1",
-    dataType: 'json',
+    url: "http://localhost/pinyer/info.py?what=get_pinya&pinya_id=1",
+    dataType: 'text',
 
     success: function(data) {
-      var items = [];
-      $.each(data, function(key, pos) {
-        items.push('<li id="' + casteller.id + 
-		   '" class="ui-state-default">' +
-		   '<div style="height:' + casteller.c +
-	           'px">' + casteller.nickname + '</li>');
-      });    
-      $('<ul/>', {
-         'id'   : 'sortable1',
-         'class': 'connectedSortable',
-         'html' : items.join('')
-      }).appendTo("#sortable1-wrap");
-    
-      $( "#sortable1, #sortable2" ).sortable({
-        connectWith: ".connectedSortable"
-      });
+      console.log(data)
+      $('<p/>', {
+         'id'   : 'pinya',
+         'html' : data
+      }).appendTo('body');
+
     },
 
     error: function(XMLHttpRequest, textStatus, errorThrown){

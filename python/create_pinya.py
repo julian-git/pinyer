@@ -1,5 +1,5 @@
 from math import cos, sin, pi
-from html_common import svg_rect
+from html_common import svg_rect, svg_head
 
 def ring(period, n_in_slice, r, dim, init_svg_id):
     """
@@ -23,9 +23,12 @@ def ring(period, n_in_slice, r, dim, init_svg_id):
                     c = 'vent'
             else:
                 c = 'quesito'
-            svg = svg + svg_rect.substitute(_x=round(r*cos(a), 2), _y=round(r*sin(a), 2), \
-                                                _w=dim['w'], _h=dim['h'], \
-                                                _svg_id=svg_id, _class=c, _name=svg_id, _dyn_props=dyn_props)
+            svg = svg + '<div id="c' + str(svg_id) + '">' + svg_head + \
+                svg_rect.substitute(_x=round(r*cos(a), 2), _y=round(r*sin(a), 2), \
+                                        _w=dim['w'], _h=dim['h'], \
+                                        _svg_id=svg_id, _class=c, _name=svg_id, \
+                                        _dyn_props=dyn_props) + \
+                                        '</svg></div>\n'
     return [svg, svg_id]
 
 
@@ -38,6 +41,10 @@ def make_rings(period, start_n_in_slice, end_n_in_slice, start_radius, radius_of
         svg = svg + _svg
         r += radius_offset
     return svg
+
+def tresde8f():
+    return make_rings(3, 1, 3, 100, 50, dict([('w',20),('h',40)])) 
+
 
 if __name__ == "__main__":
     print make_rings(2, 1, 1, 100, 50, dict([('w',20),('h',40)]))
