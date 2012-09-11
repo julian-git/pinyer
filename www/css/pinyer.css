@@ -30,9 +30,23 @@ rect   {
 rect.ma {
     fill: seagreen;
 }
-rect.vent {
+rect.vt {
     fill: lightgreen;
 }
+
+path {
+    stroke-width: 2;
+}
+path.ma {
+    stroke: seagreen
+}
+path.vt {
+    stroke: lightgreen
+}
+path.q {
+    stroke: lightblue
+}
+
 
 .vtext {
 -webkit-transform:rotate(-90deg);
