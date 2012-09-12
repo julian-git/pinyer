@@ -43,8 +43,9 @@ path.ma {
 path.vt {
     stroke: lightgreen
 }
-path.q {
-    stroke: lightblue
+path.p {
+    stroke: lightblue;
+    fill: none;
 }
 
 

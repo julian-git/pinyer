@@ -170,4 +170,5 @@ def save_tresde8f_relations():
     db.commit()
     
 if __name__ == "__main__":
-     save_tresde8f_relations()
+#     save_tresde8f_relations()
+    print tresde8f()
