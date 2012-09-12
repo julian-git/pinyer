@@ -42,10 +42,10 @@ if what=='get_colla':
     colla = db_interaction.get_nicknames_and_char(db, colla_id, char)
     print json.dumps(colla, separators=(',', ':'), ensure_ascii=False)
 
-if what=='get_pinya':
+elif what=='get_pinya':
     pinya_id = form["pinya_id"].value
-    [pinya_svg, relations] = tresde8f()
-    print pinya_svg
+    [svg, position_at, relations] = tresde8f()
+    print svg
 
 else:
     print "Unexpected argument: ", what

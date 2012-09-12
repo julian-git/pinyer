@@ -1,7 +1,13 @@
 Install the following packages on Ubuntu 12.04 / Linux Mint 13:
 sudo apt-get install libmysqlclient-dev python-dev python-setuptools python-mysqldb coinor-libcbc0
 
-Create MySQL database pinyer, and a user pinyer with some password and all privileges
+Create MySQL database pinyer, and a user pinyer with some password and all privileges by issuing the following commands:
+mysql -u root -p
+[** identify yourself with the root password you gave when insatlling mysql **]
+mysql> create database pinyer;
+mysql> create user pinyer@localhost identified by 'your_password_here';
+mysql> grant all on pinyer.* to pinyer@localhost;
+
 
 Enable apache2 to run python scripts. For this, make a symbolic link 
 sudo ln -s /path/to/your/local/dir /var/www/pinyer
