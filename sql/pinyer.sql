@@ -123,6 +123,7 @@ create table castell_position (
 
 /**
  *  The data for establishing relations between two positions in a given castell
+ *  pos_list is of the form "23_45_24" 
  */
 create table castell_relation (
   id   	       int  not null auto_increment,
@@ -131,6 +132,7 @@ create table castell_relation (
   field_name    varchar(20) not null,
   from_pos_id int default null,
   to_pos_id   int default null,
+  pos_list    varchar(100) default null, 
   fparam1 	float(10,4) default 0,
   fparam2 	float(10,4) default 0,
   iparam1 	int default 0,
@@ -139,21 +141,6 @@ create table castell_relation (
   foreign key (castell_type_id) references castell_type (id),
   foreign key (from_pos_id) references castell_position (id),
   foreign key (to_pos_id) references castell_position (id)
-) engine=InnoDB default character set utf8;
-
-
-/**
- *  Data for establishing relations between more than two positions in a given castell
- */
-create table castell_extended_relation (
-  id   	       int  not null auto_increment,
-  castell_type_id int 	not null,
-  relation_id   int not null,
-  relation_type int not null,
-  pos_id 	int not null,
-  primary key (id),
-  foreign key (castell_type_id) references castell_type(id),
-  foreign key (pos_id) references castell_position(id)
 ) engine=InnoDB default character set utf8;
 
 

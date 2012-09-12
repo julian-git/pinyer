@@ -68,15 +68,16 @@ def make_rings(rd):
     svg += '</g>'
     return [svg, position_at, coo_of]
 
-def make_ring_relations(rd, position_at, tolerance):
+def make_ring_relations(rd, position_at, tolerances):
     relations = []
     # the default values for all relations created in this function
     rel0 = dict([('from_pos_id', -1), \
-                    ('to_pos_id', -1), \
-                    ('relation_type', 1), \
-                    ('field_name', 'shoulder_height'), \
-                    ('fparam1', tolerance), \
-                    ('pos_type', 'x')])
+                     ('to_pos_id', -1), \
+                     ('relation_type', 1), \
+                     ('field_name', 'shoulder_height'), \
+                     ('pos_list', ''), \
+                     ('fparam1', tolerances['height']), \
+                     ('pos_type', '--')])
 
     # first, the relations between rengles de mans and rengles de vents
     for j in range(2*rd['period']):
@@ -92,28 +93,57 @@ def make_ring_relations(rd, position_at, tolerance):
             relations.append(rel)
 
     # next, the relations in the quesitos
+    # of these, first the shoulder_height relations between different rings
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             for m in range(1, i+1):
                 rel = rel0.copy()
                 rel['from_pos_id'] = position_at[i,j,m]['svg_id']
                 rel['to_pos_id'] = position_at[i+1,j,m]['svg_id']
-                rel['pos_type'] = 'q'
+                rel['pos_type'] = 'p'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
                 rel1['to_pos_id'] = position_at[i+1,j,m+1]['svg_id']
                 relations.append(rel1) # quesito
+
+    # next, the relations for the shoulder_width
+    rel0['relation_type'] = 3
+    rel0['field_name'] = 'shoulder_width'
+    rel0['fparam1'] = tolerances['width']
+    rel0['pos_type'] = 'p'
+    for j in range(2*rd['period']):
+        for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
+            rel = rel0.copy()
+            rel['pos_list'] = str(position_at[i,j,1]['svg_id'])
+            for m in range(2, i+1):
+                rel['pos_list'] += '_' + str(position_at[i,j,m]['svg_id'])
+            relations.append(rel)
+
     return relations
 
 def make_relations_svg(relations, coo_of):
     relations_svg = '<g id="rels">'
     for rel in relations:
-        relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
-            str(coo_of[rel['from_pos_id']][0]) + ',' + \
-            str(coo_of[rel['from_pos_id']][1]) + 'L' + \
-            str(coo_of[rel['to_pos_id']][0]) + ',' + \
-            str(coo_of[rel['to_pos_id']][1]) + '"/>'
+        if rel['relation_type'] == 1:
+            relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
+                str(coo_of[rel['from_pos_id']][0]) + ',' + \
+                str(coo_of[rel['from_pos_id']][1]) + 'L' + \
+                str(coo_of[rel['to_pos_id']][0]) + ',' + \
+                str(coo_of[rel['to_pos_id']][1]) + '"/>'
+        elif rel['relation_type'] == 3:
+            pos_list = rel['pos_list'].split('_')
+            relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
+                str(coo_of[int(pos_list[0])][0]) + ',' + \
+                str(coo_of[int(pos_list[0])][1])
+            for pos in pos_list[1:]:
+                relations_svg += 'L' + \
+                    str(coo_of[int(pos)][0]) + ',' + \
+                    str(coo_of[int(pos)][1])
+            relations_svg += '"/>'
+                
+        else:
+            raise RuntimeError('drawing of relation not implemented')
     return relations_svg + '</g>'
 
 def tresde8f():
@@ -121,8 +151,10 @@ def tresde8f():
                       ('start_radius', 100), ('radius_offset', 35), \
                       ('rect_dim', dict([('w',20),('h',40)]))])
     [svg, position_at, coo_of] = make_rings(ring_data) 
-    tolerance = 5 # the tolerance in height between successive mans and vents
-    relations = make_ring_relations(ring_data, position_at, tolerance)
+    # the tolerance in height between successive mans, vents, and pinya,
+    # and in width between adjacent pinya in the same ring
+    tolerances = dict([('height', 5), ('width', 6)])
+    relations = make_ring_relations(ring_data, position_at, tolerances)
     svg += make_relations_svg(relations, coo_of) + '</svg>'
     return [svg, position_at, relations]
 

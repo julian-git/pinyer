@@ -70,7 +70,7 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
             ineqs.append(label + casteller_ineq[:-3] + rel)
 
 
-def make_relation_ineqs(relations, castellers_in_position, ineqs):
+def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
     """
     make the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
@@ -115,10 +115,23 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs):
             # Ma can support segon:
             # value of field_name at position is at least fparam1
             label = rel['field_name'] + "_" + str(fpi) + ": "
-            ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_name']) + " >= " + str(rel['fparam1']))
+            ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_name']) + \
+                             " >= " + str(rel['fparam1']))
 
-        elif rel_type == 3: # weight at position is at least fparam1
-            print "implement me!\n"
+        elif rel['relation_type'] == 3: 
+            # sum of values is at most fparam1 in absolute value
+            pos_list = rel['pos_list'].split('_')
+            if len(pos_list) > 0:
+                label = rel['field_name'] + "_" + rel['pos_list'] + ': '
+                ineq_str_p = ''
+                for pos in pos_list:
+                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name']) + ' '
+                target_width = len(pos_list) * aux_data['avg_shoulder_width']
+                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam1']))
+                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam1']))
+
+        else:
+            print "implement me!"
 
 def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
     """
