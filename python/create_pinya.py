@@ -163,8 +163,8 @@ def save_tresde8f_relations():
     from db_interaction import get_db, write_positions, write_relations
     db = get_db()
     c = db.cursor()
-    c.execute("delete from castell_relation where svg_id between 5 and 999")
-    c.execute("delete from castell_position where svg_id between 6 and 999")
+    c.execute("delete from castell_position where castell_type_id = 3")
+    c.execute("delete from castell_relation where castell_type_id = 3")
     write_positions(db, 3, position_at)
     write_relations(db, 3, relations)
     db.commit()

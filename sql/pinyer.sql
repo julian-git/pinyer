@@ -139,9 +139,7 @@ create table castell_relation (
   iparam1 	int default 0,
   iparam2 	int default 0,
   primary key (id),
-  foreign key (castell_type_id) references castell_type (id),
-  foreign key (from_pos_id) references castell_position (svg_id),
-  foreign key (to_pos_id) references castell_position (svg_id)
+  foreign key (castell_type_id) references castell_type (id)
 ) engine=InnoDB default character set utf8;
 
 
