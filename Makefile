@@ -11,3 +11,6 @@ tests/all:
 
 clean:
 	rm -f *~ gurobi.log
+	$(MAKE) -C python clean
+	$(MAKE) -C sql clean
+	$(MAKE) -C doc clean

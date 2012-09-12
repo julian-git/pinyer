@@ -7,3 +7,5 @@ database-definition.up-to-date: pinyer.sql init-cvg.sql #pinyer_dummy_entries.sq
 	mysql --default-character-set=utf8 -u pinyer -e "drop database pinyer; create database pinyer; use pinyer; source pinyer.sql; source init-cvg.sql;" 
 	touch database-definition.up-to-date
 
+clean:
+	rm -f *~
