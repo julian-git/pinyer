@@ -105,7 +105,7 @@ create table castell_position (
   castell_type_id int 	not null,
   role       varchar(20) not null,
   is_essential bool      not null default true,
-  svg_id     varchar(20) not null,
+  svg_id     int not null,
   svg_text   varchar(20) not null,
   svg_elem   varchar(20) not null default 'rect',
   x 	     float(10,2) not null,
@@ -117,7 +117,8 @@ create table castell_position (
   angle      float(10,2) default null,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
-  foreign key (role) references role (name)
+  foreign key (role) references role (name),
+  key (svg_id)
 ) engine=InnoDB default character set utf8;
 
 
@@ -139,8 +140,8 @@ create table castell_relation (
   iparam2 	int default 0,
   primary key (id),
   foreign key (castell_type_id) references castell_type (id),
-  foreign key (from_pos_id) references castell_position (id),
-  foreign key (to_pos_id) references castell_position (id)
+  foreign key (from_pos_id) references castell_position (svg_id),
+  foreign key (to_pos_id) references castell_position (svg_id)
 ) engine=InnoDB default character set utf8;
 
 

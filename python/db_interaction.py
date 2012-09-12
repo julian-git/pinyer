@@ -33,8 +33,6 @@ def write_positions(db, castell_type_id, position_at):
                          pos['angle']))
     query = """insert into castell_position (castell_type_id, role, svg_id, svg_text, x, y, angle)
          values (%s, %s, %s, %s, %s, %s, %s)"""
-    print query
-    print vals
     c.executemany(query, vals)
 
 def get_castell(db, castell_type_id):
@@ -126,11 +124,14 @@ def write_relations(db, castell_type_id, relations):
         vals.append((3, \
                          rel['from_pos_id'], \
                          rel['to_pos_id'], \
+                         rel['pos_list'],
                          rel['relation_type'], \
                          rel['field_name'], 
                          rel['fparam1']))
-    query = """insert into castell_relation (castell_type_id, from_pos_id, to_pos_id, relation_type, field_name, fparam1) 
-         values (%s, %s, %s, %s, %s, %s)"""
+    query = """insert into castell_relation (castell_type_id, from_pos_id, to_pos_id, pos_list, relation_type, field_name, fparam1) 
+         values (%s, %s, %s, %s, %s, %s, %s)"""
+    print query
+    print vals
     c.executemany(query, vals)
     
 

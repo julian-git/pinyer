@@ -71,13 +71,13 @@ def make_rings(rd):
 def make_ring_relations(rd, position_at, tolerances):
     relations = []
     # the default values for all relations created in this function
-    rel0 = dict([('from_pos_id', -1), \
-                     ('to_pos_id', -1), \
+    rel0 = dict([('from_pos_id', None), \
+                     ('to_pos_id', None), \
                      ('relation_type', 1), \
                      ('field_name', 'shoulder_height'), \
-                     ('pos_list', ''), \
+                     ('pos_list', None), \
                      ('fparam1', tolerances['height']), \
-                     ('pos_type', '--')])
+                     ('pos_type', None)])
 
     # first, the relations between rengles de mans and rengles de vents
     for j in range(2*rd['period']):
@@ -163,10 +163,11 @@ def save_tresde8f_relations():
     from db_interaction import get_db, write_positions, write_relations
     db = get_db()
     c = db.cursor()
-    c.execute("delete from castell_relation where id between 5 and 999")
-    c.execute("delete from castell_position where id between 6 and 999")
+    c.execute("delete from castell_relation where svg_id between 5 and 999")
+    c.execute("delete from castell_position where svg_id between 6 and 999")
     write_positions(db, 3, position_at)
     write_relations(db, 3, relations)
+    db.commit()
     
 if __name__ == "__main__":
      save_tresde8f_relations()
