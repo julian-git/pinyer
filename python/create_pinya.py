@@ -70,6 +70,13 @@ def make_rings(rd):
 
 def make_ring_relations(rd, position_at, tolerance):
     relations = []
+    # the default values for all relations created in this function
+    rel0 = dict([('from_pos_id', -1), \
+                    ('to_pos_id', -1), \
+                    ('relation_type', 1), \
+                    ('field_name', 'shoulder_height'), \
+                    ('fparam1', tolerance), \
+                    ('pos_type', 'x')])
 
     # first, the relations between rengles de mans and rengles de vents
     for j in range(2*rd['period']):
@@ -78,29 +85,25 @@ def make_ring_relations(rd, position_at, tolerance):
         else:
             pt = 'vt'  # Vent
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
-            relations.append(dict([('from_pos_id', position_at[i,j,0]['svg_id']), \
-                                       ('to_pos_id', position_at[i+1,j,0]['svg_id']), \
-                                       ('relation_type', 1), \
-                                       ('field_name', 'shoulder_height'), \
-                                       ('fparam1', tolerance), \
-                                       ('pos_type', pt)]))
+            rel = rel0.copy()
+            rel['from_pos_id'] = position_at[i,j,0]['svg_id']
+            rel['to_pos_id'] = position_at[i+1,j,0]['svg_id']
+            rel['pos_type'] = pt
+            relations.append(rel)
 
     # next, the relations in the quesitos
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             for m in range(1, i+1):
-                relations.append(dict([('from_pos_id', position_at[i,j,m]['svg_id']), \
-                                           ('to_pos_id', position_at[i+1,j,m]['svg_id']), \
-                                           ('relation_type', 1), \
-                                           ('field_name', 'shoulder_height'), \
-                                           ('fparam1', tolerance), \
-                                           ('pos_type', 'q')])) # quesito
-                relations.append(dict([('from_pos_id', position_at[i,j,m]['svg_id']), \
-                                           ('to_pos_id', position_at[i+1,j,m+1]['svg_id']), \
-                                           ('relation_type', 1), \
-                                           ('field_name', 'shoulder_height'), \
-                                           ('fparam1', tolerance), \
-                                           ('pos_type', 'q')])) # quesito
+                rel = rel0.copy()
+                rel['from_pos_id'] = position_at[i,j,m]['svg_id']
+                rel['to_pos_id'] = position_at[i+1,j,m]['svg_id']
+                rel['pos_type'] = 'q'
+                relations.append(rel) # quesito
+
+                rel1 = rel.copy()
+                rel1['to_pos_id'] = position_at[i+1,j,m+1]['svg_id']
+                relations.append(rel1) # quesito
     return relations
 
 def make_relations_svg(relations, coo_of):
