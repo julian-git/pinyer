@@ -5,8 +5,8 @@ from db_interaction import get_db, get_positions, get_castell
 def fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, name=''):
     if pd['svg_elem'] == 'rect':
         svg = svg + \
-            html_common.svg_rect.substitute(_svg_id=pd['svg_id'], _class=svgclass, \
-                                                _name=name, \
+            html_common.svg_rect.substitute(_svg_id=pd['svg_id'], _svg_text=pd['svg_text'], \
+                                                _class=svgclass, _name=name, _angle=pd['angle'], \
                                                 _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
         min_x = min(min_x, pd['x']); max_x = max(max_x, pd['x']+pd['w'])
         min_y = min(min_y, pd['y']); max_y = max(max_y, pd['y']+pd['h'])
@@ -44,7 +44,7 @@ def editable_castell_plan(castell_type_id):
         html_common.body.substitute(_name=castell_data['name'], \
                                         _desc=castell_data['description']) + \
         html_common.script + \
-        html_common.svg_head + \
+        html_common.svg_head.substitute() + \
         viewbox + \
         svg + \
         "</svg>" + "</html>"
@@ -71,6 +71,6 @@ if __name__ == "__main__":
     prescribed = dict([(9, 0), (17, 5)])
     position_data = dict()
 #    solution = find_pinya(prescribed, position_data)
-    f = open("tests/index.html", 'w')
+    f = open("../tests/index.html", 'w')
 #    f.write(solution_as_svg(solution, position_data, prescribed))
     f.write(editable_castell_plan(1))

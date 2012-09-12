@@ -47,5 +47,12 @@ elif what=='get_pinya':
     [svg, position_at, relations] = tresde8f()
     print svg
 
+elif what=='optimize_pinya':
+    prescribed = dict()
+    position_data = get_positions(db, castell_type_id)
+    castell_type_id = 3
+    colla_id = 1
+    print find_pinya(prescribed, position_data, castell_type_id, colla_id)
+
 else:
     print "Unexpected argument: ", what

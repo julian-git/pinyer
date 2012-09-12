@@ -11,10 +11,10 @@ def get_positions(db, castell_type_id):
     """
     position_data = dict()
     c = db.cursor()
-    c.execute("""select p.id, role_id, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry from castell_position p left join role on p.role_id=role.id where castell_type_id=%s""", (castell_type_id,))
+    c.execute("""select p.id, role, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
     res = c.fetchall()
     for row in res:
-        position_data[int(row[0])] = dict([('role_id', int(row[1])), ('role_name', row[2]), ('is_essential', row[3]), ('svg_id', row[4]), ('svg_text', row[5]), ('svg_elem', row[6]), ('x', row[7]), ('y', row[8]), ('w', row[9]), ('h', row[10]), ('rx', row[11]), ('ry', row[12])])
+        position_data[int(row[0])] = dict([('role', row[1]), ('role_name', row[2]), ('is_essential', row[3]), ('svg_id', row[4]), ('svg_text', row[5]), ('svg_elem', row[6]), ('x', row[7]), ('y', row[8]), ('w', row[9]), ('h', row[10]), ('rx', row[11]), ('ry', row[12]), ('angle', row[13])])
     return position_data
 
 def write_positions(db, castell_type_id, position_at):
@@ -55,7 +55,7 @@ def get_castellers(db, colla_id, pos_id):
 select casteller.id, nickname, total_height, shoulder_height, hip_height, stretched_height, weight, strength 
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
-left join castell_position on casteller_role.role_id = castell_position.role_id 
+left join castell_position on casteller_role.role = castell_position.role 
 left join casteller_colla on casteller.id = casteller_colla.casteller_id 
 where is_present=true and castell_position.id = %s and casteller_colla.colla_id = %s
 """, (pos_id,colla_id,))
