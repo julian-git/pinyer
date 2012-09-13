@@ -14,7 +14,10 @@ def get_positions(db, castell_type_id):
     c.execute("""select p.id, role, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
     res = c.fetchall()
     for row in res:
-        position_data[int(row[0])] = dict([('role', row[1]), ('role_name', row[2]), ('is_essential', row[3]), ('svg_id', row[4]), ('svg_text', row[5]), ('svg_elem', row[6]), ('x', row[7]), ('y', row[8]), ('w', row[9]), ('h', row[10]), ('rx', row[11]), ('ry', row[12]), ('angle', row[13])])
+        ir0 = int(row[0])
+        new_ans = dict(zip(('id', 'role', 'role_name', 'is_essential', 'svg_id', 'svg_text', 'svg_elem', 'x', 'y', 'w', 'h', 'rx', 'ry', 'angle'), row))
+        new_ans['id'] = ir0
+        position_data[ir0] = new_ans
     return position_data
 
 def write_positions(db, castell_type_id, position_at):
@@ -42,7 +45,7 @@ def get_castell(db, castell_type_id):
     c = db.cursor()
     c.execute("""select name, description from castell_type where id=%s""", (castell_type_id,))
     res = c.fetchall()[0]
-    return dict([('name', res[0]), ('description', res[1])])
+    return dict(zip(('name', 'description'), res))
 
 
 def get_castellers(db, colla_id, pos_id):
@@ -52,7 +55,7 @@ def get_castellers(db, colla_id, pos_id):
     """
     c = db.cursor()
     c.execute("""
-select casteller.id, nickname, total_height, shoulder_height, hip_height, stretched_height, weight, strength 
+select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, weight, strength 
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role = castell_position.role 
@@ -62,7 +65,9 @@ where is_present=true and castell_position.id = %s and casteller_colla.colla_id 
     res = c.fetchall()
     ans = []
     for row in res:
-        ans.append(dict([('id', int(row[0])), ('nickname', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7])]))
+        new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'weight', 'strength'), row))
+        new_ans['id'] = int(new_ans['id'])
+        ans.append(new_ans)
     return ans
 
 
@@ -72,7 +77,7 @@ def get_colla(db, colla_id):
     """
     c = db.cursor()
     c.execute("""
-select casteller.id, nickname, total_height, shoulder_height, hip_height, stretched_height, weight, strength, is_present 
+select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, weight, strength, is_present 
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
 where casteller_colla.colla_id = %s
@@ -80,7 +85,9 @@ where casteller_colla.colla_id = %s
     res = c.fetchall()
     ans = []
     for row in res:
-        ans.append(dict([('id', int(row[0])), ('nickname', row[1]), ('total_height', row[2]), ('shoulder_height', row[3]), ('hip_height', row[4]), ('stretched_height', row[5]), ('weight', row[6]), ('strength', row[7]), ('is_present', row[8])]))
+        new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'weight', 'strength'), row))
+        new_ans['id'] = int(new_ans['id'])
+        ans.append(new_ans)
     return ans
 
 def get_nicknames_and_char(db, colla_id, char):
@@ -142,3 +149,16 @@ def get_incompatible_castellers(db, colla_id):
     c = db.cursor()
     c.execute("""select cast1_id, cast2_id from incompatible_castellers where colla_id=%s""", (colla_id,))
     return c.fetchall()
+
+
+def get_avg_shoulder_width(db, colla_id):
+    """ 
+    the average shoulder width of the colla
+    """
+    c = db.cursor()
+    c.execute("""
+select avg(shoulder_width)
+from casteller
+left join casteller_colla on casteller_colla.casteller_id=casteller.id
+where casteller_colla.colla_id = %s""", colla_id)
+    return c.fetchall()[0]

@@ -60,7 +60,7 @@ def solve_lp_with_cbc(filename, castellers_in_position):
     return sol
 
 
-def find_pinya(prescribed, position_data, castell_type_id, colla_id, filename='pinya.lp'):
+def find_pinya(prescribed, position_data, castell_type_id, colla_id, filename='/tmp/pinya.lp'):
     import local_config
     castellers_in_position = dict()
     write_lp_file(castellers_in_position, position_data, prescribed, castell_type_id, colla_id, filename)

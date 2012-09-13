@@ -12,12 +12,14 @@ cgitb.enable()
 sys.path.append('../python')
 
 from create_pinya import tresde8f
-import db_interaction
+from build_html import solution_as_svg
+from build_ip import find_pinya
+from db_interaction import get_db, get_nicknames_and_char, get_positions
 
 form = cgi.FieldStorage()
 what = form["what"].value
 
-db = db_interaction.get_db()
+db = get_db()
 
 def sanitize(form, arg, whitelist):
     if arg not in form.keys():
@@ -39,7 +41,7 @@ if what=='get_colla':
                     ['total_height', 'shoulder_height', \
                          'axle_height', 'hip_height', 'stretched_height', \
                          'shoulder_height', 'shoulder_width'])
-    colla = db_interaction.get_nicknames_and_char(db, colla_id, char)
+    colla = get_nicknames_and_char(db, colla_id, char)
     print json.dumps(colla, separators=(',', ':'), ensure_ascii=False)
 
 elif what=='get_pinya':
@@ -49,10 +51,11 @@ elif what=='get_pinya':
 
 elif what=='optimize_pinya':
     prescribed = dict()
+    castell_type_id = form["castell_type_id"].value
     position_data = get_positions(db, castell_type_id)
-    castell_type_id = 3
-    colla_id = 1
-    print find_pinya(prescribed, position_data, castell_type_id, colla_id)
+    colla_id = 2
+    solution = find_pinya(prescribed, position_data, castell_type_id, colla_id)
+    print solution_as_svg(solution, position_data, prescribed)
 
 else:
     print "Unexpected argument: ", what

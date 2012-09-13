@@ -171,7 +171,9 @@ def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, 
     make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, obj_val, ineqs, pos_of_casteller)
 
     relations = get_relations(db, castell_type_id)
-    make_relation_ineqs(relations, castellers_in_position, ineqs)
+
+    aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id))])
+    make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data)
 
     make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
 

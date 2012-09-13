@@ -63,9 +63,8 @@ def solution_as_svg(solution, position_data, prescribed):
         [svg, min_x, max_x, min_y, max_y] = \
             fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'])
     [min_x, max_x, min_y, max_y] = center_image(min_x, max_x, min_y, max_y)
-    viewbox = 'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' \
-        + str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
-    return html_common.head + html_common.body + viewbox + svg + "</svg>" + "</html>"
+    return svg_head.substitute(_vx=min_x, _vy=min_y, _vw=max_x-min_x, _vh=max_y-min_y) + \
+        svg + "</svg>" + "</html>"
 
 if __name__ == "__main__":
     prescribed = dict([(9, 0), (17, 5)])
