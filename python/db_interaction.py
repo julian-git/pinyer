@@ -14,10 +14,10 @@ def get_positions(db, castell_type_id):
     c.execute("""select p.id, role, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
     res = c.fetchall()
     for row in res:
-        ir0 = int(row[0])
         new_ans = dict(zip(('id', 'role', 'role_name', 'is_essential', 'svg_id', 'svg_text', 'svg_elem', 'x', 'y', 'w', 'h', 'rx', 'ry', 'angle'), row))
-        new_ans['id'] = ir0
-        position_data[ir0] = new_ans
+        for ind in ['id', 'svg_id']:
+            new_ans[ind] = int(new_ans[ind])
+        position_data[new_ans['id']] = new_ans
     return position_data
 
 def write_positions(db, castell_type_id, position_at):
@@ -118,7 +118,10 @@ def get_relations(db, castell_type_id):
     res = c.fetchall()
     ans = []
     for row in res:
-        ans.append(dict([('id', int(row[0])), ('castell_type_id', int(row[1])), ('relation_type', int(row[2])), ('field_name', row[3]), ('from_pos_id', row[4]), ('to_pos_id', row[5]), ('fparam1', row[6]), ('fparam2', row[7]), ('iparam2', row[8]), ('iparam2', row[9])]))
+        new_ans = dict(zip(('id', 'castell_type_id', 'relation_type', 'field_name', 'pos_list', 'fparam1', 'fparam2', 'iparam2', 'iparam2'), row))
+        for ind in ('id', 'castell_type_id', 'relation_type'):
+            new_ans[ind] = int(new_ans[ind])
+        ans.append(new_ans)
     return ans
 
 def write_relations(db, castell_type_id, relations):
@@ -128,15 +131,12 @@ def write_relations(db, castell_type_id, relations):
     c = db.cursor()
     vals = []
     for rel in relations:
-        vals.append((3, \
-                         rel['from_pos_id'], \
-                         rel['to_pos_id'], \
-                         rel['pos_list'],
+        vals.append((3,  rel['pos_list'], \
                          rel['relation_type'], \
                          rel['field_name'], 
                          rel['fparam1']))
-    query = """insert into castell_relation (castell_type_id, from_pos_id, to_pos_id, pos_list, relation_type, field_name, fparam1) 
-         values (%s, %s, %s, %s, %s, %s, %s)"""
+    query = """insert into castell_relation (castell_type_id, pos_list, relation_type, field_name, fparam1) 
+         values (%s, %s, %s, %s, %s)"""
     print query
     print vals
     c.executemany(query, vals)

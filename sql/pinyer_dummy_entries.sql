@@ -42,11 +42,11 @@ insert into castell_position (id, castell_type_id, role, is_essential, svg_id, s
   (1004, 1000, 'pinya', true, "pinya1", "Pinya 1", 0, 150),
   (1005, 1000, 'pinya', false, "pinya2", "Pinya 2", 0, 200);
 
-insert into castell_relation (id, castell_type_id, relation_type, field_name, from_pos_id, to_pos_id, fparam1, fparam2) values
-  (1001, 1000, 1, 'total_height', 1001, 1002, 10, 0),
-  (1002, 1000, 1, 'total_height', 1003, 1004, 7, 0),
-  (1003, 1000, 1, 'total_height', 1004, 1005, 5, 0),
-  (1004, 1000, 2, 'weight', 1002, null, 65, 0);
+insert into castell_relation (id, castell_type_id, relation_type, field_name, pos_list, fparam1, fparam2) values
+  (1001, 1000, 1, 'total_height', '1001_1002', 10, 0),
+  (1002, 1000, 1, 'total_height', '1003_1004', 7, 0),
+  (1003, 1000, 1, 'total_height', '1004_1005', 5, 0),
+  (1004, 1000, 2, 'weight', '1002', 65, 0);
 
 insert into incompatible_castellers (id, colla_id, cast1_id, cast2_id) values 
   (1000, 2, 1016, 1018);

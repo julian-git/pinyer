@@ -124,16 +124,14 @@ create table castell_position (
 
 /**
  *  The data for establishing relations between two positions in a given castell
- *  pos_list is of the form "23_45_24" 
+ *  pos_list is of the form "23_45_24" for a relation between positions 23, 45, 24
  */
 create table castell_relation (
   id   	       int  not null auto_increment,
-  castell_type_id int 	not null,
+  castell_type_id int not null,
   relation_type int not null,
   field_name    varchar(20) not null,
-  from_pos_id int default null,
-  to_pos_id   int default null,
-  pos_list    varchar(100) default null, 
+  pos_list    	varchar(100) not null, 
   fparam1 	float(10,4) default 0,
   fparam2 	float(10,4) default 0,
   iparam1 	int default 0,

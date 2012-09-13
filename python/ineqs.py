@@ -81,8 +81,10 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
     the position from_pos_id is also filled.
     """ 
     for rel in relations:
-        fpi = rel['from_pos_id']; tpi = rel['to_pos_id']
-        if fpi is not None and tpi is not None:
+        pos_list = rel['pos_list'].split('_')
+        fpi = int(pos_list[0])
+        if fpi is not None and len(pos_list)>=2:
+            tpi = int(pos_list[1])
             # we implement "pinyas have no holes" using binary indicator variables y_pos_id
             # that are 1 if the position pos_id is filled, and 0 otherwise
             # To simplify the system, we don't create these indicator variables explicitly,
@@ -120,7 +122,6 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
 
         elif rel['relation_type'] == 3: 
             # sum of values is at most fparam1 in absolute value
-            pos_list = rel['pos_list'].split('_')
             if len(pos_list) > 0:
                 label = rel['field_name'] + "_" + rel['pos_list'] + ': '
                 ineq_str_p = ''
@@ -148,9 +149,13 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
         positions.extend(pos_of_casteller[p1])
         positions = set(positions)
         for rel in relations:
-            if rel['relation_type'] == 1 and rel['from_pos_id'] in positions and rel['to_pos_id'] in positions:
-                ineqs.append(label + var(p0, rel['from_pos_id']) + " + " + var(p1, rel['to_pos_id']) + " <= 1")
-                ineqs.append(label + var(p0, rel['to_pos_id']) + " + " + var(p1, rel['from_pos_id']) + " <= 1")
+            pos_list = rel['pos_list'].split('_')
+            if rel['relation_type'] == 1 and len(pos_list)>=2:
+                fpi = pos_list[0]
+                tpi = pos_list[1]
+                if fpi in positions and tpi in positions:
+                    ineqs.append(label + var(p0, fpi) + " + " + var(p1, tpi) + " <= 1")
+                    ineqs.append(label + var(p0, tpi) + " + " + var(p1, fpi) + " <= 1")
                 
 
 def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, castell_type_id, colla_id):
