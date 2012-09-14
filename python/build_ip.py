@@ -1,5 +1,6 @@
-from local_config import std_problem_filename, std_solution_filename, std_log_filename, DoLogging
+from local_config import std_problem_filename, std_solution_filename, std_log_filename, DoLogging, UseCBC
 from db_interaction import get_db, get_positions
+from subprocess import call 
 
 def make_lp_file(f, obj_val, ineqs):
     if DoLogging:
@@ -43,45 +44,34 @@ def sol_from_v(sol, vname, castellers_in_position):
             sol[int(pos_id)] = [casteller['id'], casteller['nickname']]
             
 
-def solve_lp_with_gurobi(lp_problem_filename, castellers_in_position, \
-                             lp_solution_filename=std_solution_filename, \
-                             lp_log_filename=std_log_filename):
-    if DoLogging:
-        print "solving with gurobi..."    
-    from gurobipy import read
-    model=read(lp_problem_filename)
-    model.setParam("LogToConsole", 0)
-    model.setParam("LogFile", lp_log_filename);
-    model.optimize()
-    if model.status == 2:
-        sv = model.getVars()
-        sol = dict()
-        for v in sv:
-            if v.x == 1:
-                sol_from_v(sol, v.varname, castellers_in_position)
-        return sol
+def solve_lp(lp_problem_filename, castellers_in_position, \
+                 lp_solution_filename=std_solution_filename, \
+                 lp_log_filename=std_log_filename):
+    if UseCBC:
+        args = ["cbc", '-import', lp_problem_filename, '-solve', '-solu', lp_solution_filename, '-quit']
     else:
-        return False
-
-
-def solve_lp_with_cbc(lp_problem_filename, castellers_in_position, \
-                          lp_solution_filename=std_solution_filename, \
-                          lp_log_filename=std_log_filename):
+        args = ['gurobi_cl', 'ResultFile=' + lp_solution_filename, lp_problem_filename]
     if DoLogging:
-        print "solving lp with cbc..."
-    from subprocess import call 
+        if UseCBC:
+            print "solving lp with cbc..."
+        else:
+            print "solving with gurobi..."
     out_file = open(lp_log_filename, 'w')
-    call(["cbc", '-import', lp_problem_filename, '-solve', '-solu', lp_solution_filename, '-quit'], stdout=out_file)
+    call(args, stdout = out_file)
     f = open(lp_solution_filename, 'r')
     sol = dict()
     first_line = True
+    if UseCBC:
+        base_index = 1
+    else:
+        base_index = 0
     for line in f:
         if first_line:
             first_line = False
         else:
             a = line.split()
-            if a[2] == '1':
-                sol_from_v(sol, a[1], castellers_in_position)
+            if a[base_index + 1] == '1':
+                sol_from_v(sol, a[base_index], castellers_in_position)
     return sol
 
 
@@ -91,12 +81,8 @@ def find_pinya(prescribed, position_data, castell_type_id, colla_id, lp_problem_
     import local_config
     castellers_in_position = dict()
     write_lp_file(castellers_in_position, position_data, prescribed, castell_type_id, colla_id, lp_problem_filename)
-    if local_config.UseCBC:
-        return solve_lp_with_cbc(lp_problem_filename, castellers_in_position, \
-                                     std_solution_filename, lp_log_filename)
-    else:
-        return solve_lp_with_gurobi(lp_problem_filename, castellers_in_position, \
-                                        std_solution_filename, lp_log_filename)
+    return solve_lp(lp_problem_filename, castellers_in_position, \
+                        std_solution_filename, lp_log_filename)
     
 
 if __name__ == "__main__":

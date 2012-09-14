@@ -10,8 +10,8 @@ if not UseCBC:
 
 # The files used for optimization
 std_problem_filename = '/tmp/pinya.lp'
-std_solution_filename = '/tmp/solution.txt'
+std_solution_filename = '/tmp/solution.sol'
 std_log_filename = '/tmp/lp_log.txt'
 
 # Print log information?
-DoLogging = True
+DoLogging = False
