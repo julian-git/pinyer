@@ -11,7 +11,7 @@ def get_positions(db, castell_type_id):
     """
     position_data = dict()
     c = db.cursor()
-    c.execute("""select p.id, role, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
+    c.execute("""select p.svg_id, role, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
     res = c.fetchall()
     for row in res:
         new_ans = dict(zip(('id', 'role', 'role_name', 'is_essential', 'svg_id', 'svg_text', 'svg_elem', 'x', 'y', 'w', 'h', 'rx', 'ry', 'angle'), row))
@@ -60,7 +60,7 @@ from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role = castell_position.role 
 left join casteller_colla on casteller.id = casteller_colla.casteller_id 
-where is_present=true and castell_position.id = %s and casteller_colla.colla_id = %s
+where is_present=true and castell_position.svg_id = %s and casteller_colla.colla_id = %s
 """, (pos_id,colla_id,))
     res = c.fetchall()
     ans = []
@@ -130,6 +130,7 @@ def write_relations(db, castell_type_id, relations):
     """
     c = db.cursor()
     vals = []
+    print relations
     for rel in relations:
         vals.append((3,  rel['pos_list'], \
                          rel['relation_type'], \
@@ -161,4 +162,4 @@ select avg(shoulder_width)
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
 where casteller_colla.colla_id = %s""", colla_id)
-    return c.fetchall()[0]
+    return c.fetchall()[0][0]

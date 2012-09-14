@@ -77,9 +77,9 @@ def find_pinya(prescribed, position_data, castell_type_id, colla_id, lp_problem_
 if __name__ == "__main__":
 #    prescribed = dict([(9, 0), (17, 5)])
     prescribed = dict()
-    castell_type_id = 1
+    castell_type_id = 3
     db = get_db()
     position_data = get_positions(db, castell_type_id)
-    colla_id = 2
+    colla_id = 1
     solution = find_pinya(prescribed, position_data, castell_type_id, colla_id, '/tmp/test_pinya.lp', '/tmp/test_log.txt')
     print solution

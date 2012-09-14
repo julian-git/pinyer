@@ -81,7 +81,7 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
     the position from_pos_id is also filled.
     """ 
     for rel in relations:
-        pos_list = rel['pos_list'].split('_')
+        pos_list = [int(p) for p in rel['pos_list'].split('_')]
         fpi = int(pos_list[0])
         if fpi is not None and len(pos_list)>=2:
             tpi = int(pos_list[1])
@@ -124,7 +124,7 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
             # sum of values is at most fparam1 in absolute value
             if len(pos_list) > 0:
                 label = rel['field_name'] + "_" + rel['pos_list'] + ': '
-                ineq_str_p = ''
+                ineq_str = ''
                 for pos in pos_list:
                     ineq_str += sum_vars(pos, castellers_in_position, rel['field_name']) + ' '
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']

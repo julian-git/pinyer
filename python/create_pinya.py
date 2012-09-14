@@ -35,19 +35,20 @@ def ring(period, i, r, rect_dim, init_svg_id, position_at, coo_of):
                 role = 'pinya'
             x=round(r*cos(a), 2)
             y=round(r*sin(a), 2)
-            alpha = round(a*180/pi, 2)
+            angle = round(a*180/pi, 2)
             svg = svg + svg_rect.substitute(_x=x, _y=y, \
                                                 _rx=-0.5*rect_dim['w'], _ry=-0.5*rect_dim['h'], \
                                                 _rw=rect_dim['w'], _rh=rect_dim['h'], \
-                                                _alpha=alpha, \
-                                                _svg_id=svg_id, _class=c, _name=svg_id, \
+                                                _angle=angle, \
+                                                _svg_id=svg_id, _svg_text=svg_id, \
+                                                _class=c, _name=svg_id, \
                                                 _index_props=[i,j,m])
             position_at[i,j,m] = dict([('svg_id', svg_id), \
                                            ('role', role), \
                                            ('svg_text', role), \
                                            ('x', x), \
                                            ('y', y), \
-                                           ('angle', alpha)])
+                                           ('angle', angle)])
             coo_of[svg_id] = [x,y]
     return [svg, svg_id, position_at, coo_of]
 
@@ -71,11 +72,9 @@ def make_rings(rd):
 def make_ring_relations(rd, position_at, tolerances):
     relations = []
     # the default values for all relations created in this function
-    rel0 = dict([('from_pos_id', None), \
-                     ('to_pos_id', None), \
+    rel0 = dict([('pos_list', None), \
                      ('relation_type', 1), \
                      ('field_name', 'shoulder_height'), \
-                     ('pos_list', None), \
                      ('fparam1', tolerances['height']), \
                      ('pos_type', None)])
 
@@ -87,8 +86,9 @@ def make_ring_relations(rd, position_at, tolerances):
             pt = 'vt'  # Vent
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             rel = rel0.copy()
-            rel['from_pos_id'] = position_at[i,j,0]['svg_id']
-            rel['to_pos_id'] = position_at[i+1,j,0]['svg_id']
+            rel['pos_list'] = \
+                str(position_at[i,j,0]['svg_id']) + '_' + \
+                str(position_at[i+1,j,0]['svg_id'])
             rel['pos_type'] = pt
             relations.append(rel)
 
@@ -98,13 +98,16 @@ def make_ring_relations(rd, position_at, tolerances):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             for m in range(1, i+1):
                 rel = rel0.copy()
-                rel['from_pos_id'] = position_at[i,j,m]['svg_id']
-                rel['to_pos_id'] = position_at[i+1,j,m]['svg_id']
+                rel['pos_list'] = \
+                    str(position_at[i,j,m]['svg_id']) + '_' + \
+                    str(position_at[i+1,j,m]['svg_id'])
                 rel['pos_type'] = 'p'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
-                rel1['to_pos_id'] = position_at[i+1,j,m+1]['svg_id']
+                rel1['pos_list'] = \
+                    str(position_at[i,j,m]['svg_id']) + '_' + \
+                    str(position_at[i+1,j,m+1]['svg_id'])
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
@@ -125,17 +128,22 @@ def make_ring_relations(rd, position_at, tolerances):
 def make_relations_svg(relations, coo_of):
     relations_svg = '<g id="rels">'
     for rel in relations:
+        pos_list = rel['pos_list'].split('_')
+        fpi = int(pos_list[0])
+        if len(pos_list) > 1:
+            tpi = int(pos_list[1])
+        else:
+            tpi = fpi
         if rel['relation_type'] == 1:
             relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
-                str(coo_of[rel['from_pos_id']][0]) + ',' + \
-                str(coo_of[rel['from_pos_id']][1]) + 'L' + \
-                str(coo_of[rel['to_pos_id']][0]) + ',' + \
-                str(coo_of[rel['to_pos_id']][1]) + '"/>'
+                str(coo_of[fpi][0]) + ',' + \
+                str(coo_of[tpi][1]) + 'L' + \
+                str(coo_of[fpi][0]) + ',' + \
+                str(coo_of[tpi][1]) + '"/>'
         elif rel['relation_type'] == 3:
-            pos_list = rel['pos_list'].split('_')
             relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
-                str(coo_of[int(pos_list[0])][0]) + ',' + \
-                str(coo_of[int(pos_list[0])][1])
+                str(coo_of[fpi][0]) + ',' + \
+                str(coo_of[fpi][1])
             for pos in pos_list[1:]:
                 relations_svg += 'L' + \
                     str(coo_of[int(pos)][0]) + ',' + \
@@ -170,5 +178,5 @@ def save_tresde8f_relations():
     db.commit()
     
 if __name__ == "__main__":
-#     save_tresde8f_relations()
-    print tresde8f()
+    save_tresde8f_relations()
+#    print tresde8f()
