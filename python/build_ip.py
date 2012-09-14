@@ -10,12 +10,8 @@ def make_lp_file(obj_val, ineqs):
     for v in variables:
         f = f + str(obj_val[v]) + " " + str(v) + " + "
     f = f[:-3] + "\nsubject to\n"
-    i = 0
     for ineq in ineqs:
         f = f + ineq + "\n"
-        i++
-        if 387 <= i <= 389:
-            print ineq
     f = f + "binary\n"
     for v in variables:
         f = f + v + " "
@@ -34,8 +30,6 @@ def write_lp_file(castellers_in_position, position_data, prescribed, castell_typ
     f.close()
 
 def sol_from_v(sol, vname, castellers_in_position):
-    if DoLogging:
-        print "sol_from_v..."    
     cast_id = vname[1:vname.find('p')]
     pos_id = long(vname[vname.find('p')+1:])
     for casteller in castellers_in_position[pos_id]:

@@ -131,10 +131,10 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
                 label = rel['field_name'] + "_" + rel['pos_list'] + ': '
                 ineq_str = ''
                 for pos in pos_list:
-                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name']) + ' '
+                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name']) + ' + '
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']
-                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam1']))
-                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam1']))
+                ineqs.append(label + ineq_str[:-3] + " >= " + str(target_width - rel['fparam1']))
+                ineqs.append(label + ineq_str[:-3] + " <= " + str(target_width + rel['fparam1']))
 
         else:
             print "implement me!"
