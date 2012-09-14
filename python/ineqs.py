@@ -30,13 +30,18 @@ def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
     """
     return sum_vars(from_pos_id, castellers_in_position, prop) + " - " + sum_vars(to_pos_id, castellers_in_position, prop, " - ")
 
-def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, obj_val, ineqs, pos_of_casteller):
+def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed):
     """ 
     make the inequalities that say that in each position, there may be at most one casteller.
     Fill in pos_of_casteller
     """
     if DoLogging:
         print "make_castellers_in_position_ineqs"
+
+    obj_val = dict()
+    ineqs = []
+    pos_of_casteller = dict() # The transposed array of castellers_in_position
+
     for pos_id, castellers in castellers_in_position.iteritems():
         position_ineq = '' # in position pos_id, there may be at most one casteller
         for casteller in castellers:
@@ -71,6 +76,8 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
                     ineqs.append(label + var(casteller_id, pos_id) + rel2)
         if not is_position_prescribed:
             ineqs.append(label + casteller_ineq[:-3] + rel)
+
+    return [obj_val, ineqs, pos_of_casteller]
 
 
 def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
@@ -165,7 +172,7 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
                     ineqs.append(label + var(p0, tpi) + " + " + var(p1, fpi) + " <= 1")
                 
 
-def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, castell_type_id, colla_id):
+def ip_ineqs(prescribed, castell_type_id, colla_id):
     """
     Create the linear inequalities that define the integer program to be solved.
     Fill the dictionaries castellers_in_position, position_data and obj_val.
@@ -173,21 +180,23 @@ def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, 
     """
     if DoLogging:
         print "ip_ineqs"
-    db = get_db()
+
+    castellers_in_position = dict()
     is_essential_pos = dict()
+
+    db = get_db()
     position_data = get_positions(db, castell_type_id)
 
     for pos_id, pos in position_data.iteritems():
         is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, castell_type_id, pos_id)
 
-    pos_of_casteller = dict() # The transposed array of castellers_in_position
-    make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, obj_val, ineqs, pos_of_casteller)
+    [obj_val, ineqs, pos_of_casteller] = make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed)
 
     relations = get_relations(db, castell_type_id)
 
     aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id))])
     make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data)
-
     make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
 
+    return [castellers_in_position, obj_val, ineqs]

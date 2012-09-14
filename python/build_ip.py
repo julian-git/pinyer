@@ -22,19 +22,18 @@ def make_lp_file(f, obj_val, ineqs):
     for v in variables:
         f.write(v + " ")
     f.write("\nend")
-    if DoLogging:
-        print "done."
 
-def write_lp_file(castellers_in_position, position_data, prescribed, castell_type_id, colla_id, lp_problem_filename):
+def write_lp_file(prescribed, castell_type_id, colla_id, lp_problem_filename):
     if DoLogging:
         print "write_lp_file..."
     from ineqs import ip_ineqs
     f = open(lp_problem_filename, 'w')
-    obj_val = dict()          # The objective coefficient of each variable
-    ineqs = []                # the linear inequalities
-    ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, castell_type_id, colla_id)
+    [castellers_in_position, obj_val, ineqs] = ip_ineqs(prescribed, castell_type_id, colla_id)
+    # obj_val holds the objective coefficient of each variable
+    # ineqs holds the linear inequalities
     make_lp_file(f, obj_val, ineqs)
     f.close()
+    return castellers_in_position
 
 def sol_from_v(sol, vname, castellers_in_position):
     cast_id = vname[1:vname.find('p')]
@@ -75,12 +74,11 @@ def solve_lp(lp_problem_filename, castellers_in_position, \
     return sol
 
 
-def find_pinya(prescribed, position_data, castell_type_id, colla_id, lp_problem_filename=std_problem_filename, lp_log_filename=std_log_filename):
+def find_pinya(prescribed, castell_type_id, colla_id, lp_problem_filename=std_problem_filename, lp_log_filename=std_log_filename):
     if DoLogging:
         print "find_pinya..."    
     import local_config
-    castellers_in_position = dict()
-    write_lp_file(castellers_in_position, position_data, prescribed, castell_type_id, colla_id, lp_problem_filename)
+    castellers_in_position = write_lp_file(prescribed, castell_type_id, colla_id, lp_problem_filename)
     return solve_lp(lp_problem_filename, castellers_in_position, \
                         std_solution_filename, lp_log_filename)
     
@@ -94,7 +92,5 @@ if __name__ == "__main__":
 #    [castell_type_id, colla_id] = [1, 2]  # for debugging
     [castell_type_id, colla_id] = [3, 1] # for "real"
 ##########
-    db = get_db()
-    position_data = get_positions(db, castell_type_id)
-    solution = find_pinya(prescribed, position_data, castell_type_id, colla_id, '/tmp/test_pinya.lp', '/tmp/test_log.txt')
+    solution = find_pinya(prescribed, castell_type_id, colla_id, '/tmp/test_pinya.lp', '/tmp/test_log.txt')
     print solution

@@ -14,4 +14,4 @@ std_solution_filename = '/tmp/solution.sol'
 std_log_filename = '/tmp/lp_log.txt'
 
 # Print log information?
-DoLogging = False
+DoLogging = True
