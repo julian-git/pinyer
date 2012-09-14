@@ -10,8 +10,12 @@ def make_lp_file(obj_val, ineqs):
     for v in variables:
         f = f + str(obj_val[v]) + " " + str(v) + " + "
     f = f[:-3] + "\nsubject to\n"
+    i = 0
     for ineq in ineqs:
         f = f + ineq + "\n"
+        i++
+        if 387 <= i <= 389:
+            print ineq
     f = f + "binary\n"
     for v in variables:
         f = f + v + " "
