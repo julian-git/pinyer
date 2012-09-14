@@ -1,4 +1,5 @@
 from db_interaction import *
+from local_config import DoLogging
 
 def var(casteller_id, pos_id):
     """
@@ -34,6 +35,8 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
     make the inequalities that say that in each position, there may be at most one casteller.
     Fill in pos_of_casteller
     """
+    if DoLogging:
+        print "make_castellers_in_position_ineqs"
     for pos_id, castellers in castellers_in_position.iteritems():
         position_ineq = '' # in position pos_id, there may be at most one casteller
         for casteller in castellers:
@@ -80,6 +83,8 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
     this means that the position to_pos_id in the castell may not be filled, unless 
     the position from_pos_id is also filled.
     """ 
+    if DoLogging:
+        print "make_relation_ineqs"
     for rel in relations:
         pos_list = [int(p) for p in rel['pos_list'].split('_')]
         fpi = int(pos_list[0])
@@ -140,6 +145,8 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
     here we create the inequalities that express that no two incompatible
     castellers may be employed in any pair of positions related by a relation.
     """
+    if DoLogging:
+        print "make_incompatibility_ineqs"
     incompatible_castellers = get_incompatible_castellers(db, colla_id)
     for pair in incompatible_castellers:
         p0 = int(pair[0])
@@ -164,13 +171,15 @@ def ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, 
     Fill the dictionaries castellers_in_position, position_data and obj_val.
     as a side effect, calculate the dictionary pos_of_casteller.
     """
+    if DoLogging:
+        print "ip_ineqs"
     db = get_db()
     is_essential_pos = dict()
     position_data = get_positions(db, castell_type_id)
 
     for pos_id, pos in position_data.iteritems():
         is_essential_pos[pos_id] = pos['is_essential']
-        castellers_in_position[pos_id] = get_castellers(db, colla_id, pos_id)
+        castellers_in_position[pos_id] = get_castellers(db, colla_id, castell_type_id, pos_id)
 
     pos_of_casteller = dict() # The transposed array of castellers_in_position
     make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, obj_val, ineqs, pos_of_casteller)

@@ -48,7 +48,7 @@ def get_castell(db, castell_type_id):
     return dict(zip(('name', 'description'), res))
 
 
-def get_castellers(db, colla_id, pos_id):
+def get_castellers(db, colla_id, castell_type_id, pos_id):
     """
     returns all castellers of the given colla that are present
     and can be employed at the given position pos
@@ -59,9 +59,9 @@ select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hi
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role = castell_position.role 
-left join casteller_colla on casteller.id = casteller_colla.casteller_id 
-where is_present=true and castell_position.svg_id = %s and casteller_colla.colla_id = %s
-""", (pos_id,colla_id,))
+left join casteller_colla on casteller_colla.casteller_id = casteller.id
+where is_present=true and casteller_colla.colla_id = %s and castell_position.castell_type_id = %s and castell_position.svg_id = %s 
+""", (colla_id, castell_type_id, pos_id,))
     res = c.fetchall()
     ans = []
     for row in res:
