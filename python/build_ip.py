@@ -1,4 +1,4 @@
-from local_config import std_problem_filename, std_solution_filename, std_log_filename, DoLogging, UseCBC
+from local_config import lp_problem_filename, lp_solution_filename, lp_log_filename, DoLogging, UseCBC
 from db_interaction import get_db, get_positions
 from subprocess import call 
 
@@ -23,7 +23,7 @@ def make_lp_file(f, obj_val, ineqs):
         f.write(v + " ")
     f.write("\nend")
 
-def write_lp_file(prescribed, castell_type_id, colla_id, lp_problem_filename):
+def write_lp_file(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "write_lp_file..."
     from ineqs import ip_ineqs
@@ -43,13 +43,13 @@ def sol_from_v(sol, vname, castellers_in_position):
             sol[int(pos_id)] = [casteller['id'], casteller['nickname']]
             
 
-def solve_lp(lp_problem_filename, castellers_in_position, \
-                 lp_solution_filename=std_solution_filename, \
-                 lp_log_filename=std_log_filename):
+def solve_lp(castellers_in_position):
     if UseCBC:
-        args = ["cbc", '-import', lp_problem_filename, '-solve', '-solu', lp_solution_filename, '-quit']
+        args = ['cbc', '-import', lp_problem_filename, '-solve', '-solu', lp_solution_filename, '-quit']
+        base_index = 1  # for reading the solution file
     else:
         args = ['gurobi_cl', 'ResultFile=' + lp_solution_filename, lp_problem_filename]
+        base_index = 0  # for reading the solution file
     if DoLogging:
         if UseCBC:
             print "solving lp with cbc..."
@@ -60,10 +60,6 @@ def solve_lp(lp_problem_filename, castellers_in_position, \
     f = open(lp_solution_filename, 'r')
     sol = dict()
     first_line = True
-    if UseCBC:
-        base_index = 1
-    else:
-        base_index = 0
     for line in f:
         if first_line:
             first_line = False
@@ -74,13 +70,11 @@ def solve_lp(lp_problem_filename, castellers_in_position, \
     return sol
 
 
-def find_pinya(prescribed, castell_type_id, colla_id, lp_problem_filename=std_problem_filename, lp_log_filename=std_log_filename):
+def find_pinya(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "find_pinya..."    
-    import local_config
-    castellers_in_position = write_lp_file(prescribed, castell_type_id, colla_id, lp_problem_filename)
-    return solve_lp(lp_problem_filename, castellers_in_position, \
-                        std_solution_filename, lp_log_filename)
+    castellers_in_position = write_lp_file(prescribed, castell_type_id, colla_id)
+    return solve_lp(castellers_in_position)
     
 
 if __name__ == "__main__":
@@ -92,5 +86,5 @@ if __name__ == "__main__":
 #    [castell_type_id, colla_id] = [1, 2]  # for debugging
     [castell_type_id, colla_id] = [3, 1] # for "real"
 ##########
-    solution = find_pinya(prescribed, castell_type_id, colla_id, '/tmp/test_pinya.lp', '/tmp/test_log.txt')
+    solution = find_pinya(prescribed, castell_type_id, colla_id)
     print solution

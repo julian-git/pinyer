@@ -9,9 +9,9 @@ if not UseCBC:
     sys.path.append('/opt/gurobi500/linux64/lib/python2.7')
 
 # The files used for optimization
-std_problem_filename = '/tmp/pinya.lp'
-std_solution_filename = '/tmp/solution.sol'
-std_log_filename = '/tmp/lp_log.txt'
+lp_problem_filename = '/tmp/pinya.lp'
+lp_solution_filename = '/tmp/solution.sol'
+lp_log_filename = '/tmp/lp_log.txt'
 
 # Print log information?
 DoLogging = True
