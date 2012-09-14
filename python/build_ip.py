@@ -1,22 +1,28 @@
 from local_config import std_problem_filename, std_solution_filename, std_log_filename, DoLogging
 from db_interaction import get_db, get_positions
 
-def make_lp_file(obj_val, ineqs):
+def make_lp_file(f, obj_val, ineqs):
     if DoLogging:
         print "make_lp_file..."
 
-    f = "maximize\n"
+    f.write("maximize\n")
     variables = sorted(obj_val.keys())
+    is_first = True
     for v in variables:
-        f = f + str(obj_val[v]) + " " + str(v) + " + "
-    f = f[:-3] + "\nsubject to\n"
+        if is_first:
+            is_first = False
+        else: 
+            f.write(' + ')
+        f.write(str(obj_val[v]) + " " + str(v))
+    f.write("\nsubject to\n")
     for ineq in ineqs:
-        f = f + ineq + "\n"
-    f = f + "binary\n"
+        f.write(ineq + "\n")
+    f.write("binary\n")
     for v in variables:
-        f = f + v + " "
-    f = f + "\nend"
-    return f
+        f.write(v + " ")
+    f.write("\nend")
+    if DoLogging:
+        print "done."
 
 def write_lp_file(castellers_in_position, position_data, prescribed, castell_type_id, colla_id, lp_problem_filename):
     if DoLogging:
@@ -26,7 +32,7 @@ def write_lp_file(castellers_in_position, position_data, prescribed, castell_typ
     obj_val = dict()          # The objective coefficient of each variable
     ineqs = []                # the linear inequalities
     ip_ineqs(castellers_in_position, position_data, obj_val, ineqs, prescribed, castell_type_id, colla_id)
-    f.write(make_lp_file(obj_val, ineqs))
+    make_lp_file(f, obj_val, ineqs)
     f.close()
 
 def sol_from_v(sol, vname, castellers_in_position):
