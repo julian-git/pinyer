@@ -50,6 +50,8 @@ def solve_lp_with_gurobi(lp_problem_filename, castellers_in_position, \
         print "solving with gurobi..."    
     from gurobipy import read
     model=read(lp_problem_filename)
+    model.setParam("LogToConsole", 0)
+    model.setParam("LogFile", lp_log_filename);
     model.optimize()
     if model.status == 2:
         sv = model.getVars()
