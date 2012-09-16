@@ -30,7 +30,7 @@ def write_lp_file(prescribed, castell_type_id, colla_id):
     f = open(lp_problem_filename, 'w')
     [castellers_in_position, obj_val, ineqs] = ip_ineqs(prescribed, castell_type_id, colla_id)
     # obj_val holds the objective coefficient of each variable
-    # ineqs holds the linear inequalities
+    # ineqs holds the linear inequalitiesb
     make_lp_file(f, obj_val, ineqs)
     f.close()
     return castellers_in_position

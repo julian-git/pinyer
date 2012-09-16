@@ -30,7 +30,24 @@ def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
     """
     return sum_vars(from_pos_id, castellers_in_position, prop) + " - " + sum_vars(to_pos_id, castellers_in_position, prop, " - ")
 
-def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed):
+
+def make_and_write_obj_val(castellers_in_position, f):
+    obj_val = dict()
+    first_term = True
+    for pos_id, castellers in castellers_in_position.iteritems():
+        for casteller in castellers:
+            v = var(casteller['id'], pos_id)
+            obj_val[v] = casteller['strength']
+            if first_term:
+                first_term = False
+            else:
+                f.write(' + ')
+            f.write(str(obj_val[v]) + ' ' + str(v))
+
+    return obj_val
+    
+
+def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, f):
     """ 
     make the inequalities that say that in each position, there may be at most one casteller.
     Fill in pos_of_casteller
@@ -38,7 +55,6 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
     if DoLogging:
         print "make_castellers_in_position_ineqs"
 
-    obj_val = dict()
     ineqs = []
     pos_of_casteller = dict() # The transposed array of castellers_in_position
 
@@ -48,7 +64,6 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
         for casteller in castellers:
             casteller_id = casteller['id']
             v = var(casteller_id, pos_id)
-            obj_val[v] = casteller['strength']
             if first_pos_ineq:
                 first_pos_ineq = False
             else:
@@ -60,7 +75,7 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
         rel = " = 1"
         if not is_essential_pos[pos_id]: # in this case, allow leaving the position empty
             rel = " <= 1"
-        ineqs.append("pos" + str(pos_id) + ": " + position_ineq + rel)
+        f.write("pos" + str(pos_id) + ": " + position_ineq + rel)
 
     for casteller_id, positions in pos_of_casteller.iteritems():
         casteller_ineq = '' # the casteller can be in at most one position
@@ -85,12 +100,12 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
                         rel2 = " = 1" # except when we're told she does
                     ineqs.append(label + var(casteller_id, pos_id) + rel2)
         if not is_position_prescribed:
-            ineqs.append(label + casteller_ineq + rel)
+            f.write(label + casteller_ineq + rel)
 
-    return [obj_val, ineqs, pos_of_casteller]
+    return pos_of_casteller
 
 
-def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
+def make_relation_ineqs(relations, castellers_in_position, aux_data, f):
     """
     make the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
@@ -114,7 +129,7 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
             # y_fpi = sum_vars(fpi, castellers_in_position)
             # y_tpi = sum_vars(tpi, castellers_in_position)
             label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
-            ineqs.append(label + sum_vars(fpi, castellers_in_position) + " - " + sum_vars(tpi, castellers_in_position, None, " - ") + " >= 0")
+            f.write(label + sum_vars(fpi, castellers_in_position) + " - " + sum_vars(tpi, castellers_in_position, None, " - ") + " >= 0")
 
         if rel['relation_type'] == 1: 
             # If y_tpi = 1, then the constraint 
@@ -132,14 +147,14 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
             x = combine_vars(fpi, tpi, castellers_in_position, rel['field_name'])
             M = 1000000
             label = rel['field_name'] + "_" + str(fpi) + "_" + str(tpi) + ": "
-            ineqs.append(label + x + " + " + sum_vars(tpi, castellers_in_position, M) + " <= " + str(M + rel['fparam1']))
-            ineqs.append(label + x + " " + sum_vars(tpi, castellers_in_position, -M, "   ") + " >= " + str(-M))
+            f.write(label + x + " + " + sum_vars(tpi, castellers_in_position, M) + " <= " + str(M + rel['fparam1']))
+            f.write(label + x + " " + sum_vars(tpi, castellers_in_position, -M, "   ") + " >= " + str(-M))
 
         elif rel['relation_type'] == 2: 
             # Ma can support segon:
             # value of field_name at position is at least fparam1
             label = rel['field_name'] + "_" + str(fpi) + ": "
-            ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_name']) + \
+            f.write(label + sum_vars(fpi, castellers_in_position, rel['field_name']) + \
                              " >= " + str(rel['fparam1']))
 
         elif rel['relation_type'] == 3: 
@@ -155,13 +170,13 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
                         ineq_str += ' + '
                     ineq_str += sum_vars(pos, castellers_in_position, rel['field_name'])
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']
-                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam1']))
-                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam1']))
+                f.write(label + ineq_str + " >= " + str(target_width - rel['fparam1']))
+                f.write(label + ineq_str + " <= " + str(target_width + rel['fparam1']))
 
         else:
             print "implement me!"
 
-def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
+def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, f):
     """
     the database contains pairs of incompatible castellers in the colla.
     here we create the inequalities that express that no two incompatible
@@ -183,11 +198,11 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
                 fpi = pos_list[0]
                 tpi = pos_list[1]
                 if fpi in positions and tpi in positions:
-                    ineqs.append(label + var(p0, fpi) + " + " + var(p1, tpi) + " <= 1")
-                    ineqs.append(label + var(p0, tpi) + " + " + var(p1, fpi) + " <= 1")
+                    f.write(label + var(p0, fpi) + " + " + var(p1, tpi) + " <= 1")
+                    f.write(label + var(p0, tpi) + " + " + var(p1, fpi) + " <= 1")
                 
 
-def ip_ineqs(prescribed, castell_type_id, colla_id):
+def ip_ineqs(prescribed, castell_type_id, colla_id, f):
     """
     Create the linear inequalities that define the integer program to be solved.
     Fill the dictionaries castellers_in_position, position_data and obj_val.
@@ -201,17 +216,18 @@ def ip_ineqs(prescribed, castell_type_id, colla_id):
 
     db = get_db()
     position_data = get_positions(db, castell_type_id)
-
+    
     for pos_id, pos in position_data.iteritems():
         is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, castell_type_id, pos_id)
 
-    [obj_val, ineqs, pos_of_casteller] = make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed)
+    obj_val = make_and_write_obj_val(castellers_in_position, f)
+    pos_of_casteller = make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, f)
 
     relations = get_relations(db, castell_type_id)
-
     aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id))])
-    make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data)
-    make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
 
-    return [castellers_in_position, obj_val, ineqs]
+    make_relation_ineqs(relations, castellers_in_position, aux_data, f)
+    make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, f)
+
+    return [castellers_in_position, obj_val]
