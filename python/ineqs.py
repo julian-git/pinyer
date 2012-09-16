@@ -44,23 +44,33 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
 
     for pos_id, castellers in castellers_in_position.iteritems():
         position_ineq = '' # in position pos_id, there may be at most one casteller
+        first_pos_ineq = True
         for casteller in castellers:
             casteller_id = casteller['id']
             v = var(casteller_id, pos_id)
             obj_val[v] = casteller['strength']
-            position_ineq = position_ineq + v + " + "
+            if first_pos_ineq:
+                first_pos_ineq = False
+            else:
+                position_ineq += " + "
+            position_ineq += v
             if casteller_id not in pos_of_casteller:
                 pos_of_casteller[casteller_id] = []
             pos_of_casteller[casteller_id].append(pos_id)
         rel = " = 1"
         if not is_essential_pos[pos_id]: # in this case, allow leaving the position empty
             rel = " <= 1"
-        ineqs.append("pos" + str(pos_id) + ": " + position_ineq[:-3] + rel)
+        ineqs.append("pos" + str(pos_id) + ": " + position_ineq + rel)
 
     for casteller_id, positions in pos_of_casteller.iteritems():
         casteller_ineq = '' # the casteller can be in at most one position
+        first_cast_ineq = True
         for pos_id in positions:
-            casteller_ineq = casteller_ineq + var(casteller_id, pos_id) + " + "
+            if first_cast_ineq:
+                first_cast_ineq = False
+            else:
+                casteller_ineq += " + "
+            casteller_ineq += var(casteller_id, pos_id)
         rel = " <= 1"
         label = "cas" + str(casteller_id) + ": "
         is_position_prescribed = False
@@ -75,7 +85,7 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
                         rel2 = " = 1" # except when we're told she does
                     ineqs.append(label + var(casteller_id, pos_id) + rel2)
         if not is_position_prescribed:
-            ineqs.append(label + casteller_ineq[:-3] + rel)
+            ineqs.append(label + casteller_ineq + rel)
 
     return [obj_val, ineqs, pos_of_casteller]
 
@@ -137,11 +147,16 @@ def make_relation_ineqs(relations, castellers_in_position, ineqs, aux_data):
             if len(pos_list) > 0:
                 label = rel['field_name'] + "_" + rel['pos_list'] + ': '
                 ineq_str = ''
+                first_ineq_str = True
                 for pos in pos_list:
-                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name']) + ' + '
+                    if first_ineq_str:
+                        first_ineq_str = False
+                    else: 
+                        ineq_str += ' + '
+                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name'])
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']
-                ineqs.append(label + ineq_str[:-3] + " >= " + str(target_width - rel['fparam1']))
-                ineqs.append(label + ineq_str[:-3] + " <= " + str(target_width + rel['fparam1']))
+                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam1']))
+                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam1']))
 
         else:
             print "implement me!"

@@ -7,7 +7,8 @@ def fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, name=''):
         svg = svg + \
             svg_rect.substitute(_svg_id=pd['svg_id'], _svg_text=pd['svg_text'], \
                                     _class=svgclass, _name=name, _angle=pd['angle'], \
-                                    _x=pd['x'], _y=pd['y'], _w=pd['w'], _h=pd['h'])
+                                    _x=pd['x'], _y=pd['y'], \
+                                    _rx=pd['x'], _ry=pd['y'], _rw=pd['w'], _rh=pd['h'])
         min_x = min(min_x, pd['x']); max_x = max(max_x, pd['x']+pd['w'])
         min_y = min(min_y, pd['y']); max_y = max(max_y, pd['y']+pd['h'])
     elif pd['svg_elem'] == 'circle':
@@ -35,17 +36,13 @@ def editable_castell_plan(castell_type_id):
         [svg, min_x, max_x, min_y, max_y] = \
             fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, pd['role_name'])
     [min_x, max_x, min_y, max_y] = center_image(min_x, max_x, min_y, max_y)
-    viewbox = \
-        'viewBox="' + str(min_x) + ' ' + str(min_y) + ' ' + \
-        str(max_x-min_x) + ' ' + str(max_y-min_y) + '">'
     castell_data = get_castell(db, castell_type_id)
     return \
         head.substitute(_title=castell_data['name']) + \
         body.substitute(_name=castell_data['name'], \
                             _desc=castell_data['description']) + \
         script + \
-        svg_head.substitute() + \
-        viewbox + \
+        svg_head.substitute(_vx=str(min_x), _vy=str(min_y), _vw=str(max_x-min_x), _vh=str(max_y-min_y)) + \
         svg + \
         "</svg>" + "</html>"
 
