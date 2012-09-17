@@ -1,12 +1,13 @@
-from local_config import lp_problem_filename, lp_solution_filename, lp_log_filename, DoLogging, UseCBC
+from local_config import UseCBC, DoLogging, \
+    lp_problem_filename, lp_solution_filename, lp_log_filename
 from db_interaction import get_db, get_positions
+from ineqs import write_ip_ineqs
 from subprocess import call 
 
 
 def write_lp_file(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "write_lp_file..."
-    from ineqs import write_ip_ineqs
     f = open(lp_problem_filename, 'w')
 
     [castellers_in_position, obj_val] = write_ip_ineqs(prescribed, castell_type_id, colla_id, f)
@@ -74,6 +75,6 @@ def do_opt():
     print solution
 
 if __name__ == "__main__":
-#    import cProfile
-#    cProfile.run('do_opt()', 'build_ip.stats')
-    do_opt()
+    import cProfile
+    cProfile.run('do_opt()', 'build_ip.stats')
+#    do_opt()
