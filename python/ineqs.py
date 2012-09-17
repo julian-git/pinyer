@@ -31,7 +31,7 @@ def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
     return sum_vars(from_pos_id, castellers_in_position, prop) + " - " + sum_vars(to_pos_id, castellers_in_position, prop, " - ")
 
 
-def make_and_write_obj_val(castellers_in_position, f):
+def write_obj_val(castellers_in_position, f):
     obj_val = dict()
     first_term = True
     for pos_id, castellers in castellers_in_position.iteritems():
@@ -47,13 +47,13 @@ def make_and_write_obj_val(castellers_in_position, f):
     return obj_val
     
 
-def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, f):
+def write_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, f):
     """ 
-    make the inequalities that say that in each position, there may be at most one casteller.
+    write the inequalities that say that in each position, there may be at most one casteller.
     Fill in pos_of_casteller
     """
     if DoLogging:
-        print "make_castellers_in_position_ineqs"
+        print "write_castellers_in_position_ineqs"
 
     ineqs = []
     pos_of_casteller = dict() # The transposed array of castellers_in_position
@@ -105,9 +105,9 @@ def make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, 
     return pos_of_casteller
 
 
-def make_relation_ineqs(relations, castellers_in_position, aux_data, f):
+def write_relation_ineqs(relations, castellers_in_position, aux_data, f):
     """
-    make the inequalities that express relations between different positions in the castell.
+    write the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
     field_name in from_pos_id and to_pos_id.
     In case that both from_pos_id and to_pos_id exist, we also implement that
@@ -116,7 +116,7 @@ def make_relation_ineqs(relations, castellers_in_position, aux_data, f):
     the position from_pos_id is also filled.
     """ 
     if DoLogging:
-        print "make_relation_ineqs"
+        print "write_relation_ineqs"
     for rel in relations:
         pos_list = [int(p) for p in rel['pos_list'].split('_')]
         fpi = int(pos_list[0])
@@ -176,14 +176,14 @@ def make_relation_ineqs(relations, castellers_in_position, aux_data, f):
         else:
             print "implement me!"
 
-def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, f):
+def write_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, f):
     """
     the database contains pairs of incompatible castellers in the colla.
     here we create the inequalities that express that no two incompatible
     castellers may be employed in any pair of positions related by a relation.
     """
     if DoLogging:
-        print "make_incompatibility_ineqs"
+        print "write_incompatibility_ineqs"
     incompatible_castellers = get_incompatible_castellers(db, colla_id)
     for pair in incompatible_castellers:
         p0 = int(pair[0])
@@ -202,7 +202,7 @@ def make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, f):
                     f.write(label + var(p0, tpi) + " + " + var(p1, fpi) + " <= 1")
                 
 
-def ip_ineqs(prescribed, castell_type_id, colla_id, f):
+def write_ip_ineqs(prescribed, castell_type_id, colla_id, f):
     """
     Create the linear inequalities that define the integer program to be solved.
     Fill the dictionaries castellers_in_position, position_data and obj_val.
@@ -221,13 +221,15 @@ def ip_ineqs(prescribed, castell_type_id, colla_id, f):
         is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, castell_type_id, pos_id)
 
-    obj_val = make_and_write_obj_val(castellers_in_position, f)
-    pos_of_casteller = make_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, f)
+    obj_val = write_obj_val(castellers_in_position, f)
+
+    f.write("\nsubject to\n")
+    pos_of_casteller = write_castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, f)
 
     relations = get_relations(db, castell_type_id)
     aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id))])
 
-    make_relation_ineqs(relations, castellers_in_position, aux_data, f)
-    make_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, f)
+    write_relation_ineqs(relations, castellers_in_position, aux_data, f)
+    write_incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, f)
 
     return [castellers_in_position, obj_val]
