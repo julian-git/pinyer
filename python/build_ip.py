@@ -1,24 +1,31 @@
 from local_config import UseCBC, DoLogging, \
     lp_problem_filename, lp_solution_filename, lp_log_filename
 from db_interaction import get_db, get_positions
-from ineqs import write_ip_ineqs
+from ineqs import ip_ineqs
 from subprocess import call 
 
 
-def write_lp_file(prescribed, castell_type_id, colla_id):
+def write_lp_file(obj, ineqs):
     if DoLogging:
         print "write_lp_file..."
     f = open(lp_problem_filename, 'w')
 
-    [castellers_in_position, obj_val] = write_ip_ineqs(prescribed, castell_type_id, colla_id, f)
-    # obj_val holds the objective coefficient of each variable
-
-    f.write("binary\n")
-    for v in sorted(obj_val.keys()):
+    f.write('maximize\n')
+    for v, val in obj.iteritems():
+        if val > 0:
+            s = ' + '
+        elif val == 0:
+            continue
+        f.write(str(val) + ' ' + v)
+    f.write('\nsubject to')
+    for ineq in ineqs:
+        f.write(ineq)
+        f.write('\n')
+    f.write('\nbinary\n')
+    for v in sorted(obj.keys()):
         f.write(v + " ")
-    f.write("\nend")
+    f.write('\nend')
     f.close()
-    return castellers_in_position
 
 def sol_from_v(sol, vname, castellers_in_position):
     cast_id = vname[1:vname.find('p')]
@@ -58,7 +65,10 @@ def solve_lp(castellers_in_position):
 def find_pinya(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "find_pinya..."    
-    castellers_in_position = write_lp_file(prescribed, castell_type_id, colla_id)
+        
+    [castellers_in_position, obj, ineqs] = ip_ineqs(prescribed, castell_type_id, colla_id)
+    # obj holds the objective coefficient of each variable
+    write_lp_file(obj, ineqs)
     return solve_lp(castellers_in_position)
     
 
@@ -75,6 +85,6 @@ def do_opt():
     print solution
 
 if __name__ == "__main__":
-    import cProfile
-    cProfile.run('do_opt()', 'build_ip.stats')
-#    do_opt()
+#    import cProfile
+#    cProfile.run('do_opt()', 'build_ip.stats')
+    do_opt()
