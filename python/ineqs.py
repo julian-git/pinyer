@@ -5,7 +5,7 @@ def var(casteller_id, pos_id):
     """
     converts a pair of (casteller_id, position_id) into an integer optimization variable name
     """
-    return "c" + str(casteller_id) + "p" + str(pos_id)
+    return 'c' + str(casteller_id) + 'p' + str(pos_id)
 
 def sum_vars(pos_id, castellers_in_position, prop = None, operator=" + "):
     """
@@ -14,15 +14,20 @@ def sum_vars(pos_id, castellers_in_position, prop = None, operator=" + "):
     If prop does not happen to be a key of the casteller dictionary, we directly use the value of prop as a coefficient.
     """
     ineq = ''
+    first_ineq = True
     castellers = castellers_in_position[pos_id]
     for casteller in castellers:
         if prop is not None:
             if prop not in casteller: # then we use it as a constant coefficient
-                ineq = ineq + str(prop) + " "
+                ineq += str(prop) + ' '
             else:
-                ineq = ineq + str(casteller[prop]) + " "
-        ineq = ineq + var(casteller['id'], pos_id) + operator
-    return ineq[:-3] 
+                ineq += str(casteller[prop]) + ' '
+        if first_ineq:
+            first_ineq = False
+        else:
+            ineq += operator
+        ineq += var(casteller['id'], pos_id)
+    return ineq
 
 def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
     """

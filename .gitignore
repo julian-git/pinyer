@@ -17,7 +17,7 @@ www/js/css/ui-lightness/images/
 www/test.html
 cvg/*
 sql/init-cvg.sql
-
+*stats
 
 # Packages
 *.egg

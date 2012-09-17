@@ -61,7 +61,7 @@ def find_pinya(prescribed, castell_type_id, colla_id):
     return solve_lp(castellers_in_position)
     
 
-if __name__ == "__main__":
+def do_opt():
 #    prescribed = dict([(9, 0), (17, 5)])
     prescribed = dict()
 ##########
@@ -72,3 +72,7 @@ if __name__ == "__main__":
 ##########
     solution = find_pinya(prescribed, castell_type_id, colla_id)
     print solution
+
+if __name__ == "__main__":
+    import cProfile
+    cProfile.run('do_opt()', 'build_ip.stats')
