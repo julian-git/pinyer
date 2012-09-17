@@ -1,11 +1,18 @@
 from db_interaction import *
 from local_config import DoLogging
 
+vars = dict()
+
 def var(casteller_id, pos_id):
     """
     converts a pair of (casteller_id, position_id) into an integer optimization variable name
     """
-    return 'c' + str(casteller_id) + 'p' + str(pos_id)
+    try:
+        return vars[casteller_id, pos_id]
+    except KeyError:
+        v = 'c' + str(casteller_id) + 'p' + str(pos_id)
+        vars[casteller_id, pos_id] = v
+        return v
 
 def sum_vars(pos_id, castellers_in_position, prop = None, operator=" + "):
     """
@@ -39,6 +46,7 @@ def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
 def write_obj_val(castellers_in_position, f):
     obj_val = dict()
     first_term = True
+    out = ''
     for pos_id, castellers in castellers_in_position.iteritems():
         for casteller in castellers:
             v = var(casteller['id'], pos_id)
@@ -46,9 +54,9 @@ def write_obj_val(castellers_in_position, f):
             if first_term:
                 first_term = False
             else:
-                f.write(' + ')
-            f.write(str(obj_val[v]) + ' ' + str(v))
-
+                out += ' + '
+            out += str(obj_val[v]) + ' ' + str(v)
+    f.write(out)
     return obj_val
     
 

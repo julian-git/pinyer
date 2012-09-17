@@ -74,5 +74,6 @@ def do_opt():
     print solution
 
 if __name__ == "__main__":
-    import cProfile
-    cProfile.run('do_opt()', 'build_ip.stats')
+#    import cProfile
+#    cProfile.run('do_opt()', 'build_ip.stats')
+    do_opt()
