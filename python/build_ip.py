@@ -1,4 +1,4 @@
-from local_config import UseCBC, DoLogging, \
+from local_config import UseCBC, DoLogging, DoSolve, \
     lp_problem_filename, lp_solution_filename, lp_log_filename
 from db_interaction import get_db, get_positions
 from ineqs import ip_ineqs
@@ -37,10 +37,9 @@ def sol_from_v(sol, vname, castellers_in_position):
             sol[int(pos_id)] = [casteller['id'], casteller['nickname']]
             
 
-def solve_lp(castellers_in_position):
+def do_solve(castellers_in_position):
     if UseCBC:
         args = ['cbc', '-import', lp_problem_filename, '-solve', '-solu', lp_solution_filename, '-quit']
-        base_index = 1  # for reading the solution file
     else:
         args = ['gurobi_cl', 'ResultFile=' + lp_solution_filename, lp_problem_filename]
         base_index = 0  # for reading the solution file
@@ -52,6 +51,12 @@ def solve_lp(castellers_in_position):
 #    os.rm(lp_solution_filename)
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
+
+def solution(castellers_in_position):
+    if UseCBC:
+        base_index = 1  # for reading the solution file
+    else:
+        base_index = 0  # for reading the solution file
     f = open(lp_solution_filename, 'r')
     sol = dict()
     first_line = True
@@ -64,6 +69,10 @@ def solve_lp(castellers_in_position):
                 sol_from_v(sol, a[base_index], castellers_in_position)
     return sol
 
+def solve_lp(castellers_in_position):
+    if DoSolve:
+        do_solve(castellers_in_position)
+    return solution(castellers_in_position)
 
 def find_pinya(prescribed, castell_type_id, colla_id):
     if DoLogging:
