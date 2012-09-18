@@ -1,9 +1,9 @@
-from local_config import UseCBC, DoLogging, DoSolve, \
+from local_config import \
+    UseCBC, DoLogging, DoSolve, \
     lp_problem_filename, lp_solution_filename, lp_log_filename
 from db_interaction import get_db, get_positions
 from ineqs import ip_ineqs
 from subprocess import call 
-#from os import rm
 
 def write_lp_file(obj, ineqs):
     if DoLogging:
@@ -48,7 +48,6 @@ def do_solve(castellers_in_position):
             print "solving lp with cbc..."
         else:
             print "solving with gurobi..."
-#    os.rm(lp_solution_filename)
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
 

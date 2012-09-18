@@ -178,11 +178,12 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             #
             # Next, we update the objective function to minimize
             # (value of field_name at from_pos) - (value of field_name at to_pos).
+            # Since we maximize the objective function, we must flip the signs.
             #
             for casteller in castellers_in_position[fpi]:
-                obj[var(casteller['id'], fpi)] += casteller[rel['field_name']]
+                obj[var(casteller['id'], fpi)] -= casteller[rel['field_name']]
             for casteller in castellers_in_position[tpi]:
-                obj[var(casteller['id'], tpi)] -= casteller[rel['field_name']]
+                obj[var(casteller['id'], tpi)] += casteller[rel['field_name']]
 
         elif rel['relation_type'] == 2: 
             # Ma can support segon:
