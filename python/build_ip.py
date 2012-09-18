@@ -4,6 +4,7 @@ from local_config import \
 from db_interaction import get_db, get_positions
 from ineqs import ip_ineqs
 from subprocess import call 
+from os import rename
 
 def write_lp_file(obj, ineqs):
     if DoLogging:
@@ -50,6 +51,8 @@ def do_solve(castellers_in_position):
             print "solving lp with cbc..."
         else:
             print "solving with gurobi..."
+    rename(lp_log_filename, lp_log_filename + '.1')
+    rename(lp_solution_filename, lp_solution_filename + '.1')
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
 
@@ -81,7 +84,7 @@ def solved_relations(relations, sol):
                 fp = int(positions[i])
                 tp = int(positions[j])
                 print fp, sol[fp], ";" , tp, sol[tp]
-                sol_rel[fp, tp] = sol[fp][prop] - sol[tp][prop]
+                sol_rel[fp, tp] = round(sol[fp][prop] - sol[tp][prop], 2)
     return sol_rel
 
 def solution(castellers_in_position, relations, props):
