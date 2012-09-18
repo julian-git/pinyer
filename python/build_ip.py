@@ -3,7 +3,7 @@ from local_config import UseCBC, DoLogging, \
 from db_interaction import get_db, get_positions
 from ineqs import ip_ineqs
 from subprocess import call 
-
+#from os import rm
 
 def write_lp_file(obj, ineqs):
     if DoLogging:
@@ -16,8 +16,10 @@ def write_lp_file(obj, ineqs):
             s = ' + '
         elif val == 0:
             continue
-        f.write(str(val) + ' ' + v)
-    f.write('\nsubject to')
+        else:
+            s = ' '
+        f.write(s + str(val) + ' ' + v)
+    f.write('\nsubject to\n')
     for ineq in ineqs:
         f.write(ineq)
         f.write('\n')
@@ -47,6 +49,7 @@ def solve_lp(castellers_in_position):
             print "solving lp with cbc..."
         else:
             print "solving with gurobi..."
+#    os.rm(lp_solution_filename)
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
     f = open(lp_solution_filename, 'r')
