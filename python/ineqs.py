@@ -270,4 +270,4 @@ def ip_ineqs(prescribed, castell_type_id, colla_id):
     [ineqs, obj] = relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj)
     ineqs = incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
 
-    return [castellers_in_position, obj, ineqs]
+    return [castellers_in_position, obj, ineqs, relations]

@@ -29,12 +29,14 @@ def write_lp_file(obj, ineqs):
     f.write('\nend')
     f.close()
 
-def sol_from_v(sol, vname, castellers_in_position):
-    cast_id = vname[1:vname.find('p')]
+def sol_from_v(sol, vname, castellers_in_position, _props):
+    cast_id = int(vname[1:vname.find('p')])
     pos_id = long(vname[vname.find('p')+1:])
+    props = ['nickname']
+    props.extend(_props)
     for casteller in castellers_in_position[pos_id]:
-        if casteller['id'] == int(cast_id):
-            sol[int(pos_id)] = [casteller['id'], casteller['nickname']]
+        if casteller['id'] == cast_id:
+            sol[int(pos_id)] = dict([(p, casteller[p]) for p in props])
             
 
 def do_solve(castellers_in_position):
@@ -51,7 +53,7 @@ def do_solve(castellers_in_position):
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
 
-def solution(castellers_in_position):
+def solved_positions(castellers_in_position, props):
     if UseCBC:
         base_index = 1  # for reading the solution file
     else:
@@ -65,22 +67,41 @@ def solution(castellers_in_position):
         else:
             a = line.split()
             if a[base_index + 1] == '1':
-                sol_from_v(sol, a[base_index], castellers_in_position)
+                sol_from_v(sol, a[base_index], castellers_in_position, props)
     return sol
 
-def solve_lp(castellers_in_position):
-    if DoSolve:
-        do_solve(castellers_in_position)
-    return solution(castellers_in_position)
+def solved_relations(relations, sol, prop):
+    sol_rel = dict()
+    for rel in relations:
+        positions = rel['pos_list'].split('_')
+        for i in range(0, len(positions)-1):
+            for j in range(1, len(positions)):
+                fp = int(positions[i])
+                tp = int(positions[j])
+#                print sol[fp], ";" , sol[tp], ";" , prop
+                sol_rel[fp, tp] = sol[fp][prop] - sol[tp][prop]
+    return sol_rel
+
+def solution(castellers_in_position, relations, props):
+    sol = solved_positions(castellers_in_position, props)
+    return dict([('positions', sol), \
+                     ('relations', [(p, solved_relations(relations, sol, p)) for p in props])])
+
 
 def find_pinya(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "find_pinya..."    
         
-    [castellers_in_position, obj, ineqs] = ip_ineqs(prescribed, castell_type_id, colla_id)
+    [castellers_in_position, obj, ineqs, relations] = \
+        ip_ineqs(prescribed, castell_type_id, colla_id)
     # obj holds the objective coefficient of each variable
+    # relations holds the relations between positions
     write_lp_file(obj, ineqs)
-    return solve_lp(castellers_in_position)
+    if DoSolve:
+        do_solve(castellers_in_position)
+        
+    props = ['shoulder_height']
+    return solution(castellers_in_position, relations, props)
     
 
 def do_opt():
