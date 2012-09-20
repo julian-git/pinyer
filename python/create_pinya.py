@@ -1,5 +1,6 @@
 from math import cos, sin, pi
 from html_common import svg_rect, svg_head
+from local_config import tolerances
 
 def ring(period, i, r, rect_dim, init_svg_id, position_at, coo_of):
     """
@@ -53,10 +54,7 @@ def ring(period, i, r, rect_dim, init_svg_id, position_at, coo_of):
     return [svg, svg_id, position_at, coo_of]
 
 
-def make_rings(rd):
-    r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
-    svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
-    svg += '<g id="pos">'
+def make_rings(rd, svg):
     svg_id = 0
     r = rd['start_radius']
     position_at = dict()
@@ -66,10 +64,20 @@ def make_rings(rd):
             ring(rd['period'], i, r, rd['rect_dim'], svg_id, position_at, coo_of) 
         svg += _svg
         r += rd['radius_offset']
-    svg += '</g>'
     return [svg, position_at, coo_of]
 
-def make_ring_relations(rd, position_at, tolerances):
+def make_baix_group(svg, position_at, coo_of):
+    pass
+
+def make_pinya(rd, svg):
+    svg += '<g id="pos">'
+    [svg, position_at, coo_of] = make_rings(ring_data, svg)
+    [svg, position_at, coo_of] = make_baix_group(svg, position_at, coo_of)
+    svg += '</g>' 
+    return [svg, position_at, coo_of]
+
+
+def make_ring_relations(rd, position_at):
     relations = []
     # the default values for all relations created in this function
     rel0 = dict([('pos_list', None), \
@@ -155,14 +163,13 @@ def make_relations_svg(relations, coo_of):
     return relations_svg + '</g>'
 
 def tresde8f():
-    ring_data = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 3), \
-                      ('start_radius', 100), ('radius_offset', 35), \
-                      ('rect_dim', dict([('w',20),('h',40)]))])
-    [svg, position_at, coo_of] = make_rings(ring_data) 
-    # the tolerance in height between successive mans, vents, and pinya,
-    # and in width between adjacent pinya in the same ring
-    tolerances = dict([('height', 5), ('width', 6)])
-    relations = make_ring_relations(ring_data, position_at, tolerances)
+    rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 3), \
+                   ('start_radius', 100), ('radius_offset', 35), \
+                   ('rect_dim', dict([('w',20),('h',40)]))])
+    r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
+    svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
+    [svg, position_at, relations] = make_pinya(rd, svg)
+    relations = make_ring_relations(ring_data, position_at)
     svg += make_relations_svg(relations, coo_of) + '</svg>'
     return [svg, position_at, relations]
 

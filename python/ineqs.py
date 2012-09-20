@@ -14,11 +14,13 @@ def var(casteller_id, pos_id):
         vars[casteller_id, pos_id] = v
         return v
 
-def sum_vars(pos_id, castellers_in_position, prop = None, operator=" + "):
+def sum_vars(pos_id, castellers_in_position, prop = None, operator = " + ", coeff = 1):
     """
     make the sum of all casteller indicator variables that involve the position pos.
-    If prop is None, use 1 as a coefficient; else, use casteller[prop] if this property exists in the dictionary casteller.
-    If prop does not happen to be a key of the casteller dictionary, we directly use the value of prop as a coefficient.
+    If prop is None, use coeff(=1) as a coefficient; 
+    else, use casteller[prop] if this property exists in the dictionary casteller.
+    If prop does not happen to be a key of the casteller dictionary, 
+    we directly use the value of prop as a coefficient.
     """
     ineq = ''
     first_term = True
@@ -29,9 +31,9 @@ def sum_vars(pos_id, castellers_in_position, prop = None, operator=" + "):
             ineq += operator
         if prop is not None:
             if prop not in casteller: # then we use it as a constant coefficient
-                ineq += str(prop) + ' '
+                ineq += str(coeff * prop) + ' '
             else:
-                ineq += str(casteller[prop]) + ' '
+                ineq += str(coeff * casteller[prop]) + ' '
         ineq += var(casteller['id'], pos_id)  + ' '
     return ineq
 
@@ -197,13 +199,17 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             if len(pos_list) > 0:
                 label = rel['field_name'] + "_" + rel['pos_list'] + ': '
                 ineq_str = ''
-                first_ineq_str = True
+                pos_ct = 0
                 for pos in pos_list:
-                    if first_ineq_str:
-                        first_ineq_str = False
+                    if pos_ct == 0:
+                        coeff = 1 #coeff = 0.5
                     else: 
+                        coeff = 1
                         ineq_str += ' + '
-                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name'])
+                    if pos_ct == len(pos_list)-1:
+                        coeff = 1 #coeff = 0.5
+                    pos_ct = pos_ct + 1
+                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name'], ' + ', coeff)
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']
                 ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam1']))
                 ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam1']))

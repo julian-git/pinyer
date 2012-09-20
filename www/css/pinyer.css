@@ -33,6 +33,9 @@ rect.ma {
 rect.vt {
     fill: lightgreen;
 }
+rect.design {
+    stroke: green;
+}
 
 path {
     stroke-width: 2;

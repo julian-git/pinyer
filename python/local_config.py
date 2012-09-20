@@ -20,3 +20,9 @@ lp_log_filename = '/tmp/lp_log.txt'
 
 # Print log information?
 DoLogging = True
+
+# Data defining the relations between positions 
+
+# the tolerance in height between successive mans, vents, and pinya,
+# and in width between adjacent pinya in the same ring
+tolerances = dict([('height', 5), ('width', 6)])

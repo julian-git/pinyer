@@ -52,9 +52,8 @@ elif what=='get_pinya':
 elif what=='optimize_pinya':
     prescribed = dict()
     castell_type_id = form["castell_type_id"].value
-    position_data = get_positions(db, castell_type_id)
     colla_id = 1
-    solution = find_pinya(prescribed, position_data, castell_type_id, colla_id)
+    solution = find_pinya(prescribed, castell_type_id, colla_id)
     print solution_as_svg(solution, position_data, prescribed)
 
 else:
