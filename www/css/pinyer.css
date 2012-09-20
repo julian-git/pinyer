@@ -25,12 +25,13 @@ circle.design {
 }
 
 rect    { fill: lightblue; }
-rect.ma { fill: seagreen;  }
-rect.vt { fill: lightgreen;}
-rect.cr { fill: yellow;    }
-rect.co { fill: orange;    }
-rect.b  { fill: red;  }
-rect.a  { fill: brown;}
+rect.ma { fill: purple;    }  /* rengles, mans */
+rect.vt { fill: blue;      }  /* vents         */
+rect.cr { fill: yellow;    }  /* crosses       */
+rect.co { fill: orange;    }  /* contraforts   */
+rect.b  { fill: red;       }  /* baixos        */
+rect.a  { fill: brown;     }  /* agulles       */
+rect.pc { fill: brown;     }  /* portacrosses  */
 rect.design { stroke: green;
 }
 

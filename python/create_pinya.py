@@ -177,7 +177,6 @@ def make_baix_group(bd, i, svg, svg_id, pibg, coo_of):
     [svg, svg_id, pibg, coo_of] = make_crossa(i, 2, bd, pibg, svg, svg_id, coo_of)
     [svg, svg_id, pibg, coo_of] = make_contrafort(i, 3, bd, pibg, svg, svg_id, coo_of)
     [svg, svg_id, pibg, coo_of] = make_agulla(i, 4, bd, pibg, svg, svg_id, coo_of)
-
     return [svg, svg_id, pibg, coo_of]
 
 def make_baixos(bd, svg, svg_id, coo_of):
@@ -196,14 +195,65 @@ def make_baixos(bd, svg, svg_id, coo_of):
         svg += '</g>'
     return [svg, svg_id, position_in_baix_group, coo_of]
 
-def make_pinya(rd, bd, svg):
+def make_pc(i, j, index, pcd, pipcg, svg, svg_id, coo_of):
+    svg_id = svg_id + 1
+    [x,y] = pcd[index + '_pos']
+    dims  = pcd[index + '_dim']
+    alpha = dims['angle']
+    svg += svg_rect.substitute(_x=x, \
+                                   _y=y, \
+                                   _rx = dims['x'], \
+                                   _ry = dims['y'], \
+                                   _rw = dims['w'], \
+                                   _rh = dims['h'], \
+                                   _angle = alpha, \
+                                   _svg_id=svg_id,\
+                                   _svg_text = str([i,j]), \
+                                   #_svg_text=svg_id, \
+                                   _class='pc', \
+                                   _name=svg_id, \
+                                   _index_props=[i,j])
+    pipcg[i,j] = dict([('svg_id', svg_id), \
+                           ('role', 'portacrosses'), \
+                           ('svg_text', 'portacrosses'), \
+                           ('x', x), \
+                           ('y', y), \
+                           ('angle', alpha)])
+    coo_of[svg_id] = [x,y]
+    return [svg, svg_id, pipcg, coo_of]
+                                   
+
+def make_portacrosses_group(pcd, i, svg, svg_id, pipcg, coo_of):
+    [svg, svg_id, pipcg, coo_of] = make_pc(i, 0, 'pc_c', pcd, pipcg, svg, svg_id, coo_of)
+    [svg, svg_id, pipcg, coo_of] = make_pc(i, 1, 'pc_i', pcd, pipcg, svg, svg_id, coo_of)
+    [svg, svg_id, pipcg, coo_of] = make_pc(i, 2, 'pc_d', pcd, pipcg, svg, svg_id, coo_of)
+    return [svg, svg_id, pipcg, coo_of]
+
+def make_portacrosses(pcd, svg, svg_id, coo_of):
+    position_in_portacrosses = dict()
+    for i in range(pcd['number']):
+        alpha = (i * 2.0 + 1.0) * pi / pcd['number']
+        x = pcd['radius'] * cos(alpha)
+        y = pcd['radius'] * sin(alpha)
+        svg += '<g id="portacrosses_gp_' + str(i) + \
+            '" transform="translate(' + \
+            str(x) + ' ' + \
+            str(y) + ') rotate(' + \
+            str(round(180 / pi * alpha, 2)) + ')">'
+        [svg, svg_id, position_in_portacrosses, coo_of] = \
+            make_portacrosses_group(pcd, i, svg, svg_id, position_in_portacrosses, coo_of)
+        svg += '</g>'
+    return [svg, svg_id, position_in_portacrosses, coo_of]
+
+def make_pinya(rd, bd, pcd, svg):
     svg += '<g id="pos">'
     svg_id = 0
     coo_of = dict()
     [svg, svg_id, position_in_ring, coo_of] = make_rings(rd, svg, svg_id, coo_of)
     [svg, svg_id, position_in_baix_group, coo_of] = make_baixos(bd, svg, svg_id, coo_of)
+    [svg, svg_id, position_in_portacrosses, coo_of] = make_portacrosses(pcd, svg, svg_id, coo_of)
     svg += '</g>' 
-    return [svg, position_in_ring, position_in_baix_group, coo_of]
+    return [svg, position_in_ring, position_in_baix_group, position_in_portacrosses, coo_of]
 
 
 def make_ring_relations(rd, position_in_ring):
@@ -300,7 +350,7 @@ def tresde8f():
 
     #data for the baixos and crosses
     bd = dict([('number', 3), \
-                   ('radius', 50), \
+                   ('radius', 40), \
                    ('baix_pos', \
                         [0,0]), \
                    ('baix_rect_dim', \
@@ -319,17 +369,39 @@ def tresde8f():
                         dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])) \
                    ])
 
+    # data for the portacrosses 
+    pcd = dict([('number', 3),  \
+                    ('radius', 50), \
+                    ('pc_c_dim', \
+                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])), \
+                    ('pc_c_pos', \
+                         [0,0]), \
+                    ('pc_d_dim', \
+                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])), \
+                    ('pc_d_pos', \
+                         [10,0]), \
+                    ('pc_i_dim', \
+                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])), \
+                    ('pc_i_pos', \
+                         [-10,0]), \
+                    ('pc_d_ang', 20), \
+                    ('pc_i_ang', -20) \
+                    ])
+
+                   
     # start the svg
     svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
 
     # go!
-    [svg, position_in_ring, position_in_baix_group, coo_of] = make_pinya(rd, bd, svg)
+    [svg, position_in_ring, position_in_baix_group, \
+         position_in_portacrosses, coo_of] = make_pinya(rd, bd, pcd, svg)
     relations = make_ring_relations(rd, position_in_ring)
     svg += make_relations_svg(relations, coo_of) + '</svg>'
-    return [svg, position_in_ring, position_in_baix_group, relations]
+    return [svg, position_in_ring, position_in_baix_group, position_in_portacrosses, relations]
 
 def save_tresde8f_relations():
-    [svg, position_in_ring, position_in_baix_group, relations] = tresde8f()
+    [svg, position_in_ring, position_in_baix_group, \
+         position_in_portacrosses, relations] = tresde8f()
     from db_interaction import get_db, write_positions, write_relations
     db = get_db()
     c = db.cursor()
