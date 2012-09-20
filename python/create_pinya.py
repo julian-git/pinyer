@@ -2,7 +2,7 @@ from math import cos, sin, pi
 from html_common import svg_rect, svg_head
 from local_config import tolerances
 
-def ring(period, i, r, rect_dim, init_svg_id, position_at, coo_of):
+def ring(period, i, r, rect_dim, init_svg_id, position_in_ring, coo_of):
     """
     create the svg elements in the outer rings.
     period = k if the ring has 2pi/k symmetry
@@ -14,7 +14,7 @@ def ring(period, i, r, rect_dim, init_svg_id, position_at, coo_of):
     returns:
     svg: the string with the svg representation
     svg_id: the next free id number
-    position_at: The dictionary telling the id of an element at the position (j, s)
+    position_in_ring: The dictionary telling the id of an element at the position (j, s)
     coo_of: the coordinates of an element with a certain id
     """
     svg = ''
@@ -41,43 +41,54 @@ def ring(period, i, r, rect_dim, init_svg_id, position_at, coo_of):
                                                 _rx=-0.5*rect_dim['w'], _ry=-0.5*rect_dim['h'], \
                                                 _rw=rect_dim['w'], _rh=rect_dim['h'], \
                                                 _angle=angle, \
-                                                _svg_id=svg_id, _svg_text=svg_id, \
-                                                _class=c, _name=svg_id, \
+                                                _svg_id=svg_id,\
+                                                _svg_text = str([i,j,m]), \
+                                                #_svg_text=svg_id, \
+                                                _class=c, \
+                                                _name=svg_id, \
                                                 _index_props=[i,j,m])
-            position_at[i,j,m] = dict([('svg_id', svg_id), \
+            position_in_ring[i,j,m] = dict([('svg_id', svg_id), \
                                            ('role', role), \
                                            ('svg_text', role), \
                                            ('x', x), \
                                            ('y', y), \
                                            ('angle', angle)])
             coo_of[svg_id] = [x,y]
-    return [svg, svg_id, position_at, coo_of]
+    return [svg, svg_id, position_in_ring, coo_of]
 
 
-def make_rings(rd, svg):
-    svg_id = 0
+def make_rings(rd, svg, svg_id, coo_of):
     r = rd['start_radius']
-    position_at = dict()
-    coo_of = dict()
+    position_in_ring = dict()
     for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
-        [_svg, svg_id, position_at, coo_of] = \
-            ring(rd['period'], i, r, rd['rect_dim'], svg_id, position_at, coo_of) 
+        [_svg, svg_id, position_in_ring, coo_of] = \
+            ring(rd['period'], i, r, rd['rect_dim'], svg_id, position_in_ring, coo_of) 
         svg += _svg
         r += rd['radius_offset']
-    return [svg, position_at, coo_of]
+    return [svg, svg_id, position_in_ring, coo_of]
 
-def make_baix_group(svg, position_at, coo_of):
-    pass
+def make_baix_group(index, svg, svg_id, position_of_baix, coo_of):
+    
+    return [svg, svg_id, position_of_baix, coo_of]
+
+def make_baixos(rd, svg, svg_id, coo_of):
+    position_of_baix = dict()
+    for i in range(rd['period']):
+        [svg, svg_id, position_of_baix, coo_of] = \
+            make_baix_group(2*i, svg, svg_id, position_of_baix, coo_of)
+    return [svg, svg_id, position_of_baix, coo_of]
 
 def make_pinya(rd, svg):
     svg += '<g id="pos">'
-    [svg, position_at, coo_of] = make_rings(ring_data, svg)
-    [svg, position_at, coo_of] = make_baix_group(svg, position_at, coo_of)
+    svg_id = 0
+    coo_of = dict()
+    [svg, svg_id, position_in_ring, coo_of] = make_rings(rd, svg, svg_id, coo_of)
+    [svg, svg_id, position_of_baix, coo_of] = make_baixos(rd, svg, svg_id, coo_of)
     svg += '</g>' 
-    return [svg, position_at, coo_of]
+    return [svg, position_in_ring, coo_of]
 
 
-def make_ring_relations(rd, position_at):
+def make_ring_relations(rd, position_in_ring):
     relations = []
     # the default values for all relations created in this function
     rel0 = dict([('pos_list', None), \
@@ -95,8 +106,8 @@ def make_ring_relations(rd, position_at):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             rel = rel0.copy()
             rel['pos_list'] = \
-                str(position_at[i,j,0]['svg_id']) + '_' + \
-                str(position_at[i+1,j,0]['svg_id'])
+                str(position_in_ring[i,j,0]['svg_id']) + '_' + \
+                str(position_in_ring[i+1,j,0]['svg_id'])
             rel['pos_type'] = pt
             relations.append(rel)
 
@@ -107,15 +118,15 @@ def make_ring_relations(rd, position_at):
             for m in range(1, i+1):
                 rel = rel0.copy()
                 rel['pos_list'] = \
-                    str(position_at[i,j,m]['svg_id']) + '_' + \
-                    str(position_at[i+1,j,m]['svg_id'])
+                    str(position_in_ring[i,j,m]['svg_id']) + '_' + \
+                    str(position_in_ring[i+1,j,m]['svg_id'])
                 rel['pos_type'] = 'p'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
                 rel1['pos_list'] = \
-                    str(position_at[i,j,m]['svg_id']) + '_' + \
-                    str(position_at[i+1,j,m+1]['svg_id'])
+                    str(position_in_ring[i,j,m]['svg_id']) + '_' + \
+                    str(position_in_ring[i+1,j,m+1]['svg_id'])
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
@@ -126,9 +137,9 @@ def make_ring_relations(rd, position_at):
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
             rel = rel0.copy()
-            rel['pos_list'] = str(position_at[i,j,1]['svg_id'])
+            rel['pos_list'] = str(position_in_ring[i,j,1]['svg_id'])
             for m in range(2, i+1):
-                rel['pos_list'] += '_' + str(position_at[i,j,m]['svg_id'])
+                rel['pos_list'] += '_' + str(position_in_ring[i,j,m]['svg_id'])
             relations.append(rel)
 
     return relations
@@ -168,19 +179,19 @@ def tresde8f():
                    ('rect_dim', dict([('w',20),('h',40)]))])
     r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
     svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
-    [svg, position_at, relations] = make_pinya(rd, svg)
-    relations = make_ring_relations(ring_data, position_at)
+    [svg, position_in_ring, coo_of] = make_pinya(rd, svg)
+    relations = make_ring_relations(rd, position_in_ring)
     svg += make_relations_svg(relations, coo_of) + '</svg>'
-    return [svg, position_at, relations]
+    return [svg, position_in_ring, relations]
 
 def save_tresde8f_relations():
-    [svg, position_at, relations] = tresde8f()
+    [svg, position_in_ring, relations] = tresde8f()
     from db_interaction import get_db, write_positions, write_relations
     db = get_db()
     c = db.cursor()
     c.execute("delete from castell_position where castell_type_id = 3")
     c.execute("delete from castell_relation where castell_type_id = 3")
-    write_positions(db, 3, position_at)
+    write_positions(db, 3, position_in_ring)
     write_relations(db, 3, relations)
     db.commit()
     
