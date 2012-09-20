@@ -55,6 +55,13 @@ def ring_relations(rd, position_in_ring, relations):
     return relations
 
 def baixos_relations(cd, position_in_portacrosses, relations):
+    # the default values for all relations created in this function
+    rel0 = dict([('pos_list', None), \
+                     ('relation_type', 1), \
+                     ('field_name', 'shoulder_height'), \
+                     ('fparam1', tolerances['height']), \
+                     ('pos_type', None)])
+    # first, the relations between 
     return relations
 
 def relations_svg(relations, coo_of):
