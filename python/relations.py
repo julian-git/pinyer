@@ -1,3 +1,4 @@
+from local_config import tolerances
 
 def ring_relations(rd, position_in_ring, relations):
     # the default values for all relations created in this function
@@ -53,10 +54,11 @@ def ring_relations(rd, position_in_ring, relations):
             relations.append(rel)
     return relations
 
-def crosses_relations(cd, position_in_portacrosses, relations):
+def baixos_relations(cd, position_in_portacrosses, relations):
     return relations
 
 def relations_svg(relations, coo_of):
+    relations_svg = ''
     for rel in relations:
         pos_list = rel['pos_list'].split('_')
         fpi = int(pos_list[0])
