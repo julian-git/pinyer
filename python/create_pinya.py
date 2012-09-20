@@ -2,13 +2,13 @@ from math import cos, sin, pi
 from html_common import svg_rect, svg_head
 from local_config import tolerances
 
-def ring(period, i, r, rect_dim, init_svg_id, position_in_ring, coo_of):
+def ring(period, i, r, pinya_rect_dim, init_svg_id, position_in_ring, coo_of):
     """
     create the svg elements in the outer rings.
     period = k if the ring has 2pi/k symmetry
     i: the index of the ring; also, how many people are between each of the rays at 2pi j / k
     r: the radius of the ring
-    rect_dim: The dimensions of the box to place, of the form {w:20 h:30}
+    pinya_rect_dim: The dimensions of the box to place, of the form {w:20 h:30}
     init_svg_id: The first free id for an svg element
 
     returns:
@@ -37,16 +37,16 @@ def ring(period, i, r, rect_dim, init_svg_id, position_in_ring, coo_of):
             x=round(r*cos(a), 2)
             y=round(r*sin(a), 2)
             angle = round(a*180/pi, 2)
-            svg = svg + svg_rect.substitute(_x=x, _y=y, \
-                                                _rx=-0.5*rect_dim['w'], _ry=-0.5*rect_dim['h'], \
-                                                _rw=rect_dim['w'], _rh=rect_dim['h'], \
-                                                _angle=angle, \
-                                                _svg_id=svg_id,\
-                                                _svg_text = str([i,j,m]), \
-                                                #_svg_text=svg_id, \
-                                                _class=c, \
-                                                _name=svg_id, \
-                                                _index_props=[i,j,m])
+            svg += svg_rect.substitute(_x=x, _y=y, \
+                                           _rx=-0.5*pinya_rect_dim['w'], _ry=-0.5*pinya_rect_dim['h'], \
+                                           _rw=pinya_rect_dim['w'], _rh=pinya_rect_dim['h'], \
+                                           _angle=angle, \
+                                           _svg_id=svg_id,\
+                                           _svg_text = str([i,j,m]), \
+                                           #_svg_text=svg_id, \
+                                           _class=c, \
+                                           _name=svg_id, \
+                                           _index_props=[i,j,m])
             position_in_ring[i,j,m] = dict([('svg_id', svg_id), \
                                            ('role', role), \
                                            ('svg_text', role), \
@@ -62,28 +62,96 @@ def make_rings(rd, svg, svg_id, coo_of):
     position_in_ring = dict()
     for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
         [_svg, svg_id, position_in_ring, coo_of] = \
-            ring(rd['period'], i, r, rd['rect_dim'], svg_id, position_in_ring, coo_of) 
+            ring(rd['period'], i, r, rd['pinya_rect_dim'], svg_id, position_in_ring, coo_of) 
         svg += _svg
         r += rd['radius_offset']
     return [svg, svg_id, position_in_ring, coo_of]
 
-def make_baix_group(index, svg, svg_id, position_of_baix, coo_of):
-    
+def make_baix(i, j, bd, svg, svg_id, coo_of):
+    svg_id = svg_id + 1
+    [x,y] = [0,0]
+    svg += svg_rect.substitute(_x=bd['baix_pos']['x'], \
+                                   _y=bd['baix_pos']['y'],  \
+                                   _rx = bd['baix_rect_dim']['x'], \
+                                   _ry = bd['baix_rect_dim']['y'], \
+                                   _rw = bd['baix_rect_dim']['w'], \
+                                   _rh = bd['baix_rect_dim']['h'], \
+                                   _angle = bd['baix_rect_dim']['angle'], \
+                                   _svg_id=svg_id,\
+                                   _svg_text = str([i,j]), \
+                                   #_svg_text=svg_id, \
+                                   _class='b', \
+                                   _name=svg_id, \
+                                   _index_props=[i,j])
+    coo_of[svg_id] = [x,y]
+    return [svg, svg_id, coo_of]
+
+def make_crossa(i, j, bd, svg, svg_id, coo_of):
+    svg_id = svg_id + 1
+    [x,y] = bd['crossa_pos']
+    if j%2 == 0:
+        x = -x
+    svg += svg_rect.substitute(_x=x, \
+                                   _y=y, \
+                                   _rx = bd['crossa_rect_dim']['x'], \
+                                   _ry = bd['crossa_rect_dim']['y'], \
+                                   _rw = bd['crossa_rect_dim']['w'], \
+                                   _rh = bd['crossa_rect_dim']['h'], \
+                                   _angle = bd['crossa_rect_dim']['angle'], \
+                                   _svg_id=svg_id,\
+                                   _svg_text = str([i,j]), \
+                                   #_svg_text=svg_id, \
+                                   _class='cr', \
+                                   _name=svg_id, \
+                                   _index_props=[i,j])
+    coo_of[svg_id] = [x,y]
+    return [svg, svg_id, coo_of]
+
+def make_contrafort(i, j, bd, svg, svg_id, coo_of):
+    svg_id = svg_id + 1
+    [x,y] = bd['contrafort_pos']
+    svg += svg_rect.substitute(_x=x, \
+                                   _y=y, 
+                                   _rx = bd['contrafort_rect_dim']['x'], \
+                                   _ry = bd['contrafort_rect_dim']['y'], \
+                                   _rw = bd['contrafort_rect_dim']['w'], \
+                                   _rh = bd['contrafort_rect_dim']['h'], \
+                                   _angle = bd['contrafort_rect_dim']['angle'], \
+                                   _svg_id=svg_id,\
+                                   _svg_text = str([i,j]), \
+                                   #_svg_text=svg_id, \
+                                   _class='co', \
+                                   _name=svg_id, \
+                                   _index_props=[i,j])
+    coo_of[svg_id] = [x,y]
+    return [svg, svg_id, coo_of]
+
+def make_baix_group(bd, i, svg, svg_id, position_of_baix, coo_of):
+    [svg, svg_id, baix, coo_of] = make_baix(i, 0, bd, svg, svg_id, coo_of)
+    [svg, svg_id, crossa1, coo_of] = make_crossa(i, 1, bd, svg, svg_id, coo_of)
+    [svg, svg_id, crossa2, coo_of] = make_crossa(i, 2, bd, svg, svg_id, coo_of)
+    [svg, svg_id, contrafort, coo_of] = make_contrafort(i, 3, bd, svg, svg_id, coo_of)
+
+    position_of_baix[index, 0] = baix
+    position_of_baix[index, 1] = crossa1
+    position_of_baix[index, 2] = crossa2
+    position_of_baix[index, 3] = contrafort
+
     return [svg, svg_id, position_of_baix, coo_of]
 
-def make_baixos(rd, svg, svg_id, coo_of):
+def make_baixos(bd, svg, svg_id, coo_of):
     position_of_baix = dict()
-    for i in range(rd['period']):
+    for i in range(bd['number']):
         [svg, svg_id, position_of_baix, coo_of] = \
-            make_baix_group(2*i, svg, svg_id, position_of_baix, coo_of)
+            make_baix_group(bd, i, svg, svg_id, position_of_baix, coo_of)
     return [svg, svg_id, position_of_baix, coo_of]
 
-def make_pinya(rd, svg):
+def make_pinya(rd, bd, svg):
     svg += '<g id="pos">'
     svg_id = 0
     coo_of = dict()
     [svg, svg_id, position_in_ring, coo_of] = make_rings(rd, svg, svg_id, coo_of)
-    [svg, svg_id, position_of_baix, coo_of] = make_baixos(rd, svg, svg_id, coo_of)
+    [svg, svg_id, position_of_baix, coo_of] = make_baixos(bd, svg, svg_id, coo_of)
     svg += '</g>' 
     return [svg, position_in_ring, coo_of]
 
@@ -174,12 +242,20 @@ def make_relations_svg(relations, coo_of):
     return relations_svg + '</g>'
 
 def tresde8f():
+    # data for the rings of the pinya
     rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 3), \
                    ('start_radius', 100), ('radius_offset', 35), \
-                   ('rect_dim', dict([('w',20),('h',40)]))])
+                   ('pinya_rect_dim', dict([('w',20),('h',40)]))])
     r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
+
+    #data for the baixos and crosses
+    bd = dict([('number', 3), ('baix_rect_dim', dict([('w', 20), ('h', 40)]))])
+
+    # start the svg
     svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
-    [svg, position_in_ring, coo_of] = make_pinya(rd, svg)
+
+    # go!
+    [svg, position_in_ring, coo_of] = make_pinya(rd, bd, svg)
     relations = make_ring_relations(rd, position_in_ring)
     svg += make_relations_svg(relations, coo_of) + '</svg>'
     return [svg, position_in_ring, relations]
