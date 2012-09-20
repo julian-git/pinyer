@@ -344,44 +344,57 @@ def make_relations_svg(relations, coo_of):
 def tresde8f():
     # data for the rings of the pinya
     rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 3), \
-                   ('start_radius', 100), ('radius_offset', 35), \
+                   ('start_radius', 100), ('radius_offset', 25), \
                    ('pinya_rect_dim', dict([('w',20),('h',40)]))])
     r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
 
     #data for the baixos and crosses
+    bw2 = 10 # half the width of a baixos rectangle
+    bh2 = 20 # half the height of a baixos rectangle
+    cw2 = 8  # half the width of a crosses rectangle
+    ch2 = 15 # half the height of a crosses rectangle
     bd = dict([('number', 3), \
                    ('radius', 40), \
                    ('baix_pos', \
                         [0,0]), \
                    ('baix_rect_dim', \
-                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])), \
+                        dict([('x', -bw2), ('y', -bh2), \
+                                  ('w', 2*bw2), ('h', 2*bh2), ('angle', 0)])), \
                    ('crossa_pos', \
                         [0,30]), \
                    ('crossa_rect_dim', \
-                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 90)])), \
+                        dict([('x', -cw2), ('y', -ch2), \
+                                  ('w', 2*cw2), ('h', 2*ch2), ('angle', 90)])), \
                    ('contrafort_pos', \
                         [-20,0]), \
                    ('contrafort_rect_dim', \
-                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])), \
+                        dict([('x', -cw2), ('y', -ch2), \
+                                  ('w', 2*cw2), ('h', 2*ch2), ('angle', 0)])), \
                    ('agulla_pos', \
                         [20,0]), \
                    ('agulla_rect_dim', \
-                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])) \
+                        dict([('x', -cw2), ('y', -ch2), \
+                                  ('w', 2*cw2), ('h', 2*ch2), ('angle', 0)])) \
                    ])
 
     # data for the portacrosses 
+    pcw2 = 8  # half the width of a portacrosses rectangle
+    pch2 = 15 # half the height of a portacrosses rectangle
     pcd = dict([('number', 3),  \
                     ('radius', 70), \
                     ('pc_c_dim', \
-                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 0)])), \
+                        dict([('x', -pcw2), ('y', -pch2), \
+                                  ('w', 2*pcw2), ('h', 2*pch2), ('angle', 0)])), \
                     ('pc_c_pos', \
                          [0,0]), \
                     ('pc_d_dim', \
-                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', 30)])), \
+                        dict([('x', -pcw2), ('y', -pch2), \
+                                  ('w', 2*pcw2), ('h', 2*pch2), ('angle', 30)])), \
                     ('pc_d_pos', \
                          [-10,45]), \
                     ('pc_i_dim', \
-                        dict([('x', -5), ('y', -10), ('w', 10), ('h', 20), ('angle', -30)])), \
+                        dict([('x', -pcw2), ('y', -pch2), \
+                                  ('w', 2*pcw2), ('h', 2*pch2), ('angle', -30)])), \
                     ('pc_i_pos', \
                          [-10,-45]) \
                     ])
