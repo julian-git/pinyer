@@ -46,7 +46,7 @@ if what=='get_colla':
 
 elif what=='get_pinya':
     pinya_id = form["pinya_id"].value
-    [svg, position_in_ring, position_in_baix_group, relations] = tresde8f()
+    svg = tresde8f()[0]
     print svg
 
 elif what=='optimize_pinya':
