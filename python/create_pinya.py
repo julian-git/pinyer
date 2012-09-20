@@ -192,7 +192,7 @@ def make_pinya(rd, bd, svg):
     [svg, svg_id, position_in_ring, coo_of] = make_rings(rd, svg, svg_id, coo_of)
     [svg, svg_id, position_in_baix_group, coo_of] = make_baixos(bd, svg, svg_id, coo_of)
     svg += '</g>' 
-    return [svg, position_in_ring, coo_of]
+    return [svg, position_in_ring, position_in_baix_group, coo_of]
 
 
 def make_ring_relations(rd, position_in_ring):
@@ -307,19 +307,20 @@ def tresde8f():
     svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
 
     # go!
-    [svg, position_in_ring, coo_of] = make_pinya(rd, bd, svg)
+    [svg, position_in_ring, position_in_baix_group, coo_of] = make_pinya(rd, bd, svg)
     relations = make_ring_relations(rd, position_in_ring)
     svg += make_relations_svg(relations, coo_of) + '</svg>'
-    return [svg, position_in_ring, relations]
+    return [svg, position_in_ring, position_in_baix_group, relations]
 
 def save_tresde8f_relations():
-    [svg, position_in_ring, relations] = tresde8f()
+    [svg, position_in_ring, position_in_baix_group, relations] = tresde8f()
     from db_interaction import get_db, write_positions, write_relations
     db = get_db()
     c = db.cursor()
     c.execute("delete from castell_position where castell_type_id = 3")
     c.execute("delete from castell_relation where castell_type_id = 3")
     write_positions(db, 3, position_in_ring)
+    write_positions(db, 3, position_in_baix_group)
     write_relations(db, 3, relations)
     db.commit()
     
