@@ -67,11 +67,11 @@ def make_rings(rd, svg, svg_id, coo_of):
         r += rd['radius_offset']
     return [svg, svg_id, position_in_ring, coo_of]
 
-def make_baix(i, j, bd, svg, svg_id, coo_of):
+def make_baix(i, j, bd, pibg, svg, svg_id, coo_of):
     svg_id = svg_id + 1
-    [x,y] = [0,0]
-    svg += svg_rect.substitute(_x=bd['baix_pos']['x'], \
-                                   _y=bd['baix_pos']['y'],  \
+    [x,y] = bd['baix_pos']
+    svg += svg_rect.substitute(_x=x, \
+                                   _y=y, \
                                    _rx = bd['baix_rect_dim']['x'], \
                                    _ry = bd['baix_rect_dim']['y'], \
                                    _rw = bd['baix_rect_dim']['w'], \
@@ -83,10 +83,16 @@ def make_baix(i, j, bd, svg, svg_id, coo_of):
                                    _class='b', \
                                    _name=svg_id, \
                                    _index_props=[i,j])
+    pibg[i,j] = dict([('svg_id', svg_id), \
+                                      ('role', 'baix'), \
+                                      ('svg_text', 'baix'), \
+                                      ('x', x), \
+                                      ('y', y), \
+                                      ('angle', bd['baix_rect_dim']['angle'])])
     coo_of[svg_id] = [x,y]
-    return [svg, svg_id, coo_of]
+    return [svg, svg_id, pibg, coo_of]
 
-def make_crossa(i, j, bd, svg, svg_id, coo_of):
+def make_crossa(i, j, bd, pibg, svg, svg_id, coo_of):
     svg_id = svg_id + 1
     [x,y] = bd['crossa_pos']
     if j%2 == 0:
@@ -104,10 +110,16 @@ def make_crossa(i, j, bd, svg, svg_id, coo_of):
                                    _class='cr', \
                                    _name=svg_id, \
                                    _index_props=[i,j])
+    pibg[i,j] = dict([('svg_id', svg_id), \
+                                      ('role', 'crossa'), \
+                                      ('svg_text', 'crossa'), \
+                                      ('x', x), \
+                                      ('y', y), \
+                                      ('angle', bd['crossa_rect_dim']['angle'])])
     coo_of[svg_id] = [x,y]
-    return [svg, svg_id, coo_of]
+    return [svg, svg_id, pibg, coo_of]
 
-def make_contrafort(i, j, bd, svg, svg_id, coo_of):
+def make_contrafort(i, j, bd, pibg, svg, svg_id, coo_of):
     svg_id = svg_id + 1
     [x,y] = bd['contrafort_pos']
     svg += svg_rect.substitute(_x=x, \
@@ -123,35 +135,62 @@ def make_contrafort(i, j, bd, svg, svg_id, coo_of):
                                    _class='co', \
                                    _name=svg_id, \
                                    _index_props=[i,j])
+    pibg[i,j] = dict([('svg_id', svg_id), \
+                                      ('role', 'contrafort'), \
+                                      ('svg_text', 'contrafort'), \
+                                      ('x', x), \
+                                      ('y', y), \
+                                      ('angle', bd['contrafort_rect_dim']['angle'])])
     coo_of[svg_id] = [x,y]
-    return [svg, svg_id, coo_of]
+    return [svg, svg_id, pibg, coo_of]
 
-def make_baix_group(bd, i, svg, svg_id, position_of_baix, coo_of):
-    [svg, svg_id, baix, coo_of] = make_baix(i, 0, bd, svg, svg_id, coo_of)
-    [svg, svg_id, crossa1, coo_of] = make_crossa(i, 1, bd, svg, svg_id, coo_of)
-    [svg, svg_id, crossa2, coo_of] = make_crossa(i, 2, bd, svg, svg_id, coo_of)
-    [svg, svg_id, contrafort, coo_of] = make_contrafort(i, 3, bd, svg, svg_id, coo_of)
+def make_agulla(i, j, bd, pibg, svg, svg_id, coo_of):
+    svg_id = svg_id + 1
+    [x,y] = bd['agulla_pos']
+    svg += svg_rect.substitute(_x=x, \
+                                   _y=y, 
+                                   _rx = bd['agulla_rect_dim']['x'], \
+                                   _ry = bd['agulla_rect_dim']['y'], \
+                                   _rw = bd['agulla_rect_dim']['w'], \
+                                   _rh = bd['agulla_rect_dim']['h'], \
+                                   _angle = bd['agulla_rect_dim']['angle'], \
+                                   _svg_id=svg_id,\
+                                   _svg_text = str([i,j]), \
+                                   #_svg_text=svg_id, \
+                                   _class='a', \
+                                   _name=svg_id, \
+                                   _index_props=[i,j])
+    pibg[i,j] = dict([('svg_id', svg_id), \
+                                      ('role', 'agulla'), \
+                                      ('svg_text', 'agulla'), \
+                                      ('x', x), \
+                                      ('y', y), \
+                                      ('angle', bd['agulla_rect_dim']['angle'])])
+    coo_of[svg_id] = [x,y]
+    return [svg, svg_id, pibg, coo_of]
 
-    position_of_baix[index, 0] = baix
-    position_of_baix[index, 1] = crossa1
-    position_of_baix[index, 2] = crossa2
-    position_of_baix[index, 3] = contrafort
+def make_baix_group(bd, i, svg, svg_id, pibg, coo_of):
+    [svg, svg_id, pibg, coo_of] = make_baix(i, 0, bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = make_crossa(i, 1, bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = make_crossa(i, 2, bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = make_contrafort(i, 3, bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = make_agulla(i, 4, bd, pibg, svg, svg_id, coo_of)
 
-    return [svg, svg_id, position_of_baix, coo_of]
+    return [svg, svg_id, pibg, coo_of]
 
 def make_baixos(bd, svg, svg_id, coo_of):
-    position_of_baix = dict()
+    position_in_baix_group = dict()
     for i in range(bd['number']):
-        [svg, svg_id, position_of_baix, coo_of] = \
-            make_baix_group(bd, i, svg, svg_id, position_of_baix, coo_of)
-    return [svg, svg_id, position_of_baix, coo_of]
+        [svg, svg_id, position_in_baix_group, coo_of] = \
+            make_baix_group(bd, i, svg, svg_id, position_in_baix_group, coo_of)
+    return [svg, svg_id, position_in_baix_group, coo_of]
 
 def make_pinya(rd, bd, svg):
     svg += '<g id="pos">'
     svg_id = 0
     coo_of = dict()
     [svg, svg_id, position_in_ring, coo_of] = make_rings(rd, svg, svg_id, coo_of)
-    [svg, svg_id, position_of_baix, coo_of] = make_baixos(bd, svg, svg_id, coo_of)
+    [svg, svg_id, position_in_baix_group, coo_of] = make_baixos(bd, svg, svg_id, coo_of)
     svg += '</g>' 
     return [svg, position_in_ring, coo_of]
 
@@ -249,7 +288,20 @@ def tresde8f():
     r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
 
     #data for the baixos and crosses
-    bd = dict([('number', 3), ('baix_rect_dim', dict([('w', 20), ('h', 40)]))])
+    bd = dict([('number', 3), \
+                   ('baix_pos', [0,0]), \
+                   ('baix_rect_dim', \
+                        dict([('x', 0), ('y', 0), ('w', 20), ('h', 40), ('angle', 0)])), \
+                   ('crossa_pos', [20,0]), \
+                   ('crossa_rect_dim', \
+                        dict([('x', 0), ('y', 0), ('w', 20), ('h', 40), ('angle', 0)])), \
+                   ('contrafort_pos', [0,-20]), \
+                   ('contrafort_rect_dim', \
+                        dict([('x', 0), ('y', 0), ('w', 20), ('h', 40), ('angle', 0)])), \
+                   ('agulla_pos', [0,20]), \
+                   ('agulla_rect_dim', \
+                        dict([('x', 0), ('y', 0), ('w', 20), ('h', 40), ('angle', 0)])) \
+                   ])
 
     # start the svg
     svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
