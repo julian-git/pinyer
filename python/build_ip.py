@@ -77,7 +77,7 @@ def solved_relations(relations, sol):
     sol_rel = dict()
     for rel in relations:
         positions = rel['pos_list'].split('_')
-        prop = rel['field_name']
+        prop = rel['field_names']
         print positions
         for i in range(0, len(positions)-1):
             for j in range(1, len(positions)):

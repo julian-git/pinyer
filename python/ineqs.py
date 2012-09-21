@@ -122,7 +122,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
     """
     write the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
-    field_name in from_pos_id and to_pos_id.
+    field_names in from_pos_id and to_pos_id.
     In case that both from_pos_id and to_pos_id exist, we also implement that
     "pinyas have no holes": 
     this means that the position to_pos_id in the castell may not be filled, unless 
@@ -149,7 +149,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             # If y_tpi = 1, then the constraint 
             #   0 <= x <= tolerance
             # must hold, where 
-            #   x = (value of field_name at from_pos) - (value of field_name at to_pos).
+            #   x = (value of field_names at from_pos) - (value of field_names at to_pos).
             #
             # We model this as
             # " either y_tpi = 0  or  0 <= x <= tolerance  must hold ",
@@ -172,32 +172,32 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             #   x + M y_tpi <= tolerance + M
             #   x - M y_tpi >= -M
             #
-            x = combine_vars(fpi, tpi, castellers_in_position, rel['field_name'])
+            x = combine_vars(fpi, tpi, castellers_in_position, rel['field_names'])
             M = 1000000
-            label = rel['field_name'] + "_" + str(fpi) + "_" + str(tpi) + ": "
-            ineqs.append(label + x + " + " + sum_vars(tpi, castellers_in_position, M) + " <= " + str(M + rel['fparam1']))
+            label = rel['field_names'] + "_" + str(fpi) + "_" + str(tpi) + ": "
+            ineqs.append(label + x + " + " + sum_vars(tpi, castellers_in_position, M) + " <= " + str(M + rel['fparam']))
             ineqs.append(label + x + " " + sum_vars(tpi, castellers_in_position, -M, "   ") + " >= " + str(-M))
             #
             # Next, we update the objective function to minimize
-            # (value of field_name at from_pos) - (value of field_name at to_pos).
+            # (value of field_names at from_pos) - (value of field_names at to_pos).
             # Since we maximize the objective function, we must flip the signs.
             #
             for casteller in castellers_in_position[fpi]:
-                obj[var(casteller['id'], fpi)] -= casteller[rel['field_name']]
+                obj[var(casteller['id'], fpi)] -= casteller[rel['field_names']]
             for casteller in castellers_in_position[tpi]:
-                obj[var(casteller['id'], tpi)] += casteller[rel['field_name']]
+                obj[var(casteller['id'], tpi)] += casteller[rel['field_names']]
 
         elif rel['relation_type'] == 2: 
             # Ma can support segon:
-            # value of field_name at position is at least fparam1
-            label = rel['field_name'] + "_" + str(fpi) + ": "
-            ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_name']) + \
-                             " >= " + str(rel['fparam1']))
+            # value of field_names at position is at least fparam
+            label = rel['field_names'] + "_" + str(fpi) + ": "
+            ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
+                             " >= " + str(rel['fparam']))
 
         elif rel['relation_type'] == 3: 
-            # sum of values is at most fparam1 in absolute value
+            # sum of values is at most fparam in absolute value
             if len(pos_list) > 0:
-                label = rel['field_name'] + "_" + rel['pos_list'] + ': '
+                label = rel['field_names'] + "_" + rel['pos_list'] + ': '
                 ineq_str = ''
                 pos_ct = 0
                 for pos in pos_list:
@@ -209,10 +209,10 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                     if pos_ct == len(pos_list)-1:
                         coeff = 1 #coeff = 0.5
                     pos_ct = pos_ct + 1
-                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_name'], ' + ', coeff)
+                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_names'], ' + ', coeff)
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']
-                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam1']))
-                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam1']))
+                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam']))
+                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam']))
 
         else:
             print "implement me!"

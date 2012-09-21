@@ -2,9 +2,9 @@ from math import cos, sin, pi
 from html_common import svg_rect, svg_head
 from relations import *
 
-def ring(period, i, r, pinya_rect_dim, init_svg_id, position_in_ring, coo_of):
+def ring(period, i, r, pinya_rect_dim, svg_id, position_in_ring, coo_of):
     """
-    create the svg elements in the outer rings.
+    create the svg elements in the outer rings of pinya.
     period = k if the ring has 2pi/k symmetry
     i: the index of the ring; also, how many people are between each of the rays at 2pi j / k
     r: the radius of the ring
@@ -19,7 +19,6 @@ def ring(period, i, r, pinya_rect_dim, init_svg_id, position_in_ring, coo_of):
     """
     svg = ''
     dyn_props = ''
-    svg_id = init_svg_id
     for j in range(2*period):
         for m in range(i+1):
             a = 2 * pi * ( j  + m / float(i + 1) ) / float(2*period)
@@ -58,6 +57,9 @@ def ring(period, i, r, pinya_rect_dim, init_svg_id, position_in_ring, coo_of):
 
 
 def rings(rd, svg, svg_id, coo_of):
+    """
+    make as many rings of pinya as the ringdata rd specifies
+    """
     r = rd['start_radius']
     position_in_ring = dict()
     for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
@@ -68,6 +70,9 @@ def rings(rd, svg, svg_id, coo_of):
     return [svg, svg_id, position_in_ring, coo_of]
 
 def baix(i, j, bd, pibg, svg, svg_id, coo_of):
+    """
+    make the rectangle and text of a baix
+    """
     svg_id = svg_id + 1
     [x,y] = bd['baix_pos']
     svg += svg_rect.substitute(_x=x, \
@@ -93,6 +98,9 @@ def baix(i, j, bd, pibg, svg, svg_id, coo_of):
     return [svg, svg_id, pibg, coo_of]
 
 def crossa(i, j, bd, pibg, svg, svg_id, coo_of):
+    """
+    make the rectangle and text of a crossa
+    """
     svg_id = svg_id + 1
     [x,y] = bd['crossa_pos']
     alpha = bd['crossa_rect_dim']['angle']
@@ -122,6 +130,9 @@ def crossa(i, j, bd, pibg, svg, svg_id, coo_of):
     return [svg, svg_id, pibg, coo_of]
 
 def contrafort(i, j, bd, pibg, svg, svg_id, coo_of):
+    """
+    make the rectangle and text of a contrafort
+    """
     svg_id = svg_id + 1
     [x,y] = bd['contrafort_pos']
     svg += svg_rect.substitute(_x=x, \
@@ -147,6 +158,9 @@ def contrafort(i, j, bd, pibg, svg, svg_id, coo_of):
     return [svg, svg_id, pibg, coo_of]
 
 def agulla(i, j, bd, pibg, svg, svg_id, coo_of):
+    """
+    make the rectangle and text of an agulla
+    """
     svg_id = svg_id + 1
     [x,y] = bd['agulla_pos']
     svg += svg_rect.substitute(_x=x, \
@@ -172,6 +186,9 @@ def agulla(i, j, bd, pibg, svg, svg_id, coo_of):
     return [svg, svg_id, pibg, coo_of]
 
 def baix_group(bd, i, svg, svg_id, pibg, coo_of):
+    """
+    the group consists of the baix, two crosses, one contrafort and an agulla
+    """
     [svg, svg_id, pibg, coo_of] = baix(i, 0, bd, pibg, svg, svg_id, coo_of)
     [svg, svg_id, pibg, coo_of] = crossa(i, 1, bd, pibg, svg, svg_id, coo_of)
     [svg, svg_id, pibg, coo_of] = crossa(i, 2, bd, pibg, svg, svg_id, coo_of)
@@ -180,6 +197,9 @@ def baix_group(bd, i, svg, svg_id, pibg, coo_of):
     return [svg, svg_id, pibg, coo_of]
 
 def baixos(bd, svg, svg_id, coo_of):
+    """
+    make as many groups of baixos as the symmetry of the castells demands
+    """
     position_in_baix_group = dict()
     for i in range(bd['number']):
         alpha = i * 2.0 * pi / bd['number']
@@ -196,6 +216,9 @@ def baixos(bd, svg, svg_id, coo_of):
     return [svg, svg_id, position_in_baix_group, coo_of]
 
 def pc(i, j, index, pcd, pipcg, svg, svg_id, coo_of):
+    """
+    make one portacrosses
+    """
     svg_id = svg_id + 1
     [x,y] = pcd[index + '_pos']
     dims  = pcd[index + '_dim']
@@ -224,6 +247,9 @@ def pc(i, j, index, pcd, pipcg, svg, svg_id, coo_of):
                                    
 
 def portacrosses_group(pcd, i, svg, svg_id, pipcg, coo_of):
+    """
+    make a group of one portacrosses (pc_c) and two laterals (pc_i, pc_d)
+    """
     [svg, svg_id, pipcg, coo_of] = pc(i, 0, 'pc_c', pcd, pipcg, svg, svg_id, coo_of)
     [svg, svg_id, pipcg, coo_of] = pc(i, 1, 'pc_i', pcd, pipcg, svg, svg_id, coo_of)
     [svg, svg_id, pipcg, coo_of] = pc(i, 2, 'pc_d', pcd, pipcg, svg, svg_id, coo_of)
@@ -231,7 +257,7 @@ def portacrosses_group(pcd, i, svg, svg_id, pipcg, coo_of):
 
 def portacrosses(pcd, svg, svg_id, coo_of):
     position_in_portacrosses = dict()
-    for i in range(pcd['number']):
+    for i in range(pcd['number']): # make as many groups of portacrosses as the symmetry says to
         alpha = (i * 2.0 + 1.0) * pi / pcd['number']
         x = pcd['radius'] * cos(alpha)
         y = pcd['radius'] * sin(alpha)
@@ -242,6 +268,7 @@ def portacrosses(pcd, svg, svg_id, coo_of):
             str(round(180 / pi * alpha, 2)) + ')">'
         [svg, svg_id, position_in_portacrosses, coo_of] = \
             portacrosses_group(pcd, i, svg, svg_id, position_in_portacrosses, coo_of)
+        svg += '</g>'         
     return [svg, svg_id, position_in_portacrosses, coo_of]
 
 def pinya(rd, bd, pcd, svg):
@@ -250,13 +277,12 @@ def pinya(rd, bd, pcd, svg):
     [svg, svg_id, position_in_ring, coo_of] = rings(rd, svg, svg_id, coo_of)
     [svg, svg_id, position_in_baix_group, coo_of] = baixos(bd, svg, svg_id, coo_of)
     [svg, svg_id, position_in_portacrosses, coo_of] = portacrosses(pcd, svg, svg_id, coo_of)
-    svg += '</g>' 
     return [svg, position_in_ring, position_in_baix_group, position_in_portacrosses, coo_of]
 
 
 def tresde8f():
     # data for the rings of the pinya
-    rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 3), \
+    rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 5), \
                    ('start_radius', 100), ('radius_offset', 25), \
                    ('pinya_rect_dim', dict([('w',20),('h',40)]))])
     r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
@@ -293,11 +319,13 @@ def tresde8f():
     # data for the portacrosses 
     pcw2 = 8  # half the width of a portacrosses rectangle
     pch2 = 15 # half the height of a portacrosses rectangle
+    pcw02 = 10  # half the width of a portacrosses rectangle
+    pch02 = 20 # half the height of a portacrosses rectangle
     pcd = dict([('number', 3),  \
                     ('radius', 70), \
                     ('pc_c_dim', \
-                        dict([('x', -pcw2), ('y', -pch2), \
-                                  ('w', 2*pcw2), ('h', 2*pch2), ('angle', 0)])), \
+                        dict([('x', -pcw02), ('y', -pch02), \
+                                  ('w', 2*pcw02), ('h', 2*pch02), ('angle', 0)])), \
                     ('pc_c_pos', \
                          [0,0]), \
                     ('pc_d_dim', \
@@ -312,7 +340,6 @@ def tresde8f():
                          [-10,-45]) \
                     ])
 
-                   
     # start the svg
     svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
 
@@ -323,6 +350,7 @@ def tresde8f():
     svg += '</g>'
 
     relations = []
+
     relations = ring_relations(rd, position_in_ring, relations)
     relations = baixos_relations(bd, position_in_portacrosses, relations)
 

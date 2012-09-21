@@ -42,7 +42,7 @@ insert into castell_position (id, castell_type_id, role, is_essential, svg_id, s
   (1004, 1000, 'pinya', true, "pinya1", "Pinya 1", 0, 150),
   (1005, 1000, 'pinya', false, "pinya2", "Pinya 2", 0, 200);
 
-insert into castell_relation (id, castell_type_id, relation_type, field_name, pos_list, fparam1, fparam2) values
+insert into castell_relation (id, castell_type_id, relation_type, field_names, pos_list, fparam, coeff_list) values
   (1001, 1000, 1, 'total_height', '1001_1002', 10, 0),
   (1002, 1000, 1, 'total_height', '1003_1004', 7, 0),
   (1003, 1000, 1, 'total_height', '1004_1005', 5, 0),

@@ -118,7 +118,7 @@ def get_relations(db, castell_type_id):
     res = c.fetchall()
     ans = []
     for row in res:
-        new_ans = dict(zip(('id', 'castell_type_id', 'relation_type', 'field_name', 'pos_list', 'fparam1', 'fparam2', 'iparam2', 'iparam2'), row))
+        new_ans = dict(zip(('id', 'castell_type_id', 'relation_type', 'field_names', 'pos_list', 'fparam', 'coeff_list'), row))
         for ind in ('id', 'castell_type_id', 'relation_type'):
             new_ans[ind] = int(new_ans[ind])
         ans.append(new_ans)
@@ -130,16 +130,16 @@ def write_relations(db, castell_type_id, relations):
     """
     c = db.cursor()
     vals = []
-    print relations
+#    print relations
     for rel in relations:
         vals.append((3,  rel['pos_list'], \
                          rel['relation_type'], \
-                         rel['field_name'], 
-                         rel['fparam1']))
-    query = """insert into castell_relation (castell_type_id, pos_list, relation_type, field_name, fparam1) 
+                         rel['field_names'], 
+                         rel['fparam']))
+    query = """insert into castell_relation (castell_type_id, pos_list, relation_type, field_names, fparam) 
          values (%s, %s, %s, %s, %s)"""
-    print query
-    print vals
+#    print query
+#    print vals
     c.executemany(query, vals)
     
 
