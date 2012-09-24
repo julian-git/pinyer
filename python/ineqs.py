@@ -14,34 +14,38 @@ def var(casteller_id, pos_id):
         vars[casteller_id, pos_id] = v
         return v
 
-def sum_vars(pos_id, castellers_in_position, prop = None, operator = " + ", coeff = 1):
+def sum_vars(pos_id, castellers_in_position, field_name = None, operator = " + ", coeff = 1):
     """
     make the sum of all casteller indicator variables that involve the position pos.
-    If prop is None, use coeff(=1) as a coefficient; 
-    else, use casteller[prop] if this property exists in the dictionary casteller.
-    If prop does not happen to be a key of the casteller dictionary, 
-    we directly use the value of prop as a coefficient.
+    If field_name is None, use coeff(=1) as a coefficient; 
+    else, use casteller[field_name] if this property exists in the dictionary casteller,
+    If field_name does not happen to be a key of the casteller dictionary, 
+    we directly use its value as a coefficient.
     """
     ineq = ''
-    first_term = True
+    firstTerm = True
     for casteller in castellers_in_position[pos_id]:
-        if first_term:
-            first_term = False
+        if firstTerm:
+            firstTerm = False
         else:
             ineq += operator
-        if prop is not None:
-            if prop not in casteller: # then we use it as a constant coefficient
-                ineq += str(coeff * prop) + ' '
+
+        if field_name is not None:
+            if field_name not in casteller: # then we use it as a constant coefficient
+                ineq += str(coeff * field_name) + ' '
             else:
-                ineq += str(coeff * casteller[prop]) + ' '
+                ineq += str(coeff * casteller[field_name]) + ' '
         ineq += var(casteller['id'], pos_id)  + ' '
     return ineq
 
-def combine_vars(from_pos_id, to_pos_id, castellers_in_position, prop):
+def combine_vars(from_pos_id, to_pos_id, castellers_in_position, field_names):
     """
-    make the difference of two sets of casteller indicator variables, with coefficient given by prop
+    make the difference of two sets of casteller indicator variables.
+    The coefficient of the first set is field_names[0], 
+    the coefficient of the second set is field_names[1].
     """
-    return sum_vars(from_pos_id, castellers_in_position, prop) + " - " + sum_vars(to_pos_id, castellers_in_position, prop, " - ")
+    return sum_vars(from_pos_id, castellers_in_position, field_names[0]) + \
+        " - " + sum_vars(to_pos_id, castellers_in_position, field_names[1], " - ")
 
 
 def objective_function(castellers_in_position):
@@ -57,7 +61,6 @@ def objective_function(castellers_in_position):
             else:
                 out += ' + '
             out += str(obj[v]) + ' ' + str(v)
-#    f.write(out)
     return obj
     
 
@@ -144,7 +147,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
             ineqs.append(label + sum_vars(fpi, castellers_in_position) + " - " + sum_vars(tpi, castellers_in_position, None, " - ") + " >= 0")
 
-        if rel['relation_type'] == 1: 
+        if rel['relation_type'] == 'zero_or_tol': 
             #
             # If y_tpi = 1, then the constraint 
             #   0 <= x <= tolerance
@@ -172,30 +175,39 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             #   x + M y_tpi <= tolerance + M
             #   x - M y_tpi >= -M
             #
-            x = combine_vars(fpi, tpi, castellers_in_position, rel['field_names'])
+            field_names = rel['field_names'].split('~');
+            if len(field_names) != 2:
+                raise RuntimeError('should have exactly two field names in "' + rel['field_names'] + '"')
+            x = combine_vars(fpi, tpi, castellers_in_position, field_names)
             M = 1000000
             label = rel['field_names'] + "_" + str(fpi) + "_" + str(tpi) + ": "
-            ineqs.append(label + x + " + " + sum_vars(tpi, castellers_in_position, M) + " <= " + str(M + rel['fparam']))
-            ineqs.append(label + x + " " + sum_vars(tpi, castellers_in_position, -M, "   ") + " >= " + str(-M))
+            ineqs.append(label + x + " + " + sum_vars(tpi, castellers_in_position, M) + \
+                             " <= " + str(M + rel['rhs']))
+            ineqs.append(label + x + " " + sum_vars(tpi, castellers_in_position, -M, "   ") + \
+                             " >= " + str(-M))
             #
             # Next, we update the objective function to minimize
             # (value of field_names at from_pos) - (value of field_names at to_pos).
             # Since we maximize the objective function, we must flip the signs.
             #
             for casteller in castellers_in_position[fpi]:
-                obj[var(casteller['id'], fpi)] -= casteller[rel['field_names']]
+                obj[var(casteller['id'], fpi)] -= casteller[field_names[0]]
             for casteller in castellers_in_position[tpi]:
-                obj[var(casteller['id'], tpi)] += casteller[rel['field_names']]
+                obj[var(casteller['id'], tpi)] += casteller[field_names[1]]
 
-        elif rel['relation_type'] == 2: 
+        elif rel['relation_type'] == 'val_tol': 
             # Ma can support segon:
             # value of field_names at position is at least fparam
+            if rel['field_names'].find('~') > -1:
+                raise RuntimeError('Expected only one property in ' + rel['field_names']) 
             label = rel['field_names'] + "_" + str(fpi) + ": "
             ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
                              " >= " + str(rel['fparam']))
 
-        elif rel['relation_type'] == 3: 
-            # sum of values is at most fparam in absolute value
+        elif rel['relation_type'] == 'abs_tol': 
+            # sum of values is at most rhs in absolute value
+            if rel['field_names'].find('~') > -1:
+                raise RuntimeError('Expected only one property in ' + rel['field_names']) 
             if len(pos_list) > 0:
                 label = rel['field_names'] + "_" + rel['pos_list'] + ': '
                 ineq_str = ''
@@ -211,8 +223,8 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                     pos_ct = pos_ct + 1
                     ineq_str += sum_vars(pos, castellers_in_position, rel['field_names'], ' + ', coeff)
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']
-                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['fparam']))
-                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['fparam']))
+                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['rhs']))
+                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['rhs']))
 
         else:
             print "implement me!"

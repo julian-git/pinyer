@@ -3,9 +3,11 @@ from local_config import tolerances
 def ring_relations(rd, position_in_ring, relations):
     # the default values for all relations created in this function
     rel0 = dict([('pos_list', None), \
-                     ('relation_type', 1), \
+                     ('coeff_list', None), \
+                     ('relation_type', 'zero_or_tol'), \
                      ('field_names', 'shoulder_height'), \
-                     ('fparam', tolerances['height']), \
+                     ('sense', True), \
+                     ('rhs', tolerances['height']), \
                      ('pos_type', None)])
 
     # first, the relations between rengles de mans and rengles de vents
@@ -41,9 +43,9 @@ def ring_relations(rd, position_in_ring, relations):
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
-    rel0['relation_type'] = 3
+    rel0['relation_type'] = 'abs_tol'
     rel0['field_names'] = 'shoulder_width'
-    rel0['fparam'] = tolerances['width']
+    rel0['rhs'] = tolerances['width']
     rel0['pos_type'] = 'p'
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
@@ -54,14 +56,21 @@ def ring_relations(rd, position_in_ring, relations):
             relations.append(rel)
     return relations
 
-def baixos_relations(cd, position_in_portacrosses, relations):
+def baixos_relations(bd, position_in_portacrosses, relations):
     # the default values for all relations created in this function
     rel0 = dict([('pos_list', None), \
+                     ('coeff_list', '1_-1'), \
                      ('relation_type', 1), \
-                     ('field_names', 'shoulder_height'), \
-                     ('fparam', tolerances['height']), \
+                     ('field_names', 'shoulder_height~axle_height'), \
+                     ('sense', True), \
+                     ('rhs', tolerances['delta_height_c_b']), \
+                     ('fparam2', tolerances['delta_height_c_b_tol']), \
                      ('pos_type', None)])
-    # first, the relations between 
+    # first, the relations between the baix and the crosses
+    for i in range(bd['number']):
+        rel = rel0.copy()
+        rel['pos_list'] = position_in_portacrosses[i,1]['svg_id']
+        
     return relations
 
 def relations_svg(relations, coo_of):
@@ -73,13 +82,13 @@ def relations_svg(relations, coo_of):
             tpi = int(pos_list[1])
         else:
             tpi = fpi
-        if rel['relation_type'] == 1:
+        if rel['relation_type'] == 'zero_or_tol':
             relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + 'L' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + '"/>'
-        elif rel['relation_type'] == 3:
+        elif rel['relation_type'] == 'abs_tol':
             relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[fpi][1])

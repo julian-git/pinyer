@@ -118,7 +118,7 @@ def get_relations(db, castell_type_id):
     res = c.fetchall()
     ans = []
     for row in res:
-        new_ans = dict(zip(('id', 'castell_type_id', 'relation_type', 'field_names', 'pos_list', 'fparam', 'coeff_list'), row))
+        new_ans = dict(zip(('id', 'castell_type_id', 'relation_type', 'coeff_list', 'field_names', 'pos_list', 'sense', 'rhs'), row))
         for ind in ('id', 'castell_type_id', 'relation_type'):
             new_ans[ind] = int(new_ans[ind])
         ans.append(new_ans)
@@ -132,14 +132,15 @@ def write_relations(db, castell_type_id, relations):
     vals = []
 #    print relations
     for rel in relations:
-        vals.append((3,  rel['pos_list'], \
+        vals.append((castell_type_id, \
                          rel['relation_type'], \
-                         rel['field_names'], 
-                         rel['fparam']))
-    query = """insert into castell_relation (castell_type_id, pos_list, relation_type, field_names, fparam) 
-         values (%s, %s, %s, %s, %s)"""
-#    print query
-#    print vals
+                         rel['coeff_list'], \
+                         rel['field_names'], \
+                         rel['pos_list'], \
+                         rel['sense'], \
+                         rel['rhs']))
+    query = """insert into castell_relation (castell_type_id, relation_type, coeff_list, field_names, pos_list, sense, rhs) 
+         values (%s, %s, %s, %s, %s, %s, %s)"""
     c.executemany(query, vals)
     
 
@@ -154,12 +155,13 @@ def get_incompatible_castellers(db, colla_id):
 
 def get_avg_shoulder_width(db, colla_id):
     """ 
-    the average shoulder width of the colla
+    the average shoulder width of all members in the colla
+    that are present
     """
     c = db.cursor()
     c.execute("""
 select avg(shoulder_width)
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
-where casteller_colla.colla_id = %s""", colla_id)
+where casteller_colla.colla_id = %s and is_present = true""", colla_id)
     return c.fetchall()[0][0]

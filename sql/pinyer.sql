@@ -124,17 +124,22 @@ create table castell_position (
 
 
 /**
- *  The data for establishing relations between two positions in a given castell
- *  pos_list is of the form "23_45_24" for a relation between positions 23, 45, 24
+ *  The data for establishing relations between two positions in a given castell. 
+ *  field_names: the names of the coefficient properties 
+ *  pos_list: the svg_ids of the participating positions,
+ *            in the form "23_45_24" for a relation between positions 23, 45, 24
+ *  sense:  true = ">=", false = "<=" 
+ *  rhs: the right-hand side of the inequality 
  */
 create table castell_relation (
   id   	       int  not null auto_increment,
   castell_type_id int not null,
-  relation_type int not null,
-  field_names   varchar(100) not null,
-  pos_list    	varchar(100) not null, 
-  fparam 	float(10,4) default 0,
+  relation_type varchar(15) not null,
   coeff_list    varchar(100) default null,
+  field_names   varchar(100) not null, 
+  pos_list    	varchar(100) not null, 
+  sense         bool  default true,  
+  rhs 		float(10,4) default 0, 
   primary key (id),
   foreign key (castell_type_id) references castell_type (id)
 ) engine=InnoDB default character set utf8;

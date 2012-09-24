@@ -256,8 +256,11 @@ def portacrosses_group(pcd, i, svg, svg_id, pipcg, coo_of):
     return [svg, svg_id, pipcg, coo_of]
 
 def portacrosses(pcd, svg, svg_id, coo_of):
+    """
+    make as many groups of portacrosses as the symmetry says to
+    """
     position_in_portacrosses = dict()
-    for i in range(pcd['number']): # make as many groups of portacrosses as the symmetry says to
+    for i in range(pcd['number']): 
         alpha = (i * 2.0 + 1.0) * pi / pcd['number']
         x = pcd['radius'] * cos(alpha)
         y = pcd['radius'] * sin(alpha)

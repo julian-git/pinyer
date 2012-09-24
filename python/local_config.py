@@ -25,4 +25,8 @@ DoLogging = True
 
 # the tolerance in height between successive mans, vents, and pinya,
 # and in width between adjacent pinya in the same ring
-tolerances = dict([('height', 5), ('width', 6)])
+tolerances = dict([('height', 5), \
+                       ('width', 6), \
+                       ('delta_height_c_b', 5), \
+                       ('delta_height_c_b_tol', 5) \
+                       ])
