@@ -75,9 +75,11 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
     pos_of_casteller = dict() # The transposed array of castellers_in_position
 
     for pos_id, castellers in castellers_in_position.iteritems():
+        print pos_id
         position_ineq = '' # in position pos_id, there may be at most one casteller
         first_pos_ineq = True
         for casteller in castellers:
+            print casteller
             casteller_id = casteller['id']
             v = var(casteller_id, pos_id)
             if first_pos_ineq:
@@ -91,7 +93,9 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
         rel = " = 1"
         if not is_essential_pos[pos_id]: # in this case, allow leaving the position empty
             rel = " <= 1"
-        ineqs.append("pos" + str(pos_id) + ": " + position_ineq + rel)
+        ineq = "pos" + str(pos_id) + ": " + position_ineq + rel
+        print ineq
+        ineqs.append(ineq)
 
     for casteller_id, positions in pos_of_casteller.iteritems():
         casteller_ineq = '' # the casteller can be in at most one position

@@ -1,7 +1,7 @@
 # The following variable determines whether or not to invoke the solver.
 # If set to False, the solution is read from the file lp_solution_filename
 # (see below), which is supposed to exist.
-DoSolve = False
+DoSolve = True
 
 # The following variable determines whether or not to use the open source
 # IP solver CBC. If set to False, the commercial solver Gurobi is used instead.

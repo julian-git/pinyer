@@ -39,6 +39,11 @@ def sol_from_v(sol, vname, castellers_in_position, _props):
         if casteller['id'] == cast_id:
             sol[int(pos_id)] = dict([(p, casteller[p]) for p in props])
             
+def backup_file(filename):
+    try:
+        rename(filename, filename + '.1')
+    except OSError:
+        pass
 
 def do_solve(castellers_in_position):
     if UseCBC:
@@ -51,8 +56,8 @@ def do_solve(castellers_in_position):
             print "solving lp with cbc..."
         else:
             print "solving with gurobi..."
-    rename(lp_log_filename, lp_log_filename + '.1')
-    rename(lp_solution_filename, lp_solution_filename + '.1')
+    for f in (lp_log_filename, lp_solution_filename):
+        backup_file(f)
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
 
@@ -71,6 +76,8 @@ def solved_positions(castellers_in_position, props):
             a = line.split()
             if a[base_index + 1] == '1':
                 sol_from_v(sol, a[base_index], castellers_in_position, props)
+    if len(sol.keys()) == 0:
+        raise RuntimeError("Solution file empty. No solution found")
     return sol
 
 def solved_relations(relations, sol):
@@ -78,7 +85,6 @@ def solved_relations(relations, sol):
     for rel in relations:
         positions = rel['pos_list'].split('_')
         prop = rel['field_names']
-        print positions
         for i in range(0, len(positions)-1):
             for j in range(1, len(positions)):
                 fp = int(positions[i])
