@@ -11,10 +11,10 @@ def get_positions(db, castell_type_id):
     """
     position_data = dict()
     c = db.cursor()
-    c.execute("""select p.svg_id, role, role.name, is_essential, svg_id, svg_text, svg_elem, x, y, w, h, rx, ry, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
+    c.execute("""select p.svg_id, role, role.name, is_essential, svg_id, svg_text, svg_elem, svg_class, x, y, rx, ry, rw, rh, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
     res = c.fetchall()
     for row in res:
-        new_ans = dict(zip(('id', 'role', 'role_name', 'is_essential', 'svg_id', 'svg_text', 'svg_elem', 'x', 'y', 'w', 'h', 'rx', 'ry', 'angle'), row))
+        new_ans = dict(zip(('id', 'role', 'role_name', 'is_essential', 'svg_id', 'svg_text', 'svg_elem', 'svg_class', 'x', 'y', 'rx', 'ry', 'rw', 'rh', 'angle'), row))
         for ind in ['id', 'svg_id']:
             new_ans[ind] = int(new_ans[ind])
         position_data[new_ans['id']] = new_ans
@@ -119,7 +119,7 @@ def get_relations(db, castell_type_id):
     ans = []
     for row in res:
         new_ans = dict(zip(('id', 'castell_type_id', 'relation_type', 'coeff_list', 'field_names', 'pos_list', 'sense', 'rhs'), row))
-        for ind in ('id', 'castell_type_id', 'relation_type'):
+        for ind in ('id', 'castell_type_id'):
             new_ans[ind] = int(new_ans[ind])
         ans.append(new_ans)
     return ans

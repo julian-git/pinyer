@@ -202,7 +202,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                 raise RuntimeError('Expected only one property in ' + rel['field_names']) 
             label = rel['field_names'] + "_" + str(fpi) + ": "
             ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
-                             " >= " + str(rel['fparam']))
+                             " >= " + str(rel['rhs']))
 
         elif rel['relation_type'] == 'abs_tol': 
             # sum of values is at most rhs in absolute value
@@ -270,7 +270,7 @@ def ip_ineqs(prescribed, castell_type_id, colla_id):
 
     db = get_db()
     position_data = get_positions(db, castell_type_id)
-    
+
     for pos_id, pos in position_data.iteritems():
         is_essential_pos[pos_id] = pos['is_essential']
         castellers_in_position[pos_id] = get_castellers(db, colla_id, castell_type_id, pos_id)

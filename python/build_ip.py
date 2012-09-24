@@ -115,8 +115,8 @@ def do_opt():
 ##########
 # FIXME: castell_type_id and colla_id can be chosen independently
 #        and this leads to inconsistency and data leak
-#    [castell_type_id, colla_id] = [1, 2]  # for debugging
-    [castell_type_id, colla_id] = [3, 1] # for "real"
+    [castell_type_id, colla_id] = [1000, 2]  # for debugging
+#    [castell_type_id, colla_id] = [3, 1] # for "real"
 ##########
     solution = find_pinya(prescribed, castell_type_id, colla_id)
     print solution
