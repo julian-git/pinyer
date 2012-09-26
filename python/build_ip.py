@@ -1,6 +1,7 @@
 from local_config import \
     UseCBC, DoLogging, DoSolve, \
-    lp_problem_filename, lp_solution_filename, lp_log_filename
+    lp_problem_filename, lp_solution_filename, lp_log_filename, \
+    pos_splitter, field_name_splitter
 from db_interaction import get_db, get_positions
 from ineqs import ip_ineqs
 from subprocess import call 
@@ -30,14 +31,12 @@ def write_lp_file(obj, ineqs):
     f.write('\nend')
     f.close()
 
-def sol_from_v(sol, vname, castellers_in_position, _props):
+def sol_from_v(sol, vname, castellers_in_position):
     cast_id = int(vname[1:vname.find('p')])
     pos_id = long(vname[vname.find('p')+1:])
-    props = ['nickname']
-    props.extend(_props)
     for casteller in castellers_in_position[pos_id]:
         if casteller['id'] == cast_id:
-            sol[int(pos_id)] = dict([(p, casteller[p]) for p in props])
+            sol[int(pos_id)] = casteller
             
 def backup_file(filename):
     try:
@@ -61,7 +60,7 @@ def do_solve(castellers_in_position):
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
 
-def solved_positions(castellers_in_position, props):
+def solved_positions(castellers_in_position):
     if UseCBC:
         base_index = 1  # for reading the solution file
     else:
@@ -75,7 +74,7 @@ def solved_positions(castellers_in_position, props):
         else:
             a = line.split()
             if a[base_index + 1] == '1':
-                sol_from_v(sol, a[base_index], castellers_in_position, props)
+                sol_from_v(sol, a[base_index], castellers_in_position)
     if len(sol.keys()) == 0:
         raise RuntimeError("Solution file empty. No solution found")
     return sol
@@ -83,18 +82,17 @@ def solved_positions(castellers_in_position, props):
 def solved_relations(relations, sol):
     sol_rel = dict()
     for rel in relations:
-        positions = rel['pos_list'].split('_')
-        prop = rel['field_names']
+        positions = rel['pos_list'].split(pos_splitter)
+        prop = rel['field_names'].split(field_name_splitter)
         for i in range(0, len(positions)-1):
             for j in range(1, len(positions)):
                 fp = int(positions[i])
                 tp = int(positions[j])
-                print fp, sol[fp], ";" , tp, sol[tp]
-                sol_rel[fp, tp] = round(sol[fp][prop] - sol[tp][prop], 2)
+                sol_rel[fp, tp] = round(sol[fp][prop[j]] - sol[tp][prop[j]], 2)
     return sol_rel
 
-def solution(castellers_in_position, relations, props):
-    sol = solved_positions(castellers_in_position, props)
+def solution(castellers_in_position, relations):
+    sol = solved_positions(castellers_in_position)
     return dict([('positions', sol), \
                      ('relations', solved_relations(relations, sol))])
 
@@ -111,8 +109,7 @@ def find_pinya(prescribed, castell_type_id, colla_id):
     if DoSolve:
         do_solve(castellers_in_position)
         
-    props = ['shoulder_height', 'shoulder_width']
-    return solution(castellers_in_position, relations, props)
+    return solution(castellers_in_position, relations)
     
 
 def do_opt():

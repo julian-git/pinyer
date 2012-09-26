@@ -130,7 +130,6 @@ def write_relations(db, castell_type_id, relations):
     """
     c = db.cursor()
     vals = []
-#    print relations
     for rel in relations:
         vals.append((castell_type_id, \
                          rel['relation_type'], \

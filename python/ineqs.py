@@ -1,5 +1,5 @@
 from db_interaction import *
-from local_config import DoLogging
+from local_config import DoLogging, pos_splitter, field_name_splitter
 
 vars = dict()
 
@@ -75,11 +75,9 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
     pos_of_casteller = dict() # The transposed array of castellers_in_position
 
     for pos_id, castellers in castellers_in_position.iteritems():
-        print pos_id
         position_ineq = '' # in position pos_id, there may be at most one casteller
         first_pos_ineq = True
         for casteller in castellers:
-            print casteller
             casteller_id = casteller['id']
             v = var(casteller_id, pos_id)
             if first_pos_ineq:
@@ -94,7 +92,6 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
         if not is_essential_pos[pos_id]: # in this case, allow leaving the position empty
             rel = " <= 1"
         ineq = "pos" + str(pos_id) + ": " + position_ineq + rel
-        print ineq
         ineqs.append(ineq)
 
     for casteller_id, positions in pos_of_casteller.iteritems():
@@ -137,8 +134,9 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
     """ 
     if DoLogging:
         print "write_relation_ineqs"
+
     for rel in relations:
-        pos_list = [int(p) for p in rel['pos_list'].split('_')]
+        pos_list = [int(p) for p in rel['pos_list'].split(pos_splitter)]
         fpi = int(pos_list[0])
         if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
             tpi = int(pos_list[1])
@@ -179,7 +177,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             #   x + M y_tpi <= tolerance + M
             #   x - M y_tpi >= -M
             #
-            field_names = rel['field_names'].split('~');
+            field_names = rel['field_names'].split(field_name_splitter);
             if len(field_names) != 2:
                 raise RuntimeError('should have exactly two field names in "' + rel['field_names'] + '"')
             x = combine_vars(fpi, tpi, castellers_in_position, field_names)
@@ -202,7 +200,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
         elif rel['relation_type'] == 'val_tol': 
             # Ma can support segon:
             # value of field_names at position is at least fparam
-            if rel['field_names'].find('~') > -1:
+            if rel['field_names'].find(field_name_splitter) > -1:
                 raise RuntimeError('Expected only one property in ' + rel['field_names']) 
             label = rel['field_names'] + "_" + str(fpi) + ": "
             ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
@@ -210,7 +208,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
 
         elif rel['relation_type'] == 'abs_tol': 
             # sum of values is at most rhs in absolute value
-            if rel['field_names'].find('~') > -1:
+            if rel['field_names'].find(field_name_splitter) > -1:
                 raise RuntimeError('Expected only one property in ' + rel['field_names']) 
             if len(pos_list) > 0:
                 label = rel['field_names'] + "_" + rel['pos_list'] + ': '
@@ -251,7 +249,7 @@ def incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
         positions.extend(pos_of_casteller[p1])
         positions = set(positions)
         for rel in relations:
-            pos_list = rel['pos_list'].split('_')
+            pos_list = rel['pos_list'].split(pos_splitter)
             if rel['relation_type'] == 1 and len(pos_list)>=2:
                 fpi = pos_list[0]
                 tpi = pos_list[1]
@@ -281,7 +279,6 @@ def ip_ineqs(prescribed, castell_type_id, colla_id):
 
     obj = objective_function(castellers_in_position)
 
-#    f.write("\nsubject to\n")
     ineqs = []
     [ineqs, pos_of_casteller] = \
         castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, ineqs)
