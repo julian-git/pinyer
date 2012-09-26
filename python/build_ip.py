@@ -88,6 +88,7 @@ def solved_relations(relations, sol):
             for j in range(1, len(positions)):
                 fp = int(positions[i])
                 tp = int(positions[j])
+#                print fp, tp
                 sol_rel[fp, tp] = round(sol[fp][prop[j]] - sol[tp][prop[j]], 2)
     return sol_rel
 
@@ -105,6 +106,7 @@ def find_pinya(prescribed, castell_type_id, colla_id):
         ip_ineqs(prescribed, castell_type_id, colla_id)
     # obj holds the objective coefficient of each variable
     # relations holds the relations between positions
+
     write_lp_file(obj, ineqs)
     if DoSolve:
         do_solve(castellers_in_position)
@@ -118,8 +120,8 @@ def do_opt():
 ##########
 # FIXME: castell_type_id and colla_id can be chosen independently
 #        and this leads to inconsistency and data leak
-    [castell_type_id, colla_id] = [1000, 2]  # for debugging
-#    [castell_type_id, colla_id] = [3, 1] # for "real"
+#    [castell_type_id, colla_id] = [1000, 2]  # for debugging
+    [castell_type_id, colla_id] = [3, 1] # for "real"
 ##########
     solution = find_pinya(prescribed, castell_type_id, colla_id)
     print solution

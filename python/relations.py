@@ -1,11 +1,12 @@
-from local_config import tolerances
+from local_config import tolerances, field_name_splitter
 
 def ring_relations(rd, position_in_ring, relations):
     # the default values for all relations created in this function
     rel0 = dict([('pos_list', None), \
                      ('coeff_list', None), \
                      ('relation_type', 'zero_or_tol'), \
-                     ('field_names', 'shoulder_height'), \
+                     ('field_names', \
+                          'shoulder_height' + field_name_splitter + 'shoulder_height'), \
                      ('sense', True), \
                      ('rhs', tolerances['height']), \
                      ('pos_type', None)])
@@ -61,7 +62,7 @@ def baixos_relations(bd, position_in_portacrosses, relations):
     rel0 = dict([('pos_list', None), \
                      ('coeff_list', '1_-1'), \
                      ('relation_type', 1), \
-                     ('field_names', 'shoulder_height~axle_height'), \
+                     ('field_names', 'shoulder_height' + field_name_splitter + 'axle_height'), \
                      ('sense', True), \
                      ('rhs', tolerances['delta_height_c_b']), \
                      ('fparam2', tolerances['delta_height_c_b_tol']), \

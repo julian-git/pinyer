@@ -154,7 +154,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             # If y_tpi = 1, then the constraint 
             #   0 <= x <= tolerance
             # must hold, where 
-            #   x = (value of field_names at from_pos) - (value of field_names at to_pos).
+            #   x = (value of field_name[0] at from_pos) - (value of field_name[1] at to_pos).
             #
             # We model this as
             # " either y_tpi = 0  or  0 <= x <= tolerance  must hold ",

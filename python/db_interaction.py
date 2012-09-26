@@ -18,6 +18,8 @@ def get_positions(db, castell_type_id):
         for ind in ['id', 'svg_id']:
             new_ans[ind] = int(new_ans[ind])
         position_data[new_ans['id']] = new_ans
+    if len(position_data) == 0:
+        raise RuntimeError('No data found in database for castell_type_id ' + castell_type_id)
     return position_data
 
 def write_positions(db, castell_type_id, position_at):
@@ -68,6 +70,10 @@ where is_present=true and casteller_colla.colla_id = %s and castell_position.cas
         new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'weight', 'strength'), row))
         new_ans['id'] = int(new_ans['id'])
         ans.append(new_ans)
+    if len(ans)==0:
+        raise RuntimeError('No castellers found for colla_id=' + str(colla_id) + \
+                               ', castell_type=' + str(castell_type_id) + \
+                               ', pos_id=' + str(pos_id))
     return ans
 
 
