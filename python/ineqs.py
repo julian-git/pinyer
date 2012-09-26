@@ -208,8 +208,6 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
 
         elif rel['relation_type'] == 'abs_tol': 
             # sum of values is at most rhs in absolute value
-            if rel['field_names'].find(field_name_splitter) > -1:
-                raise RuntimeError('Expected only one property in ' + rel['field_names']) 
             if len(pos_list) > 0:
                 label = rel['field_names'] + "_" + rel['pos_list'] + ': '
                 ineq_str = ''

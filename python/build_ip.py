@@ -88,7 +88,6 @@ def solved_relations(relations, sol):
             for j in range(1, len(positions)):
                 fp = int(positions[i])
                 tp = int(positions[j])
-#                print fp, tp
                 sol_rel[fp, tp] = round(sol[fp][prop[j]] - sol[tp][prop[j]], 2)
     return sol_rel
 

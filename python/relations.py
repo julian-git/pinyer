@@ -1,4 +1,4 @@
-from local_config import tolerances, field_name_splitter
+from local_config import tolerances, field_name_splitter, pos_splitter
 
 def ring_relations(rd, position_in_ring, relations):
     # the default values for all relations created in this function
@@ -45,15 +45,17 @@ def ring_relations(rd, position_in_ring, relations):
 
     # next, the relations for the shoulder_width
     rel0['relation_type'] = 'abs_tol'
-    rel0['field_names'] = 'shoulder_width'
+    rel0['field_names'] = ''
     rel0['rhs'] = tolerances['width']
     rel0['pos_type'] = 'p'
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
             rel = rel0.copy()
             rel['pos_list'] = str(position_in_ring[i,j,1]['svg_id'])
+            rel['field_names'] = 'shoulder_width'
             for m in range(2, i+1):
-                rel['pos_list'] += '_' + str(position_in_ring[i,j,m]['svg_id'])
+                rel['pos_list'] += pos_splitter + str(position_in_ring[i,j,m]['svg_id'])
+                rel['field_names'] += field_name_splitter + 'shoulder_width'
             relations.append(rel)
     return relations
 
