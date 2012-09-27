@@ -70,8 +70,7 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
                      ('field_names', 'shoulder_height' + field_name_splitter + 'axle_height'), \
                      ('sense', True), \
                      ('rhs', tolerances['delta_height_c_b']), \
-                     ('fparam2', tolerances['delta_height_c_b_tol']), \
-                     ('pos_type_list', None)])
+                     ('pos_type_list', 'b_c')])
     # first, the relations between the baix and the crosses
     for i in range(bd['number']):
         rel = rel0.copy()
@@ -79,8 +78,14 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
             str(position_in_portacrosses[i,1]['svg_id']) + \
             pos_splitter + \
             str(position_in_baix_group[i, 'crossa1']['svg_id']) 
-        rel['pos_type_list'] = 'b_c'
-        print rel['pos_list']
+        print rel
+        relations.append(rel)
+
+        rel = rel0.copy()
+        rel['pos_list'] = \
+            str(position_in_portacrosses[i,1]['svg_id']) + \
+            pos_splitter + \
+            str(position_in_baix_group[i, 'crossa2']['svg_id']) 
         relations.append(rel)
     return relations
 

@@ -147,6 +147,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             # y_fpi = sum_vars(fpi, castellers_in_position)
             # y_tpi = sum_vars(tpi, castellers_in_position)
             label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
+            print [c['nickname'] for c in castellers_in_position[fpi]]
             ineqs.append(label + sum_vars(fpi, castellers_in_position) + " - " + sum_vars(tpi, castellers_in_position, None, " - ") + " >= 0")
 
         if rel['relation_type'] == 'zero_or_tol': 

@@ -55,7 +55,7 @@ insert into castell_relation (id, castell_type_id, relation_type, coeff_list, fi
   (1001, 1000, 'zero_or_tol', '1_1', 'total_height~total_height', '1001_1002', 'c_c', true, 6),
   (1002, 1000, 'zero_or_tol', '1_1', 'total_height~total_height', '1003_1004', 'm_p', true, 7),
   (1003, 1000, 'zero_or_tol', '1_1', 'total_height~total_height', '1004_1005', 'p_p', true, 5),
-  (1004, 1000, 'val_tol', '1', 'weight', '1002', true, 65);
+  (1004, 1000, 'val_tol', '1', 'weight', '1002', 'b', true, 65);
 
 insert into incompatible_castellers (id, colla_id, cast1_id, cast2_id) values 
   (1000, 2, 1016, 1018);
