@@ -9,7 +9,8 @@ def ring_relations(rd, position_in_ring, relations):
                           'shoulder_height' + field_name_splitter + 'shoulder_height'), \
                      ('sense', False), \
                      ('rhs', tolerances['height']), \
-                     ('pos_type', None)])
+                     ('pos_list', None), \
+                     ('pos_type_list', None)])
 
     # first, the relations between rengles de mans and rengles de vents
     for j in range(2*rd['period']):
@@ -22,7 +23,7 @@ def ring_relations(rd, position_in_ring, relations):
             rel['pos_list'] = \
                 str(position_in_ring[i,j,0]['svg_id']) + '_' + \
                 str(position_in_ring[i+1,j,0]['svg_id'])
-            rel['pos_type'] = pt
+            rel['pos_type_list'] = pt + pos_splitter + pt
             relations.append(rel)
 
     rel0['sense'] = True 
@@ -35,20 +36,21 @@ def ring_relations(rd, position_in_ring, relations):
                 rel['pos_list'] = \
                     str(position_in_ring[i,j,m]['svg_id']) + '_' + \
                     str(position_in_ring[i+1,j,m]['svg_id'])
-                rel['pos_type'] = 'p'
+                rel['pos_type_list'] = 'p' + pos_splitter + 'p'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
                 rel1['pos_list'] = \
                     str(position_in_ring[i,j,m]['svg_id']) + '_' + \
                     str(position_in_ring[i+1,j,m+1]['svg_id'])
+                rel1['pos_type_list'] = 'p' + pos_splitter + 'p'
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
     rel0['relation_type'] = 'abs_tol'
     rel0['field_names'] = ''
     rel0['rhs'] = tolerances['width']
-    rel0['pos_type'] = 'p'
+    rel0['pos_type_list'] = 'p'
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
             rel = rel0.copy()
@@ -69,7 +71,7 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
                      ('sense', True), \
                      ('rhs', tolerances['delta_height_c_b']), \
                      ('fparam2', tolerances['delta_height_c_b_tol']), \
-                     ('pos_type', None)])
+                     ('pos_type_list', None)])
     # first, the relations between the baix and the crosses
     for i in range(bd['number']):
         rel = rel0.copy()
@@ -77,7 +79,7 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
             str(position_in_portacrosses[i,1]['svg_id']) + \
             pos_splitter + \
             str(position_in_baix_group[i, 'crossa1']['svg_id']) 
-        rel['pos_type'] = 'b_c'
+        rel['pos_type_list'] = 'b_c'
         print rel['pos_list']
         relations.append(rel)
     return relations
@@ -94,14 +96,14 @@ def relations_svg(relations, coo_of):
             tpi = fpi
 
         if rel['relation_type'] == 'zero_or_tol':
-            relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
+            relations_svg += '<path class="' + rel['pos_type_list'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + 'L' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + '"/>'
 
         elif rel['relation_type'] == 'abs_tol':
-            relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
+            relations_svg += '<path class="' + rel['pos_type_list'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[fpi][1])
             for pos in pos_list[1:]:
@@ -111,7 +113,7 @@ def relations_svg(relations, coo_of):
             relations_svg += '"/>'
                 
         elif rel['relation_type'] == 'one_sided':
-            relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
+            relations_svg += '<path class="' + rel['pos_type_list'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[fpi][1])
             for pos in pos_list[1:]:

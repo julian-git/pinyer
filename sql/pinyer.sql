@@ -138,6 +138,7 @@ create table castell_relation (
   coeff_list    varchar(100) default null,
   field_names   varchar(100) not null, 
   pos_list    	varchar(100) not null, 
+  pos_type_list varchar(100) not null,
   sense         bool  default true,  
   rhs 		float(10,4) default 0, 
   primary key (id),
