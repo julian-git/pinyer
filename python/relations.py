@@ -7,7 +7,7 @@ def ring_relations(rd, position_in_ring, relations):
                      ('relation_type', 'zero_or_tol'), \
                      ('field_names', \
                           'shoulder_height' + field_name_splitter + 'shoulder_height'), \
-                     ('sense', True), \
+                     ('sense', False), \
                      ('rhs', tolerances['height']), \
                      ('pos_type', None)])
 
@@ -25,6 +25,7 @@ def ring_relations(rd, position_in_ring, relations):
             rel['pos_type'] = pt
             relations.append(rel)
 
+    rel0['sense'] = True 
     # next, the relations in the quesitos
     # of these, first the shoulder_height relations between different rings
     for j in range(2*rd['period']):
@@ -59,11 +60,11 @@ def ring_relations(rd, position_in_ring, relations):
             relations.append(rel)
     return relations
 
-def baixos_relations(bd, position_in_portacrosses, relations):
+def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations):
     # the default values for all relations created in this function
     rel0 = dict([('pos_list', None), \
                      ('coeff_list', '1_-1'), \
-                     ('relation_type', 1), \
+                     ('relation_type', 'one_sided'), \
                      ('field_names', 'shoulder_height' + field_name_splitter + 'axle_height'), \
                      ('sense', True), \
                      ('rhs', tolerances['delta_height_c_b']), \
@@ -72,11 +73,17 @@ def baixos_relations(bd, position_in_portacrosses, relations):
     # first, the relations between the baix and the crosses
     for i in range(bd['number']):
         rel = rel0.copy()
-        rel['pos_list'] = position_in_portacrosses[i,1]['svg_id']
-        
+        rel['pos_list'] = \
+            str(position_in_portacrosses[i,1]['svg_id']) + \
+            pos_splitter + \
+            str(position_in_baix_group[i, 'crossa1']['svg_id']) 
+        rel['pos_type'] = 'b_c'
+        print rel['pos_list']
+        relations.append(rel)
     return relations
 
 def relations_svg(relations, coo_of):
+    print coo_of
     relations_svg = ''
     for rel in relations:
         pos_list = rel['pos_list'].split('_')
@@ -85,12 +92,14 @@ def relations_svg(relations, coo_of):
             tpi = int(pos_list[1])
         else:
             tpi = fpi
+
         if rel['relation_type'] == 'zero_or_tol':
             relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + 'L' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + '"/>'
+
         elif rel['relation_type'] == 'abs_tol':
             relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
@@ -101,6 +110,16 @@ def relations_svg(relations, coo_of):
                     str(coo_of[int(pos)][1])
             relations_svg += '"/>'
                 
+        elif rel['relation_type'] == 'one_sided':
+            relations_svg += '<path class="' + rel['pos_type'] + '" d="M' + \
+                str(coo_of[fpi][0]) + ',' + \
+                str(coo_of[fpi][1])
+            for pos in pos_list[1:]:
+                relations_svg += 'L' + \
+                    str(coo_of[int(pos)][0]) + ',' + \
+                    str(coo_of[int(pos)][1])
+            relations_svg += '"/>'
+
         else:
             raise RuntimeError('drawing of relation not implemented')
     return relations_svg

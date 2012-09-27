@@ -104,7 +104,7 @@ def crossa(i, j, bd, pibg, svg, svg_id, coo_of):
     svg_id = svg_id + 1
     [x,y] = bd['crossa_pos']
     alpha = bd['crossa_rect_dim']['angle']
-    if j%2 == 0:
+    if j[-1] == '2':
         y = -y
         alpha = -alpha
     svg += svg_rect.substitute(_x=x, \
@@ -189,11 +189,11 @@ def baix_group(bd, i, svg, svg_id, pibg, coo_of):
     """
     the group consists of the baix, two crosses, one contrafort and an agulla
     """
-    [svg, svg_id, pibg, coo_of] = baix(i, 0, bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = crossa(i, 1, bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = crossa(i, 2, bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = contrafort(i, 3, bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = agulla(i, 4, bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = baix(i, 'baix', bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = crossa(i, 'crossa1', bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = crossa(i, 'crossa2', bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = contrafort(i, 'contrafort', bd, pibg, svg, svg_id, coo_of)
+    [svg, svg_id, pibg, coo_of] = agulla(i, 'agulla', bd, pibg, svg, svg_id, coo_of)
     return [svg, svg_id, pibg, coo_of]
 
 def baixos(bd, svg, svg_id, coo_of):
@@ -355,7 +355,7 @@ def tresde8f():
     relations = []
 
     relations = ring_relations(rd, position_in_ring, relations)
-    relations = baixos_relations(bd, position_in_portacrosses, relations)
+    relations = baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations)
 
     svg += '<g id="rels">'    
     svg += relations_svg(relations, coo_of)

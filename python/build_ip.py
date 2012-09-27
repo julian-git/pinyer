@@ -123,7 +123,8 @@ def do_opt():
     [castell_type_id, colla_id] = [3, 1] # for "real"
 ##########
     solution = find_pinya(prescribed, castell_type_id, colla_id)
-    print solution
+    print [[pos,c['nickname']] for [pos, c] in solution['positions'].iteritems()]
+    print solution['relations']
 
 if __name__ == "__main__":
 #    import cProfile
