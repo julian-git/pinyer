@@ -367,6 +367,9 @@ def tresde8f():
 def save_tresde8f_relations():
     [svg, position_in_ring, position_in_baix_group, \
          position_in_portacrosses, relations] = tresde8f()
+    f = open('../www/tresde8f.pinya', 'w')
+    f.write(svg)
+    f.close()
     from db_interaction import get_db, write_positions, write_relations
     db = get_db()
     c = db.cursor()

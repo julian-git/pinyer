@@ -45,16 +45,19 @@ if what=='get_colla':
     print json.dumps(colla, separators=(',', ':'), ensure_ascii=False)
 
 elif what=='get_pinya':
-    pinya_id = form["pinya_id"].value
-    svg = tresde8f()[0]
-    print svg
+    pinya_id = form["castell_type_id"].value
+    f = open('tresde8f.pinya')
+    print f.read()
 
 elif what=='optimize_pinya':
     prescribed = dict()
     castell_type_id = form["castell_type_id"].value
     colla_id = 1
     solution = find_pinya(prescribed, castell_type_id, colla_id)
-    print solution_as_svg(solution, position_data, prescribed)
+    positions = [[pos,c['nickname']] for [pos, c] in solution['positions'].iteritems()]
+    relations = solution['relations']
+    sol_dict = dict([('positions', positions), ('relations', relations)])
+    print json.dumps(sol_dict, separators=(',', ':'), ensure_ascii=False)
 
 else:
     print "Unexpected argument: ", what
