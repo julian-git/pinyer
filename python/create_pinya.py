@@ -354,7 +354,7 @@ def tresde8f():
 
     relations = []
 
-    relations = ring_relations(rd, position_in_ring, relations)
+    relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
     relations = baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations)
 
     svg += '<g id="rels">'    

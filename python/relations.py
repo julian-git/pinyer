@@ -1,13 +1,17 @@
 from local_config import tolerances, field_name_splitter, pos_splitter
 
-def ring_relations(rd, position_in_ring, relations):
+def ring_relations(rd, position_in_ring, relations, has_folre):
     # the default values for all relations created in this function
+    if has_folre:
+        sense = '<='
+    else:
+        sense = '>='
     rel0 = dict([('pos_list', None), \
                      ('coeff_list', None), \
                      ('relation_type', 'zero_or_tol'), \
                      ('field_names', \
                           'shoulder_height' + field_name_splitter + 'shoulder_height'), \
-                     ('sense', False), \
+                     ('sense', sense), \
                      ('rhs', tolerances['height']), \
                      ('pos_list', None), \
                      ('pos_type_list', None)])
@@ -26,7 +30,7 @@ def ring_relations(rd, position_in_ring, relations):
             rel['pos_type_list'] = pt + pos_splitter + pt
             relations.append(rel)
 
-    rel0['sense'] = True 
+    rel0['sense'] = '<='
     # next, the relations in the quesitos
     # of these, first the shoulder_height relations between different rings
     for j in range(2*rd['period']):
@@ -68,7 +72,7 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
                      ('coeff_list', '1_-1'), \
                      ('relation_type', 'one_sided'), \
                      ('field_names', 'shoulder_height' + field_name_splitter + 'axle_height'), \
-                     ('sense', True), \
+                     ('sense', '<='), \
                      ('rhs', tolerances['delta_height_c_b']), \
                      ('pos_type_list', 'b_c')])
     # first, the relations between the baix and the crosses

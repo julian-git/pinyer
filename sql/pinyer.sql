@@ -139,7 +139,7 @@ create table castell_relation (
   field_names   varchar(100) not null, 
   pos_list    	varchar(100) not null, 
   pos_type_list varchar(100) not null,
-  sense         bool  default true,  
+  sense         char(2)  default '<=',  
   rhs 		float(10,4) default 0, 
   primary key (id),
   foreign key (castell_type_id) references castell_type (id)

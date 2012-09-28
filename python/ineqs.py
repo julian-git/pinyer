@@ -235,11 +235,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                 ineqs.append(label + ineq_str + " <= " + str(target_width + rel['rhs']))
 
             else:
-                if rel['sense']:
-                    sense = ' <= '
-                else:
-                    sense = ' >= '
-                ineq = label + ineq_str + sense + str(rel['rhs'])
+                ineq = label + ineq_str + ' ' + rel['sense'] + ' ' + str(rel['rhs'])
                 ineqs.append(ineq)
 
         else:
