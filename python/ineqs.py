@@ -137,6 +137,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
 
     for rel in relations:
         pos_list = [int(p) for p in rel['pos_list'].split(pos_splitter)]
+        field_names = rel['field_names'].split(field_name_splitter)
         fpi = int(pos_list[0])
         if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
             tpi = int(pos_list[1])
@@ -147,7 +148,6 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             # y_fpi = sum_vars(fpi, castellers_in_position)
             # y_tpi = sum_vars(tpi, castellers_in_position)
             label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
-            print [c['nickname'] for c in castellers_in_position[fpi]]
             ineqs.append(label + sum_vars(fpi, castellers_in_position) + " - " + sum_vars(tpi, castellers_in_position, None, " - ") + " >= 0")
 
         if rel['relation_type'] == 'zero_or_tol': 
@@ -227,8 +227,35 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                 ineqs.append(label + ineq_str + " >= " + str(target_width - rel['rhs']))
                 ineqs.append(label + ineq_str + " <= " + str(target_width + rel['rhs']))
 
+        elif rel['relation_type'] == 'one_sided':
+            # sum_{p in poslist} sum_{c in cast_in_pos(p)} c_{field_name(p)} * x_{c,p} <=> rhs
+            if len(pos_list) == 0:
+                raise RuntimeError('Expected pos_list to be nonempty, in one_sided')
+            label = rel['field_names'] + "_" + rel['pos_list'] + ': '
+            if rel['sense']:
+                sense = ' <= '
+            else:
+                sense = ' >= '
+            coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(pos_splitter)]
+            ineq_str = ''
+            pos_ct = -1
+            for pos in pos_list:
+                pos_ct = pos_ct + 1
+                for c in castellers_in_position[pos]:
+                    coeff = coeff_list[pos_ct] * c[field_names[pos_ct]]
+                    if coeff > 0:
+                        ineq_str += ' + '
+                    else:
+                        ineq_str += ' '
+                    ineq_str += str(coeff) + ' ' + var(c['id'], pos)
+
+            ineq = label + ineq_str + sense + str(rel['rhs'])
+            ineqs.append(ineq)
+            print rel
+            print ineq
+
         else:
-            print "implement me!"
+            raise RuntimeError('relation of type ' + rel['relation_type'] + ' not implemented!')
     return [ineqs, obj]
 
 def incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):

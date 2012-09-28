@@ -57,7 +57,7 @@ def get_castellers(db, colla_id, castell_type_id, pos_id):
     """
     c = db.cursor()
     c.execute("""
-select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, weight, strength 
+select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, axle_height, weight, strength 
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
 left join castell_position on casteller_role.role = castell_position.role 
@@ -67,7 +67,7 @@ where is_present=true and casteller_colla.colla_id = %s and castell_position.cas
     res = c.fetchall()
     ans = []
     for row in res:
-        new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'weight', 'strength'), row))
+        new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'axle_height', 'weight', 'strength'), row))
         new_ans['id'] = int(new_ans['id'])
         ans.append(new_ans)
     if len(ans)==0:

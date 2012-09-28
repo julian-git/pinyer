@@ -374,7 +374,6 @@ def save_tresde8f_relations():
     c.execute("delete from castell_relation where castell_type_id = 3")
     write_positions(db, 3, position_in_ring)
     write_positions(db, 3, position_in_baix_group)
-    print position_in_portacrosses
     write_positions(db, 3, position_in_portacrosses)
     write_relations(db, 3, relations)
     db.commit()

@@ -78,7 +78,6 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
             str(position_in_portacrosses[i,1]['svg_id']) + \
             pos_splitter + \
             str(position_in_baix_group[i, 'crossa1']['svg_id']) 
-        print rel
         relations.append(rel)
 
         rel = rel0.copy()
@@ -90,7 +89,6 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
     return relations
 
 def relations_svg(relations, coo_of):
-    print coo_of
     relations_svg = ''
     for rel in relations:
         pos_list = rel['pos_list'].split('_')
