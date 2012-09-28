@@ -207,36 +207,16 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
                              " >= " + str(rel['rhs']))
 
-        elif rel['relation_type'] == 'abs_tol': 
+        elif rel['relation_type'] == 'abs_tol' or \
+                rel['relation_type'] == 'one_sided': 
             # sum of values is at most rhs in absolute value
-            if len(pos_list) > 0:
-                label = rel['field_names'] + "_" + rel['pos_list'] + ': '
-                ineq_str = ''
-                pos_ct = 0
-                for pos in pos_list:
-                    if pos_ct == 0:
-                        coeff = 1 #coeff = 0.5
-                    else: 
-                        coeff = 1
-                        ineq_str += ' + '
-                    if pos_ct == len(pos_list)-1:
-                        coeff = 1 #coeff = 0.5
-                    pos_ct = pos_ct + 1
-                    ineq_str += sum_vars(pos, castellers_in_position, rel['field_names'], ' + ', coeff)
-                target_width = len(pos_list) * aux_data['avg_shoulder_width']
-                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['rhs']))
-                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['rhs']))
-
-        elif rel['relation_type'] == 'one_sided':
-            # sum_{p in poslist} sum_{c in cast_in_pos(p)} c_{field_name(p)} * x_{c,p} <=> rhs
             if len(pos_list) == 0:
-                raise RuntimeError('Expected pos_list to be nonempty, in one_sided')
+                raise RuntimeError('Expected pos_list to be nonempty, in abs_tol')
             label = rel['field_names'] + "_" + rel['pos_list'] + ': '
-            if rel['sense']:
-                sense = ' <= '
+            if 'coeff_list' in rel and rel['coeff_list'] is not None:
+                coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(pos_splitter)]
             else:
-                sense = ' >= '
-            coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(pos_splitter)]
+                coeff_list = [1 for p in pos_list]
             ineq_str = ''
             pos_ct = -1
             for pos in pos_list:
@@ -248,11 +228,19 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                     else:
                         ineq_str += ' '
                     ineq_str += str(coeff) + ' ' + var(c['id'], pos)
+                    
+            if rel['relation_type'] == 'abs_tol':
+                target_width = len(pos_list) * aux_data['avg_shoulder_width']
+                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['rhs']))
+                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['rhs']))
 
-            ineq = label + ineq_str + sense + str(rel['rhs'])
-            ineqs.append(ineq)
-            print rel
-            print ineq
+            else:
+                if rel['sense']:
+                    sense = ' <= '
+                else:
+                    sense = ' >= '
+                ineq = label + ineq_str + sense + str(rel['rhs'])
+                ineqs.append(ineq)
 
         else:
             raise RuntimeError('relation of type ' + rel['relation_type'] + ' not implemented!')
