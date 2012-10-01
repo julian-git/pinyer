@@ -15,11 +15,14 @@
   <script>
     get_opt = function() {
     $.ajax({
-    url: "http://localhost/pinyer/info.py?what=optimize_pinya&castell_type_id=3",
+    url: "http://localhost/pinyer/info.py?what=get_pinya&castell_type_id=3",
     dataType: 'text',
 
     success: function(data) {
-       alert(data)
+      $('<p/>', {
+         'id'   : 'pinya',
+         'html' : data
+      }).appendTo('body');
     },
 
     error: function(XMLHttpRequest, textStatus, errorThrown){

@@ -60,7 +60,7 @@ def do_solve(castellers_in_position):
     out_file = open(lp_log_filename, 'w')
     call(args, stdout = out_file)
 
-def solved_positions(castellers_in_position):
+def read_solved_positions(castellers_in_position):
     if UseCBC:
         base_index = 1  # for reading the solution file
     else:
@@ -79,25 +79,23 @@ def solved_positions(castellers_in_position):
         raise RuntimeError("Solution file empty. No solution found")
     return sol
 
-def solved_relations(relations, sol):
-    sol_rel = dict()
+def relation_values_from_solution(relations, sol):
+    rel_val = dict()
     for rel in relations:
         positions = rel['pos_list'].split(pos_splitter)
         prop = rel['field_names'].split(field_name_splitter)
+        if len(positions) != len(prop):
+            print "positions = ", positions
+            print "prop = ", prop 
+            raise RuntimeError("positions and prop have different length")
         for i in range(0, len(positions)-1):
             for j in range(1, len(positions)):
                 fp = int(positions[i])
                 tp = int(positions[j])
-                sol_rel[fp, tp] = round(sol[fp][prop[j]] - sol[tp][prop[j]], 2)
-    return sol_rel
+                rel_val[fp, tp] = round(sol[fp][prop[j]] - sol[tp][prop[j]], 2)
+    return rel_val
 
-def solution(castellers_in_position, relations):
-    sol = solved_positions(castellers_in_position)
-    return dict([('positions', sol), \
-                     ('relations', solved_relations(relations, sol))])
-
-
-def find_pinya(prescribed, castell_type_id, colla_id):
+def solve_castell(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "find_pinya..."    
         
@@ -110,7 +108,9 @@ def find_pinya(prescribed, castell_type_id, colla_id):
     if DoSolve:
         do_solve(castellers_in_position)
         
-    return solution(castellers_in_position, relations)
+    sol = read_solved_positions(castellers_in_position)
+    return dict([('positions', sol), \
+                     ('relations', relation_values_from_solution(relations, sol))])
     
 
 def do_opt():
@@ -118,11 +118,11 @@ def do_opt():
     prescribed = dict()
 ##########
 # FIXME: castell_type_id and colla_id can be chosen independently
-#        and this leads to inconsistency and data leak
-#    [castell_type_id, colla_id] = [1000, 2]  # for debugging
-    [castell_type_id, colla_id] = [3, 1] # for "real"
+#        and this leads to inconsistency and data leakage
+    [castell_type_id, colla_id] = [1000, 2]  # for debugging
+#    [castell_type_id, colla_id] = [3, 1] # for "real"
 ##########
-    solution = find_pinya(prescribed, castell_type_id, colla_id)
+    solution = solve_castell(prescribed, castell_type_id, colla_id)
     print [[pos,c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     print solution['relations']
 

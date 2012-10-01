@@ -414,7 +414,8 @@
   <text id="59_text" class="a vtext" text-anchor="middle">[0, 'agulla']</text>
   </g>
 </g>
-</g><g id="baixos_gp_1" transform="translate(-20.0 34.6410161514) rotate(120.0)">
+</g>
+<g id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
 <g id="60" transform="translate(0 0) rotate(0)">
   <rect id="60_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <g transform="rotate(90) translate(0 6)">
@@ -449,7 +450,8 @@
   <text id="64_text" class="a vtext" text-anchor="middle">[1, 'agulla']</text>
   </g>
 </g>
-</g><g id="baixos_gp_2" transform="translate(-20.0 -34.6410161514) rotate(240.0)">
+</g>
+<g id="baixos_gp_2" transform="translate(-20.0 -34.64) rotate(240.0)">
 <g id="65" transform="translate(0 0) rotate(0)">
   <rect id="65_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <g transform="rotate(90) translate(0 6)">
@@ -484,7 +486,8 @@
   <text id="69_text" class="a vtext" text-anchor="middle">[2, 'agulla']</text>
   </g>
 </g>
-</g><g id="portacrosses_gp_0" transform="translate(35.0 60.6217782649) rotate(60.0)">
+</g>
+<g id="portacrosses_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
 <g id="70" transform="translate(0 0) rotate(0)">
   <rect id="70_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <g transform="rotate(90) translate(0 6)">
@@ -505,7 +508,8 @@
   <text id="72_text" class="pc vtext" text-anchor="middle">[0, 2]</text>
   </g>
 </g>
-</g><g id="portacrosses_gp_1" transform="translate(-70.0 8.57224447676e-15) rotate(180.0)">
+</g>
+<g id="portacrosses_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
 <g id="73" transform="translate(0 0) rotate(0)">
   <rect id="73_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <g transform="rotate(90) translate(0 6)">
@@ -526,7 +530,8 @@
   <text id="75_text" class="pc vtext" text-anchor="middle">[1, 2]</text>
   </g>
 </g>
-</g><g id="portacrosses_gp_2" transform="translate(35.0 -60.6217782649) rotate(300.0)">
+</g>
+<g id="portacrosses_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
 <g id="76" transform="translate(0 0) rotate(0)">
   <rect id="76_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <g transform="rotate(90) translate(0 6)">
@@ -547,4 +552,80 @@
   <text id="78_text" class="pc vtext" text-anchor="middle">[2, 2]</text>
   </g>
 </g>
-</g></g><g id="rels"><path class="ma_ma" d="M100.0,0.0L100.0,0.0"/><path class="ma_ma" d="M125.0,0.0L125.0,0.0"/><path class="vt_vt" d="M50.0,108.25L50.0,108.25"/><path class="vt_vt" d="M62.5,129.9L62.5,129.9"/><path class="ma_ma" d="M-50.0,108.25L-50.0,108.25"/><path class="ma_ma" d="M-62.5,129.9L-62.5,129.9"/><path class="vt_vt" d="M-100.0,0.0L-100.0,0.0"/><path class="vt_vt" d="M-125.0,0.0L-125.0,0.0"/><path class="ma_ma" d="M-50.0,-108.25L-50.0,-108.25"/><path class="ma_ma" d="M-62.5,-129.9L-62.5,-129.9"/><path class="vt_vt" d="M50.0,-108.25L50.0,-108.25"/><path class="vt_vt" d="M62.5,-129.9L62.5,-129.9"/><path class="p_p" d="M86.6,42.75L86.6,42.75"/><path class="p_p" d="M86.6,80.35L86.6,80.35"/><path class="p_p" d="M117.46,38.82L117.46,38.82"/><path class="p_p" d="M117.46,75.0L117.46,75.0"/><path class="p_p" d="M95.76,75.0L95.76,75.0"/><path class="p_p" d="M95.76,106.07L95.76,106.07"/><path class="p_p" d="M0.0,123.1L0.0,123.1"/><path class="p_p" d="M0.0,123.1L0.0,123.1"/><path class="p_p" d="M21.71,144.89L21.71,144.89"/><path class="p_p" d="M21.71,150.0L21.71,150.0"/><path class="p_p" d="M-21.71,150.0L-21.71,150.0"/><path class="p_p" d="M-21.71,144.89L-21.71,144.89"/><path class="p_p" d="M-86.6,80.35L-86.6,80.35"/><path class="p_p" d="M-86.6,42.75L-86.6,42.75"/><path class="p_p" d="M-95.76,106.07L-95.76,106.07"/><path class="p_p" d="M-95.76,75.0L-95.76,75.0"/><path class="p_p" d="M-117.46,75.0L-117.46,75.0"/><path class="p_p" d="M-117.46,38.82L-117.46,38.82"/><path class="p_p" d="M-86.6,-42.75L-86.6,-42.75"/><path class="p_p" d="M-86.6,-80.35L-86.6,-80.35"/><path class="p_p" d="M-117.46,-38.82L-117.46,-38.82"/><path class="p_p" d="M-117.46,-75.0L-117.46,-75.0"/><path class="p_p" d="M-95.76,-75.0L-95.76,-75.0"/><path class="p_p" d="M-95.76,-106.07L-95.76,-106.07"/><path class="p_p" d="M-0.0,-123.1L-0.0,-123.1"/><path class="p_p" d="M-0.0,-123.1L-0.0,-123.1"/><path class="p_p" d="M-21.71,-144.89L-21.71,-144.89"/><path class="p_p" d="M-21.71,-150.0L-21.71,-150.0"/><path class="p_p" d="M21.71,-150.0L21.71,-150.0"/><path class="p_p" d="M21.71,-144.89L21.71,-144.89"/><path class="p_p" d="M86.6,-80.35L86.6,-80.35"/><path class="p_p" d="M86.6,-42.75L86.6,-42.75"/><path class="p_p" d="M95.76,-106.07L95.76,-106.07"/><path class="p_p" d="M95.76,-75.0L95.76,-75.0"/><path class="p_p" d="M117.46,-75.0L117.46,-75.0"/><path class="p_p" d="M117.46,-38.82L117.46,-38.82"/><path class="p" d="M86.6,50.0"/><path class="p" d="M117.46,42.75L95.76,80.35"/><path class="p" d="M144.89,38.82L129.9,75.0L106.07,106.07"/><path class="p" d="M0.0,100.0"/><path class="p" d="M21.71,123.1L-21.71,123.1"/><path class="p" d="M38.82,144.89L0.0,150.0L-38.82,144.89"/><path class="p" d="M-86.6,50.0"/><path class="p" d="M-95.76,80.35L-117.46,42.75"/><path class="p" d="M-106.07,106.07L-129.9,75.0L-144.89,38.82"/><path class="p" d="M-86.6,-50.0"/><path class="p" d="M-117.46,-42.75L-95.76,-80.35"/><path class="p" d="M-144.89,-38.82L-129.9,-75.0L-106.07,-106.07"/><path class="p" d="M-0.0,-100.0"/><path class="p" d="M-21.71,-123.1L21.71,-123.1"/><path class="p" d="M-38.82,-144.89L-0.0,-150.0L38.82,-144.89"/><path class="p" d="M86.6,-50.0"/><path class="p" d="M95.76,-80.35L117.46,-42.75"/><path class="p" d="M106.07,-106.07L129.9,-75.0L144.89,-38.82"/><path class="b_c" d="M-10,-45L0,30"/><path class="b_c" d="M-10,-45L0,-30"/><path class="b_c" d="M-10,-45L0,30"/><path class="b_c" d="M-10,-45L0,-30"/><path class="b_c" d="M-10,-45L0,30"/><path class="b_c" d="M-10,-45L0,-30"/></g></svg>
+</g>
+</g>
+<g id="rels">
+<path class="ma_ma" d="M100.0,0.0L100.0,0.0"/>
+<path class="ma_ma" d="M125.0,0.0L125.0,0.0"/>
+<path class="vt_vt" d="M50.0,108.25L50.0,108.25"/>
+<path class="vt_vt" d="M62.5,129.9L62.5,129.9"/>
+<path class="ma_ma" d="M-50.0,108.25L-50.0,108.25"/>
+<path class="ma_ma" d="M-62.5,129.9L-62.5,129.9"/>
+<path class="vt_vt" d="M-100.0,0.0L-100.0,0.0"/>
+<path class="vt_vt" d="M-125.0,0.0L-125.0,0.0"/>
+<path class="ma_ma" d="M-50.0,-108.25L-50.0,-108.25"/>
+<path class="ma_ma" d="M-62.5,-129.9L-62.5,-129.9"/>
+<path class="vt_vt" d="M50.0,-108.25L50.0,-108.25"/>
+<path class="vt_vt" d="M62.5,-129.9L62.5,-129.9"/>
+<path class="p_p" d="M86.6,42.75L86.6,42.75"/>
+<path class="p_p" d="M86.6,80.35L86.6,80.35"/>
+<path class="p_p" d="M117.46,38.82L117.46,38.82"/>
+<path class="p_p" d="M117.46,75.0L117.46,75.0"/>
+<path class="p_p" d="M95.76,75.0L95.76,75.0"/>
+<path class="p_p" d="M95.76,106.07L95.76,106.07"/>
+<path class="p_p" d="M0.0,123.1L0.0,123.1"/>
+<path class="p_p" d="M0.0,123.1L0.0,123.1"/>
+<path class="p_p" d="M21.71,144.89L21.71,144.89"/>
+<path class="p_p" d="M21.71,150.0L21.71,150.0"/>
+<path class="p_p" d="M-21.71,150.0L-21.71,150.0"/>
+<path class="p_p" d="M-21.71,144.89L-21.71,144.89"/>
+<path class="p_p" d="M-86.6,80.35L-86.6,80.35"/>
+<path class="p_p" d="M-86.6,42.75L-86.6,42.75"/>
+<path class="p_p" d="M-95.76,106.07L-95.76,106.07"/>
+<path class="p_p" d="M-95.76,75.0L-95.76,75.0"/>
+<path class="p_p" d="M-117.46,75.0L-117.46,75.0"/>
+<path class="p_p" d="M-117.46,38.82L-117.46,38.82"/>
+<path class="p_p" d="M-86.6,-42.75L-86.6,-42.75"/>
+<path class="p_p" d="M-86.6,-80.35L-86.6,-80.35"/>
+<path class="p_p" d="M-117.46,-38.82L-117.46,-38.82"/>
+<path class="p_p" d="M-117.46,-75.0L-117.46,-75.0"/>
+<path class="p_p" d="M-95.76,-75.0L-95.76,-75.0"/>
+<path class="p_p" d="M-95.76,-106.07L-95.76,-106.07"/>
+<path class="p_p" d="M-0.0,-123.1L-0.0,-123.1"/>
+<path class="p_p" d="M-0.0,-123.1L-0.0,-123.1"/>
+<path class="p_p" d="M-21.71,-144.89L-21.71,-144.89"/>
+<path class="p_p" d="M-21.71,-150.0L-21.71,-150.0"/>
+<path class="p_p" d="M21.71,-150.0L21.71,-150.0"/>
+<path class="p_p" d="M21.71,-144.89L21.71,-144.89"/>
+<path class="p_p" d="M86.6,-80.35L86.6,-80.35"/>
+<path class="p_p" d="M86.6,-42.75L86.6,-42.75"/>
+<path class="p_p" d="M95.76,-106.07L95.76,-106.07"/>
+<path class="p_p" d="M95.76,-75.0L95.76,-75.0"/>
+<path class="p_p" d="M117.46,-75.0L117.46,-75.0"/>
+<path class="p_p" d="M117.46,-38.82L117.46,-38.82"/>
+<path class="p" d="M86.6,50.0"/>
+<path class="p" d="M117.46,42.75L95.76,80.35"/>
+<path class="p" d="M144.89,38.82L129.9,75.0L106.07,106.07"/>
+<path class="p" d="M0.0,100.0"/>
+<path class="p" d="M21.71,123.1L-21.71,123.1"/>
+<path class="p" d="M38.82,144.89L0.0,150.0L-38.82,144.89"/>
+<path class="p" d="M-86.6,50.0"/>
+<path class="p" d="M-95.76,80.35L-117.46,42.75"/>
+<path class="p" d="M-106.07,106.07L-129.9,75.0L-144.89,38.82"/>
+<path class="p" d="M-86.6,-50.0"/>
+<path class="p" d="M-117.46,-42.75L-95.76,-80.35"/>
+<path class="p" d="M-144.89,-38.82L-129.9,-75.0L-106.07,-106.07"/>
+<path class="p" d="M-0.0,-100.0"/>
+<path class="p" d="M-21.71,-123.1L21.71,-123.1"/>
+<path class="p" d="M-38.82,-144.89L-0.0,-150.0L38.82,-144.89"/>
+<path class="p" d="M86.6,-50.0"/>
+<path class="p" d="M95.76,-80.35L117.46,-42.75"/>
+<path class="p" d="M106.07,-106.07L129.9,-75.0L144.89,-38.82"/>
+<path class="b_c" d="M-10,-45L0,30"/>
+<path class="b_c" d="M-10,-45L0,-30"/>
+<path class="b_c" d="M-10,-45L0,30"/>
+<path class="b_c" d="M-10,-45L0,-30"/>
+<path class="b_c" d="M-10,-45L0,30"/>
+<path class="b_c" d="M-10,-45L0,-30"/>
+</g>
+</svg>

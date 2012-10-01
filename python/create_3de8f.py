@@ -203,8 +203,8 @@ def baixos(bd, svg, svg_id, coo_of):
     position_in_baix_group = dict()
     for i in range(bd['number']):
         alpha = i * 2.0 * pi / bd['number']
-        x = bd['radius'] * cos(alpha)
-        y = bd['radius'] * sin(alpha)
+        x = round(bd['radius'] * cos(alpha), 2)
+        y = round(bd['radius'] * sin(alpha), 2)
         svg += '<g id="baixos_gp_' + str(i) + \
             '" transform="translate(' + \
             str(x) + ' ' + \
@@ -212,7 +212,7 @@ def baixos(bd, svg, svg_id, coo_of):
             str(round(180 / pi * alpha, 2)) + ')">'
         [svg, svg_id, position_in_baix_group, coo_of] = \
             baix_group(bd, i, svg, svg_id, position_in_baix_group, coo_of)
-        svg += '</g>'
+        svg += '</g>\n'
     return [svg, svg_id, position_in_baix_group, coo_of]
 
 def pc(i, j, index, pcd, pipcg, svg, svg_id, coo_of):
@@ -262,8 +262,8 @@ def portacrosses(pcd, svg, svg_id, coo_of):
     position_in_portacrosses = dict()
     for i in range(pcd['number']): 
         alpha = (i * 2.0 + 1.0) * pi / pcd['number']
-        x = pcd['radius'] * cos(alpha)
-        y = pcd['radius'] * sin(alpha)
+        x = round(pcd['radius'] * cos(alpha), 2)
+        y = round(pcd['radius'] * sin(alpha), 2)
         svg += '<g id="portacrosses_gp_' + str(i) + \
             '" transform="translate(' + \
             str(x) + ' ' + \
@@ -271,7 +271,7 @@ def portacrosses(pcd, svg, svg_id, coo_of):
             str(round(180 / pi * alpha, 2)) + ')">'
         [svg, svg_id, position_in_portacrosses, coo_of] = \
             portacrosses_group(pcd, i, svg, svg_id, position_in_portacrosses, coo_of)
-        svg += '</g>'         
+        svg += '</g>\n'         
     return [svg, svg_id, position_in_portacrosses, coo_of]
 
 def pinya(rd, bd, pcd, svg):
@@ -350,16 +350,16 @@ def tresde8f():
     svg += '<g id="pinya">'
     [svg, position_in_ring, position_in_baix_group, \
          position_in_portacrosses, coo_of] = pinya(rd, bd, pcd, svg)
-    svg += '</g>'
+    svg += '</g>\n'
 
     relations = []
 
     relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
     relations = baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations)
 
-    svg += '<g id="rels">'    
+    svg += '<g id="rels">\n'    
     svg += relations_svg(relations, coo_of)
-    svg += '</g>'
+    svg += '</g>\n'
 
     svg += '</svg>'
     return [svg, position_in_ring, position_in_baix_group, position_in_portacrosses, relations]

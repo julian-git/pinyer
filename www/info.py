@@ -11,9 +11,8 @@ import httplib
 cgitb.enable()
 sys.path.append('../python')
 
-from create_pinya import tresde8f
 from build_html import solution_as_svg
-from build_ip import find_pinya
+from build_ip import solve_castell
 from db_interaction import get_db, get_nicknames_and_char, get_positions
 
 form = cgi.FieldStorage()
@@ -46,6 +45,7 @@ if what=='get_colla':
 
 elif what=='get_pinya':
     pinya_id = form["castell_type_id"].value
+    # FIXME the next line must be generalized
     f = open('tresde8f.pinya')
     print f.read()
 
@@ -53,7 +53,11 @@ elif what=='optimize_pinya':
     prescribed = dict()
     castell_type_id = form["castell_type_id"].value
     colla_id = 1
-    solution = find_pinya(prescribed, castell_type_id, colla_id)
+#
+    [castell_type_id, colla_id] = [1000, 2]  # for debugging
+#    [castell_type_id, colla_id] = [3, 1] # for "real"
+#
+    solution = solve_castell(prescribed, castell_type_id, colla_id)
     positions = [[pos,c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     relations = solution['relations']
     sol_dict = dict([('positions', positions), ('relations', relations)])

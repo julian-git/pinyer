@@ -131,4 +131,6 @@ def relations_svg(relations, coo_of):
 
         else:
             raise RuntimeError('drawing of relation not implemented')
+
+        relations_svg += '\n'
     return relations_svg
