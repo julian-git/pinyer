@@ -1,5 +1,5 @@
 from math import cos, sin, pi
-from xml_common import xml_rect, xml_head
+from xml_common import xml_position, xml_head
 from relations import *
 
 def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
@@ -36,7 +36,7 @@ def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
             x=round(r*cos(a), 2)
             y=round(r*sin(a), 2)
             angle = round(a*180/pi, 2)
-            xml += xml_rect.substitute(_x=x, _y=y, \
+            xml += xml_position.substitute(_x=x, _y=y, \
                                            _rx=-0.5*pinya_rect_dim['w'], _ry=-0.5*pinya_rect_dim['h'], \
                                            _rw=pinya_rect_dim['w'], _rh=pinya_rect_dim['h'], \
                                            _angle=angle, \
@@ -75,7 +75,7 @@ def baix(i, j, bd, pibg, xml, xml_id, coo_of):
     """
     xml_id = xml_id + 1
     [x,y] = bd['baix_pos']
-    xml += xml_rect.substitute(_x=x, \
+    xml += xml_position.substitute(_x=x, \
                                    _y=y, \
                                    _rx = bd['baix_rect_dim']['x'], \
                                    _ry = bd['baix_rect_dim']['y'], \
@@ -107,7 +107,7 @@ def crossa(i, j, bd, pibg, xml, xml_id, coo_of):
     if j[-1] == '2':
         y = -y
         alpha = -alpha
-    xml += xml_rect.substitute(_x=x, \
+    xml += xml_position.substitute(_x=x, \
                                    _y=y, \
                                    _rx = bd['crossa_rect_dim']['x'], \
                                    _ry = bd['crossa_rect_dim']['y'], \
@@ -135,7 +135,7 @@ def contrafort(i, j, bd, pibg, xml, xml_id, coo_of):
     """
     xml_id = xml_id + 1
     [x,y] = bd['contrafort_pos']
-    xml += xml_rect.substitute(_x=x, \
+    xml += xml_position.substitute(_x=x, \
                                    _y=y, 
                                    _rx = bd['contrafort_rect_dim']['x'], \
                                    _ry = bd['contrafort_rect_dim']['y'], \
@@ -163,7 +163,7 @@ def agulla(i, j, bd, pibg, xml, xml_id, coo_of):
     """
     xml_id = xml_id + 1
     [x,y] = bd['agulla_pos']
-    xml += xml_rect.substitute(_x=x, \
+    xml += xml_position.substitute(_x=x, \
                                    _y=y, 
                                    _rx = bd['agulla_rect_dim']['x'], \
                                    _ry = bd['agulla_rect_dim']['y'], \
@@ -223,7 +223,7 @@ def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
     [x,y] = pcd[index + '_pos']
     dims  = pcd[index + '_dim']
     alpha = dims['angle']
-    xml += xml_rect.substitute(_x=x, \
+    xml += xml_position.substitute(_x=x, \
                                    _y=y, \
                                    _rx = dims['x'], \
                                    _ry = dims['y'], \
@@ -345,12 +345,13 @@ def tresde8f():
 
     # start the xml
     xml = xml_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
+    xml += '<title>Tres de vuit amb folre</title>\n'
 
     # go!
-    xml += '<group id="pinya">'
+    xml += '<pinya>'
     [xml, position_in_ring, position_in_baix_group, \
          position_in_portacrosses, coo_of] = pinya(rd, bd, pcd, xml)
-    xml += '</group>\n'
+    xml += '</pinya>\n'
 
     relations = []
 

@@ -19,13 +19,13 @@ xml_head = Template("""
  viewBox="${_vx} ${_vy} ${_vw} ${_vh}"> 
 """)
 
-xml_rect = Template("""
-<group id="${_xml_id}" transform="translate(${_x} ${_y}) rotate(${_angle})">
+xml_position = Template("""
+<position id="${_xml_id}" transform="translate(${_x} ${_y}) rotate(${_angle})">
   <rect id="${_xml_id}_cont" class="${_class}"  width="${_rw}" height="${_rh}" x="${_rx}" y="${_ry}"/>
-  <group transform="rotate(90) translate(0 6)">
+  <label transform="rotate(90) translate(0 6)">
   <text id="${_xml_id}_text" class="${_class} vtext" text-anchor="middle">${_xml_text}</text>
-  </group>
-</group>
+  </label>
+</position>
 """)
 
 xml_circle = Template("""
