@@ -380,7 +380,7 @@
   <text id="54_text" class="q vtext" text-anchor="middle">[3, 5, 3]</text>
   </label>
 </position>
-<group id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
+<position_group id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
 <position id="55" transform="translate(0 0) rotate(0)">
   <rect id="55_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -415,8 +415,8 @@
   <text id="59_text" class="a vtext" text-anchor="middle">[0, 'agulla']</text>
   </label>
 </position>
-</group>
-<group id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
+</position_group>
+<position_group id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
 <position id="60" transform="translate(0 0) rotate(0)">
   <rect id="60_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -451,8 +451,8 @@
   <text id="64_text" class="a vtext" text-anchor="middle">[1, 'agulla']</text>
   </label>
 </position>
-</group>
-<group id="baixos_gp_2" transform="translate(-20.0 -34.64) rotate(240.0)">
+</position_group>
+<position_group id="baixos_gp_2" transform="translate(-20.0 -34.64) rotate(240.0)">
 <position id="65" transform="translate(0 0) rotate(0)">
   <rect id="65_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -487,8 +487,8 @@
   <text id="69_text" class="a vtext" text-anchor="middle">[2, 'agulla']</text>
   </label>
 </position>
-</group>
-<group id="portacrosses_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
+</position_group>
+<position_group id="portacrosses_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
 <position id="70" transform="translate(0 0) rotate(0)">
   <rect id="70_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -509,8 +509,8 @@
   <text id="72_text" class="pc vtext" text-anchor="middle">[0, 2]</text>
   </label>
 </position>
-</group>
-<group id="portacrosses_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
+</position_group>
+<position_group id="portacrosses_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
 <position id="73" transform="translate(0 0) rotate(0)">
   <rect id="73_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -531,8 +531,8 @@
   <text id="75_text" class="pc vtext" text-anchor="middle">[1, 2]</text>
   </label>
 </position>
-</group>
-<group id="portacrosses_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
+</position_group>
+<position_group id="portacrosses_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
 <position id="76" transform="translate(0 0) rotate(0)">
   <rect id="76_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -553,7 +553,7 @@
   <text id="78_text" class="pc vtext" text-anchor="middle">[2, 2]</text>
   </label>
 </position>
-</group>
+</position_group>
 </pinya>
 <relations id="rels">
 <path class="ma_ma" d="M100.0,0.0L100.0,0.0"/>

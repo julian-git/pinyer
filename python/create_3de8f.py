@@ -205,14 +205,14 @@ def baixos(bd, xml, xml_id, coo_of):
         alpha = i * 2.0 * pi / bd['number']
         x = round(bd['radius'] * cos(alpha), 2)
         y = round(bd['radius'] * sin(alpha), 2)
-        xml += '<group id="baixos_gp_' + str(i) + \
+        xml += '<position_group id="baixos_gp_' + str(i) + \
             '" transform="translate(' + \
             str(x) + ' ' + \
             str(y) + ') rotate(' + \
             str(round(180 / pi * alpha, 2)) + ')">'
         [xml, xml_id, position_in_baix_group, coo_of] = \
             baix_group(bd, i, xml, xml_id, position_in_baix_group, coo_of)
-        xml += '</group>\n'
+        xml += '</position_group>\n'
     return [xml, xml_id, position_in_baix_group, coo_of]
 
 def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
@@ -264,14 +264,14 @@ def portacrosses(pcd, xml, xml_id, coo_of):
         alpha = (i * 2.0 + 1.0) * pi / pcd['number']
         x = round(pcd['radius'] * cos(alpha), 2)
         y = round(pcd['radius'] * sin(alpha), 2)
-        xml += '<group id="portacrosses_gp_' + str(i) + \
+        xml += '<position_group id="portacrosses_gp_' + str(i) + \
             '" transform="translate(' + \
             str(x) + ' ' + \
             str(y) + ') rotate(' + \
             str(round(180 / pi * alpha, 2)) + ')">'
         [xml, xml_id, position_in_portacrosses, coo_of] = \
             portacrosses_group(pcd, i, xml, xml_id, position_in_portacrosses, coo_of)
-        xml += '</group>\n'         
+        xml += '</position_group>\n'         
     return [xml, xml_id, position_in_portacrosses, coo_of]
 
 def pinya(rd, bd, pcd, xml):
