@@ -6,378 +6,378 @@
 <position id="1" transform="translate(100.0 0.0) rotate(0.0)">
   <rect id="1_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="1_text" class="ma vtext" text-anchor="middle">[1, 0, 0]</text>
+  <text id="1_text" class="ma vtext" text-anchor="middle">1</text>
   </label>
 </position>
 
 <position id="2" transform="translate(86.6 50.0) rotate(30.0)">
   <rect id="2_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="2_text" class="q vtext" text-anchor="middle">[1, 0, 1]</text>
+  <text id="2_text" class="q vtext" text-anchor="middle">2</text>
   </label>
 </position>
 
 <position id="3" transform="translate(50.0 86.6) rotate(60.0)">
   <rect id="3_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="3_text" class="vt vtext" text-anchor="middle">[1, 1, 0]</text>
+  <text id="3_text" class="vt vtext" text-anchor="middle">3</text>
   </label>
 </position>
 
 <position id="4" transform="translate(0.0 100.0) rotate(90.0)">
   <rect id="4_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="4_text" class="q vtext" text-anchor="middle">[1, 1, 1]</text>
+  <text id="4_text" class="q vtext" text-anchor="middle">4</text>
   </label>
 </position>
 
 <position id="5" transform="translate(-50.0 86.6) rotate(120.0)">
   <rect id="5_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="5_text" class="ma vtext" text-anchor="middle">[1, 2, 0]</text>
+  <text id="5_text" class="ma vtext" text-anchor="middle">5</text>
   </label>
 </position>
 
 <position id="6" transform="translate(-86.6 50.0) rotate(150.0)">
   <rect id="6_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="6_text" class="q vtext" text-anchor="middle">[1, 2, 1]</text>
+  <text id="6_text" class="q vtext" text-anchor="middle">6</text>
   </label>
 </position>
 
 <position id="7" transform="translate(-100.0 0.0) rotate(180.0)">
   <rect id="7_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="7_text" class="vt vtext" text-anchor="middle">[1, 3, 0]</text>
+  <text id="7_text" class="vt vtext" text-anchor="middle">7</text>
   </label>
 </position>
 
 <position id="8" transform="translate(-86.6 -50.0) rotate(210.0)">
   <rect id="8_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="8_text" class="q vtext" text-anchor="middle">[1, 3, 1]</text>
+  <text id="8_text" class="q vtext" text-anchor="middle">8</text>
   </label>
 </position>
 
 <position id="9" transform="translate(-50.0 -86.6) rotate(240.0)">
   <rect id="9_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="9_text" class="ma vtext" text-anchor="middle">[1, 4, 0]</text>
+  <text id="9_text" class="ma vtext" text-anchor="middle">9</text>
   </label>
 </position>
 
 <position id="10" transform="translate(-0.0 -100.0) rotate(270.0)">
   <rect id="10_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="10_text" class="q vtext" text-anchor="middle">[1, 4, 1]</text>
+  <text id="10_text" class="q vtext" text-anchor="middle">10</text>
   </label>
 </position>
 
 <position id="11" transform="translate(50.0 -86.6) rotate(300.0)">
   <rect id="11_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="11_text" class="vt vtext" text-anchor="middle">[1, 5, 0]</text>
+  <text id="11_text" class="vt vtext" text-anchor="middle">11</text>
   </label>
 </position>
 
 <position id="12" transform="translate(86.6 -50.0) rotate(330.0)">
   <rect id="12_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="12_text" class="q vtext" text-anchor="middle">[1, 5, 1]</text>
+  <text id="12_text" class="q vtext" text-anchor="middle">12</text>
   </label>
 </position>
 
 <position id="13" transform="translate(125.0 0.0) rotate(0.0)">
   <rect id="13_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="13_text" class="ma vtext" text-anchor="middle">[2, 0, 0]</text>
+  <text id="13_text" class="ma vtext" text-anchor="middle">13</text>
   </label>
 </position>
 
 <position id="14" transform="translate(117.46 42.75) rotate(20.0)">
   <rect id="14_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="14_text" class="q vtext" text-anchor="middle">[2, 0, 1]</text>
+  <text id="14_text" class="q vtext" text-anchor="middle">14</text>
   </label>
 </position>
 
 <position id="15" transform="translate(95.76 80.35) rotate(40.0)">
   <rect id="15_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="15_text" class="q vtext" text-anchor="middle">[2, 0, 2]</text>
+  <text id="15_text" class="q vtext" text-anchor="middle">15</text>
   </label>
 </position>
 
 <position id="16" transform="translate(62.5 108.25) rotate(60.0)">
   <rect id="16_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="16_text" class="vt vtext" text-anchor="middle">[2, 1, 0]</text>
+  <text id="16_text" class="vt vtext" text-anchor="middle">16</text>
   </label>
 </position>
 
 <position id="17" transform="translate(21.71 123.1) rotate(80.0)">
   <rect id="17_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="17_text" class="q vtext" text-anchor="middle">[2, 1, 1]</text>
+  <text id="17_text" class="q vtext" text-anchor="middle">17</text>
   </label>
 </position>
 
 <position id="18" transform="translate(-21.71 123.1) rotate(100.0)">
   <rect id="18_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="18_text" class="q vtext" text-anchor="middle">[2, 1, 2]</text>
+  <text id="18_text" class="q vtext" text-anchor="middle">18</text>
   </label>
 </position>
 
 <position id="19" transform="translate(-62.5 108.25) rotate(120.0)">
   <rect id="19_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="19_text" class="ma vtext" text-anchor="middle">[2, 2, 0]</text>
+  <text id="19_text" class="ma vtext" text-anchor="middle">19</text>
   </label>
 </position>
 
 <position id="20" transform="translate(-95.76 80.35) rotate(140.0)">
   <rect id="20_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="20_text" class="q vtext" text-anchor="middle">[2, 2, 1]</text>
+  <text id="20_text" class="q vtext" text-anchor="middle">20</text>
   </label>
 </position>
 
 <position id="21" transform="translate(-117.46 42.75) rotate(160.0)">
   <rect id="21_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="21_text" class="q vtext" text-anchor="middle">[2, 2, 2]</text>
+  <text id="21_text" class="q vtext" text-anchor="middle">21</text>
   </label>
 </position>
 
 <position id="22" transform="translate(-125.0 0.0) rotate(180.0)">
   <rect id="22_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="22_text" class="vt vtext" text-anchor="middle">[2, 3, 0]</text>
+  <text id="22_text" class="vt vtext" text-anchor="middle">22</text>
   </label>
 </position>
 
 <position id="23" transform="translate(-117.46 -42.75) rotate(200.0)">
   <rect id="23_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="23_text" class="q vtext" text-anchor="middle">[2, 3, 1]</text>
+  <text id="23_text" class="q vtext" text-anchor="middle">23</text>
   </label>
 </position>
 
 <position id="24" transform="translate(-95.76 -80.35) rotate(220.0)">
   <rect id="24_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="24_text" class="q vtext" text-anchor="middle">[2, 3, 2]</text>
+  <text id="24_text" class="q vtext" text-anchor="middle">24</text>
   </label>
 </position>
 
 <position id="25" transform="translate(-62.5 -108.25) rotate(240.0)">
   <rect id="25_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="25_text" class="ma vtext" text-anchor="middle">[2, 4, 0]</text>
+  <text id="25_text" class="ma vtext" text-anchor="middle">25</text>
   </label>
 </position>
 
 <position id="26" transform="translate(-21.71 -123.1) rotate(260.0)">
   <rect id="26_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="26_text" class="q vtext" text-anchor="middle">[2, 4, 1]</text>
+  <text id="26_text" class="q vtext" text-anchor="middle">26</text>
   </label>
 </position>
 
 <position id="27" transform="translate(21.71 -123.1) rotate(280.0)">
   <rect id="27_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="27_text" class="q vtext" text-anchor="middle">[2, 4, 2]</text>
+  <text id="27_text" class="q vtext" text-anchor="middle">27</text>
   </label>
 </position>
 
 <position id="28" transform="translate(62.5 -108.25) rotate(300.0)">
   <rect id="28_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="28_text" class="vt vtext" text-anchor="middle">[2, 5, 0]</text>
+  <text id="28_text" class="vt vtext" text-anchor="middle">28</text>
   </label>
 </position>
 
 <position id="29" transform="translate(95.76 -80.35) rotate(320.0)">
   <rect id="29_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="29_text" class="q vtext" text-anchor="middle">[2, 5, 1]</text>
+  <text id="29_text" class="q vtext" text-anchor="middle">29</text>
   </label>
 </position>
 
 <position id="30" transform="translate(117.46 -42.75) rotate(340.0)">
   <rect id="30_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="30_text" class="q vtext" text-anchor="middle">[2, 5, 2]</text>
+  <text id="30_text" class="q vtext" text-anchor="middle">30</text>
   </label>
 </position>
 
 <position id="31" transform="translate(150.0 0.0) rotate(0.0)">
   <rect id="31_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="31_text" class="ma vtext" text-anchor="middle">[3, 0, 0]</text>
+  <text id="31_text" class="ma vtext" text-anchor="middle">31</text>
   </label>
 </position>
 
 <position id="32" transform="translate(144.89 38.82) rotate(15.0)">
   <rect id="32_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="32_text" class="q vtext" text-anchor="middle">[3, 0, 1]</text>
+  <text id="32_text" class="q vtext" text-anchor="middle">32</text>
   </label>
 </position>
 
 <position id="33" transform="translate(129.9 75.0) rotate(30.0)">
   <rect id="33_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="33_text" class="q vtext" text-anchor="middle">[3, 0, 2]</text>
+  <text id="33_text" class="q vtext" text-anchor="middle">33</text>
   </label>
 </position>
 
 <position id="34" transform="translate(106.07 106.07) rotate(45.0)">
   <rect id="34_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="34_text" class="q vtext" text-anchor="middle">[3, 0, 3]</text>
+  <text id="34_text" class="q vtext" text-anchor="middle">34</text>
   </label>
 </position>
 
 <position id="35" transform="translate(75.0 129.9) rotate(60.0)">
   <rect id="35_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="35_text" class="vt vtext" text-anchor="middle">[3, 1, 0]</text>
+  <text id="35_text" class="vt vtext" text-anchor="middle">35</text>
   </label>
 </position>
 
 <position id="36" transform="translate(38.82 144.89) rotate(75.0)">
   <rect id="36_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="36_text" class="q vtext" text-anchor="middle">[3, 1, 1]</text>
+  <text id="36_text" class="q vtext" text-anchor="middle">36</text>
   </label>
 </position>
 
 <position id="37" transform="translate(0.0 150.0) rotate(90.0)">
   <rect id="37_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="37_text" class="q vtext" text-anchor="middle">[3, 1, 2]</text>
+  <text id="37_text" class="q vtext" text-anchor="middle">37</text>
   </label>
 </position>
 
 <position id="38" transform="translate(-38.82 144.89) rotate(105.0)">
   <rect id="38_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="38_text" class="q vtext" text-anchor="middle">[3, 1, 3]</text>
+  <text id="38_text" class="q vtext" text-anchor="middle">38</text>
   </label>
 </position>
 
 <position id="39" transform="translate(-75.0 129.9) rotate(120.0)">
   <rect id="39_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="39_text" class="ma vtext" text-anchor="middle">[3, 2, 0]</text>
+  <text id="39_text" class="ma vtext" text-anchor="middle">39</text>
   </label>
 </position>
 
 <position id="40" transform="translate(-106.07 106.07) rotate(135.0)">
   <rect id="40_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="40_text" class="q vtext" text-anchor="middle">[3, 2, 1]</text>
+  <text id="40_text" class="q vtext" text-anchor="middle">40</text>
   </label>
 </position>
 
 <position id="41" transform="translate(-129.9 75.0) rotate(150.0)">
   <rect id="41_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="41_text" class="q vtext" text-anchor="middle">[3, 2, 2]</text>
+  <text id="41_text" class="q vtext" text-anchor="middle">41</text>
   </label>
 </position>
 
 <position id="42" transform="translate(-144.89 38.82) rotate(165.0)">
   <rect id="42_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="42_text" class="q vtext" text-anchor="middle">[3, 2, 3]</text>
+  <text id="42_text" class="q vtext" text-anchor="middle">42</text>
   </label>
 </position>
 
 <position id="43" transform="translate(-150.0 0.0) rotate(180.0)">
   <rect id="43_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="43_text" class="vt vtext" text-anchor="middle">[3, 3, 0]</text>
+  <text id="43_text" class="vt vtext" text-anchor="middle">43</text>
   </label>
 </position>
 
 <position id="44" transform="translate(-144.89 -38.82) rotate(195.0)">
   <rect id="44_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="44_text" class="q vtext" text-anchor="middle">[3, 3, 1]</text>
+  <text id="44_text" class="q vtext" text-anchor="middle">44</text>
   </label>
 </position>
 
 <position id="45" transform="translate(-129.9 -75.0) rotate(210.0)">
   <rect id="45_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="45_text" class="q vtext" text-anchor="middle">[3, 3, 2]</text>
+  <text id="45_text" class="q vtext" text-anchor="middle">45</text>
   </label>
 </position>
 
 <position id="46" transform="translate(-106.07 -106.07) rotate(225.0)">
   <rect id="46_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="46_text" class="q vtext" text-anchor="middle">[3, 3, 3]</text>
+  <text id="46_text" class="q vtext" text-anchor="middle">46</text>
   </label>
 </position>
 
 <position id="47" transform="translate(-75.0 -129.9) rotate(240.0)">
   <rect id="47_cont" class="ma"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="47_text" class="ma vtext" text-anchor="middle">[3, 4, 0]</text>
+  <text id="47_text" class="ma vtext" text-anchor="middle">47</text>
   </label>
 </position>
 
 <position id="48" transform="translate(-38.82 -144.89) rotate(255.0)">
   <rect id="48_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="48_text" class="q vtext" text-anchor="middle">[3, 4, 1]</text>
+  <text id="48_text" class="q vtext" text-anchor="middle">48</text>
   </label>
 </position>
 
 <position id="49" transform="translate(-0.0 -150.0) rotate(270.0)">
   <rect id="49_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="49_text" class="q vtext" text-anchor="middle">[3, 4, 2]</text>
+  <text id="49_text" class="q vtext" text-anchor="middle">49</text>
   </label>
 </position>
 
 <position id="50" transform="translate(38.82 -144.89) rotate(285.0)">
   <rect id="50_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="50_text" class="q vtext" text-anchor="middle">[3, 4, 3]</text>
+  <text id="50_text" class="q vtext" text-anchor="middle">50</text>
   </label>
 </position>
 
 <position id="51" transform="translate(75.0 -129.9) rotate(300.0)">
   <rect id="51_cont" class="vt"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="51_text" class="vt vtext" text-anchor="middle">[3, 5, 0]</text>
+  <text id="51_text" class="vt vtext" text-anchor="middle">51</text>
   </label>
 </position>
 
 <position id="52" transform="translate(106.07 -106.07) rotate(315.0)">
   <rect id="52_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="52_text" class="q vtext" text-anchor="middle">[3, 5, 1]</text>
+  <text id="52_text" class="q vtext" text-anchor="middle">52</text>
   </label>
 </position>
 
 <position id="53" transform="translate(129.9 -75.0) rotate(330.0)">
   <rect id="53_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="53_text" class="q vtext" text-anchor="middle">[3, 5, 2]</text>
+  <text id="53_text" class="q vtext" text-anchor="middle">53</text>
   </label>
 </position>
 
 <position id="54" transform="translate(144.89 -38.82) rotate(345.0)">
   <rect id="54_cont" class="q"  width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="54_text" class="q vtext" text-anchor="middle">[3, 5, 3]</text>
+  <text id="54_text" class="q vtext" text-anchor="middle">54</text>
   </label>
 </position>
 <position_group id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
@@ -391,28 +391,28 @@
 <position id="56" transform="translate(0 30) rotate(90)">
   <rect id="56_cont" class="cr"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="56_text" class="cr vtext" text-anchor="middle">[0, 'crossa1']</text>
+  <text id="56_text" class="cr vtext" text-anchor="middle">56</text>
   </label>
 </position>
 
 <position id="57" transform="translate(0 -30) rotate(-90)">
   <rect id="57_cont" class="cr"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="57_text" class="cr vtext" text-anchor="middle">[0, 'crossa2']</text>
+  <text id="57_text" class="cr vtext" text-anchor="middle">57</text>
   </label>
 </position>
 
 <position id="58" transform="translate(-20 0) rotate(0)">
   <rect id="58_cont" class="co"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="58_text" class="co vtext" text-anchor="middle">[0, 'contrafort']</text>
+  <text id="58_text" class="co vtext" text-anchor="middle">58</text>
   </label>
 </position>
 
 <position id="59" transform="translate(20 0) rotate(0)">
   <rect id="59_cont" class="a"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="59_text" class="a vtext" text-anchor="middle">[0, 'agulla']</text>
+  <text id="59_text" class="a vtext" text-anchor="middle">59</text>
   </label>
 </position>
 </position_group>
@@ -427,28 +427,28 @@
 <position id="61" transform="translate(0 30) rotate(90)">
   <rect id="61_cont" class="cr"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="61_text" class="cr vtext" text-anchor="middle">[1, 'crossa1']</text>
+  <text id="61_text" class="cr vtext" text-anchor="middle">61</text>
   </label>
 </position>
 
 <position id="62" transform="translate(0 -30) rotate(-90)">
   <rect id="62_cont" class="cr"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="62_text" class="cr vtext" text-anchor="middle">[1, 'crossa2']</text>
+  <text id="62_text" class="cr vtext" text-anchor="middle">62</text>
   </label>
 </position>
 
 <position id="63" transform="translate(-20 0) rotate(0)">
   <rect id="63_cont" class="co"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="63_text" class="co vtext" text-anchor="middle">[1, 'contrafort']</text>
+  <text id="63_text" class="co vtext" text-anchor="middle">63</text>
   </label>
 </position>
 
 <position id="64" transform="translate(20 0) rotate(0)">
   <rect id="64_cont" class="a"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="64_text" class="a vtext" text-anchor="middle">[1, 'agulla']</text>
+  <text id="64_text" class="a vtext" text-anchor="middle">64</text>
   </label>
 </position>
 </position_group>
@@ -463,28 +463,28 @@
 <position id="66" transform="translate(0 30) rotate(90)">
   <rect id="66_cont" class="cr"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="66_text" class="cr vtext" text-anchor="middle">[2, 'crossa1']</text>
+  <text id="66_text" class="cr vtext" text-anchor="middle">66</text>
   </label>
 </position>
 
 <position id="67" transform="translate(0 -30) rotate(-90)">
   <rect id="67_cont" class="cr"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="67_text" class="cr vtext" text-anchor="middle">[2, 'crossa2']</text>
+  <text id="67_text" class="cr vtext" text-anchor="middle">67</text>
   </label>
 </position>
 
 <position id="68" transform="translate(-20 0) rotate(0)">
   <rect id="68_cont" class="co"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="68_text" class="co vtext" text-anchor="middle">[2, 'contrafort']</text>
+  <text id="68_text" class="co vtext" text-anchor="middle">68</text>
   </label>
 </position>
 
 <position id="69" transform="translate(20 0) rotate(0)">
   <rect id="69_cont" class="a"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="69_text" class="a vtext" text-anchor="middle">[2, 'agulla']</text>
+  <text id="69_text" class="a vtext" text-anchor="middle">69</text>
   </label>
 </position>
 </position_group>
@@ -492,21 +492,21 @@
 <position id="70" transform="translate(0 0) rotate(0)">
   <rect id="70_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="70_text" class="pc vtext" text-anchor="middle">[0, 0]</text>
+  <text id="70_text" class="pc vtext" text-anchor="middle">70</text>
   </label>
 </position>
 
 <position id="71" transform="translate(-10 -45) rotate(-30)">
   <rect id="71_cont" class="pc"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="71_text" class="pc vtext" text-anchor="middle">[0, 1]</text>
+  <text id="71_text" class="pc vtext" text-anchor="middle">71</text>
   </label>
 </position>
 
 <position id="72" transform="translate(-10 45) rotate(30)">
   <rect id="72_cont" class="pc"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="72_text" class="pc vtext" text-anchor="middle">[0, 2]</text>
+  <text id="72_text" class="pc vtext" text-anchor="middle">72</text>
   </label>
 </position>
 </position_group>
@@ -514,21 +514,21 @@
 <position id="73" transform="translate(0 0) rotate(0)">
   <rect id="73_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="73_text" class="pc vtext" text-anchor="middle">[1, 0]</text>
+  <text id="73_text" class="pc vtext" text-anchor="middle">73</text>
   </label>
 </position>
 
 <position id="74" transform="translate(-10 -45) rotate(-30)">
   <rect id="74_cont" class="pc"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="74_text" class="pc vtext" text-anchor="middle">[1, 1]</text>
+  <text id="74_text" class="pc vtext" text-anchor="middle">74</text>
   </label>
 </position>
 
 <position id="75" transform="translate(-10 45) rotate(30)">
   <rect id="75_cont" class="pc"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="75_text" class="pc vtext" text-anchor="middle">[1, 2]</text>
+  <text id="75_text" class="pc vtext" text-anchor="middle">75</text>
   </label>
 </position>
 </position_group>
@@ -536,21 +536,21 @@
 <position id="76" transform="translate(0 0) rotate(0)">
   <rect id="76_cont" class="pc"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="76_text" class="pc vtext" text-anchor="middle">[2, 0]</text>
+  <text id="76_text" class="pc vtext" text-anchor="middle">76</text>
   </label>
 </position>
 
 <position id="77" transform="translate(-10 -45) rotate(-30)">
   <rect id="77_cont" class="pc"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="77_text" class="pc vtext" text-anchor="middle">[2, 1]</text>
+  <text id="77_text" class="pc vtext" text-anchor="middle">77</text>
   </label>
 </position>
 
 <position id="78" transform="translate(-10 45) rotate(30)">
   <rect id="78_cont" class="pc"  width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="78_text" class="pc vtext" text-anchor="middle">[2, 2]</text>
+  <text id="78_text" class="pc vtext" text-anchor="middle">78</text>
   </label>
 </position>
 </position_group>

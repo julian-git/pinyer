@@ -31,10 +31,10 @@ def handleTitle(titles):
 
 def handlePinya(pinyas):
     for pinya in pinyas:
-        svg.append('<pinya>')
+        svg.append('<g>')
         handlePositionGroups(pinya.getElementsByTagName('position_group'))
         handlePositions(pinya.getElementsByTagName('position'))
-        svg.append('</pinya>')
+        svg.append('</g>')
 
 def handlePositionGroups(groups):
     for group in groups:
@@ -72,4 +72,8 @@ def getText(nodelist):
         if node.nodeType == node.TEXT_NODE:
             rc.append(node.data)
     return ''.join(rc)
+
+if __name__=='__main__':
+    f = open('tmp.svg', 'w')
+    f.write(xml_to_svg('../www/tresde8f.pinya.xml'))
 

@@ -41,17 +41,18 @@ def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
                                            _rw=pinya_rect_dim['w'], _rh=pinya_rect_dim['h'], \
                                            _angle=angle, \
                                            _xml_id=xml_id,\
-                                           _xml_text = str([i,j,m]), \
-                                           #_xml_text=xml_id, \
+                                           #_xml_text = str([i,j,m]), \
+                                           _xml_text=xml_id, \
                                            _class=c, \
                                            _name=xml_id, \
                                            _index_props=[i,j,m])
             position_in_ring[i,j,m] = dict([('xml_id', xml_id), \
-                                           ('role', role), \
-                                           ('xml_text', role), \
-                                           ('x', x), \
-                                           ('y', y), \
-                                           ('angle', angle)])
+                                                ('role', role), \
+                                                #('xml_text', role), \
+                                                ('xml_text', xml_id), \
+                                                ('x', x), \
+                                                ('y', y), \
+                                                ('angle', angle)])
             coo_of[xml_id] = [x,y]
     return [xml, xml_id, position_in_ring, coo_of]
 
@@ -90,7 +91,8 @@ def baix(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
                                       ('role', 'baix'), \
-                                      ('xml_text', 'baix'), \
+                                      #('xml_text', 'baix'), \
+                                      ('xml_text', xml_id), \
                                       ('x', x), \
                                       ('y', y), \
                                       ('angle', bd['baix_rect_dim']['angle'])])
@@ -115,17 +117,18 @@ def crossa(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _rh = bd['crossa_rect_dim']['h'], \
                                    _angle = alpha, \
                                    _xml_id=xml_id,\
-                                   _xml_text = str([i,j]), \
-                                   #_xml_text=xml_id, \
+                                   #_xml_text = str([i,j]), \
+                                   _xml_text=xml_id, \
                                    _class='cr', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
-                                      ('role', 'crossa'), \
-                                      ('xml_text', 'crossa'), \
-                                      ('x', x), \
-                                      ('y', y), \
-                                      ('angle', alpha)])
+                          ('role', 'crossa'), \
+                          #('xml_text', 'crossa'), \
+                          ('xml_text', xml_id), \
+                          ('x', x), \
+                          ('y', y), \
+                          ('angle', alpha)])
     coo_of[xml_id] = [x,y]
     return [xml, xml_id, pibg, coo_of]
 
@@ -143,17 +146,18 @@ def contrafort(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _rh = bd['contrafort_rect_dim']['h'], \
                                    _angle = bd['contrafort_rect_dim']['angle'], \
                                    _xml_id=xml_id,\
-                                   _xml_text = str([i,j]), \
-                                   #_xml_text=xml_id, \
+                                   #_xml_text = str([i,j]), \
+                                   _xml_text=xml_id, \
                                    _class='co', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
-                                      ('role', 'contrafort'), \
-                                      ('xml_text', 'contrafort'), \
-                                      ('x', x), \
-                                      ('y', y), \
-                                      ('angle', bd['contrafort_rect_dim']['angle'])])
+                          ('role', 'contrafort'), \
+                          #('xml_text', 'contrafort'), \
+                          ('xml_text', xml_id), \
+                          ('x', x), \
+                          ('y', y), \
+                          ('angle', bd['contrafort_rect_dim']['angle'])])
     coo_of[xml_id] = [x,y]
     return [xml, xml_id, pibg, coo_of]
 
@@ -171,17 +175,18 @@ def agulla(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _rh = bd['agulla_rect_dim']['h'], \
                                    _angle = bd['agulla_rect_dim']['angle'], \
                                    _xml_id=xml_id,\
-                                   _xml_text = str([i,j]), \
-                                   #_xml_text=xml_id, \
+                                   #_xml_text = str([i,j]), \
+                                   _xml_text=xml_id, \
                                    _class='a', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
-                                      ('role', 'agulla'), \
-                                      ('xml_text', 'agulla'), \
-                                      ('x', x), \
-                                      ('y', y), \
-                                      ('angle', bd['agulla_rect_dim']['angle'])])
+                          ('role', 'agulla'), \
+                          #('xml_text', 'agulla'), \
+                          ('xml_text', xml_id), \
+                          ('x', x), \
+                          ('y', y), \
+                          ('angle', bd['agulla_rect_dim']['angle'])])
     coo_of[xml_id] = [x,y]
     return [xml, xml_id, pibg, coo_of]
 
@@ -231,14 +236,15 @@ def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
                                    _rh = dims['h'], \
                                    _angle = alpha, \
                                    _xml_id=xml_id,\
-                                   _xml_text = str([i,j]), \
-                                   #_xml_text=xml_id, \
+                                   #_xml_text = str([i,j]), \
+                                   _xml_text=xml_id, \
                                    _class='pc', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pipcg[i,j] = dict([('xml_id', xml_id), \
                            ('role', 'portacrosses'), \
-                           ('xml_text', 'portacrosses'), \
+                           #('xml_text', 'portacrosses'), \
+                           ('xml_text', xml_id), \
                            ('x', x), \
                            ('y', y), \
                            ('angle', alpha)])
