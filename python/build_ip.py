@@ -2,7 +2,7 @@ from local_config import \
     UseCBC, DoLogging, DoSolve, \
     lp_problem_filename, lp_solution_filename, lp_log_filename, \
     pos_splitter, field_name_splitter
-from db_interaction import get_db, get_positions
+from db_interaction import get_db
 from ineqs import ip_ineqs
 from subprocess import call 
 from os import rename

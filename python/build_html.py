@@ -1,6 +1,4 @@
-from build_ip import find_pinya
 from html_common import *
-from db_interaction import get_db, get_positions, get_castell
 
 def fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, name=''):
     if pd['svg_elem'] == 'rect':
@@ -60,14 +58,14 @@ def solution_as_svg(solution, position_data, prescribed):
     return svg_head.substitute(_vx=min_x, _vy=min_y, _vw=max_x-min_x, _vh=max_y-min_y) + \
         svg + "</svg>" + "</html>"
 
-if __name__ == "__main__":
-    prescribed = dict([(9, 0), (17, 5)])
-    position_data = dict()
-    castell_type_id = 1
-#    solution = find_pinya(prescribed, position_data)
-    f = open("../tests/index.html", 'w')
-#    f.write(solution_as_svg(solution, position_data, prescribed))
-    db = get_db()
-    position_data = get_positions(db, castell_type_id)
-    castell_data = get_castell(db, castell_type_id)
-    f.write(editable_castell_plan(position_data, castell_data))
+# if __name__ == "__main__":
+#     prescribed = dict([(9, 0), (17, 5)])
+#     position_data = dict()
+#     castell_type_id = 1
+# #    solution = find_pinya(prescribed, position_data)
+#     f = open("../tests/index.html", 'w')
+# #    f.write(solution_as_svg(solution, position_data, prescribed))
+#     db = get_db()
+#     position_data = get_positions(db, castell_type_id)
+#     castell_data = get_castell(db, castell_type_id)
+#     f.write(editable_castell_plan(position_data, castell_data))

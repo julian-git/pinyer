@@ -13,7 +13,8 @@ sys.path.append('../python')
 
 from build_html import solution_as_svg
 from build_ip import solve_castell
-from db_interaction import get_db, get_nicknames_and_char, get_positions
+from db_interaction import get_db, get_nicknames_and_char
+from xml_to_svg import xml_to_svg
 
 form = cgi.FieldStorage()
 what = form["what"].value
@@ -46,8 +47,7 @@ if what=='get_colla':
 elif what=='get_pinya':
     pinya_id = form["castell_type_id"].value
     # FIXME the next line must be generalized
-    f = open('tresde8f.pinya')
-    print f.read()
+    print xml_to_svg('tresde8f.pinya.xml')
 
 elif what=='optimize_pinya':
     prescribed = dict()

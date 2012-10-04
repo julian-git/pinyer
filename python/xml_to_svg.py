@@ -1,64 +1,75 @@
 import xml.dom.minidom
 
-def printAttr(tag, elem, attr_list):
-    print '<' . tag . ' '
-    for a in attr_list:
-        print a . '="' . elem.getAttribute(a) . '" '
-    print '>\n'
+svg = []
 
 def xml_to_svg(xmlfilename):
+    xml_to_svg_impl(xmlfilename)
+    return '\n'.join(svg)
+
+
+def printAttr(tag, elem, attr_list):
+    res = []
+    res.append('<' + tag + ' ')
+    for a in attr_list:
+        res.append(a + '="' + elem.getAttribute(a) + '" ')
+    res.append('>')
+    svg.append(''.join(res))
+
+def xml_to_svg_impl(xmlfilename):
     f = open(xmlfilename, 'r')
-    dom = xml.dom.minidom.parseString(read(f))
-    handleXML(dom)
+    dom = xml.dom.minidom.parseString(f.read())
+    handleXML(dom.documentElement)
 
 def handleXML(xml):
-    printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewbox'))
+    printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'))
     handleTitle(xml.getElementsByTagName('title'))
     handlePinya(xml.getElementsByTagName('pinya'))
-    print '</svg>\n'
+    svg.append('</svg>')
 
-def handlePinya(pinya):
-    print '<pinya>\n'
-    handlePositionGroups(pinya.getElementsByTagName('position_group'))
-    handlePositions(pinya.getElementsByTagName('position'))
-    print '</pinya>\n'
+def handleTitle(titles):
+    pass
+
+def handlePinya(pinyas):
+    for pinya in pinyas:
+        svg.append('<pinya>')
+        handlePositionGroups(pinya.getElementsByTagName('position_group'))
+        handlePositions(pinya.getElementsByTagName('position'))
+        svg.append('</pinya>')
 
 def handlePositionGroups(groups):
     for group in groups:
         printAttr('g', group, ('id', 'transform'))
         handlePositions(group.getElementsByTagName('position'))
-        print '</g>\n'
+        svg.append('</g>')
 
 def handlePositions(positions):
     for position in positions:
         printAttr('g', position, ('id', 'transform'))
         handleRects(position.getElementsByTagName('rect'))
         handleLabels(position.getElementsByTagName('label'))
-        print '</g>\n'
+        svg.append('</g>')
 
 def handleRects(rects):
     for rect in rects:
         printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
-        print '</rect>\n'
+        svg.append('</rect>')
 
 def handleLabels(labels):
     for label in labels:
-        printAttr('g', label, ('transform'))
+        printAttr('g', label, ('transform',))
         handleText(label.getElementsByTagName('text'))
-        print '</g>\n'
+        svg.append('</g>')
 
 def handleText(texts):
     for text in texts:
         printAttr('text', text, ('id', 'class', 'text-anchor'))
-        print getText(text.childNodes)
-        print '</text>\n'
+        svg.append(getText(text.childNodes))
+        svg.append('</text>')
 
 def getText(nodelist):
     rc = []
     for node in nodelist:
         if node.nodeType == node.TEXT_NODE:
             rc.append(node.data)
-    return ’’.join(rc)
+    return ''.join(rc)
 
-if __name__ == "__main__":
-    xml_to_svg('../www/tresde8f.pinya.xml')
