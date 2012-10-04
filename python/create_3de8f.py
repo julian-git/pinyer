@@ -1,28 +1,28 @@
 from math import cos, sin, pi
-from html_common import svg_rect, svg_head
+from xml_common import xml_rect, xml_head
 from relations import *
 
-def ring(period, i, r, pinya_rect_dim, svg_id, position_in_ring, coo_of):
+def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
     """
-    create the svg elements in the outer rings of pinya.
+    create the xml elements in the outer rings of pinya.
     period = k if the ring has 2pi/k symmetry
     i: the index of the ring; also, how many people are between each of the rays at 2pi j / k
     r: the radius of the ring
     pinya_rect_dim: The dimensions of the box to place, of the form {w:20 h:30}
-    init_svg_id: The first free id for an svg element
+    init_xml_id: The first free id for an xml element
 
     returns:
-    svg: the string with the svg representation
-    svg_id: the next free id number
+    xml: the string with the xml representation
+    xml_id: the next free id number
     position_in_ring: The dictionary telling the id of an element at the position (j, s)
     coo_of: the coordinates of an element with a certain id
     """
-    svg = ''
+    xml = ''
     dyn_props = ''
     for j in range(2*period):
         for m in range(i+1):
             a = 2 * pi * ( j  + m / float(i + 1) ) / float(2*period)
-            svg_id = svg_id + 1
+            xml_id = xml_id + 1
             if m == 0:
                 if j%2 == 0:
                     c = 'ma'  # Ma
@@ -36,167 +36,167 @@ def ring(period, i, r, pinya_rect_dim, svg_id, position_in_ring, coo_of):
             x=round(r*cos(a), 2)
             y=round(r*sin(a), 2)
             angle = round(a*180/pi, 2)
-            svg += svg_rect.substitute(_x=x, _y=y, \
+            xml += xml_rect.substitute(_x=x, _y=y, \
                                            _rx=-0.5*pinya_rect_dim['w'], _ry=-0.5*pinya_rect_dim['h'], \
                                            _rw=pinya_rect_dim['w'], _rh=pinya_rect_dim['h'], \
                                            _angle=angle, \
-                                           _svg_id=svg_id,\
-                                           _svg_text = str([i,j,m]), \
-                                           #_svg_text=svg_id, \
+                                           _xml_id=xml_id,\
+                                           _xml_text = str([i,j,m]), \
+                                           #_xml_text=xml_id, \
                                            _class=c, \
-                                           _name=svg_id, \
+                                           _name=xml_id, \
                                            _index_props=[i,j,m])
-            position_in_ring[i,j,m] = dict([('svg_id', svg_id), \
+            position_in_ring[i,j,m] = dict([('xml_id', xml_id), \
                                            ('role', role), \
-                                           ('svg_text', role), \
+                                           ('xml_text', role), \
                                            ('x', x), \
                                            ('y', y), \
                                            ('angle', angle)])
-            coo_of[svg_id] = [x,y]
-    return [svg, svg_id, position_in_ring, coo_of]
+            coo_of[xml_id] = [x,y]
+    return [xml, xml_id, position_in_ring, coo_of]
 
 
-def rings(rd, svg, svg_id, coo_of):
+def rings(rd, xml, xml_id, coo_of):
     """
     make as many rings of pinya as the ringdata rd specifies
     """
     r = rd['start_radius']
     position_in_ring = dict()
     for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
-        [_svg, svg_id, position_in_ring, coo_of] = \
-            ring(rd['period'], i, r, rd['pinya_rect_dim'], svg_id, position_in_ring, coo_of) 
-        svg += _svg
+        [_xml, xml_id, position_in_ring, coo_of] = \
+            ring(rd['period'], i, r, rd['pinya_rect_dim'], xml_id, position_in_ring, coo_of) 
+        xml += _xml
         r += rd['radius_offset']
-    return [svg, svg_id, position_in_ring, coo_of]
+    return [xml, xml_id, position_in_ring, coo_of]
 
-def baix(i, j, bd, pibg, svg, svg_id, coo_of):
+def baix(i, j, bd, pibg, xml, xml_id, coo_of):
     """
     make the rectangle and text of a baix
     """
-    svg_id = svg_id + 1
+    xml_id = xml_id + 1
     [x,y] = bd['baix_pos']
-    svg += svg_rect.substitute(_x=x, \
+    xml += xml_rect.substitute(_x=x, \
                                    _y=y, \
                                    _rx = bd['baix_rect_dim']['x'], \
                                    _ry = bd['baix_rect_dim']['y'], \
                                    _rw = bd['baix_rect_dim']['w'], \
                                    _rh = bd['baix_rect_dim']['h'], \
                                    _angle = bd['baix_rect_dim']['angle'], \
-                                   _svg_id=svg_id,\
-                                   _svg_text = str([i,j]), \
-                                   #_svg_text=svg_id, \
+                                   _xml_id=xml_id,\
+                                   _xml_text = str([i,j]), \
+                                   #_xml_text=xml_id, \
                                    _class='b', \
-                                   _name=svg_id, \
+                                   _name=xml_id, \
                                    _index_props=[i,j])
-    pibg[i,j] = dict([('svg_id', svg_id), \
+    pibg[i,j] = dict([('xml_id', xml_id), \
                                       ('role', 'baix'), \
-                                      ('svg_text', 'baix'), \
+                                      ('xml_text', 'baix'), \
                                       ('x', x), \
                                       ('y', y), \
                                       ('angle', bd['baix_rect_dim']['angle'])])
-    coo_of[svg_id] = [x,y]
-    return [svg, svg_id, pibg, coo_of]
+    coo_of[xml_id] = [x,y]
+    return [xml, xml_id, pibg, coo_of]
 
-def crossa(i, j, bd, pibg, svg, svg_id, coo_of):
+def crossa(i, j, bd, pibg, xml, xml_id, coo_of):
     """
     make the rectangle and text of a crossa
     """
-    svg_id = svg_id + 1
+    xml_id = xml_id + 1
     [x,y] = bd['crossa_pos']
     alpha = bd['crossa_rect_dim']['angle']
     if j[-1] == '2':
         y = -y
         alpha = -alpha
-    svg += svg_rect.substitute(_x=x, \
+    xml += xml_rect.substitute(_x=x, \
                                    _y=y, \
                                    _rx = bd['crossa_rect_dim']['x'], \
                                    _ry = bd['crossa_rect_dim']['y'], \
                                    _rw = bd['crossa_rect_dim']['w'], \
                                    _rh = bd['crossa_rect_dim']['h'], \
                                    _angle = alpha, \
-                                   _svg_id=svg_id,\
-                                   _svg_text = str([i,j]), \
-                                   #_svg_text=svg_id, \
+                                   _xml_id=xml_id,\
+                                   _xml_text = str([i,j]), \
+                                   #_xml_text=xml_id, \
                                    _class='cr', \
-                                   _name=svg_id, \
+                                   _name=xml_id, \
                                    _index_props=[i,j])
-    pibg[i,j] = dict([('svg_id', svg_id), \
+    pibg[i,j] = dict([('xml_id', xml_id), \
                                       ('role', 'crossa'), \
-                                      ('svg_text', 'crossa'), \
+                                      ('xml_text', 'crossa'), \
                                       ('x', x), \
                                       ('y', y), \
                                       ('angle', alpha)])
-    coo_of[svg_id] = [x,y]
-    return [svg, svg_id, pibg, coo_of]
+    coo_of[xml_id] = [x,y]
+    return [xml, xml_id, pibg, coo_of]
 
-def contrafort(i, j, bd, pibg, svg, svg_id, coo_of):
+def contrafort(i, j, bd, pibg, xml, xml_id, coo_of):
     """
     make the rectangle and text of a contrafort
     """
-    svg_id = svg_id + 1
+    xml_id = xml_id + 1
     [x,y] = bd['contrafort_pos']
-    svg += svg_rect.substitute(_x=x, \
+    xml += xml_rect.substitute(_x=x, \
                                    _y=y, 
                                    _rx = bd['contrafort_rect_dim']['x'], \
                                    _ry = bd['contrafort_rect_dim']['y'], \
                                    _rw = bd['contrafort_rect_dim']['w'], \
                                    _rh = bd['contrafort_rect_dim']['h'], \
                                    _angle = bd['contrafort_rect_dim']['angle'], \
-                                   _svg_id=svg_id,\
-                                   _svg_text = str([i,j]), \
-                                   #_svg_text=svg_id, \
+                                   _xml_id=xml_id,\
+                                   _xml_text = str([i,j]), \
+                                   #_xml_text=xml_id, \
                                    _class='co', \
-                                   _name=svg_id, \
+                                   _name=xml_id, \
                                    _index_props=[i,j])
-    pibg[i,j] = dict([('svg_id', svg_id), \
+    pibg[i,j] = dict([('xml_id', xml_id), \
                                       ('role', 'contrafort'), \
-                                      ('svg_text', 'contrafort'), \
+                                      ('xml_text', 'contrafort'), \
                                       ('x', x), \
                                       ('y', y), \
                                       ('angle', bd['contrafort_rect_dim']['angle'])])
-    coo_of[svg_id] = [x,y]
-    return [svg, svg_id, pibg, coo_of]
+    coo_of[xml_id] = [x,y]
+    return [xml, xml_id, pibg, coo_of]
 
-def agulla(i, j, bd, pibg, svg, svg_id, coo_of):
+def agulla(i, j, bd, pibg, xml, xml_id, coo_of):
     """
     make the rectangle and text of an agulla
     """
-    svg_id = svg_id + 1
+    xml_id = xml_id + 1
     [x,y] = bd['agulla_pos']
-    svg += svg_rect.substitute(_x=x, \
+    xml += xml_rect.substitute(_x=x, \
                                    _y=y, 
                                    _rx = bd['agulla_rect_dim']['x'], \
                                    _ry = bd['agulla_rect_dim']['y'], \
                                    _rw = bd['agulla_rect_dim']['w'], \
                                    _rh = bd['agulla_rect_dim']['h'], \
                                    _angle = bd['agulla_rect_dim']['angle'], \
-                                   _svg_id=svg_id,\
-                                   _svg_text = str([i,j]), \
-                                   #_svg_text=svg_id, \
+                                   _xml_id=xml_id,\
+                                   _xml_text = str([i,j]), \
+                                   #_xml_text=xml_id, \
                                    _class='a', \
-                                   _name=svg_id, \
+                                   _name=xml_id, \
                                    _index_props=[i,j])
-    pibg[i,j] = dict([('svg_id', svg_id), \
+    pibg[i,j] = dict([('xml_id', xml_id), \
                                       ('role', 'agulla'), \
-                                      ('svg_text', 'agulla'), \
+                                      ('xml_text', 'agulla'), \
                                       ('x', x), \
                                       ('y', y), \
                                       ('angle', bd['agulla_rect_dim']['angle'])])
-    coo_of[svg_id] = [x,y]
-    return [svg, svg_id, pibg, coo_of]
+    coo_of[xml_id] = [x,y]
+    return [xml, xml_id, pibg, coo_of]
 
-def baix_group(bd, i, svg, svg_id, pibg, coo_of):
+def baix_group(bd, i, xml, xml_id, pibg, coo_of):
     """
     the group consists of the baix, two crosses, one contrafort and an agulla
     """
-    [svg, svg_id, pibg, coo_of] = baix(i, 'baix', bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = crossa(i, 'crossa1', bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = crossa(i, 'crossa2', bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = contrafort(i, 'contrafort', bd, pibg, svg, svg_id, coo_of)
-    [svg, svg_id, pibg, coo_of] = agulla(i, 'agulla', bd, pibg, svg, svg_id, coo_of)
-    return [svg, svg_id, pibg, coo_of]
+    [xml, xml_id, pibg, coo_of] = baix(i, 'baix', bd, pibg, xml, xml_id, coo_of)
+    [xml, xml_id, pibg, coo_of] = crossa(i, 'crossa1', bd, pibg, xml, xml_id, coo_of)
+    [xml, xml_id, pibg, coo_of] = crossa(i, 'crossa2', bd, pibg, xml, xml_id, coo_of)
+    [xml, xml_id, pibg, coo_of] = contrafort(i, 'contrafort', bd, pibg, xml, xml_id, coo_of)
+    [xml, xml_id, pibg, coo_of] = agulla(i, 'agulla', bd, pibg, xml, xml_id, coo_of)
+    return [xml, xml_id, pibg, coo_of]
 
-def baixos(bd, svg, svg_id, coo_of):
+def baixos(bd, xml, xml_id, coo_of):
     """
     make as many groups of baixos as the symmetry of the castells demands
     """
@@ -205,57 +205,57 @@ def baixos(bd, svg, svg_id, coo_of):
         alpha = i * 2.0 * pi / bd['number']
         x = round(bd['radius'] * cos(alpha), 2)
         y = round(bd['radius'] * sin(alpha), 2)
-        svg += '<g id="baixos_gp_' + str(i) + \
+        xml += '<group id="baixos_gp_' + str(i) + \
             '" transform="translate(' + \
             str(x) + ' ' + \
             str(y) + ') rotate(' + \
             str(round(180 / pi * alpha, 2)) + ')">'
-        [svg, svg_id, position_in_baix_group, coo_of] = \
-            baix_group(bd, i, svg, svg_id, position_in_baix_group, coo_of)
-        svg += '</g>\n'
-    return [svg, svg_id, position_in_baix_group, coo_of]
+        [xml, xml_id, position_in_baix_group, coo_of] = \
+            baix_group(bd, i, xml, xml_id, position_in_baix_group, coo_of)
+        xml += '</group>\n'
+    return [xml, xml_id, position_in_baix_group, coo_of]
 
-def pc(i, j, index, pcd, pipcg, svg, svg_id, coo_of):
+def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
     """
     make one portacrosses
     """
-    svg_id = svg_id + 1
+    xml_id = xml_id + 1
     [x,y] = pcd[index + '_pos']
     dims  = pcd[index + '_dim']
     alpha = dims['angle']
-    svg += svg_rect.substitute(_x=x, \
+    xml += xml_rect.substitute(_x=x, \
                                    _y=y, \
                                    _rx = dims['x'], \
                                    _ry = dims['y'], \
                                    _rw = dims['w'], \
                                    _rh = dims['h'], \
                                    _angle = alpha, \
-                                   _svg_id=svg_id,\
-                                   _svg_text = str([i,j]), \
-                                   #_svg_text=svg_id, \
+                                   _xml_id=xml_id,\
+                                   _xml_text = str([i,j]), \
+                                   #_xml_text=xml_id, \
                                    _class='pc', \
-                                   _name=svg_id, \
+                                   _name=xml_id, \
                                    _index_props=[i,j])
-    pipcg[i,j] = dict([('svg_id', svg_id), \
+    pipcg[i,j] = dict([('xml_id', xml_id), \
                            ('role', 'portacrosses'), \
-                           ('svg_text', 'portacrosses'), \
+                           ('xml_text', 'portacrosses'), \
                            ('x', x), \
                            ('y', y), \
                            ('angle', alpha)])
-    coo_of[svg_id] = [x,y]
-    return [svg, svg_id, pipcg, coo_of]
+    coo_of[xml_id] = [x,y]
+    return [xml, xml_id, pipcg, coo_of]
                                    
 
-def portacrosses_group(pcd, i, svg, svg_id, pipcg, coo_of):
+def portacrosses_group(pcd, i, xml, xml_id, pipcg, coo_of):
     """
     make a group of one portacrosses (pc_c) and two laterals (pc_i, pc_d)
     """
-    [svg, svg_id, pipcg, coo_of] = pc(i, 0, 'pc_c', pcd, pipcg, svg, svg_id, coo_of)
-    [svg, svg_id, pipcg, coo_of] = pc(i, 1, 'pc_i', pcd, pipcg, svg, svg_id, coo_of)
-    [svg, svg_id, pipcg, coo_of] = pc(i, 2, 'pc_d', pcd, pipcg, svg, svg_id, coo_of)
-    return [svg, svg_id, pipcg, coo_of]
+    [xml, xml_id, pipcg, coo_of] = pc(i, 0, 'pc_c', pcd, pipcg, xml, xml_id, coo_of)
+    [xml, xml_id, pipcg, coo_of] = pc(i, 1, 'pc_i', pcd, pipcg, xml, xml_id, coo_of)
+    [xml, xml_id, pipcg, coo_of] = pc(i, 2, 'pc_d', pcd, pipcg, xml, xml_id, coo_of)
+    return [xml, xml_id, pipcg, coo_of]
 
-def portacrosses(pcd, svg, svg_id, coo_of):
+def portacrosses(pcd, xml, xml_id, coo_of):
     """
     make as many groups of portacrosses as the symmetry says to
     """
@@ -264,23 +264,23 @@ def portacrosses(pcd, svg, svg_id, coo_of):
         alpha = (i * 2.0 + 1.0) * pi / pcd['number']
         x = round(pcd['radius'] * cos(alpha), 2)
         y = round(pcd['radius'] * sin(alpha), 2)
-        svg += '<g id="portacrosses_gp_' + str(i) + \
+        xml += '<group id="portacrosses_gp_' + str(i) + \
             '" transform="translate(' + \
             str(x) + ' ' + \
             str(y) + ') rotate(' + \
             str(round(180 / pi * alpha, 2)) + ')">'
-        [svg, svg_id, position_in_portacrosses, coo_of] = \
-            portacrosses_group(pcd, i, svg, svg_id, position_in_portacrosses, coo_of)
-        svg += '</g>\n'         
-    return [svg, svg_id, position_in_portacrosses, coo_of]
+        [xml, xml_id, position_in_portacrosses, coo_of] = \
+            portacrosses_group(pcd, i, xml, xml_id, position_in_portacrosses, coo_of)
+        xml += '</group>\n'         
+    return [xml, xml_id, position_in_portacrosses, coo_of]
 
-def pinya(rd, bd, pcd, svg):
-    svg_id = 0
+def pinya(rd, bd, pcd, xml):
+    xml_id = 0
     coo_of = dict()
-    [svg, svg_id, position_in_ring, coo_of] = rings(rd, svg, svg_id, coo_of)
-    [svg, svg_id, position_in_baix_group, coo_of] = baixos(bd, svg, svg_id, coo_of)
-    [svg, svg_id, position_in_portacrosses, coo_of] = portacrosses(pcd, svg, svg_id, coo_of)
-    return [svg, position_in_ring, position_in_baix_group, position_in_portacrosses, coo_of]
+    [xml, xml_id, position_in_ring, coo_of] = rings(rd, xml, xml_id, coo_of)
+    [xml, xml_id, position_in_baix_group, coo_of] = baixos(bd, xml, xml_id, coo_of)
+    [xml, xml_id, position_in_portacrosses, coo_of] = portacrosses(pcd, xml, xml_id, coo_of)
+    return [xml, position_in_ring, position_in_baix_group, position_in_portacrosses, coo_of]
 
 
 def tresde8f():
@@ -343,43 +343,43 @@ def tresde8f():
                          [-10,-45]) \
                     ])
 
-    # start the svg
-    svg = svg_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
+    # start the xml
+    xml = xml_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
 
     # go!
-    svg += '<g id="pinya">'
-    [svg, position_in_ring, position_in_baix_group, \
-         position_in_portacrosses, coo_of] = pinya(rd, bd, pcd, svg)
-    svg += '</g>\n'
+    xml += '<group id="pinya">'
+    [xml, position_in_ring, position_in_baix_group, \
+         position_in_portacrosses, coo_of] = pinya(rd, bd, pcd, xml)
+    xml += '</group>\n'
 
     relations = []
 
     relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
     relations = baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations)
 
-    svg += '<g id="rels">\n'    
-    svg += relations_svg(relations, coo_of)
-    svg += '</g>\n'
+    xml += '<relations id="rels">\n'    
+    xml += relations_xml(relations, coo_of)
+    xml += '</relations>\n'
 
-    svg += '</svg>'
-    return [svg, position_in_ring, position_in_baix_group, position_in_portacrosses, relations]
+    xml += '</xml>'
+    return [xml, position_in_ring, position_in_baix_group, position_in_portacrosses, relations]
 
 def save_tresde8f_relations():
-    [svg, position_in_ring, position_in_baix_group, \
+    [xml, position_in_ring, position_in_baix_group, \
          position_in_portacrosses, relations] = tresde8f()
-    f = open('../www/tresde8f.pinya', 'w')
-    f.write(svg)
+    f = open('../www/tresde8f.pinya.xml', 'w')
+    f.write(xml)
     f.close()
-    from db_interaction import get_db, write_positions, write_relations
-    db = get_db()
-    c = db.cursor()
-    c.execute("delete from castell_position where castell_type_id = 3")
-    c.execute("delete from castell_relation where castell_type_id = 3")
-    write_positions(db, 3, position_in_ring)
-    write_positions(db, 3, position_in_baix_group)
-    write_positions(db, 3, position_in_portacrosses)
-    write_relations(db, 3, relations)
-    db.commit()
+    # from db_interaction import get_db, write_positions, write_relations
+    # db = get_db()
+    # c = db.cursor()
+    # c.execute("delete from castell_position where castell_type_id = 3")
+    # c.execute("delete from castell_relation where castell_type_id = 3")
+    # write_positions(db, 3, position_in_ring)
+    # write_positions(db, 3, position_in_baix_group)
+    # write_positions(db, 3, position_in_portacrosses)
+    # write_relations(db, 3, relations)
+    # db.commit()
     
 if __name__ == "__main__":
     save_tresde8f_relations()

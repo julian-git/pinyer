@@ -25,8 +25,8 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             rel = rel0.copy()
             rel['pos_list'] = \
-                str(position_in_ring[i,j,0]['svg_id']) + '_' + \
-                str(position_in_ring[i+1,j,0]['svg_id'])
+                str(position_in_ring[i,j,0]['xml_id']) + '_' + \
+                str(position_in_ring[i+1,j,0]['xml_id'])
             rel['pos_type_list'] = pt + pos_splitter + pt
             relations.append(rel)
 
@@ -38,15 +38,15 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
             for m in range(1, i+1):
                 rel = rel0.copy()
                 rel['pos_list'] = \
-                    str(position_in_ring[i,j,m]['svg_id']) + '_' + \
-                    str(position_in_ring[i+1,j,m]['svg_id'])
+                    str(position_in_ring[i,j,m]['xml_id']) + '_' + \
+                    str(position_in_ring[i+1,j,m]['xml_id'])
                 rel['pos_type_list'] = 'p' + pos_splitter + 'p'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
                 rel1['pos_list'] = \
-                    str(position_in_ring[i,j,m]['svg_id']) + '_' + \
-                    str(position_in_ring[i+1,j,m+1]['svg_id'])
+                    str(position_in_ring[i,j,m]['xml_id']) + '_' + \
+                    str(position_in_ring[i+1,j,m+1]['xml_id'])
                 rel1['pos_type_list'] = 'p' + pos_splitter + 'p'
                 relations.append(rel1) # quesito
 
@@ -58,10 +58,10 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
             rel = rel0.copy()
-            rel['pos_list'] = str(position_in_ring[i,j,1]['svg_id'])
+            rel['pos_list'] = str(position_in_ring[i,j,1]['xml_id'])
             rel['field_names'] = 'shoulder_width'
             for m in range(2, i+1):
-                rel['pos_list'] += pos_splitter + str(position_in_ring[i,j,m]['svg_id'])
+                rel['pos_list'] += pos_splitter + str(position_in_ring[i,j,m]['xml_id'])
                 rel['field_names'] += field_name_splitter + 'shoulder_width'
             relations.append(rel)
     return relations
@@ -79,21 +79,21 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
     for i in range(bd['number']):
         rel = rel0.copy()
         rel['pos_list'] = \
-            str(position_in_portacrosses[i,1]['svg_id']) + \
+            str(position_in_portacrosses[i,1]['xml_id']) + \
             pos_splitter + \
-            str(position_in_baix_group[i, 'crossa1']['svg_id']) 
+            str(position_in_baix_group[i, 'crossa1']['xml_id']) 
         relations.append(rel)
 
         rel = rel0.copy()
         rel['pos_list'] = \
-            str(position_in_portacrosses[i,1]['svg_id']) + \
+            str(position_in_portacrosses[i,1]['xml_id']) + \
             pos_splitter + \
-            str(position_in_baix_group[i, 'crossa2']['svg_id']) 
+            str(position_in_baix_group[i, 'crossa2']['xml_id']) 
         relations.append(rel)
     return relations
 
-def relations_svg(relations, coo_of):
-    relations_svg = ''
+def relations_xml(relations, coo_of):
+    relations_xml = ''
     for rel in relations:
         pos_list = rel['pos_list'].split('_')
         fpi = int(pos_list[0])
@@ -103,34 +103,34 @@ def relations_svg(relations, coo_of):
             tpi = fpi
 
         if rel['relation_type'] == 'zero_or_tol':
-            relations_svg += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+            relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + 'L' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + '"/>'
 
         elif rel['relation_type'] == 'abs_tol':
-            relations_svg += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+            relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[fpi][1])
             for pos in pos_list[1:]:
-                relations_svg += 'L' + \
+                relations_xml += 'L' + \
                     str(coo_of[int(pos)][0]) + ',' + \
                     str(coo_of[int(pos)][1])
-            relations_svg += '"/>'
+            relations_xml += '"/>'
                 
         elif rel['relation_type'] == 'one_sided':
-            relations_svg += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+            relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[fpi][1])
             for pos in pos_list[1:]:
-                relations_svg += 'L' + \
+                relations_xml += 'L' + \
                     str(coo_of[int(pos)][0]) + ',' + \
                     str(coo_of[int(pos)][1])
-            relations_svg += '"/>'
+            relations_xml += '"/>'
 
         else:
             raise RuntimeError('drawing of relation not implemented')
 
-        relations_svg += '\n'
-    return relations_svg
+        relations_xml += '\n'
+    return relations_xml
