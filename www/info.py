@@ -14,7 +14,9 @@ sys.path.append('../python')
 from build_html import solution_as_svg
 from build_ip import solve_castell
 from db_interaction import get_db, get_nicknames_and_char
-from xml_to_svg import xml_to_svg
+from local_config import pinya_svg_dir
+
+
 
 form = cgi.FieldStorage()
 what = form["what"].value
@@ -45,9 +47,9 @@ if what=='get_colla':
     print json.dumps(colla, separators=(',', ':'), ensure_ascii=False)
 
 elif what=='get_pinya':
-    pinya_id = form["castell_type_id"].value
-    # FIXME the next line must be generalized
-    print xml_to_svg('tresde8f.pinya.xml')
+    pinya_name = form["pinya_name"].value
+    f = open(pinya_svg_dir + pinya_name + '.pinya.svg', 'r')
+    print f.read()
 
 elif what=='optimize_pinya':
     prescribed = dict()

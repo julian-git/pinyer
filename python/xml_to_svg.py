@@ -10,9 +10,9 @@ def xml_to_svg(xmlfilename):
 
 def printAttr(tag, elem, attr_list):
     res = []
-    res.append('<' + tag + ' ')
+    res.append('<' + tag)
     for a in attr_list:
-        res.append(a + '="' + elem.getAttribute(a) + '" ')
+        res.append(' ' + a + '="' + elem.getAttribute(a) + '"')
     res.append('>')
     svg.append(''.join(res))
 
@@ -28,6 +28,8 @@ def handleXML(xml):
             handleTitle(child)
         if child.nodeName == 'pinya':
             handlePinya(child)
+        if child.nodeName == 'relations':
+            handleRelations(child)
     svg.append('</svg>')
 
 def handleTitle(titles):
@@ -77,6 +79,20 @@ def handleText(text):
     printAttr('text', text, ('id', 'class', 'text-anchor'))
     svg.append(getText(text.childNodes))
     svg.append('</text>')
+
+def handleRelations(relations):
+    svg.append('<g id="relations">')
+    for child in relations.childNodes:
+        if child.nodeName == 'relation':
+            handleRelation(child)
+    svg.append('</g>')
+
+def handleRelation(relation):
+    svg.append('<path class="' + \
+                   relation.getAttribute('pos_type_list') + \
+                   '" d="' + \
+                   getText(relation.childNodes) + \
+                   '"/>')
 
 def getText(nodelist):
     rc = []

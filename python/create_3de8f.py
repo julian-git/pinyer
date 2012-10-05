@@ -1,6 +1,7 @@
 from math import cos, sin, pi
 from xml_common import xml_position, xml_head
 from relations import *
+from local_config import pinya_xml_dir
 
 def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
     """
@@ -374,7 +375,7 @@ def tresde8f():
 def save_tresde8f_relations():
     [xml, position_in_ring, position_in_baix_group, \
          position_in_portacrosses, relations] = tresde8f()
-    f = open('../www/tresde8f.pinya.xml', 'w')
+    f = open('../www/' + pinya_xml_dir + '/tresde8f.pinya.xml', 'w')
     f.write(xml)
     f.close()
     # from db_interaction import get_db, write_positions, write_relations

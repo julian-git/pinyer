@@ -3,9 +3,9 @@ from local_config import tolerances, field_name_splitter, pos_splitter
 def ring_relations(rd, position_in_ring, relations, has_folre):
     # the default values for all relations created in this function
     if has_folre:
-        sense = '<='
+        sense = 'le'
     else:
-        sense = '>='
+        sense = 'ge'
     rel0 = dict([('pos_list', None), \
                      ('coeff_list', None), \
                      ('relation_type', 'zero_or_tol'), \
@@ -30,7 +30,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
             rel['pos_type_list'] = pt + pos_splitter + pt
             relations.append(rel)
 
-    rel0['sense'] = '<='
+    rel0['sense'] = 'le'
     # next, the relations in the quesitos
     # of these, first the shoulder_height relations between different rings
     for j in range(2*rd['period']):
@@ -72,7 +72,7 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
                      ('coeff_list', '1_-1'), \
                      ('relation_type', 'one_sided'), \
                      ('field_names', 'shoulder_height' + field_name_splitter + 'axle_height'), \
-                     ('sense', '<='), \
+                     ('sense', 'le'), \
                      ('rhs', tolerances['delta_height_c_b']), \
                      ('pos_type_list', 'b_c')])
     # first, the relations between the baix and the crosses
@@ -95,6 +95,10 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
 def relations_xml(relations, coo_of):
     relations_xml = ''
     for rel in relations:
+        relations_xml += '<relation'
+        for prop, val in rel.iteritems():
+            relations_xml += ' ' + prop + '="' + str(val) + '"'
+        relations_xml += '>'
         pos_list = rel['pos_list'].split('_')
         fpi = int(pos_list[0])
         if len(pos_list) > 1:
@@ -103,34 +107,39 @@ def relations_xml(relations, coo_of):
             tpi = fpi
 
         if rel['relation_type'] == 'zero_or_tol':
-            relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+            relations_xml += 'M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[tpi][1]) + 'L' + \
                 str(coo_of[fpi][0]) + ',' + \
-                str(coo_of[tpi][1]) + '"/>'
+                str(coo_of[tpi][1]) 
+
+            # relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+            #     str(coo_of[fpi][0]) + ',' + \
+            #     str(coo_of[tpi][1]) + 'L' + \
+            #     str(coo_of[fpi][0]) + ',' + \
+            #     str(coo_of[tpi][1]) + '"/>'
 
         elif rel['relation_type'] == 'abs_tol':
-            relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+            relations_xml += 'M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[fpi][1])
             for pos in pos_list[1:]:
                 relations_xml += 'L' + \
                     str(coo_of[int(pos)][0]) + ',' + \
                     str(coo_of[int(pos)][1])
-            relations_xml += '"/>'
                 
         elif rel['relation_type'] == 'one_sided':
-            relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+            relations_xml += 'M' + \
                 str(coo_of[fpi][0]) + ',' + \
                 str(coo_of[fpi][1])
             for pos in pos_list[1:]:
                 relations_xml += 'L' + \
                     str(coo_of[int(pos)][0]) + ',' + \
                     str(coo_of[int(pos)][1])
-            relations_xml += '"/>'
 
         else:
             raise RuntimeError('drawing of relation not implemented')
 
-        relations_xml += '\n'
+        relations_xml += '</relation>\n'
+
     return relations_xml
