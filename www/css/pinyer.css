@@ -11,18 +11,14 @@ body
 */
 } 
 
-circle {
-    fill:     lightblue;
-}
-circle:hover {
-    fill:     red;
-}
-circle.prescribed {
-    fill: lightgreen;
-}
-circle.design {
-    stroke: green;
-}
+circle { fill:     lightblue;}
+
+circle:hover { fill:     red;}
+
+circle.prescribed { fill: lightgreen;}
+
+circle.design { stroke: green;}
+
 
 rect    { fill: lightblue; }
 rect.ma { fill: purple;    }  /* rengles, mans */
@@ -32,37 +28,35 @@ rect.co { fill: orange;    }  /* contraforts   */
 rect.b  { fill: red;       }  /* baixos        */
 rect.a  { fill: brown;     }  /* agulles       */
 rect.pc { fill: teal;     }  /* portacrosses  */
-rect.design { stroke: green;
-}
+rect.design { stroke: green;}
 
-path {
-    stroke-width: 2;
-}
-path.ma {
-    stroke: seagreen
-}
-path.vt {
-    stroke: lightgreen
-}
-path.p {
-    stroke: lightblue;
-    fill: none;
-}
+
+path { stroke-width:2; fill:none;}
+
+path.ma { stroke: seagreen}
+path.ma_ma { stroke: seagreen}
+
+path.vt { stroke: lightgreen}
+path.vt_vt { stroke: lightgreen}
+
+path.p { stroke: lightblue; }
+path.p_p { stroke: lightblue;}
+
+path.b_c { stroke: teal; }
+
 
 
 .vtext {
 -webkit-transform:rotate(-90deg);
 -moz-transform:rotate(-90deg);
 -o-transform: rotate(-90deg);
-display:block;
-}
+display:block;}
 
-text:hover {
-    fill: red;
-}
+
+text:hover { fill: red;}
+
 /*
-text {
-    text-anchor:       "middle";
-    dominant-baseline: "mathematical";
-}
+text { text-anchor:       "middle";
+    dominant-baseline: "mathematical";}
+
 */
