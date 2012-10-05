@@ -84,8 +84,8 @@ def baix(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _rh = bd['baix_rect_dim']['h'], \
                                    _angle = bd['baix_rect_dim']['angle'], \
                                    _xml_id=xml_id,\
-                                   _xml_text = str([i,j]), \
-                                   #_xml_text=xml_id, \
+                                   #_xml_text = str([i,j]), \
+                                   _xml_text=xml_id, \
                                    _class='b', \
                                    _name=xml_id, \
                                    _index_props=[i,j])

@@ -384,7 +384,7 @@
 <position id="55" transform="translate(0 0) rotate(0)">
   <rect id="55_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="55_text" class="b vtext" text-anchor="middle">[0, 'baix']</text>
+  <text id="55_text" class="b vtext" text-anchor="middle">55</text>
   </label>
 </position>
 
@@ -420,7 +420,7 @@
 <position id="60" transform="translate(0 0) rotate(0)">
   <rect id="60_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="60_text" class="b vtext" text-anchor="middle">[1, 'baix']</text>
+  <text id="60_text" class="b vtext" text-anchor="middle">60</text>
   </label>
 </position>
 
@@ -456,7 +456,7 @@
 <position id="65" transform="translate(0 0) rotate(0)">
   <rect id="65_cont" class="b"  width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="65_text" class="b vtext" text-anchor="middle">[2, 'baix']</text>
+  <text id="65_text" class="b vtext" text-anchor="middle">65</text>
   </label>
 </position>
 

@@ -1,4 +1,5 @@
 import xml.dom.minidom
+from local_config import pinya_xml_dir, pinya_svg_dir
 
 svg = []
 
@@ -22,49 +23,60 @@ def xml_to_svg_impl(xmlfilename):
 
 def handleXML(xml):
     printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'))
-    handleTitle(xml.getElementsByTagName('title'))
-    handlePinya(xml.getElementsByTagName('pinya'))
+    for child in xml.childNodes:
+        if child.nodeName == 'title':
+            handleTitle(child)
+        if child.nodeName == 'pinya':
+            handlePinya(child)
     svg.append('</svg>')
 
 def handleTitle(titles):
     pass
 
-def handlePinya(pinyas):
-    for pinya in pinyas:
-        svg.append('<g>')
-        handlePositionGroups(pinya.getElementsByTagName('position_group'))
-        handlePositions(pinya.getElementsByTagName('position'))
-        svg.append('</g>')
+def handlePinya(pinya):
+    svg.append('<g id="pinya">')
+    for child in pinya.childNodes:
+        if child.nodeName == 'position_group':
+            handlePositionGroup(child)
+        elif child.nodeName == 'position':
+            handlePosition(child)
+    svg.append('</g>')
 
-def handlePositionGroups(groups):
-    for group in groups:
-        printAttr('g', group, ('id', 'transform'))
-        handlePositions(group.getElementsByTagName('position'))
-        svg.append('</g>')
+def handlePositionGroup(group):
+    printAttr('g', group, ('id', 'transform'))
+    for child in group.childNodes:
+        if child.nodeName == 'position':
+            handlePosition(child)
+    svg.append('</g>')
 
 def handlePositions(positions):
     for position in positions:
-        printAttr('g', position, ('id', 'transform'))
-        handleRects(position.getElementsByTagName('rect'))
-        handleLabels(position.getElementsByTagName('label'))
-        svg.append('</g>')
+        handlePosition(position)
 
-def handleRects(rects):
-    for rect in rects:
-        printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
-        svg.append('</rect>')
+def handlePosition(position):
+    printAttr('g', position, ('id', 'transform'))
+    for child in position.childNodes:
+        if child.nodeName == 'rect':
+            handleRect(child)
+        if child.nodeName == 'label':
+            handleLabel(child)
+    svg.append('</g>')
 
-def handleLabels(labels):
-    for label in labels:
-        printAttr('g', label, ('transform',))
-        handleText(label.getElementsByTagName('text'))
-        svg.append('</g>')
+def handleRect(rect):
+    printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
+    svg.append('</rect>')
 
-def handleText(texts):
-    for text in texts:
-        printAttr('text', text, ('id', 'class', 'text-anchor'))
-        svg.append(getText(text.childNodes))
-        svg.append('</text>')
+def handleLabel(label):
+    printAttr('g', label, ('transform',))
+    for child in label.childNodes:
+        if child.nodeName == 'text':
+            handleText(child)
+    svg.append('</g>')
+
+def handleText(text):
+    printAttr('text', text, ('id', 'class', 'text-anchor'))
+    svg.append(getText(text.childNodes))
+    svg.append('</text>')
 
 def getText(nodelist):
     rc = []
@@ -73,7 +85,14 @@ def getText(nodelist):
             rc.append(node.data)
     return ''.join(rc)
 
+def write_svg(pinya_name):
+    f = open('../www/' + pinya_svg_dir + pinya_name + '.pinya.svg', 'w')
+    f.write(xml_to_svg('../www/' + pinya_xml_dir + pinya_name + '.pinya.xml'))
+
+
 if __name__=='__main__':
-    f = open('tmp.svg', 'w')
-    f.write(xml_to_svg('../www/tresde8f.pinya.xml'))
+    write_svg('tresde8f')
+#    import cProfile
+#    cProfile.run('run()', 'xml_to_svg.stats')
+
 

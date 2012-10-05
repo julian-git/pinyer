@@ -34,3 +34,7 @@ tolerances = dict([('height', 5), \
                        ('delta_height_c_b', 5), \
                        ('delta_height_c_b_tol', 5) \
                        ])
+
+# the directories used for pinya xml and svg files
+pinya_xml_dir = 'pinyas/xml/'
+pinya_svg_dir = 'pinyas/svg/'
