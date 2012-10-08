@@ -1,6 +1,7 @@
 import xml.dom.minidom
 from local_config import pinya_xml_dir, pinya_svg_dir
 from math import sin, cos
+from local_config import pos_splitter, field_name_splitter
 
 svg = []
 coos = dict()
@@ -75,7 +76,7 @@ def handlePosition(position, translation=None, angle=None):
 def handleRect(rect, translation=None, angle=None):
     printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
     svg.append('</rect>')
-    id = rect.getAttribute('id')
+    id = int(rect.getAttribute('id').split(pos_splitter)[0])
     coo = [float(rect.getAttribute('x')), \
                float(rect.getAttribute('y'))]
     if angle is not None:
@@ -105,15 +106,18 @@ def handleRelations(relations):
     svg.append('</g>')
 
 def handleRelation(relation):
-    d = getText(relation.childNodes)
-    print relation.getAttribute('pos_list')
-    print d
-
-    svg.append('<path class="' + \
-                   relation.getAttribute('pos_type_list') + \
-                   '" d="' + \
-                   getText(relation.childNodes) + \
-                   '"/>')
+    d = []
+    d.append('<path class="' + relation.getAttribute('pos_type_list') + '" d="')
+    first = True
+    for pos in relation.getAttribute('pos_list').split(pos_splitter):
+        if not first:
+            d.append('L')
+        else:
+            d.append('M')
+            first = False
+        d.append(str(coos[int(pos)][0]) + ',' + str(coos[int(pos)][1]))
+    d.append('"/>')
+    svg.append(''.join(d))
 
 def getText(nodelist):
     rc = []
