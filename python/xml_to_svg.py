@@ -128,7 +128,8 @@ def handleRelations(relations):
 
 def handleRelation(relation):
     d = []
-    d.append('<path class="' + relation.getAttribute('pos_type_list') + '" d="')
+    d.append('<path class="' + relation.getAttribute('pos_type_list') + \
+                 '" pos_list="' + relation.getAttribute('pos_list') + '" d="')
     first = True
     for pos in relation.getAttribute('pos_list').split(pos_splitter):
         if not first:
