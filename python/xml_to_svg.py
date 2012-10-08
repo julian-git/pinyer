@@ -48,43 +48,64 @@ def handlePinya(pinya):
     svg.append('</g>')
 
 def handlePositionGroup(group):
+    ids = []
     printAttr('g', group, ('id', 'transform'))
+    for child in group.childNodes:
+        if child.nodeName == 'position':
+            ids += handlePosition(child)
     transform = group.getAttribute('transform')
+    [translation, angle] = extract_transform(transform)
+    for id in ids: 
+        apply_transform(id, translation, angle)
+    svg.append('</g>')
+
+def extract_transform(transform):
+    if transform is None:
+        return [None, None]
     p1 = transform.index('translate(')
     t = transform[p1+10 : transform.index(')', p1+10)].split(' ')
     translation = [float(t[0]), float(t[1])]
     p2 = transform.index('rotate(')
     angle = float(transform[p2+7 : transform.index(')', p2+7)])
-    for child in group.childNodes:
-        if child.nodeName == 'position':
-            handlePosition(child, translation, angle)
-    svg.append('</g>')
+    return [translation, angle]
 
-def handlePositions(positions):
-    for position in positions:
-        handlePosition(position)
-
-def handlePosition(position, translation=None, angle=None):
-    printAttr('g', position, ('id', 'transform'))
-    for child in position.childNodes:
-        if child.nodeName == 'rect':
-            handleRect(child, translation, angle)
-        if child.nodeName == 'label':
-            handleLabel(child)
-    svg.append('</g>')
-
-def handleRect(rect, translation=None, angle=None):
-    printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
-    svg.append('</rect>')
-    id = int(rect.getAttribute('id').split(pos_splitter)[0])
-    coo = [float(rect.getAttribute('x')), \
-               float(rect.getAttribute('y'))]
+def apply_transform(id, translation, angle):
+    coo = coos[id]
     if angle is not None:
         coo = [coo[0] * cos(angle) + coo[1] * sin(angle), \
                     - coo[0] * sin(angle) + coo[1] * cos(angle)]
     if translation is not None:
         coo = [coo[0] + translation[0], coo[1] + translation[1]]
     coos[id] = [round(coo[0],2), round(coo[1], 2)]
+    
+def handlePositions(positions):
+    ids = []
+    for position in positions:
+        ids += handlePosition(position)
+    return ids
+
+def handlePosition(position):
+    ids = []
+    printAttr('g', position, ('id', 'transform'))
+    for child in position.childNodes:
+        if child.nodeName == 'rect':
+            ids.append(handleRect(child))
+        if child.nodeName == 'label':
+            handleLabel(child)
+    transform = position.getAttribute('transform')
+    [translation, angle] = extract_transform(transform)
+    for id in ids:
+        apply_transform(id, translation, angle)
+    svg.append('</g>')
+    return ids
+
+def handleRect(rect):
+    printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
+    svg.append('</rect>')
+    id = int(rect.getAttribute('id').split(pos_splitter)[0])
+    coos[id] = [float(rect.getAttribute('x')), \
+                    float(rect.getAttribute('y'))]
+    return id
 
 def handleLabel(label):
     printAttr('g', label, ('transform',))
