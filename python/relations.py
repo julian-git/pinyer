@@ -7,7 +7,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
     else:
         sense = 'ge'
     rel0 = dict([('pos_list', None), \
-                     ('coeff_list', None), \
+                     ('coeff_list', '1_1'), \
                      ('relation_type', 'zero_or_tol'), \
                      ('field_names', \
                           'shoulder_height' + field_name_splitter + 'shoulder_height'), \
@@ -55,6 +55,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
     rel0['field_names'] = ''
     rel0['rhs'] = tolerances['width']
     rel0['pos_type_list'] = 'p'
+    rel0['coeff_list'] = '1'
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
             rel = rel0.copy()
@@ -63,6 +64,8 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
             for m in range(2, i+1):
                 rel['pos_list'] += pos_splitter + str(position_in_ring[i,j,m]['xml_id'])
                 rel['field_names'] += field_name_splitter + 'shoulder_width'
+                rel['pos_type_list'] += pos_splitter + 'p'
+                rel['coeff_list'] += pos_splitter + '1'
             relations.append(rel)
     return relations
 
@@ -98,48 +101,47 @@ def relations_xml(relations, coo_of):
         relations_xml += '<relation'
         for prop, val in rel.iteritems():
             relations_xml += ' ' + prop + '="' + str(val) + '"'
-        relations_xml += '>'
-        pos_list = rel['pos_list'].split('_')
-        fpi = int(pos_list[0])
-        if len(pos_list) > 1:
-            tpi = int(pos_list[1])
-        else:
-            tpi = fpi
+        relations_xml += '/>\n'
 
-        if rel['relation_type'] == 'zero_or_tol':
-            relations_xml += 'M' + \
-                str(coo_of[fpi][0]) + ',' + \
-                str(coo_of[tpi][1]) + 'L' + \
-                str(coo_of[fpi][0]) + ',' + \
-                str(coo_of[tpi][1]) 
+        # pos_list = rel['pos_list'].split('_')
+        # fpi = int(pos_list[0])
+        # if len(pos_list) > 1:
+        #     tpi = int(pos_list[1])
+        # else:
+        #     tpi = fpi
 
-            # relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
-            #     str(coo_of[fpi][0]) + ',' + \
-            #     str(coo_of[tpi][1]) + 'L' + \
-            #     str(coo_of[fpi][0]) + ',' + \
-            #     str(coo_of[tpi][1]) + '"/>'
+        # if rel['relation_type'] == 'zero_or_tol':
+        #     relations_xml += 'M' + \
+        #         str(coo_of[fpi][0]) + ',' + \
+        #         str(coo_of[tpi][1]) + 'L' + \
+        #         str(coo_of[fpi][0]) + ',' + \
+        #         str(coo_of[tpi][1]) 
 
-        elif rel['relation_type'] == 'abs_tol':
-            relations_xml += 'M' + \
-                str(coo_of[fpi][0]) + ',' + \
-                str(coo_of[fpi][1])
-            for pos in pos_list[1:]:
-                relations_xml += 'L' + \
-                    str(coo_of[int(pos)][0]) + ',' + \
-                    str(coo_of[int(pos)][1])
+        #     # relations_xml += '<path class="' + rel['pos_type_list'] + '" d="M' + \
+        #     #     str(coo_of[fpi][0]) + ',' + \
+        #     #     str(coo_of[tpi][1]) + 'L' + \
+        #     #     str(coo_of[fpi][0]) + ',' + \
+        #     #     str(coo_of[tpi][1]) + '"/>'
+
+        # elif rel['relation_type'] == 'abs_tol':
+        #     relations_xml += 'M' + \
+        #         str(coo_of[fpi][0]) + ',' + \
+        #         str(coo_of[fpi][1])
+        #     for pos in pos_list[1:]:
+        #         relations_xml += 'L' + \
+        #             str(coo_of[int(pos)][0]) + ',' + \
+        #             str(coo_of[int(pos)][1])
                 
-        elif rel['relation_type'] == 'one_sided':
-            relations_xml += 'M' + \
-                str(coo_of[fpi][0]) + ',' + \
-                str(coo_of[fpi][1])
-            for pos in pos_list[1:]:
-                relations_xml += 'L' + \
-                    str(coo_of[int(pos)][0]) + ',' + \
-                    str(coo_of[int(pos)][1])
+        # elif rel['relation_type'] == 'one_sided':
+        #     relations_xml += 'M' + \
+        #         str(coo_of[fpi][0]) + ',' + \
+        #         str(coo_of[fpi][1])
+        #     for pos in pos_list[1:]:
+        #         relations_xml += 'L' + \
+        #             str(coo_of[int(pos)][0]) + ',' + \
+        #             str(coo_of[int(pos)][1])
 
-        else:
-            raise RuntimeError('drawing of relation not implemented')
-
-        relations_xml += '</relation>\n'
+        # else:
+        #     raise RuntimeError('drawing of relation not implemented')
 
     return relations_xml
