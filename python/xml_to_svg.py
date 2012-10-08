@@ -1,7 +1,9 @@
 import xml.dom.minidom
 from local_config import pinya_xml_dir, pinya_svg_dir
+from math import sin, cos
 
 svg = []
+coos = dict()
 
 def xml_to_svg(xmlfilename):
     xml_to_svg_impl(xmlfilename)
@@ -46,27 +48,42 @@ def handlePinya(pinya):
 
 def handlePositionGroup(group):
     printAttr('g', group, ('id', 'transform'))
+    transform = group.getAttribute('transform')
+    p1 = transform.index('translate(')
+    t = transform[p1+10 : transform.index(')', p1+10)].split(' ')
+    translation = [float(t[0]), float(t[1])]
+    p2 = transform.index('rotate(')
+    angle = float(transform[p2+7 : transform.index(')', p2+7)])
     for child in group.childNodes:
         if child.nodeName == 'position':
-            handlePosition(child)
+            handlePosition(child, translation, angle)
     svg.append('</g>')
 
 def handlePositions(positions):
     for position in positions:
         handlePosition(position)
 
-def handlePosition(position):
+def handlePosition(position, translation=None, angle=None):
     printAttr('g', position, ('id', 'transform'))
     for child in position.childNodes:
         if child.nodeName == 'rect':
-            handleRect(child)
+            handleRect(child, translation, angle)
         if child.nodeName == 'label':
             handleLabel(child)
     svg.append('</g>')
 
-def handleRect(rect):
+def handleRect(rect, translation=None, angle=None):
     printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
     svg.append('</rect>')
+    id = rect.getAttribute('id')
+    coo = [float(rect.getAttribute('x')), \
+               float(rect.getAttribute('y'))]
+    if angle is not None:
+        coo = [coo[0] * cos(angle) + coo[1] * sin(angle), \
+                    - coo[0] * sin(angle) + coo[1] * cos(angle)]
+    if translation is not None:
+        coo = [coo[0] + translation[0], coo[1] + translation[1]]
+    coos[id] = [round(coo[0],2), round(coo[1], 2)]
 
 def handleLabel(label):
     printAttr('g', label, ('transform',))
@@ -88,6 +105,10 @@ def handleRelations(relations):
     svg.append('</g>')
 
 def handleRelation(relation):
+    d = getText(relation.childNodes)
+    print relation.getAttribute('pos_list')
+    print d
+
     svg.append('<path class="' + \
                    relation.getAttribute('pos_type_list') + \
                    '" d="' + \
@@ -107,7 +128,7 @@ def write_svg(pinya_name):
 
 
 if __name__=='__main__':
-    write_svg('tresde8f')
+    write_svg('tresde9f')
 #    import cProfile
 #    cProfile.run('run()', 'xml_to_svg.stats')
 

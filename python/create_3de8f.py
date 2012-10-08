@@ -290,7 +290,7 @@ def pinya(rd, bd, pcd, xml):
     return [xml, position_in_ring, position_in_baix_group, position_in_portacrosses, coo_of]
 
 
-def tresde8f():
+def tresde9f():
     # data for the rings of the pinya
     rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 3), \
                    ('start_radius', 100), ('radius_offset', 25), \
@@ -372,10 +372,10 @@ def tresde8f():
     xml += '</xml>'
     return [xml, position_in_ring, position_in_baix_group, position_in_portacrosses, relations]
 
-def save_tresde8f_relations():
+def save_tresde9f_relations():
     [xml, position_in_ring, position_in_baix_group, \
-         position_in_portacrosses, relations] = tresde8f()
-    f = open('../www/' + pinya_xml_dir + '/tresde8f.pinya.xml', 'w')
+         position_in_portacrosses, relations] = tresde9f()
+    f = open('../www/' + pinya_xml_dir + '/tresde9f.pinya.xml', 'w')
     f.write(xml)
     f.close()
     # from db_interaction import get_db, write_positions, write_relations
@@ -390,5 +390,5 @@ def save_tresde8f_relations():
     # db.commit()
     
 if __name__ == "__main__":
-    save_tresde8f_relations()
-#    print tresde8f()
+    save_tresde9f_relations()
+#    print tresde9f()
