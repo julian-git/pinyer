@@ -1,10 +1,12 @@
 import xml.dom.minidom
 from local_config import pinya_xml_dir, pinya_svg_dir
-from math import sin, cos
+from math import sin, cos, pi
 from local_config import pos_splitter, field_name_splitter
 
 svg = []
 coos = dict()
+
+cids=() #11,77) # print debug info for these
 
 def xml_to_svg(xmlfilename):
     xml_to_svg_impl(xmlfilename)
@@ -54,10 +56,14 @@ def handlePositionGroup(group):
         if child.nodeName == 'position':
             ids += handlePosition(child)
     [translation, angle] = extract_transform(group.getAttribute('transform'))
+    for cid in cids:
+        if cid in ids:
+            print 'posgroup', cid, 'before', coos[cid], translation, angle
     for id in ids: 
         apply_transform(id, translation, angle)
-    if 77 in ids:
-        print 'posgroup', 77, coos[77], translation, angle
+    for cid in cids:
+        if cid in ids:
+            print 'posgroup', cid, 'result', coos[cid], translation, angle
     svg.append('</g>')
 
 def extract_transform(transform):
@@ -72,13 +78,16 @@ def extract_transform(transform):
 
 def apply_transform(id, translation, angle):
     coo = coos[id]
+    if id in cids:
+        print 'apply', translation, angle, 'to', id, coo
     if angle is not None:
-        coo = [coo[0] * cos(angle) + coo[1] * sin(angle), \
-                    - coo[0] * sin(angle) + coo[1] * cos(angle)]
+        alpha = angle * pi/180
+        coo = [coo[0] * cos(alpha) - coo[1] * sin(alpha), \
+                     coo[0] * sin(alpha) + coo[1] * cos(alpha)]
     if translation is not None:
         coo = [coo[0] + translation[0], coo[1] + translation[1]]
-    if id==77:
-        print 'apply', coo
+    if id in cids:
+        print 'result', id, coo
     coos[id] = [round(coo[0],2), round(coo[1], 2)]
     
 def handlePositions(positions):
@@ -96,10 +105,14 @@ def handlePosition(position):
         if child.nodeName == 'label':
             handleLabel(child)
     [translation, angle] = extract_transform(position.getAttribute('transform'))
+    for cid in cids:
+        if cid in ids:
+            print 'before handlePOsition', cid, coos[cid], translation, angle
     for id in ids:
         apply_transform(id, translation, angle)
-    if 77 in ids:
-        print 'handlePOsition', 77, coos[77], translation, angle
+    for cid in cids:
+        if cid in ids:
+            print 'after handlePOsition', cid, coos[cid], translation, angle
     svg.append('</g>')
     return ids
 
@@ -109,7 +122,7 @@ def handleRect(rect):
     id = int(rect.getAttribute('id').split(pos_splitter)[0])
     coos[id] = [float(rect.getAttribute('x')) + float(rect.getAttribute('width'))/2, \
                     float(rect.getAttribute('y')) + float(rect.getAttribute('height'))/2]
-    if id==77:
+    if id in cids:
         print 'handleRect', id, coos[id]
     return id
 
@@ -134,13 +147,10 @@ def handleRelations(relations):
 
 def handleRelation(relation):
     d = []
-    if relation.getAttribute('pos_list') != '77_66':
-        return d
     d.append('<path class="' + relation.getAttribute('pos_type_list') + \
                  '" pos_list="' + relation.getAttribute('pos_list') + '" d="')
     first = True
     for pos in relation.getAttribute('pos_list').split(pos_splitter):
-        print pos, coos[int(pos)]
         if not first:
             d.append('L')
         else:
