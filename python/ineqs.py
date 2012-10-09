@@ -207,11 +207,11 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
                              " >= " + str(rel['rhs']))
 
-        elif rel['relation_type'] == 'abs_tol' or \
+        elif rel['relation_type'] == 'sum_in_interval' or \
                 rel['relation_type'] == 'one_sided': 
             # sum of values is at most rhs in absolute value
             if len(pos_list) == 0:
-                raise RuntimeError('Expected pos_list to be nonempty, in abs_tol')
+                raise RuntimeError('Expected pos_list to be nonempty, in sum_in_interval')
             label = rel['field_names'] + "_" + rel['pos_list'] + ': '
             if 'coeff_list' in rel and rel['coeff_list'] is not None:
                 coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(pos_splitter)]
@@ -229,7 +229,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                         ineq_str += ' '
                     ineq_str += str(coeff) + ' ' + var(c['id'], pos)
                     
-            if rel['relation_type'] == 'abs_tol':
+            if rel['relation_type'] == 'sum_in_interval':
                 target_width = len(pos_list) * aux_data['avg_shoulder_width']
                 ineqs.append(label + ineq_str + " >= " + str(target_width - rel['rhs']))
                 ineqs.append(label + ineq_str + " <= " + str(target_width + rel['rhs']))

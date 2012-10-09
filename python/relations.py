@@ -51,7 +51,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
-    rel0['relation_type'] = 'abs_tol'
+    rel0['relation_type'] = 'sum_in_interval'
     rel0['field_names'] = ''
     rel0['rhs'] = tolerances['width']
     rel0['pos_type_list'] = 'p'
@@ -78,18 +78,19 @@ def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relat
                      ('sense', 'le'), \
                      ('rhs', tolerances['delta_height_c_b']), \
                      ('pos_type_list', 'b_c')])
+
     # first, the relations between the baix and the crosses
     for i in range(bd['number']):
         rel = rel0.copy()
         rel['pos_list'] = \
-            str(position_in_portacrosses[i,1]['xml_id']) + \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + \
             pos_splitter + \
             str(position_in_baix_group[i, 'crossa1']['xml_id']) 
         relations.append(rel)
 
         rel = rel0.copy()
         rel['pos_list'] = \
-            str(position_in_portacrosses[i,1]['xml_id']) + \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + \
             pos_splitter + \
             str(position_in_baix_group[i, 'crossa2']['xml_id']) 
         relations.append(rel)

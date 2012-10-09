@@ -532,160 +532,156 @@
 </text>
 </g>
 </g>
-</g>
-<g id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
-<g id="60" transform="translate(0 0) rotate(0)">
-<rect id="60_rect" class="b" width="20" height="40" x="-10" y="-20">
+<g id="60" transform="translate(30 25) rotate(30)">
+<rect id="60_rect" class="lat" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="60_text" class="b vtext" text-anchor="middle">
+<text id="60_text" class="lat vtext" text-anchor="middle">
 60
 </text>
 </g>
 </g>
-<g id="61" transform="translate(0 30) rotate(90)">
-<rect id="61_rect" class="cr" width="16" height="30" x="-8" y="-15">
+<g id="61" transform="translate(30 -25) rotate(-30)">
+<rect id="61_rect" class="lat" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="61_text" class="cr vtext" text-anchor="middle">
+<text id="61_text" class="lat vtext" text-anchor="middle">
 61
 </text>
 </g>
 </g>
-<g id="62" transform="translate(0 -30) rotate(-90)">
-<rect id="62_rect" class="cr" width="16" height="30" x="-8" y="-15">
+</g>
+<g id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
+<g id="62" transform="translate(0 0) rotate(0)">
+<rect id="62_rect" class="b" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="62_text" class="cr vtext" text-anchor="middle">
+<text id="62_text" class="b vtext" text-anchor="middle">
 62
 </text>
 </g>
 </g>
-<g id="63" transform="translate(-20 0) rotate(0)">
-<rect id="63_rect" class="co" width="16" height="30" x="-8" y="-15">
+<g id="63" transform="translate(0 30) rotate(90)">
+<rect id="63_rect" class="cr" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="63_text" class="co vtext" text-anchor="middle">
+<text id="63_text" class="cr vtext" text-anchor="middle">
 63
 </text>
 </g>
 </g>
-<g id="64" transform="translate(20 0) rotate(0)">
-<rect id="64_rect" class="a" width="16" height="30" x="-8" y="-15">
+<g id="64" transform="translate(0 -30) rotate(-90)">
+<rect id="64_rect" class="cr" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="64_text" class="a vtext" text-anchor="middle">
+<text id="64_text" class="cr vtext" text-anchor="middle">
 64
+</text>
+</g>
+</g>
+<g id="65" transform="translate(-20 0) rotate(0)">
+<rect id="65_rect" class="co" width="16" height="30" x="-8" y="-15">
+</rect>
+<g transform="rotate(90) translate(0 6)">
+<text id="65_text" class="co vtext" text-anchor="middle">
+65
+</text>
+</g>
+</g>
+<g id="66" transform="translate(20 0) rotate(0)">
+<rect id="66_rect" class="a" width="16" height="30" x="-8" y="-15">
+</rect>
+<g transform="rotate(90) translate(0 6)">
+<text id="66_text" class="a vtext" text-anchor="middle">
+66
+</text>
+</g>
+</g>
+<g id="67" transform="translate(30 25) rotate(30)">
+<rect id="67_rect" class="lat" width="16" height="30" x="-8" y="-15">
+</rect>
+<g transform="rotate(90) translate(0 6)">
+<text id="67_text" class="lat vtext" text-anchor="middle">
+67
+</text>
+</g>
+</g>
+<g id="68" transform="translate(30 -25) rotate(-30)">
+<rect id="68_rect" class="lat" width="16" height="30" x="-8" y="-15">
+</rect>
+<g transform="rotate(90) translate(0 6)">
+<text id="68_text" class="lat vtext" text-anchor="middle">
+68
 </text>
 </g>
 </g>
 </g>
 <g id="baixos_gp_2" transform="translate(-20.0 -34.64) rotate(240.0)">
-<g id="65" transform="translate(0 0) rotate(0)">
-<rect id="65_rect" class="b" width="20" height="40" x="-10" y="-20">
+<g id="69" transform="translate(0 0) rotate(0)">
+<rect id="69_rect" class="b" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="65_text" class="b vtext" text-anchor="middle">
-65
-</text>
-</g>
-</g>
-<g id="66" transform="translate(0 30) rotate(90)">
-<rect id="66_rect" class="cr" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="66_text" class="cr vtext" text-anchor="middle">
-66
-</text>
-</g>
-</g>
-<g id="67" transform="translate(0 -30) rotate(-90)">
-<rect id="67_rect" class="cr" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="67_text" class="cr vtext" text-anchor="middle">
-67
-</text>
-</g>
-</g>
-<g id="68" transform="translate(-20 0) rotate(0)">
-<rect id="68_rect" class="co" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="68_text" class="co vtext" text-anchor="middle">
-68
-</text>
-</g>
-</g>
-<g id="69" transform="translate(20 0) rotate(0)">
-<rect id="69_rect" class="a" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="69_text" class="a vtext" text-anchor="middle">
+<text id="69_text" class="b vtext" text-anchor="middle">
 69
 </text>
 </g>
 </g>
-</g>
-<g id="portacrosses_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
-<g id="70" transform="translate(0 0) rotate(0)">
-<rect id="70_rect" class="pc" width="20" height="40" x="-10" y="-20">
+<g id="70" transform="translate(0 30) rotate(90)">
+<rect id="70_rect" class="cr" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="70_text" class="pc vtext" text-anchor="middle">
+<text id="70_text" class="cr vtext" text-anchor="middle">
 70
 </text>
 </g>
 </g>
-<g id="71" transform="translate(-10 -45) rotate(-30)">
-<rect id="71_rect" class="pc" width="16" height="30" x="-8" y="-15">
+<g id="71" transform="translate(0 -30) rotate(-90)">
+<rect id="71_rect" class="cr" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="71_text" class="pc vtext" text-anchor="middle">
+<text id="71_text" class="cr vtext" text-anchor="middle">
 71
 </text>
 </g>
 </g>
-<g id="72" transform="translate(-10 45) rotate(30)">
-<rect id="72_rect" class="pc" width="16" height="30" x="-8" y="-15">
+<g id="72" transform="translate(-20 0) rotate(0)">
+<rect id="72_rect" class="co" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="72_text" class="pc vtext" text-anchor="middle">
+<text id="72_text" class="co vtext" text-anchor="middle">
 72
 </text>
 </g>
 </g>
-</g>
-<g id="portacrosses_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
-<g id="73" transform="translate(0 0) rotate(0)">
-<rect id="73_rect" class="pc" width="20" height="40" x="-10" y="-20">
+<g id="73" transform="translate(20 0) rotate(0)">
+<rect id="73_rect" class="a" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="73_text" class="pc vtext" text-anchor="middle">
+<text id="73_text" class="a vtext" text-anchor="middle">
 73
 </text>
 </g>
 </g>
-<g id="74" transform="translate(-10 -45) rotate(-30)">
-<rect id="74_rect" class="pc" width="16" height="30" x="-8" y="-15">
+<g id="74" transform="translate(30 25) rotate(30)">
+<rect id="74_rect" class="lat" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="74_text" class="pc vtext" text-anchor="middle">
+<text id="74_text" class="lat vtext" text-anchor="middle">
 74
 </text>
 </g>
 </g>
-<g id="75" transform="translate(-10 45) rotate(30)">
-<rect id="75_rect" class="pc" width="16" height="30" x="-8" y="-15">
+<g id="75" transform="translate(30 -25) rotate(-30)">
+<rect id="75_rect" class="lat" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="75_text" class="pc vtext" text-anchor="middle">
+<text id="75_text" class="lat vtext" text-anchor="middle">
 75
 </text>
 </g>
 </g>
 </g>
-<g id="portacrosses_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
+<g id="portacrosses_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
 <g id="76" transform="translate(0 0) rotate(0)">
 <rect id="76_rect" class="pc" width="20" height="40" x="-10" y="-20">
 </rect>
@@ -695,8 +691,10 @@
 </text>
 </g>
 </g>
-<g id="77" transform="translate(-10 -45) rotate(-30)">
-<rect id="77_rect" class="pc" width="16" height="30" x="-8" y="-15">
+</g>
+<g id="portacrosses_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
+<g id="77" transform="translate(0 0) rotate(0)">
+<rect id="77_rect" class="pc" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="77_text" class="pc vtext" text-anchor="middle">
@@ -704,8 +702,10 @@
 </text>
 </g>
 </g>
-<g id="78" transform="translate(-10 45) rotate(30)">
-<rect id="78_rect" class="pc" width="16" height="30" x="-8" y="-15">
+</g>
+<g id="portacrosses_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
+<g id="78" transform="translate(0 0) rotate(0)">
+<rect id="78_rect" class="pc" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="78_text" class="pc vtext" text-anchor="middle">
@@ -782,11 +782,11 @@
 <path class="p" pos_list="12" d="M86.6,-50.0"/>
 <path class="p_p" pos_list="29_30" d="M95.76,-80.35L117.46,-42.75"/>
 <path class="p_p_p" pos_list="52_53_54" d="M106.07,-106.07L129.9,-75.0L144.89,-38.82"/>
-<path class="b_c" pos_list="71_56" d="M68.97,29.46L40.0,30.0"/>
-<path class="b_c" pos_list="71_57" d="M68.97,29.46L40.0,-30.0"/>
-<path class="b_c" pos_list="74_61" d="M-60.0,45.0L-45.98,19.64"/>
-<path class="b_c" pos_list="74_62" d="M-60.0,45.0L5.98,49.64"/>
-<path class="b_c" pos_list="77_66" d="M-8.97,-74.46L5.98,-49.64"/>
-<path class="b_c" pos_list="77_67" d="M-8.97,-74.46L-45.98,-19.64"/>
+<path class="b_c" pos_list="55_56" d="M40.0,0.0L40.0,30.0"/>
+<path class="b_c" pos_list="55_57" d="M40.0,0.0L40.0,-30.0"/>
+<path class="b_c" pos_list="62_63" d="M-20.0,34.64L-45.98,19.64"/>
+<path class="b_c" pos_list="62_64" d="M-20.0,34.64L5.98,49.64"/>
+<path class="b_c" pos_list="69_70" d="M-20.0,-34.64L5.98,-49.64"/>
+<path class="b_c" pos_list="69_71" d="M-20.0,-34.64L-45.98,-19.64"/>
 </g>
 </svg>

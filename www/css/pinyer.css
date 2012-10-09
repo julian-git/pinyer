@@ -27,7 +27,8 @@ rect.cr { fill: yellow;    }  /* crosses       */
 rect.co { fill: orange;    }  /* contraforts   */
 rect.b  { fill: red;       }  /* baixos        */
 rect.a  { fill: brown;     }  /* agulles       */
-rect.pc { fill: teal;     }  /* portacrosses  */
+rect.pc { fill: teal;      }  /* portacrosses  */
+rect.lat{ fill: darkblue;  }  /* lateral       */
 rect.design { stroke: green;}
 
 

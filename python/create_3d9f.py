@@ -191,6 +191,39 @@ def agulla(i, j, bd, pibg, xml, xml_id, coo_of):
     coo_of[xml_id] = [x,y]
     return [xml, xml_id, pibg, coo_of]
 
+def lateral(i, j, bd, pibg, xml, xml_id, coo_of):
+    """
+    make the rectangle and text of a lateral
+    """
+    xml_id = xml_id + 1
+    [x,y] = bd['lateral_pos']
+    alpha = bd['lateral_rect_dim']['angle']
+    if j[-1] == '2':
+        y = -y
+        alpha = -alpha
+    xml += xml_position.substitute(_x=x, \
+                                   _y=y, \
+                                   _rx = bd['lateral_rect_dim']['x'], \
+                                   _ry = bd['lateral_rect_dim']['y'], \
+                                   _rw = bd['lateral_rect_dim']['w'], \
+                                   _rh = bd['lateral_rect_dim']['h'], \
+                                   _angle = alpha, \
+                                   _xml_id=xml_id,\
+                                   #_xml_text = str([i,j]), \
+                                   _xml_text=xml_id, \
+                                   _class='lat', \
+                                   _name=xml_id, \
+                                   _index_props=[i,j])
+    pibg[i,j] = dict([('xml_id', xml_id), \
+                          ('role', 'lateral'), \
+                          #('xml_text', 'crossa'), \
+                          ('xml_text', xml_id), \
+                          ('x', x), \
+                          ('y', y), \
+                          ('angle', alpha)])
+    coo_of[xml_id] = [x,y]
+    return [xml, xml_id, pibg, coo_of]
+
 def baix_group(bd, i, xml, xml_id, pibg, coo_of):
     """
     the group consists of the baix, two crosses, one contrafort and an agulla
@@ -200,6 +233,8 @@ def baix_group(bd, i, xml, xml_id, pibg, coo_of):
     [xml, xml_id, pibg, coo_of] = crossa(i, 'crossa2', bd, pibg, xml, xml_id, coo_of)
     [xml, xml_id, pibg, coo_of] = contrafort(i, 'contrafort', bd, pibg, xml, xml_id, coo_of)
     [xml, xml_id, pibg, coo_of] = agulla(i, 'agulla', bd, pibg, xml, xml_id, coo_of)
+    [xml, xml_id, pibg, coo_of] = lateral(i, 'lateral1', bd, pibg, xml, xml_id, coo_of)
+    [xml, xml_id, pibg, coo_of] = lateral(i, 'lateral2', bd, pibg, xml, xml_id, coo_of)
     return [xml, xml_id, pibg, coo_of]
 
 def baixos(bd, xml, xml_id, coo_of):
@@ -258,8 +293,8 @@ def portacrosses_group(pcd, i, xml, xml_id, pipcg, coo_of):
     make a group of one portacrosses (pc_c) and two laterals (pc_i, pc_d)
     """
     [xml, xml_id, pipcg, coo_of] = pc(i, 0, 'pc_c', pcd, pipcg, xml, xml_id, coo_of)
-    [xml, xml_id, pipcg, coo_of] = pc(i, 1, 'pc_i', pcd, pipcg, xml, xml_id, coo_of)
-    [xml, xml_id, pipcg, coo_of] = pc(i, 2, 'pc_d', pcd, pipcg, xml, xml_id, coo_of)
+#    [xml, xml_id, pipcg, coo_of] = pc(i, 1, 'pc_i', pcd, pipcg, xml, xml_id, coo_of)
+#    [xml, xml_id, pipcg, coo_of] = pc(i, 2, 'pc_d', pcd, pipcg, xml, xml_id, coo_of)
     return [xml, xml_id, pipcg, coo_of]
 
 def portacrosses(pcd, xml, xml_id, coo_of):
@@ -302,6 +337,8 @@ def tresde9f():
     bh2 = 20 # half the height of a baixos rectangle
     cw2 = 8  # half the width of a crosses rectangle
     ch2 = 15 # half the height of a crosses rectangle
+    lw2 = 8  # half the width of a lateral rectangle
+    lh2 = 15 # half the height of a lateral rectangle
     bd = dict([('number', 3), \
                    ('radius', 40), \
                    ('baix_pos', \
@@ -323,7 +360,12 @@ def tresde9f():
                         [20,0]), \
                    ('agulla_rect_dim', \
                         dict([('x', -cw2), ('y', -ch2), \
-                                  ('w', 2*cw2), ('h', 2*ch2), ('angle', 0)])) \
+                                  ('w', 2*cw2), ('h', 2*ch2), ('angle', 0)])), \
+                   ('lateral_pos', \
+                        [30,25]), \
+                   ('lateral_rect_dim', \
+                        dict([('x', -lw2), ('y', -lh2), \
+                                  ('w', 2*lw2), ('h', 2*lh2), ('angle', 30)])) \
                    ])
 
     # data for the portacrosses 
