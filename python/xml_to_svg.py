@@ -53,10 +53,11 @@ def handlePositionGroup(group):
     for child in group.childNodes:
         if child.nodeName == 'position':
             ids += handlePosition(child)
-    transform = group.getAttribute('transform')
-    [translation, angle] = extract_transform(transform)
+    [translation, angle] = extract_transform(group.getAttribute('transform'))
     for id in ids: 
         apply_transform(id, translation, angle)
+    if 77 in ids:
+        print 'posgroup', 77, coos[77], translation, angle
     svg.append('</g>')
 
 def extract_transform(transform):
@@ -76,6 +77,8 @@ def apply_transform(id, translation, angle):
                     - coo[0] * sin(angle) + coo[1] * cos(angle)]
     if translation is not None:
         coo = [coo[0] + translation[0], coo[1] + translation[1]]
+    if id==77:
+        print 'apply', coo
     coos[id] = [round(coo[0],2), round(coo[1], 2)]
     
 def handlePositions(positions):
@@ -92,10 +95,11 @@ def handlePosition(position):
             ids.append(handleRect(child))
         if child.nodeName == 'label':
             handleLabel(child)
-    transform = position.getAttribute('transform')
-    [translation, angle] = extract_transform(transform)
+    [translation, angle] = extract_transform(position.getAttribute('transform'))
     for id in ids:
         apply_transform(id, translation, angle)
+    if 77 in ids:
+        print 'handlePOsition', 77, coos[77], translation, angle
     svg.append('</g>')
     return ids
 
@@ -103,8 +107,10 @@ def handleRect(rect):
     printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
     svg.append('</rect>')
     id = int(rect.getAttribute('id').split(pos_splitter)[0])
-    coos[id] = [float(rect.getAttribute('x')), \
-                    float(rect.getAttribute('y'))]
+    coos[id] = [float(rect.getAttribute('x')) + float(rect.getAttribute('width'))/2, \
+                    float(rect.getAttribute('y')) + float(rect.getAttribute('height'))/2]
+    if id==77:
+        print 'handleRect', id, coos[id]
     return id
 
 def handleLabel(label):
@@ -128,10 +134,13 @@ def handleRelations(relations):
 
 def handleRelation(relation):
     d = []
+    if relation.getAttribute('pos_list') != '77_66':
+        return d
     d.append('<path class="' + relation.getAttribute('pos_type_list') + \
                  '" pos_list="' + relation.getAttribute('pos_list') + '" d="')
     first = True
     for pos in relation.getAttribute('pos_list').split(pos_splitter):
+        print pos, coos[int(pos)]
         if not first:
             d.append('L')
         else:
