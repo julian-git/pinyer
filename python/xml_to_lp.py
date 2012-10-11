@@ -3,31 +3,22 @@ from local_config import pinya_dir
 from math import sin, cos, pi
 from local_config import pos_splitter, field_name_splitter
 
-svg = []
+lp = []
 coos = dict()
 
 cids=() #11,77) # print debug info for these
 
-def xml_to_svg(xmlfilename):
-    xml_to_svg_impl(xmlfilename)
-    return '\n'.join(svg)
+def xml_to_lp(xmlfilename):
+    xml_to_lp_impl(xmlfilename)
+    return '\n'.join(lp)
 
-
-def printAttr(tag, elem, attr_list):
-    res = []
-    res.append('<' + tag)
-    for a in attr_list:
-        res.append(' ' + a + '="' + elem.getAttribute(a) + '"')
-    res.append('>')
-    svg.append(''.join(res))
-
-def xml_to_svg_impl(xmlfilename):
+def xml_to_lp_impl(xmlfilename):
     f = open(xmlfilename, 'r')
     dom = xml.dom.minidom.parseString(f.read())
     handleXML(dom.documentElement)
 
 def handleXML(xml):
-    printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'))
+    printAttr('lp', xml, ('xmlns', 'xmlns:xlink', 'viewBox'))
     for child in xml.childNodes:
         if child.nodeName == 'title':
             handleTitle(child)
@@ -35,19 +26,19 @@ def handleXML(xml):
             handlePinya(child)
         if child.nodeName == 'relations':
             handleRelations(child)
-    svg.append('</svg>')
+    lp.append('</lp>')
 
 def handleTitle(titles):
     pass
 
 def handlePinya(pinya):
-    svg.append('<g id="pinya">')
+    lp.append('<g id="pinya">')
     for child in pinya.childNodes:
         if child.nodeName == 'position_group':
             handlePositionGroup(child)
         elif child.nodeName == 'position':
             handlePosition(child)
-    svg.append('</g>')
+    lp.append('</g>')
 
 def handlePositionGroup(group):
     ids = []
@@ -64,7 +55,7 @@ def handlePositionGroup(group):
     for cid in cids:
         if cid in ids:
             print 'posgroup', cid, 'result', coos[cid], translation, angle
-    svg.append('</g>')
+    lp.append('</g>')
 
 def extract_transform(transform):
     if transform is None:
@@ -113,12 +104,12 @@ def handlePosition(position):
     for cid in cids:
         if cid in ids:
             print 'after handlePOsition', cid, coos[cid], translation, angle
-    svg.append('</g>')
+    lp.append('</g>')
     return ids
 
 def handleRect(rect):
     printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
-    svg.append('</rect>')
+    lp.append('</rect>')
     id = int(rect.getAttribute('id').split(pos_splitter)[0])
     coos[id] = [float(rect.getAttribute('x')) + float(rect.getAttribute('width'))/2, \
                     float(rect.getAttribute('y')) + float(rect.getAttribute('height'))/2]
@@ -131,19 +122,19 @@ def handleLabel(label):
     for child in label.childNodes:
         if child.nodeName == 'text':
             handleText(child)
-    svg.append('</g>')
+    lp.append('</g>')
 
 def handleText(text):
     printAttr('text', text, ('id', 'class', 'text-anchor'))
-    svg.append(getText(text.childNodes))
-    svg.append('</text>')
+    lp.append(getText(text.childNodes))
+    lp.append('</text>')
 
 def handleRelations(relations):
-    svg.append('<g id="relations">')
+    lp.append('<g id="relations">')
     for child in relations.childNodes:
         if child.nodeName == 'relation':
             handleRelation(child)
-    svg.append('</g>')
+    lp.append('</g>')
 
 def handleRelation(relation):
     d = []
@@ -158,7 +149,7 @@ def handleRelation(relation):
             first = False
         d.append(str(coos[int(pos)][0]) + ',' + str(coos[int(pos)][1]))
     d.append('"/>')
-    svg.append(''.join(d))
+    lp.append(''.join(d))
 
 def getText(nodelist):
     rc = []
@@ -167,14 +158,14 @@ def getText(nodelist):
             rc.append(node.data)
     return ''.join(rc)
 
-def write_svg(pinya_name):
-    f = open('../www/' + pinya_dir + '/' + pinya_name + '/pinya.svg', 'w')
-    f.write(xml_to_svg('../www/' + pinya_dir + '/' + pinya_name + '/pinya.xml'))
+def write_lp(pinya_name):
+    f = open('../www/' + pinya_dir + '/' + pinya_name + '.pinya.lp', 'w')
+    f.write(xml_to_lp('../www/' + pinya_dir + '/' + pinya_name + '.pinya.xml'))
 
 
 if __name__=='__main__':
-    write_svg('cvg.3de9f')
+    write_lp('cvg.3de9f')
 #    import cProfile
-#    cProfile.run('run()', 'xml_to_svg.stats')
+#    cProfile.run('run()', 'xml_to_lp.stats')
 
 

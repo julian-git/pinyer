@@ -1,7 +1,7 @@
 from math import cos, sin, pi
 from xml_common import xml_position, xml_head
 from relations import *
-from local_config import pinya_xml_dir
+from local_config import pinya_dir
 
 def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
     """
@@ -414,23 +414,12 @@ def tresde9f():
     xml += '</xml>'
     return [xml, position_in_ring, position_in_baix_group, position_in_portacrosses, relations]
 
-def save_tresde9f_relations():
+def save_tresde9f_xml():
     [xml, position_in_ring, position_in_baix_group, \
          position_in_portacrosses, relations] = tresde9f()
-    f = open('../www/' + pinya_xml_dir + '/tresde9f.pinya.xml', 'w')
+    f = open('../www/' + pinya_dir + '/cvg.3de9f/pinya.xml', 'w')
     f.write(xml)
     f.close()
-    # from db_interaction import get_db, write_positions, write_relations
-    # db = get_db()
-    # c = db.cursor()
-    # c.execute("delete from castell_position where castell_type_id = 3")
-    # c.execute("delete from castell_relation where castell_type_id = 3")
-    # write_positions(db, 3, position_in_ring)
-    # write_positions(db, 3, position_in_baix_group)
-    # write_positions(db, 3, position_in_portacrosses)
-    # write_relations(db, 3, relations)
-    # db.commit()
     
 if __name__ == "__main__":
-    save_tresde9f_relations()
-#    print tresde9f()
+    save_tresde9f_xml()

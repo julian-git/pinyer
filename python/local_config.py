@@ -36,5 +36,4 @@ tolerances = dict([('height', 5), \
                        ])
 
 # the directories used for pinya xml and svg files
-pinya_xml_dir = 'pinyas/xml/'
-pinya_svg_dir = 'pinyas/svg/'
+pinya_dir = 'pinyas/'
