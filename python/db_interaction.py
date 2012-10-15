@@ -50,20 +50,15 @@ def get_castell(db, castell_type_id):
     return dict(zip(('name', 'description'), res))
 
 
-def get_castellers(db, colla_id, castell_type_id, pos_id):
-    """
-    returns all castellers of the given colla that are present
-    and can be employed at the given position pos
-    """
+def castellers_of_type(db, colla_id_name, role):
     c = db.cursor()
     c.execute("""
 select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, axle_height, weight, strength 
 from casteller
 left join casteller_role on casteller_role.casteller_id = casteller.id
-left join castell_position on casteller_role.role = castell_position.role 
 left join casteller_colla on casteller_colla.casteller_id = casteller.id
-where is_present=true and casteller_colla.colla_id = %s and castell_position.castell_type_id = %s and castell_position.svg_id = %s 
-""", (colla_id, castell_type_id, pos_id,))
+where casteller_colla.colla_id_name = %s and casteller_role.role = %s 
+""", (colla_id_name, role,))
     res = c.fetchall()
     ans = []
     for row in res:
@@ -71,9 +66,8 @@ where is_present=true and casteller_colla.colla_id = %s and castell_position.cas
         new_ans['id'] = int(new_ans['id'])
         ans.append(new_ans)
     if len(ans)==0:
-        raise RuntimeError('No castellers found for colla_id=' + str(colla_id) + \
-                               ', castell_type=' + str(castell_type_id) + \
-                               ', pos_id=' + str(pos_id))
+        raise RuntimeError('No castellers found for colla_id_name=' + str(colla_id_name) + \
+                               ', casteller_role=' + str(role))
     return ans
 
 

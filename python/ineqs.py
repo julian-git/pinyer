@@ -48,21 +48,6 @@ def combine_vars(from_pos_id, to_pos_id, castellers_in_position, field_names):
         " - " + sum_vars(to_pos_id, castellers_in_position, field_names[1], " - ")
 
 
-def objective_function(castellers_in_position):
-    obj = dict()
-    first_term = True
-    out = ''
-    for pos_id, castellers in castellers_in_position.iteritems():
-        for casteller in castellers:
-            v = var(casteller['id'], pos_id)
-            obj[v] = casteller['strength']
-            if first_term:
-                first_term = False
-            else:
-                out += ' + '
-            out += str(obj[v]) + ' ' + str(v)
-    return obj
-    
 
 def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, ineqs):
     """ 
@@ -89,8 +74,8 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
                 pos_of_casteller[casteller_id] = []
             pos_of_casteller[casteller_id].append(pos_id)
         rel = " = 1"
-        if not is_essential_pos[pos_id]: # in this case, allow leaving the position empty
-            rel = " <= 1"
+#        if not is_essential_pos[pos_id]: # in this case, allow leaving the position empty
+#            rel = " <= 1"
         ineq = "pos" + str(pos_id) + ": " + position_ineq + rel
         ineqs.append(ineq)
 
@@ -242,7 +227,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             raise RuntimeError('relation of type ' + rel['relation_type'] + ' not implemented!')
     return [ineqs, obj]
 
-def incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
+def incompatibility_ineqs(db, colla_id_name, pos_of_casteller, relations, ineqs):
     """
     the database contains pairs of incompatible castellers in the colla.
     here we create the inequalities that express that no two incompatible
@@ -250,7 +235,7 @@ def incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
     """
     if DoLogging:
         print "write_incompatibility_ineqs"
-    incompatible_castellers = get_incompatible_castellers(db, colla_id)
+    incompatible_castellers = get_incompatible_castellers(db, colla_id_name)
     for pair in incompatible_castellers:
         p0 = int(pair[0])
         p1 = int(pair[1])
@@ -268,7 +253,7 @@ def incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
                     ineqs.append(label + var(p0, tpi) + " + " + var(p1, fpi) + " <= 1")
     return ineqs
 
-def ip_ineqs(prescribed, castell_type_id, colla_id):
+def ip_ineqs(castellers_in_position):
     """
     Create the linear inequalities that define the integer program to be solved.
     Fill the dictionaries castellers_in_position, position_data and obj_val.
@@ -277,15 +262,6 @@ def ip_ineqs(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "ip_ineqs"
 
-    castellers_in_position = dict()
-    is_essential_pos = dict()
-
-    db = get_db()
-    position_data = get_positions(db, castell_type_id)
-
-    for pos_id, pos in position_data.iteritems():
-        is_essential_pos[pos_id] = pos['is_essential']
-        castellers_in_position[pos_id] = get_castellers(db, colla_id, castell_type_id, pos_id)
 
     obj = objective_function(castellers_in_position)
 
@@ -293,10 +269,10 @@ def ip_ineqs(prescribed, castell_type_id, colla_id):
     [ineqs, pos_of_casteller] = \
         castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, ineqs)
 
-    relations = get_relations(db, castell_type_id)
-    aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id))])
+    relations = get_relations(db, castell_type_id_name)
+    aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id_name))])
 
     [ineqs, obj] = relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj)
-    ineqs = incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs)
+    ineqs = incompatibility_ineqs(db, colla_id_name, pos_of_casteller, relations, ineqs)
 
     return [castellers_in_position, obj, ineqs, relations]

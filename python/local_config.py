@@ -22,6 +22,10 @@ lp_log_filename = '/tmp/lp_log.txt'
 numeric_splitter = '_'
 text_splitter = '~'
 
+# roles
+pos_types = ('crossa', 'baix', 'contrafort', 'vent', 'ma', 'agulla', 'portacrosses', 'pinya')
+
+
 # Print log information?
 DoLogging = True
 

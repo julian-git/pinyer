@@ -20,7 +20,7 @@ xml_head = Template("""
 """)
 
 xml_position = Template("""
-<position id="${_xml_id}" transform="translate(${_x} ${_y}) rotate(${_angle})">
+<position id="${_xml_id}" transform="translate(${_x} ${_y}) rotate(${_angle})" essential="true">
   <rect id="${_xml_id}_rect" class="${_class}" width="${_rw}" height="${_rh}" x="${_rx}" y="${_ry}"/>
   <label transform="rotate(90) translate(0 6)">
   <text id="${_xml_id}_text" class="${_class} vtext" text-anchor="middle">${_xml_text}</text>
