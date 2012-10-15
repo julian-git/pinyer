@@ -6,7 +6,7 @@ pinyer-db.png: pinyer.sql
 database-definition.up-to-date: pinyer.sql init-cvg.sql 
 	mysql --default-character-set=utf8 -u pinyer -e "drop database pinyer; create database pinyer; use pinyer; source pinyer.sql; source init-cvg.sql;" 
 	touch database-definition.up-to-date
-	python ../python/create_pinya.py
+	python ../python/create_3de9f.py
 
 database-dummy-entries.up-to-date: pinyer_dummy_entries.sql
 	mysql --default-character-set=utf8 -u pinyer -e "use pinyer; source pinyer_dummy_entries.sql;"

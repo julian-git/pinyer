@@ -53,7 +53,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
     # next, the relations for the shoulder_width
     rel0['relation_type'] = 'sum_in_interval'
     rel0['field_names'] = ''
-    rel0['rhs'] = tolerances['width']
+    rel0['rhs_tol'] = tolerances['width']
     rel0['pos_type_list'] = 'p'
     rel0['coeff_list'] = '1'
     for j in range(2*rd['period']):

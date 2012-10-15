@@ -1,7 +1,7 @@
 
 <xml xmlns="http://www.w3.org/2000/xml" xmlns:xlink="http://www.w3.org/1999/xlink"
  viewBox="-190 -190 380 380"> 
-<title>Tres de nou amb folre</title>
+<title>Tres de vuit amb folre</title>
 <pinya>
 <position id="1" transform="translate(100.0 0.0) rotate(0.0)">
   <rect id="1_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0"/>
@@ -555,6 +555,7 @@
 </position>
 </position_group>
 </pinya>
+
 <relations id="rels">
 <relation field_names="shoulder_height~shoulder_height" pos_list="1_13" sense="le" rhs="5" coeff_list="1_1" pos_type_list="ma_ma" relation_type="zero_or_tol"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="13_31" sense="le" rhs="5" coeff_list="1_1" pos_type_list="ma_ma" relation_type="zero_or_tol"/>
@@ -604,24 +605,24 @@
 <relation pos_list="29_53" sense="le" field_names="shoulder_height~shoulder_height" coeff_list="1_1" rhs="5" relation_type="zero_or_tol" pos_type_list="p_p"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="30_53" sense="le" rhs="5" coeff_list="1_1" pos_type_list="p_p" relation_type="zero_or_tol"/>
 <relation pos_list="30_54" sense="le" field_names="shoulder_height~shoulder_height" coeff_list="1_1" rhs="5" relation_type="zero_or_tol" pos_type_list="p_p"/>
-<relation field_names="shoulder_width" pos_list="2" sense="le" rhs="6" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width" pos_list="14_15" sense="le" rhs="6" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width~shoulder_width" pos_list="32_33_34" sense="le" rhs="6" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width" pos_list="4" sense="le" rhs="6" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width" pos_list="17_18" sense="le" rhs="6" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width~shoulder_width" pos_list="36_37_38" sense="le" rhs="6" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width" pos_list="6" sense="le" rhs="6" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width" pos_list="20_21" sense="le" rhs="6" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width~shoulder_width" pos_list="40_41_42" sense="le" rhs="6" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width" pos_list="8" sense="le" rhs="6" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width" pos_list="23_24" sense="le" rhs="6" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width~shoulder_width" pos_list="44_45_46" sense="le" rhs="6" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width" pos_list="10" sense="le" rhs="6" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width" pos_list="26_27" sense="le" rhs="6" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width~shoulder_width" pos_list="48_49_50" sense="le" rhs="6" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width" pos_list="12" sense="le" rhs="6" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width" pos_list="29_30" sense="le" rhs="6" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval"/>
-<relation field_names="shoulder_width~shoulder_width~shoulder_width" pos_list="52_53_54" sense="le" rhs="6" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval"/>
+<relation rhs="5" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval" pos_list="2" sense="le" field_names="shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval" pos_list="14_15" sense="le" field_names="shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval" pos_list="32_33_34" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval" pos_list="4" sense="le" field_names="shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval" pos_list="17_18" sense="le" field_names="shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval" pos_list="36_37_38" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval" pos_list="6" sense="le" field_names="shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval" pos_list="20_21" sense="le" field_names="shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval" pos_list="40_41_42" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval" pos_list="8" sense="le" field_names="shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval" pos_list="23_24" sense="le" field_names="shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval" pos_list="44_45_46" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval" pos_list="10" sense="le" field_names="shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval" pos_list="26_27" sense="le" field_names="shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval" pos_list="48_49_50" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1" pos_type_list="p" relation_type="sum_in_interval" pos_list="12" sense="le" field_names="shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" pos_type_list="p_p" relation_type="sum_in_interval" pos_list="29_30" sense="le" field_names="shoulder_width~shoulder_width" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" pos_type_list="p_p_p" relation_type="sum_in_interval" pos_list="52_53_54" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" rhs_tol="6"/>
 <relation field_names="shoulder_height~axle_height" pos_list="55_56" sense="le" rhs="5" coeff_list="1_-1" pos_type_list="b_c" relation_type="one_sided"/>
 <relation field_names="shoulder_height~axle_height" pos_list="55_57" sense="le" rhs="5" coeff_list="1_-1" pos_type_list="b_c" relation_type="one_sided"/>
 <relation field_names="shoulder_height~axle_height" pos_list="62_63" sense="le" rhs="5" coeff_list="1_-1" pos_type_list="b_c" relation_type="one_sided"/>

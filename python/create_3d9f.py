@@ -407,7 +407,7 @@ def tresde9f():
     relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
     relations = baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations)
 
-    xml += '<relations id="rels">\n'    
+    xml += '\n<relations id="rels">\n'    
     xml += relations_xml(relations, coo_of)
     xml += '</relations>\n'
 

@@ -40,7 +40,12 @@ def handleRelation(relation):
     field_names = relation.getAttribute('field_names').split(text_splitter)
     pos_list = relation.getAttribute('pos_list').split(numeric_splitter)
     coeff_list = relation.getAttribute('coeff_list').split(numeric_splitter)
-    
+    relation_type = relation.getAttribute('relation_type')
+    sense = relation.getAttribute('sense')
+
+        
+
+    rhs = relation.getAttribute('rhs')
 
     d = []
     d.append('<path class="' + relation.getAttribute('pos_type_list') + \
