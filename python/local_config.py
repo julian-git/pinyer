@@ -19,8 +19,8 @@ lp_solution_filename = '/tmp/solution.sol'
 lp_log_filename = '/tmp/lp_log.txt'
 
 # internal constants
-pos_splitter = '_'
-field_name_splitter = '~'
+numeric_splitter = '_'
+text_splitter = '~'
 
 # Print log information?
 DoLogging = True

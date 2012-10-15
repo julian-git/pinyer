@@ -1,7 +1,7 @@
 import xml.dom.minidom
 from local_config import pinya_dir
 from math import sin, cos, pi
-from local_config import pos_splitter, field_name_splitter
+from local_config import numeric_splitter
 
 svg = []
 coos = dict()
@@ -119,7 +119,7 @@ def handlePosition(position):
 def handleRect(rect):
     printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
     svg.append('</rect>')
-    id = int(rect.getAttribute('id').split(pos_splitter)[0])
+    id = int(rect.getAttribute('id').split(numeric_splitter)[0])
     coos[id] = [float(rect.getAttribute('x')) + float(rect.getAttribute('width'))/2, \
                     float(rect.getAttribute('y')) + float(rect.getAttribute('height'))/2]
     if id in cids:
@@ -150,7 +150,7 @@ def handleRelation(relation):
     d.append('<path class="' + relation.getAttribute('pos_type_list') + \
                  '" pos_list="' + relation.getAttribute('pos_list') + '" d="')
     first = True
-    for pos in relation.getAttribute('pos_list').split(pos_splitter):
+    for pos in relation.getAttribute('pos_list').split(numeric_splitter):
         if not first:
             d.append('L')
         else:

@@ -1,7 +1,7 @@
 from local_config import \
     UseCBC, DoLogging, DoSolve, \
     lp_problem_filename, lp_solution_filename, lp_log_filename, \
-    pos_splitter, field_name_splitter
+    numeric_splitter, text_splitter
 from db_interaction import get_db
 from ineqs import ip_ineqs
 from subprocess import call 
@@ -82,8 +82,8 @@ def read_solved_positions(castellers_in_position):
 def relation_values_from_solution(relations, sol):
     rel_val = dict()
     for rel in relations:
-        positions = rel['pos_list'].split(pos_splitter)
-        prop = rel['field_names'].split(field_name_splitter)
+        positions = rel['pos_list'].split(numeric_splitter)
+        prop = rel['field_names'].split(text_splitter)
         if len(positions) != len(prop):
             print "positions = ", positions
             print "prop = ", prop 

@@ -1,5 +1,5 @@
 from db_interaction import *
-from local_config import DoLogging, pos_splitter, field_name_splitter
+from local_config import DoLogging, numeric_splitter, text_splitter
 
 vars = dict()
 
@@ -136,8 +136,8 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
         print "write_relation_ineqs"
 
     for rel in relations:
-        pos_list = [int(p) for p in rel['pos_list'].split(pos_splitter)]
-        field_names = rel['field_names'].split(field_name_splitter)
+        pos_list = [int(p) for p in rel['pos_list'].split(numeric_splitter)]
+        field_names = rel['field_names'].split(text_splitter)
         fpi = int(pos_list[0])
         if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
             tpi = int(pos_list[1])
@@ -178,7 +178,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
             #   x + M y_tpi <= tolerance + M
             #   x - M y_tpi >= -M
             #
-            field_names = rel['field_names'].split(field_name_splitter);
+            field_names = rel['field_names'].split(text_splitter);
             if len(field_names) != 2:
                 raise RuntimeError('should have exactly two field names in "' + rel['field_names'] + '"')
             x = combine_vars(fpi, tpi, castellers_in_position, field_names)
@@ -201,7 +201,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
         elif rel['relation_type'] == 'val_tol': 
             # Ma can support segon:
             # value of field_names at position is at least fparam
-            if rel['field_names'].find(field_name_splitter) > -1:
+            if rel['field_names'].find(text_splitter) > -1:
                 raise RuntimeError('Expected only one property in ' + rel['field_names']) 
             label = rel['field_names'] + "_" + str(fpi) + ": "
             ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
@@ -214,7 +214,7 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
                 raise RuntimeError('Expected pos_list to be nonempty, in sum_in_interval')
             label = rel['field_names'] + "_" + rel['pos_list'] + ': '
             if 'coeff_list' in rel and rel['coeff_list'] is not None:
-                coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(pos_splitter)]
+                coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(numeric_splitter)]
             else:
                 coeff_list = [1 for p in pos_list]
             ineq_str = ''
@@ -259,7 +259,7 @@ def incompatibility_ineqs(db, colla_id, pos_of_casteller, relations, ineqs):
         positions.extend(pos_of_casteller[p1])
         positions = set(positions)
         for rel in relations:
-            pos_list = rel['pos_list'].split(pos_splitter)
+            pos_list = rel['pos_list'].split(numeric_splitter)
             if rel['relation_type'] == 1 and len(pos_list)>=2:
                 fpi = pos_list[0]
                 tpi = pos_list[1]
