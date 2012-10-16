@@ -29,7 +29,7 @@ def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
                     c = 'ma'  # Ma
                     role = 'ma'
                 else:
-                    c = 'vt'  # Vent
+                    c = 'vent'  # Vent
                     role = 'vent'
             else:
                 c = 'q'       # Quesito

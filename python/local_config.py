@@ -27,7 +27,7 @@ pos_types = ('crossa', 'baix', 'contrafort', 'vent', 'ma', 'agulla', 'portacross
 
 
 # Print log information?
-DoLogging = True
+DoLogging = False
 
 # Data defining the relations between positions 
 

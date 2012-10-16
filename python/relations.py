@@ -21,7 +21,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
         if j%2 == 0:
             pt = 'ma'  # Ma
         else:
-            pt = 'vt'  # Vent
+            pt = 'vent'  # Vent
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             rel = rel0.copy()
             rel['pos_list'] = \
@@ -40,21 +40,21 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
                 rel['pos_list'] = \
                     str(position_in_ring[i,j,m]['xml_id']) + '_' + \
                     str(position_in_ring[i+1,j,m]['xml_id'])
-                rel['role_list'] = 'p' + text_splitter + 'p'
+                rel['role_list'] = 'pinya' + text_splitter + 'pinya'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
                 rel1['pos_list'] = \
                     str(position_in_ring[i,j,m]['xml_id']) + '_' + \
                     str(position_in_ring[i+1,j,m+1]['xml_id'])
-                rel1['role_list'] = 'p' + text_splitter + 'p'
+                rel1['role_list'] = 'pinya' + text_splitter + 'pinya'
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
     rel0['relation_type'] = 'sum_in_interval'
     rel0['field_names'] = ''
     rel0['rhs_tol'] = tolerances['width']
-    rel0['role_list'] = 'p'
+    rel0['role_list'] = 'pinya'
     rel0['coeff_list'] = '1'
     for j in range(2*rd['period']):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']+1):
@@ -64,7 +64,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
             for m in range(2, i+1):
                 rel['pos_list'] += numeric_splitter + str(position_in_ring[i,j,m]['xml_id'])
                 rel['field_names'] += text_splitter + 'shoulder_width'
-                rel['role_list'] += text_splitter + 'p'
+                rel['role_list'] += text_splitter + 'pinya'
                 rel['coeff_list'] += numeric_splitter + '1'
             relations.append(rel)
     return relations
@@ -76,7 +76,7 @@ def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrosses,
                      ('field_names', 'shoulder_height' + text_splitter + 'axle_height'), \
                      ('sense', 'le'), \
                      ('rhs', tolerances['delta_height_c_b']), \
-                     ('role_list', 'b~c')])
+                     ('role_list', 'baix~crossa')])
 
     for i in range(bd['number']):
         rel = rel0.copy()

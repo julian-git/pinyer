@@ -17,15 +17,16 @@ def xml_to_lp(xmlfilename):
     obj_string = []
     for var, coeff in obj.iteritems():
         if coeff > 0:
-            obj_string.append('+ ' + coeff + ' ' + var)
+            obj_string.append('+ ' + str(coeff) + ' ' + var)
             var_string.append(' ' + var)
         elif coeff < 0:
-            obj_string.append(coeff + ' ' + var)
+            obj_string.append(str(coeff) + ' ' + var)
             var_string.append(' ' + var)
     return 'maximize\n' + \
         ' '.join(obj_string) + \
+        '\nsubject to\n' + \
         '\n'.join(ineqs) + \
-        'binary\n' + \
+        '\nbinary\n' + \
         ' '.join(var_string)
         
 
@@ -54,16 +55,18 @@ def castellers(colla_id_name):
     return (cot, aux_data)
 
 def handleRelation(relation, cot, aux_data, ineqs, obj):
-    field_names = relation.getAttribute('field_names').split(text_splitter)
+    field_names = [str(f) for f in relation.getAttribute('field_names').split(text_splitter)]
     pos_list = [int(p) for p in relation.getAttribute('pos_list').split(numeric_splitter)]
     role_list = [r for r in str(relation.getAttribute('role_list')).split(text_splitter)]
-    coeff_list = relation.getAttribute('coeff_list').split(numeric_splitter)
+    coeff_list = [float(c) for c in relation.getAttribute('coeff_list').split(numeric_splitter)]
     relation_type = relation.getAttribute('relation_type')
-    sense = relation.getAttribute('sense')
+    xmlsense = relation.getAttribute('sense')
+    if xmlsense == 'le':
+        sense = '<='
+    else:
+        sense = '>='
     rhs = float(relation.getAttribute('rhs'))
-    [ineqs, obj] = relation_ineq(relation_type, cot, pos_list, role_list, field_names, rhs, ineqs, obj)
-    print "ineqs now: ", ineqs
-    print "obj now: ", obj
+    [ineqs, obj] = relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, aux_data, ineqs, obj)
     return [ineqs, obj]
 
 def write_lp(pinya_name):
