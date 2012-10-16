@@ -391,41 +391,41 @@
 </pinya>
 
 <relations id="rels">
-<relation role_list="ma_ma" pos_list="1_13" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation role_list="vt_vt" pos_list="3_16" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation role_list="ma_ma" pos_list="5_19" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation role_list="vt_vt" pos_list="7_22" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation role_list="ma_ma" pos_list="9_25" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation role_list="vt_vt" pos_list="11_28" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation role_list="p_p" pos_list="2_14" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation field_names="shoulder_height~shoulder_height" pos_list="2_15" sense="le" role_list="p_p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
-<relation role_list="p_p" pos_list="4_17" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation field_names="shoulder_height~shoulder_height" pos_list="4_18" sense="le" role_list="p_p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
-<relation role_list="p_p" pos_list="6_20" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation field_names="shoulder_height~shoulder_height" pos_list="6_21" sense="le" role_list="p_p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
-<relation role_list="p_p" pos_list="8_23" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation field_names="shoulder_height~shoulder_height" pos_list="8_24" sense="le" role_list="p_p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
-<relation role_list="p_p" pos_list="10_26" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation field_names="shoulder_height~shoulder_height" pos_list="10_27" sense="le" role_list="p_p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
-<relation role_list="p_p" pos_list="12_29" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
-<relation field_names="shoulder_height~shoulder_height" pos_list="12_30" sense="le" role_list="p_p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="ma~ma" pos_list="1_13" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="vt~vt" pos_list="3_16" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="ma~ma" pos_list="5_19" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="vt~vt" pos_list="7_22" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="ma~ma" pos_list="9_25" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="vt~vt" pos_list="11_28" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="p~p" pos_list="2_14" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="2_15" sense="le" role_list="p~p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="p~p" pos_list="4_17" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="4_18" sense="le" role_list="p~p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="p~p" pos_list="6_20" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="6_21" sense="le" role_list="p~p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="p~p" pos_list="8_23" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="8_24" sense="le" role_list="p~p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="p~p" pos_list="10_26" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="10_27" sense="le" role_list="p~p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="p~p" pos_list="12_29" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="12_30" sense="le" role_list="p~p" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="2" sense="le" field_names="shoulder_width" role_list="p" rhs_tol="6"/>
-<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="14_15" sense="le" field_names="shoulder_width~shoulder_width" role_list="p_p" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="14_15" sense="le" field_names="shoulder_width~shoulder_width" role_list="p~p" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="4" sense="le" field_names="shoulder_width" role_list="p" rhs_tol="6"/>
-<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="17_18" sense="le" field_names="shoulder_width~shoulder_width" role_list="p_p" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="17_18" sense="le" field_names="shoulder_width~shoulder_width" role_list="p~p" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="6" sense="le" field_names="shoulder_width" role_list="p" rhs_tol="6"/>
-<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="20_21" sense="le" field_names="shoulder_width~shoulder_width" role_list="p_p" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="20_21" sense="le" field_names="shoulder_width~shoulder_width" role_list="p~p" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="8" sense="le" field_names="shoulder_width" role_list="p" rhs_tol="6"/>
-<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="23_24" sense="le" field_names="shoulder_width~shoulder_width" role_list="p_p" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="23_24" sense="le" field_names="shoulder_width~shoulder_width" role_list="p~p" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="10" sense="le" field_names="shoulder_width" role_list="p" rhs_tol="6"/>
-<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="26_27" sense="le" field_names="shoulder_width~shoulder_width" role_list="p_p" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="26_27" sense="le" field_names="shoulder_width~shoulder_width" role_list="p~p" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="12" sense="le" field_names="shoulder_width" role_list="p" rhs_tol="6"/>
-<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="29_30" sense="le" field_names="shoulder_width~shoulder_width" role_list="p_p" rhs_tol="6"/>
-<relation role_list="b_c" pos_list="31_32" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="b_c" pos_list="31_33" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="b_c" pos_list="38_39" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="b_c" pos_list="38_40" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="b_c" pos_list="45_46" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="b_c" pos_list="45_47" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="29_30" sense="le" field_names="shoulder_width~shoulder_width" role_list="p~p" rhs_tol="6"/>
+<relation role_list="b~c" pos_list="31_32" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="b~c" pos_list="31_33" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="b~c" pos_list="38_39" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="b~c" pos_list="38_40" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="b~c" pos_list="45_46" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="b~c" pos_list="45_47" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
 </relations>
 </xml>

@@ -56,7 +56,7 @@ def castellers(colla_id_name):
 def handleRelation(relation, cot, aux_data, ineqs, obj):
     field_names = relation.getAttribute('field_names').split(text_splitter)
     pos_list = [int(p) for p in relation.getAttribute('pos_list').split(numeric_splitter)]
-    role_list = relation.getAttribute('role_list').split(text_splitter)
+    role_list = [r for r in str(relation.getAttribute('role_list')).split(text_splitter)]
     coeff_list = relation.getAttribute('coeff_list').split(numeric_splitter)
     relation_type = relation.getAttribute('relation_type')
     sense = relation.getAttribute('sense')

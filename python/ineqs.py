@@ -35,6 +35,7 @@ def sum_vars(pos_id, castellers, field_name = None, operator = " + ", coeff = 1)
                 ineq += str(coeff * field_name) + ' '
             else:
                 ineq += str(coeff * casteller[field_name]) + ' '
+        print casteller['id'], casteller['nickname'], pos_id
         ineq += var(casteller['id'], pos_id)  + ' '
     return ineq
 

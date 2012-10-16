@@ -27,7 +27,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
             rel['pos_list'] = \
                 str(position_in_ring[i,j,0]['xml_id']) + '_' + \
                 str(position_in_ring[i+1,j,0]['xml_id'])
-            rel['role_list'] = pt + numeric_splitter + pt
+            rel['role_list'] = pt + text_splitter + pt
             relations.append(rel)
 
     rel0['sense'] = 'le'
@@ -40,14 +40,14 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
                 rel['pos_list'] = \
                     str(position_in_ring[i,j,m]['xml_id']) + '_' + \
                     str(position_in_ring[i+1,j,m]['xml_id'])
-                rel['role_list'] = 'p' + numeric_splitter + 'p'
+                rel['role_list'] = 'p' + text_splitter + 'p'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
                 rel1['pos_list'] = \
                     str(position_in_ring[i,j,m]['xml_id']) + '_' + \
                     str(position_in_ring[i+1,j,m+1]['xml_id'])
-                rel1['role_list'] = 'p' + numeric_splitter + 'p'
+                rel1['role_list'] = 'p' + text_splitter + 'p'
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
@@ -64,7 +64,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
             for m in range(2, i+1):
                 rel['pos_list'] += numeric_splitter + str(position_in_ring[i,j,m]['xml_id'])
                 rel['field_names'] += text_splitter + 'shoulder_width'
-                rel['role_list'] += numeric_splitter + 'p'
+                rel['role_list'] += text_splitter + 'p'
                 rel['coeff_list'] += numeric_splitter + '1'
             relations.append(rel)
     return relations
@@ -76,7 +76,7 @@ def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrosses,
                      ('field_names', 'shoulder_height' + text_splitter + 'axle_height'), \
                      ('sense', 'le'), \
                      ('rhs', tolerances['delta_height_c_b']), \
-                     ('role_list', 'b_c')])
+                     ('role_list', 'b~c')])
 
     for i in range(bd['number']):
         rel = rel0.copy()
