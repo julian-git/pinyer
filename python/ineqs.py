@@ -14,7 +14,7 @@ def var(casteller_id, pos_id):
         vars[casteller_id, pos_id] = v
         return v
 
-def sum_vars(pos_id, castellers_in_position, field_name = None, operator = " + ", coeff = 1):
+def sum_vars(pos_id, castellers, field_name = None, operator = " + ", coeff = 1):
     """
     make the sum of all casteller indicator variables that involve the position pos.
     If field_name is None, use coeff(=1) as a coefficient; 
@@ -24,7 +24,7 @@ def sum_vars(pos_id, castellers_in_position, field_name = None, operator = " + "
     """
     ineq = ''
     firstTerm = True
-    for casteller in castellers_in_position[pos_id]:
+    for casteller in castellers:
         if firstTerm:
             firstTerm = False
         else:
@@ -38,14 +38,14 @@ def sum_vars(pos_id, castellers_in_position, field_name = None, operator = " + "
         ineq += var(casteller['id'], pos_id)  + ' '
     return ineq
 
-def combine_vars(from_pos_id, to_pos_id, castellers_in_position, field_names):
+def combine_vars(from_pos_id, to_pos_id, castellers, field_names):
     """
     make the difference of two sets of casteller indicator variables.
     The coefficient of the first set is field_names[0], 
     the coefficient of the second set is field_names[1].
     """
-    return sum_vars(from_pos_id, castellers_in_position, field_names[0]) + \
-        " - " + sum_vars(to_pos_id, castellers_in_position, field_names[1], " - ")
+    return sum_vars(from_pos_id, castellers, field_names[0]) + \
+        " - " + sum_vars(to_pos_id, castellers, field_names[1], " - ")
 
 
 
@@ -107,7 +107,7 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
     return [ineqs, pos_of_casteller]
 
 
-def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
+def relation_ineq(relation_type, cot, pos_list, role_list, field_names, rhs, ineqs, obj): #, rel, castellers_in_position, aux_data, ineqs, obj):
     """
     write the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
@@ -118,113 +118,114 @@ def relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj):
     the position from_pos_id is also filled.
     """ 
     if DoLogging:
-        print "write_relation_ineqs"
+        print "relation_ineq"
 
-    for rel in relations:
-        pos_list = [int(p) for p in rel['pos_list'].split(numeric_splitter)]
-        field_names = rel['field_names'].split(text_splitter)
-        fpi = int(pos_list[0])
-        if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
-            tpi = int(pos_list[1])
-            # we implement "pinyas have no holes" using binary indicator variables y_pos_id
-            # that are 1 if the position pos_id is filled, and 0 otherwise
-            # To simplify the system, we don't create these indicator variables explicitly,
-            # but substitute them by a call to sum_vars. So, in the comments below,
-            # y_fpi = sum_vars(fpi, castellers_in_position)
-            # y_tpi = sum_vars(tpi, castellers_in_position)
-            label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
-            ineqs.append(label + sum_vars(fpi, castellers_in_position) + " - " + sum_vars(tpi, castellers_in_position, None, " - ") + " >= 0")
+    fpi = pos_list[0]
+    if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
+        tpi = pos_list[1]
+        # we implement "pinyas have no holes" using binary indicator variables y_pos_id
+        # that are 1 if the position pos_id is filled, and 0 otherwise
+        # To simplify the system, we don't create these indicator variables explicitly,
+        # but substitute them by a call to sum_vars. So, in the comments below,
+        # y_fpi = sum_vars(fpi, castellers_in_position)
+        # y_tpi = sum_vars(tpi, castellers_in_position)
+        label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
+        ineqs.append(label + \
+                         sum_vars(fpi, cot[role_list[0]]) + \
+                         " - " + \
+                         sum_vars(tpi, cot[role_list[1]], None, " - ") + \
+                         " >= 0")
 
-        if rel['relation_type'] == 'zero_or_tol': 
-            #
-            # If y_tpi = 1, then the constraint 
-            #   0 <= x <= tolerance
-            # must hold, where 
-            #   x = (value of field_name[0] at from_pos) - (value of field_name[1] at to_pos).
-            #
-            # We model this as
-            # " either y_tpi = 0  or  0 <= x <= tolerance  must hold ",
-            #
-            # and this in turn as
-            #   x <= tolerance + M (1 - y_tpi)        (1)
-            #   x >= M (y_tpi - 1),                   (2)
-            # where M is a suitably large constant. 
-            #
-            # This works because for y_tpi == 0 the equations read
-            #   x <= tolerance + M                    (1')
-            #   x >= -M                               (2')
-            # and thus are always fulfilled because M is so large; on the other hand,
-            # for y_tpi = 1 we get
-            #   x <= tolerance                        (1'')
-            #   x >= 0                                (2'')
-            # just as it should be.
-            #
-            # In LP format, this reads
-            #   x + M y_tpi <= tolerance + M
-            #   x - M y_tpi >= -M
-            #
-            field_names = rel['field_names'].split(text_splitter);
-            if len(field_names) != 2:
-                raise RuntimeError('should have exactly two field names in "' + rel['field_names'] + '"')
-            x = combine_vars(fpi, tpi, castellers_in_position, field_names)
-            M = 1000000
-            label = rel['field_names'] + "_" + str(fpi) + "_" + str(tpi) + ": "
-            ineqs.append(label + x + " + " + sum_vars(tpi, castellers_in_position, M) + \
-                             " <= " + str(M + rel['rhs']))
-            ineqs.append(label + x + " " + sum_vars(tpi, castellers_in_position, -M, "   ") + \
-                             " >= " + str(-M))
-            #
-            # Next, we update the objective function to minimize
-            # (value of field_names at from_pos) - (value of field_names at to_pos).
-            # Since we maximize the objective function, we must flip the signs.
-            #
-            for casteller in castellers_in_position[fpi]:
-                obj[var(casteller['id'], fpi)] -= casteller[field_names[0]]
-            for casteller in castellers_in_position[tpi]:
-                obj[var(casteller['id'], tpi)] += casteller[field_names[1]]
+    if relation_type == 'zero_or_tol': 
+        #
+        # If y_tpi = 1, then the constraint 
+        #   0 <= x <= tolerance
+        # must hold, where 
+        #   x = (value of field_name[0] at from_pos) - (value of field_name[1] at to_pos).
+        #
+        # We model this as
+        # " either y_tpi = 0  or  0 <= x <= tolerance  must hold ",
+        #
+        # and this in turn as
+        #   x <= tolerance + M (1 - y_tpi)        (1)
+        #   x >= M (y_tpi - 1),                   (2)
+        # where M is a suitably large constant. 
+        #
+        # This works because for y_tpi == 0 the equations read
+        #   x <= tolerance + M                    (1')
+        #   x >= -M                               (2')
+        # and thus are always fulfilled because M is so large; on the other hand,
+        # for y_tpi = 1 we get
+        #   x <= tolerance                        (1'')
+        #   x >= 0                                (2'')
+        # just as it should be.
+        #
+        # In LP format, this reads
+        #   x + M y_tpi <= tolerance + M
+        #   x - M y_tpi >= -M
+        #
+        if len(field_names) != 2:
+            raise RuntimeError('should have exactly two field names in "' + field_names + '"')
+        x = combine_vars(fpi, tpi, cot, field_names)
+        M = 1000000
+        label = field_names + "_" + str(fpi) + "_" + str(tpi) + ": "
+        ineqs.append(label + x + " + " + sum_vars(tpi, cot[role_list[1]], M) + \
+                         " <= " + str(M + rhs))
+        ineqs.append(label + x + " " + sum_vars(tpi, cot[role_list[1]], -M, "   ") + \
+                         " >= " + str(-M))
+        #
+        # Next, we update the objective function to minimize
+        # (value of field_names at from_pos) - (value of field_names at to_pos).
+        # Since we maximize the objective function, we must flip the signs.
+        #
+        for casteller in cot[role_list[0]]:
+            obj[var(casteller['id'], fpi)] -= casteller[field_names[0]]
+        for casteller in cot[role_list[1]]:
+            obj[var(casteller['id'], tpi)] += casteller[field_names[1]]
+            
+    elif rel['relation_type'] == 'val_tol': 
+        # Ma can support segon:
+        # value of field_names at position is at least fparam
+        if rel['field_names'].find(text_splitter) > -1:
+            raise RuntimeError('Expected only one property in ' + rel['field_names']) 
+        label = rel['field_names'] + "_" + str(fpi) + ": "
+        ineqs.append(label + \
+                         sum_vars(fpi, cot[role_list[0]], rel['field_names']) + \
+                         " >= " + \
+                         str(rhs))
 
-        elif rel['relation_type'] == 'val_tol': 
-            # Ma can support segon:
-            # value of field_names at position is at least fparam
-            if rel['field_names'].find(text_splitter) > -1:
-                raise RuntimeError('Expected only one property in ' + rel['field_names']) 
-            label = rel['field_names'] + "_" + str(fpi) + ": "
-            ineqs.append(label + sum_vars(fpi, castellers_in_position, rel['field_names']) + \
-                             " >= " + str(rel['rhs']))
-
-        elif rel['relation_type'] == 'sum_in_interval' or \
-                rel['relation_type'] == 'one_sided': 
-            # sum of values is at most rhs in absolute value
-            if len(pos_list) == 0:
-                raise RuntimeError('Expected pos_list to be nonempty, in sum_in_interval')
-            label = rel['field_names'] + "_" + rel['pos_list'] + ': '
-            if 'coeff_list' in rel and rel['coeff_list'] is not None:
-                coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(numeric_splitter)]
-            else:
-                coeff_list = [1 for p in pos_list]
-            ineq_str = ''
-            pos_ct = -1
-            for pos in pos_list:
-                pos_ct = pos_ct + 1
-                for c in castellers_in_position[pos]:
-                    coeff = coeff_list[pos_ct] * c[field_names[pos_ct]]
-                    if coeff > 0:
-                        ineq_str += ' + '
-                    else:
-                        ineq_str += ' '
-                    ineq_str += str(coeff) + ' ' + var(c['id'], pos)
-                    
-            if rel['relation_type'] == 'sum_in_interval':
-                target_width = len(pos_list) * aux_data['avg_shoulder_width']
-                ineqs.append(label + ineq_str + " >= " + str(target_width - rel['rhs']))
-                ineqs.append(label + ineq_str + " <= " + str(target_width + rel['rhs']))
-
-            else:
-                ineq = label + ineq_str + ' ' + rel['sense'] + ' ' + str(rel['rhs'])
-                ineqs.append(ineq)
+    elif rel['relation_type'] in ('sum_in_interval', 'one_sided'): 
+        # sum of values is at most rhs in absolute value
+        if len(pos_list) == 0:
+            raise RuntimeError('Expected pos_list to be nonempty, in sum_in_interval')
+        label = rel['field_names'] + "_" + rel['pos_list'] + ': '
+        if 'coeff_list' in rel and rel['coeff_list'] is not None:
+            coeff_list = [float(coeff) for coeff in rel['coeff_list'].split(numeric_splitter)]
+        else:
+            coeff_list = [1 for p in pos_list]
+        ineq_str = ''
+        pos_ct = -1
+        for pos in pos_list:
+            pos_ct = pos_ct + 1
+            for c in cot[role_list[pos_ct]]:
+                coeff = coeff_list[pos_ct] * c[field_names[pos_ct]]
+                if coeff > 0:
+                    ineq_str += ' + '
+                else:
+                    ineq_str += ' '
+                ineq_str += str(coeff) + ' ' + var(c['id'], pos)
+                
+        if rel['relation_type'] == 'sum_in_interval':
+            target_width = len(pos_list) * aux_data['avg_shoulder_width']
+            ineqs.append(label + ineq_str + " >= " + str(target_width - rhs))
+            ineqs.append(label + ineq_str + " <= " + str(target_width + rhs))
 
         else:
-            raise RuntimeError('relation of type ' + rel['relation_type'] + ' not implemented!')
+            ineq = label + ineq_str + ' ' + rel['sense'] + ' ' + str(rhs)
+            ineqs.append(ineq)
+
+    else:
+        raise RuntimeError('relation of type ' + rel['relation_type'] + ' not implemented!')
     return [ineqs, obj]
 
 def incompatibility_ineqs(db, colla_id_name, pos_of_casteller, relations, ineqs):

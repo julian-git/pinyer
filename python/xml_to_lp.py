@@ -2,15 +2,15 @@ import xml.dom.minidom
 from local_config import pinya_dir
 from math import sin, cos, pi
 from local_config import numeric_splitter, text_splitter, pos_types
-from db_interaction import get_db, castellers_of_type
+from db_interaction import get_db, castellers_of_type, get_avg_shoulder_width
+from ineqs import relation_ineq
 
 lp = []
-obj = dict()
 
 cids=() #11,77) # print debug info for these
 
 def xml_to_lp(xmlfilename):
-    xml_to_lp_impl(xmlfilename)
+    [ineqs, obj] = xml_to_lp_impl(xmlfilename)
     obj_string = []
     var_string = []
     for var, coeff in obj.iteritems():
@@ -22,43 +22,45 @@ def xml_to_lp(xmlfilename):
             var_string.append(' ' + var)
     return 'maximize\n' + \
         ' '.join(obj_string) + \
-        '\n'.join(lp) + \
+        '\n'.join(ineqs) + \
         'binary\n' + \
-        var_string
+        var_string 
+        
 
 def xml_to_lp_impl(xmlfilename):
     f = open(xmlfilename, 'r')
     dom = xml.dom.minidom.parseString(f.read())
-    handleXML(dom.documentElement)
+    return handleXML(dom.documentElement)
 
 def handleXML(xml):
     lp.append('subject to\n')
     castell_id_name = xml.getElementsByTagName("castell")[0].getAttr("castell_id_name")
     colla_id_name = xml.getElementsByTagName("colla")[0].getAttr("colla_id_name")
-    cot = castellers(colla_id_name)
+    (cot, aux_data) = castellers(colla_id_name)
+    obj = dict()
+    ineqs = []
     for child in xml.childNodes:
         if child.nodeName == 'relation':
-            handleRelation(child, cot)
+            [ineqs, obj] = handleRelation(child, cot, aux_data, ineqs, obj)
+    return [ineqs, obj]
 
 def castellers(colla_id_name):
     db = get_db()
+    aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id_name))])
     cot = dict()
     for role in pos_types:
         cot[role] = castellers_of_type(db, colla_id_name, role)
-    return cot
+    return (cot, aux_data)
 
-def handleRelation(relation, cot):
+def handleRelation(relation, cot, aux_data, ineqs, obj):
     field_names = relation.getAttribute('field_names').split(text_splitter)
-    pos_list = relation.getAttribute('pos_list').split(numeric_splitter)
+    pos_list = [int(p) for p in relation.getAttribute('pos_list').split(numeric_splitter)]
     role_list = relation.getAttribute('role_list').split(text_splitter)
     coeff_list = relation.getAttribute('coeff_list').split(numeric_splitter)
     relation_type = relation.getAttribute('relation_type')
     sense = relation.getAttribute('sense')
-
-    rhs = relation.getAttribute('rhs')
-
-    
-
+    rhs = float(relation.getAttribute('rhs'))
+    return relation_ineq(relation_type, cot, pos_list, role_list, field_names, rhs, ineqs, obj)
 
 def write_lp(pinya_name):
     f = open('../www/' + pinya_dir + '/' + pinya_name + '.pinya.lp', 'w')

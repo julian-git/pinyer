@@ -327,7 +327,7 @@ def pinya(rd, bd, pcd, xml):
 
 def tresde9f():
     # data for the rings of the pinya
-    rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 3), \
+    rd = dict([('period', 3), ('start_n_in_slice', 1), ('end_n_in_slice', 2), \
                    ('start_radius', 100), ('radius_offset', 25), \
                    ('pinya_rect_dim', dict([('w',20),('h',40)]))])
     r = rd['start_radius'] + (rd['end_n_in_slice'] - rd['start_n_in_slice']) * rd['radius_offset']
