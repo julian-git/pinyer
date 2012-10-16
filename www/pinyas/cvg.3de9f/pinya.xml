@@ -1,6 +1,6 @@
 
 <xml xmlns="http://www.w3.org/2000/xml" xmlns:xlink="http://www.w3.org/1999/xlink"
- viewBox="-165 -165 330 330"> 
+ viewBox="-190 -190 380 380"> 
 <title>Tres de vuit amb folre</title>
 <castell castell_id_name="cvg.3de9f"/>
 <colla colla_id_name="cvg"/>
@@ -214,177 +214,345 @@
   <text id="30_text" class="q vtext" text-anchor="middle">30</text>
   </label>
 </position>
+
+<position id="31" transform="translate(150.0 0.0) rotate(0.0)" essential="true">
+  <rect id="31_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="31_text" class="ma vtext" text-anchor="middle">31</text>
+  </label>
+</position>
+
+<position id="32" transform="translate(144.89 38.82) rotate(15.0)" essential="true">
+  <rect id="32_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="32_text" class="q vtext" text-anchor="middle">32</text>
+  </label>
+</position>
+
+<position id="33" transform="translate(129.9 75.0) rotate(30.0)" essential="true">
+  <rect id="33_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="33_text" class="q vtext" text-anchor="middle">33</text>
+  </label>
+</position>
+
+<position id="34" transform="translate(106.07 106.07) rotate(45.0)" essential="true">
+  <rect id="34_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="34_text" class="q vtext" text-anchor="middle">34</text>
+  </label>
+</position>
+
+<position id="35" transform="translate(75.0 129.9) rotate(60.0)" essential="true">
+  <rect id="35_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="35_text" class="vent vtext" text-anchor="middle">35</text>
+  </label>
+</position>
+
+<position id="36" transform="translate(38.82 144.89) rotate(75.0)" essential="true">
+  <rect id="36_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="36_text" class="q vtext" text-anchor="middle">36</text>
+  </label>
+</position>
+
+<position id="37" transform="translate(0.0 150.0) rotate(90.0)" essential="true">
+  <rect id="37_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="37_text" class="q vtext" text-anchor="middle">37</text>
+  </label>
+</position>
+
+<position id="38" transform="translate(-38.82 144.89) rotate(105.0)" essential="true">
+  <rect id="38_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="38_text" class="q vtext" text-anchor="middle">38</text>
+  </label>
+</position>
+
+<position id="39" transform="translate(-75.0 129.9) rotate(120.0)" essential="true">
+  <rect id="39_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="39_text" class="ma vtext" text-anchor="middle">39</text>
+  </label>
+</position>
+
+<position id="40" transform="translate(-106.07 106.07) rotate(135.0)" essential="true">
+  <rect id="40_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="40_text" class="q vtext" text-anchor="middle">40</text>
+  </label>
+</position>
+
+<position id="41" transform="translate(-129.9 75.0) rotate(150.0)" essential="true">
+  <rect id="41_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="41_text" class="q vtext" text-anchor="middle">41</text>
+  </label>
+</position>
+
+<position id="42" transform="translate(-144.89 38.82) rotate(165.0)" essential="true">
+  <rect id="42_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="42_text" class="q vtext" text-anchor="middle">42</text>
+  </label>
+</position>
+
+<position id="43" transform="translate(-150.0 0.0) rotate(180.0)" essential="true">
+  <rect id="43_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="43_text" class="vent vtext" text-anchor="middle">43</text>
+  </label>
+</position>
+
+<position id="44" transform="translate(-144.89 -38.82) rotate(195.0)" essential="true">
+  <rect id="44_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="44_text" class="q vtext" text-anchor="middle">44</text>
+  </label>
+</position>
+
+<position id="45" transform="translate(-129.9 -75.0) rotate(210.0)" essential="true">
+  <rect id="45_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="45_text" class="q vtext" text-anchor="middle">45</text>
+  </label>
+</position>
+
+<position id="46" transform="translate(-106.07 -106.07) rotate(225.0)" essential="true">
+  <rect id="46_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="46_text" class="q vtext" text-anchor="middle">46</text>
+  </label>
+</position>
+
+<position id="47" transform="translate(-75.0 -129.9) rotate(240.0)" essential="true">
+  <rect id="47_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="47_text" class="ma vtext" text-anchor="middle">47</text>
+  </label>
+</position>
+
+<position id="48" transform="translate(-38.82 -144.89) rotate(255.0)" essential="true">
+  <rect id="48_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="48_text" class="q vtext" text-anchor="middle">48</text>
+  </label>
+</position>
+
+<position id="49" transform="translate(-0.0 -150.0) rotate(270.0)" essential="true">
+  <rect id="49_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="49_text" class="q vtext" text-anchor="middle">49</text>
+  </label>
+</position>
+
+<position id="50" transform="translate(38.82 -144.89) rotate(285.0)" essential="true">
+  <rect id="50_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="50_text" class="q vtext" text-anchor="middle">50</text>
+  </label>
+</position>
+
+<position id="51" transform="translate(75.0 -129.9) rotate(300.0)" essential="true">
+  <rect id="51_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="51_text" class="vent vtext" text-anchor="middle">51</text>
+  </label>
+</position>
+
+<position id="52" transform="translate(106.07 -106.07) rotate(315.0)" essential="true">
+  <rect id="52_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="52_text" class="q vtext" text-anchor="middle">52</text>
+  </label>
+</position>
+
+<position id="53" transform="translate(129.9 -75.0) rotate(330.0)" essential="true">
+  <rect id="53_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="53_text" class="q vtext" text-anchor="middle">53</text>
+  </label>
+</position>
+
+<position id="54" transform="translate(144.89 -38.82) rotate(345.0)" essential="true">
+  <rect id="54_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="54_text" class="q vtext" text-anchor="middle">54</text>
+  </label>
+</position>
 <position_group id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
-<position id="31" transform="translate(0 0) rotate(0)" essential="true">
-  <rect id="31_rect" class="b" width="20" height="40" x="-10" y="-20"/>
+<position id="55" transform="translate(0 0) rotate(0)" essential="true">
+  <rect id="55_rect" class="b" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="31_text" class="b vtext" text-anchor="middle">31</text>
+  <text id="55_text" class="b vtext" text-anchor="middle">55</text>
   </label>
 </position>
 
-<position id="32" transform="translate(0 30) rotate(90)" essential="true">
-  <rect id="32_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
+<position id="56" transform="translate(0 30) rotate(90)" essential="true">
+  <rect id="56_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="32_text" class="cr vtext" text-anchor="middle">32</text>
+  <text id="56_text" class="cr vtext" text-anchor="middle">56</text>
   </label>
 </position>
 
-<position id="33" transform="translate(0 -30) rotate(-90)" essential="true">
-  <rect id="33_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
+<position id="57" transform="translate(0 -30) rotate(-90)" essential="true">
+  <rect id="57_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="33_text" class="cr vtext" text-anchor="middle">33</text>
+  <text id="57_text" class="cr vtext" text-anchor="middle">57</text>
   </label>
 </position>
 
-<position id="34" transform="translate(-20 0) rotate(0)" essential="true">
-  <rect id="34_rect" class="co" width="16" height="30" x="-8" y="-15"/>
+<position id="58" transform="translate(-20 0) rotate(0)" essential="true">
+  <rect id="58_rect" class="co" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="34_text" class="co vtext" text-anchor="middle">34</text>
+  <text id="58_text" class="co vtext" text-anchor="middle">58</text>
   </label>
 </position>
 
-<position id="35" transform="translate(20 0) rotate(0)" essential="true">
-  <rect id="35_rect" class="a" width="16" height="30" x="-8" y="-15"/>
+<position id="59" transform="translate(20 0) rotate(0)" essential="true">
+  <rect id="59_rect" class="a" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="35_text" class="a vtext" text-anchor="middle">35</text>
+  <text id="59_text" class="a vtext" text-anchor="middle">59</text>
   </label>
 </position>
 
-<position id="36" transform="translate(30 25) rotate(30)" essential="true">
-  <rect id="36_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
+<position id="60" transform="translate(30 25) rotate(30)" essential="true">
+  <rect id="60_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="36_text" class="lat vtext" text-anchor="middle">36</text>
+  <text id="60_text" class="lat vtext" text-anchor="middle">60</text>
   </label>
 </position>
 
-<position id="37" transform="translate(30 -25) rotate(-30)" essential="true">
-  <rect id="37_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
+<position id="61" transform="translate(30 -25) rotate(-30)" essential="true">
+  <rect id="61_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="37_text" class="lat vtext" text-anchor="middle">37</text>
+  <text id="61_text" class="lat vtext" text-anchor="middle">61</text>
   </label>
 </position>
 </position_group>
 <position_group id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
-<position id="38" transform="translate(0 0) rotate(0)" essential="true">
-  <rect id="38_rect" class="b" width="20" height="40" x="-10" y="-20"/>
+<position id="62" transform="translate(0 0) rotate(0)" essential="true">
+  <rect id="62_rect" class="b" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="38_text" class="b vtext" text-anchor="middle">38</text>
+  <text id="62_text" class="b vtext" text-anchor="middle">62</text>
   </label>
 </position>
 
-<position id="39" transform="translate(0 30) rotate(90)" essential="true">
-  <rect id="39_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
+<position id="63" transform="translate(0 30) rotate(90)" essential="true">
+  <rect id="63_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="39_text" class="cr vtext" text-anchor="middle">39</text>
+  <text id="63_text" class="cr vtext" text-anchor="middle">63</text>
   </label>
 </position>
 
-<position id="40" transform="translate(0 -30) rotate(-90)" essential="true">
-  <rect id="40_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
+<position id="64" transform="translate(0 -30) rotate(-90)" essential="true">
+  <rect id="64_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="40_text" class="cr vtext" text-anchor="middle">40</text>
+  <text id="64_text" class="cr vtext" text-anchor="middle">64</text>
   </label>
 </position>
 
-<position id="41" transform="translate(-20 0) rotate(0)" essential="true">
-  <rect id="41_rect" class="co" width="16" height="30" x="-8" y="-15"/>
+<position id="65" transform="translate(-20 0) rotate(0)" essential="true">
+  <rect id="65_rect" class="co" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="41_text" class="co vtext" text-anchor="middle">41</text>
+  <text id="65_text" class="co vtext" text-anchor="middle">65</text>
   </label>
 </position>
 
-<position id="42" transform="translate(20 0) rotate(0)" essential="true">
-  <rect id="42_rect" class="a" width="16" height="30" x="-8" y="-15"/>
+<position id="66" transform="translate(20 0) rotate(0)" essential="true">
+  <rect id="66_rect" class="a" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="42_text" class="a vtext" text-anchor="middle">42</text>
+  <text id="66_text" class="a vtext" text-anchor="middle">66</text>
   </label>
 </position>
 
-<position id="43" transform="translate(30 25) rotate(30)" essential="true">
-  <rect id="43_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
+<position id="67" transform="translate(30 25) rotate(30)" essential="true">
+  <rect id="67_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="43_text" class="lat vtext" text-anchor="middle">43</text>
+  <text id="67_text" class="lat vtext" text-anchor="middle">67</text>
   </label>
 </position>
 
-<position id="44" transform="translate(30 -25) rotate(-30)" essential="true">
-  <rect id="44_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
+<position id="68" transform="translate(30 -25) rotate(-30)" essential="true">
+  <rect id="68_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="44_text" class="lat vtext" text-anchor="middle">44</text>
+  <text id="68_text" class="lat vtext" text-anchor="middle">68</text>
   </label>
 </position>
 </position_group>
 <position_group id="baixos_gp_2" transform="translate(-20.0 -34.64) rotate(240.0)">
-<position id="45" transform="translate(0 0) rotate(0)" essential="true">
-  <rect id="45_rect" class="b" width="20" height="40" x="-10" y="-20"/>
+<position id="69" transform="translate(0 0) rotate(0)" essential="true">
+  <rect id="69_rect" class="b" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="45_text" class="b vtext" text-anchor="middle">45</text>
+  <text id="69_text" class="b vtext" text-anchor="middle">69</text>
   </label>
 </position>
 
-<position id="46" transform="translate(0 30) rotate(90)" essential="true">
-  <rect id="46_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
+<position id="70" transform="translate(0 30) rotate(90)" essential="true">
+  <rect id="70_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="46_text" class="cr vtext" text-anchor="middle">46</text>
+  <text id="70_text" class="cr vtext" text-anchor="middle">70</text>
   </label>
 </position>
 
-<position id="47" transform="translate(0 -30) rotate(-90)" essential="true">
-  <rect id="47_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
+<position id="71" transform="translate(0 -30) rotate(-90)" essential="true">
+  <rect id="71_rect" class="cr" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="47_text" class="cr vtext" text-anchor="middle">47</text>
+  <text id="71_text" class="cr vtext" text-anchor="middle">71</text>
   </label>
 </position>
 
-<position id="48" transform="translate(-20 0) rotate(0)" essential="true">
-  <rect id="48_rect" class="co" width="16" height="30" x="-8" y="-15"/>
+<position id="72" transform="translate(-20 0) rotate(0)" essential="true">
+  <rect id="72_rect" class="co" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="48_text" class="co vtext" text-anchor="middle">48</text>
+  <text id="72_text" class="co vtext" text-anchor="middle">72</text>
   </label>
 </position>
 
-<position id="49" transform="translate(20 0) rotate(0)" essential="true">
-  <rect id="49_rect" class="a" width="16" height="30" x="-8" y="-15"/>
+<position id="73" transform="translate(20 0) rotate(0)" essential="true">
+  <rect id="73_rect" class="a" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="49_text" class="a vtext" text-anchor="middle">49</text>
+  <text id="73_text" class="a vtext" text-anchor="middle">73</text>
   </label>
 </position>
 
-<position id="50" transform="translate(30 25) rotate(30)" essential="true">
-  <rect id="50_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
+<position id="74" transform="translate(30 25) rotate(30)" essential="true">
+  <rect id="74_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="50_text" class="lat vtext" text-anchor="middle">50</text>
+  <text id="74_text" class="lat vtext" text-anchor="middle">74</text>
   </label>
 </position>
 
-<position id="51" transform="translate(30 -25) rotate(-30)" essential="true">
-  <rect id="51_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
+<position id="75" transform="translate(30 -25) rotate(-30)" essential="true">
+  <rect id="75_rect" class="lat" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="51_text" class="lat vtext" text-anchor="middle">51</text>
+  <text id="75_text" class="lat vtext" text-anchor="middle">75</text>
   </label>
 </position>
 </position_group>
 <position_group id="portacrosses_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
-<position id="52" transform="translate(0 0) rotate(0)" essential="true">
-  <rect id="52_rect" class="pc" width="20" height="40" x="-10" y="-20"/>
+<position id="76" transform="translate(0 0) rotate(0)" essential="true">
+  <rect id="76_rect" class="pc" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="52_text" class="pc vtext" text-anchor="middle">52</text>
+  <text id="76_text" class="pc vtext" text-anchor="middle">76</text>
   </label>
 </position>
 </position_group>
 <position_group id="portacrosses_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
-<position id="53" transform="translate(0 0) rotate(0)" essential="true">
-  <rect id="53_rect" class="pc" width="20" height="40" x="-10" y="-20"/>
+<position id="77" transform="translate(0 0) rotate(0)" essential="true">
+  <rect id="77_rect" class="pc" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="53_text" class="pc vtext" text-anchor="middle">53</text>
+  <text id="77_text" class="pc vtext" text-anchor="middle">77</text>
   </label>
 </position>
 </position_group>
 <position_group id="portacrosses_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
-<position id="54" transform="translate(0 0) rotate(0)" essential="true">
-  <rect id="54_rect" class="pc" width="20" height="40" x="-10" y="-20"/>
+<position id="78" transform="translate(0 0) rotate(0)" essential="true">
+  <rect id="78_rect" class="pc" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="54_text" class="pc vtext" text-anchor="middle">54</text>
+  <text id="78_text" class="pc vtext" text-anchor="middle">78</text>
   </label>
 </position>
 </position_group>
@@ -392,40 +560,76 @@
 
 <relations id="rels">
 <relation role_list="ma~ma" pos_list="1_13" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="ma~ma" pos_list="13_31" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation role_list="vent~vent" pos_list="3_16" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="vent~vent" pos_list="16_35" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation role_list="ma~ma" pos_list="5_19" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="ma~ma" pos_list="19_39" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation role_list="vent~vent" pos_list="7_22" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="vent~vent" pos_list="22_43" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation role_list="ma~ma" pos_list="9_25" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="ma~ma" pos_list="25_47" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation role_list="vent~vent" pos_list="11_28" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation role_list="vent~vent" pos_list="28_51" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation role_list="pinya~pinya" pos_list="2_14" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="2_15" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="14_32" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="14_33" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="15_33" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="15_34" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
 <relation role_list="pinya~pinya" pos_list="4_17" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="4_18" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="17_36" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="17_37" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="18_37" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="18_38" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
 <relation role_list="pinya~pinya" pos_list="6_20" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="6_21" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="20_40" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="20_41" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="21_41" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="21_42" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
 <relation role_list="pinya~pinya" pos_list="8_23" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="8_24" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="23_44" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="23_45" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="24_45" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="24_46" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
 <relation role_list="pinya~pinya" pos_list="10_26" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="10_27" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="26_48" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="26_49" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="27_49" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="27_50" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
 <relation role_list="pinya~pinya" pos_list="12_29" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
 <relation field_names="shoulder_height~shoulder_height" pos_list="12_30" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="29_52" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="29_53" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
+<relation role_list="pinya~pinya" pos_list="30_53" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>
+<relation field_names="shoulder_height~shoulder_height" pos_list="30_54" sense="le" role_list="pinya~pinya" coeff_list="1_1" rhs="5" relation_type="zero_or_tol"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="2" sense="le" field_names="shoulder_width" role_list="pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="14_15" sense="le" field_names="shoulder_width~shoulder_width" role_list="pinya~pinya" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" relation_type="sum_in_interval" pos_list="32_33_34" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" role_list="pinya~pinya~pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="4" sense="le" field_names="shoulder_width" role_list="pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="17_18" sense="le" field_names="shoulder_width~shoulder_width" role_list="pinya~pinya" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" relation_type="sum_in_interval" pos_list="36_37_38" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" role_list="pinya~pinya~pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="6" sense="le" field_names="shoulder_width" role_list="pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="20_21" sense="le" field_names="shoulder_width~shoulder_width" role_list="pinya~pinya" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" relation_type="sum_in_interval" pos_list="40_41_42" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" role_list="pinya~pinya~pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="8" sense="le" field_names="shoulder_width" role_list="pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="23_24" sense="le" field_names="shoulder_width~shoulder_width" role_list="pinya~pinya" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" relation_type="sum_in_interval" pos_list="44_45_46" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" role_list="pinya~pinya~pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="10" sense="le" field_names="shoulder_width" role_list="pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="26_27" sense="le" field_names="shoulder_width~shoulder_width" role_list="pinya~pinya" rhs_tol="6"/>
+<relation rhs="5" coeff_list="1_1_1" relation_type="sum_in_interval" pos_list="48_49_50" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" role_list="pinya~pinya~pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1" relation_type="sum_in_interval" pos_list="12" sense="le" field_names="shoulder_width" role_list="pinya" rhs_tol="6"/>
 <relation rhs="5" coeff_list="1_1" relation_type="sum_in_interval" pos_list="29_30" sense="le" field_names="shoulder_width~shoulder_width" role_list="pinya~pinya" rhs_tol="6"/>
-<relation role_list="baix~crossa" pos_list="31_32" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="baix~crossa" pos_list="31_33" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="baix~crossa" pos_list="38_39" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="baix~crossa" pos_list="38_40" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="baix~crossa" pos_list="45_46" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
-<relation role_list="baix~crossa" pos_list="45_47" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation rhs="5" coeff_list="1_1_1" relation_type="sum_in_interval" pos_list="52_53_54" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" role_list="pinya~pinya~pinya" rhs_tol="6"/>
+<relation role_list="baix~crossa" pos_list="55_56" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="baix~crossa" pos_list="55_57" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="baix~crossa" pos_list="62_63" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="baix~crossa" pos_list="62_64" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="baix~crossa" pos_list="69_70" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation role_list="baix~crossa" pos_list="69_71" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
 </relations>
 </xml>
