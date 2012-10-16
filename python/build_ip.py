@@ -1,35 +1,10 @@
 from local_config import \
     UseCBC, DoLogging, DoSolve, \
-    lp_problem_filename, lp_solution_filename, lp_log_filename, \
     numeric_splitter, text_splitter
 from db_interaction import get_db
 from ineqs import ip_ineqs
 from subprocess import call 
 from os import rename
-
-def write_lp_file(obj, ineqs):
-    if DoLogging:
-        print "write_lp_file..."
-    f = open(lp_problem_filename, 'w')
-
-    f.write('maximize\n')
-    for v, val in obj.iteritems():
-        if val > 0:
-            s = ' + '
-        elif val == 0:
-            continue
-        else:
-            s = ' '
-        f.write(s + str(val) + ' ' + v)
-    f.write('\nsubject to\n')
-    for ineq in ineqs:
-        f.write(ineq)
-        f.write('\n')
-    f.write('\nbinary\n')
-    for v in sorted(obj.keys()):
-        f.write(v + " ")
-    f.write('\nend')
-    f.close()
 
 def sol_from_v(sol, vname, castellers_in_position):
     cast_id = int(vname[1:vname.find('p')])
@@ -44,7 +19,7 @@ def backup_file(filename):
     except OSError:
         pass
 
-def do_solve(castellers_in_position):
+def do_solve():
     if UseCBC:
         args = ['cbc', '-import', lp_problem_filename, '-solve', '-solu', lp_solution_filename, '-quit']
     else:
@@ -99,14 +74,8 @@ def solve_castell(prescribed, castell_type_id, colla_id):
     if DoLogging:
         print "find_pinya..."    
         
-    [castellers_in_position, obj, ineqs, relations] = \
-        ip_ineqs(prescribed, castell_type_id, colla_id)
-    # obj holds the objective coefficient of each variable
-    # relations holds the relations between positions
-
-    write_lp_file(obj, ineqs)
     if DoSolve:
-        do_solve(castellers_in_position)
+        do_solve()
         
     sol = read_solved_positions(castellers_in_position)
     return dict([('positions', sol), \
@@ -116,13 +85,9 @@ def solve_castell(prescribed, castell_type_id, colla_id):
 def do_opt():
 #    prescribed = dict([(9, 0), (17, 5)])
     prescribed = dict()
-##########
-# FIXME: castell_type_id and colla_id can be chosen independently
-#        and this leads to inconsistency and data leakage
-    [castell_type_id, colla_id] = [1000, 2]  # for debugging
-#    [castell_type_id, colla_id] = [3, 1] # for "real"
-##########
-    solution = solve_castell(prescribed, castell_type_id, colla_id)
+
+    [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
+    solution = solve_castell(prescribed, castell_id_name, colla_id_name)
     print [[pos,c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     print solution['relations']
 
