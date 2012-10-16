@@ -3,7 +3,7 @@
  viewBox="-165 -165 330 330"> 
 <title>Tres de vuit amb folre</title>
 <castell castell_id_name="cvg.3de9f"/>
-<colla id_name="cvg"/>
+<colla colla_id_name="cvg"/>
 <pinya>
 <position id="1" transform="translate(100.0 0.0) rotate(0.0)" essential="true">
   <rect id="1_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0"/>

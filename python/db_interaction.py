@@ -163,5 +163,5 @@ def get_avg_shoulder_width(db, colla_id):
 select avg(shoulder_width)
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
-where casteller_colla.colla_id = %s and is_present = true""", colla_id)
+where casteller_colla.colla_id_name = %s and is_present = true""", colla_id)
     return c.fetchall()[0][0]

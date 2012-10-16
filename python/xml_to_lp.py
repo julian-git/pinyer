@@ -10,36 +10,37 @@ lp = []
 cids=() #11,77) # print debug info for these
 
 def xml_to_lp(xmlfilename):
-    [ineqs, obj] = xml_to_lp_impl(xmlfilename)
-    obj_string = []
+    ineqs = []
+    obj = dict()
+    [ineqs, obj] = xml_to_lp_impl(xmlfilename, ineqs, obj)
     var_string = []
+    obj_string = []
     for var, coeff in obj.iteritems():
         if coeff > 0:
-            obj.append('+ ' + coeff + ' ' + var)
+            obj_string.append('+ ' + coeff + ' ' + var)
             var_string.append(' ' + var)
         elif coeff < 0:
-            obj.append(coeff + ' ' + var)
+            obj_string.append(coeff + ' ' + var)
             var_string.append(' ' + var)
     return 'maximize\n' + \
         ' '.join(obj_string) + \
         '\n'.join(ineqs) + \
         'binary\n' + \
-        var_string 
+        ' '.join(var_string)
         
 
-def xml_to_lp_impl(xmlfilename):
+def xml_to_lp_impl(xmlfilename, ineqs, obj):
     f = open(xmlfilename, 'r')
     dom = xml.dom.minidom.parseString(f.read())
-    return handleXML(dom.documentElement)
+    return handleXML(dom.documentElement, ineqs, obj)
 
-def handleXML(xml):
+def handleXML(xml, ineqs, obj):
     lp.append('subject to\n')
-    castell_id_name = xml.getElementsByTagName("castell")[0].getAttr("castell_id_name")
-    colla_id_name = xml.getElementsByTagName("colla")[0].getAttr("colla_id_name")
+    castell_id_name = xml.getElementsByTagName("castell")[0].getAttribute("castell_id_name")
+    colla_id_name = xml.getElementsByTagName("colla")[0].getAttribute("colla_id_name")
+    relations = xml.getElementsByTagName("relations")[0]
     (cot, aux_data) = castellers(colla_id_name)
-    obj = dict()
-    ineqs = []
-    for child in xml.childNodes:
+    for child in relations.childNodes:
         if child.nodeName == 'relation':
             [ineqs, obj] = handleRelation(child, cot, aux_data, ineqs, obj)
     return [ineqs, obj]
@@ -60,11 +61,14 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     relation_type = relation.getAttribute('relation_type')
     sense = relation.getAttribute('sense')
     rhs = float(relation.getAttribute('rhs'))
-    return relation_ineq(relation_type, cot, pos_list, role_list, field_names, rhs, ineqs, obj)
+    [ineqs, obj] = relation_ineq(relation_type, cot, pos_list, role_list, field_names, rhs, ineqs, obj)
+    print "ineqs now: ", ineqs
+    print "obj now: ", obj
+    return [ineqs, obj]
 
 def write_lp(pinya_name):
-    f = open('../www/' + pinya_dir + '/' + pinya_name + '.pinya.lp', 'w')
-    f.write(xml_to_lp('../www/' + pinya_dir + '/' + pinya_name + '.pinya.xml'))
+    f = open('../www/' + pinya_dir + '/' + pinya_name + '/pinya.lp', 'w')
+    f.write(xml_to_lp('../www/' + pinya_dir + '/' + pinya_name + '/pinya.xml'))
 
 
 if __name__=='__main__':
