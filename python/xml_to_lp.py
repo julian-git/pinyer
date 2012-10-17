@@ -1,13 +1,7 @@
 import xml.dom.minidom
-from local_config import pinya_dir
-from math import sin, cos, pi
-from local_config import numeric_splitter, text_splitter, pos_types
+from local_config import pinya_dir, numeric_splitter, text_splitter, pos_types
 from db_interaction import get_db, castellers_of_type, get_avg_shoulder_width
 from ineqs import relation_ineq
-
-lp = []
-
-cids=() #11,77) # print debug info for these
 
 def xml_to_lp(xmlfilename):
     ineqs = []
@@ -27,8 +21,7 @@ def xml_to_lp(xmlfilename):
         '\nsubject to\n' + \
         '\n'.join(ineqs) + \
         '\nbinary\n' + \
-        ' '.join(var_string)
-        
+        ' '.join(var_string)        
 
 def xml_to_lp_impl(xmlfilename, ineqs, obj):
     f = open(xmlfilename, 'r')
@@ -36,7 +29,6 @@ def xml_to_lp_impl(xmlfilename, ineqs, obj):
     return handleXML(dom.documentElement, ineqs, obj)
 
 def handleXML(xml, ineqs, obj):
-    lp.append('subject to\n')
     castell_id_name = xml.getElementsByTagName("castell")[0].getAttribute("castell_id_name")
     colla_id_name = xml.getElementsByTagName("colla")[0].getAttribute("colla_id_name")
     relations = xml.getElementsByTagName("relations")[0]
@@ -60,10 +52,8 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     role_list = [r for r in str(relation.getAttribute('role_list')).split(text_splitter)]
     coeff_list = [float(c) for c in relation.getAttribute('coeff_list').split(numeric_splitter)]
     relation_type = relation.getAttribute('relation_type')
-    xmlsense = relation.getAttribute('sense')
-    if xmlsense == 'le':
-        sense = '<='
-    else:
+    sense = '<='
+    if relation.getAttribute('sense') != 'le':
         sense = '>='
     rhs = float(relation.getAttribute('rhs'))
     [ineqs, obj] = relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, aux_data, ineqs, obj)

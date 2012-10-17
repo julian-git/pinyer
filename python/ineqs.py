@@ -256,26 +256,26 @@ def incompatibility_ineqs(db, colla_id_name, pos_of_casteller, relations, ineqs)
                     ineqs.append(label + var(p0, tpi) + " + " + var(p1, fpi) + " <= 1")
     return ineqs
 
-def ip_ineqs(castellers_in_position):
-    """
-    Create the linear inequalities that define the integer program to be solved.
-    Fill the dictionaries castellers_in_position, position_data and obj_val.
-    as a side effect, calculate the dictionary pos_of_casteller.
-    """
-    if DoLogging:
-        print "ip_ineqs"
+# def ip_ineqs(castellers_in_position):
+#     """
+#     Create the linear inequalities that define the integer program to be solved.
+#     Fill the dictionaries castellers_in_position, position_data and obj_val.
+#     as a side effect, calculate the dictionary pos_of_casteller.
+#     """
+#     if DoLogging:
+#         print "ip_ineqs"
 
 
-    obj = objective_function(castellers_in_position)
+#     obj = objective_function(castellers_in_position)
 
-    ineqs = []
-    [ineqs, pos_of_casteller] = \
-        castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, ineqs)
+#     ineqs = []
+#     [ineqs, pos_of_casteller] = \
+#         castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, ineqs)
 
-    relations = get_relations(db, castell_type_id_name)
-    aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id_name))])
+#     relations = get_relations(db, castell_type_id_name)
+#     aux_data = dict([('avg_shoulder_width', get_avg_shoulder_width(db, colla_id_name))])
 
-    [ineqs, obj] = relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj)
-    ineqs = incompatibility_ineqs(db, colla_id_name, pos_of_casteller, relations, ineqs)
+#     [ineqs, obj] = relation_ineqs(relations, castellers_in_position, aux_data, ineqs, obj)
+#     ineqs = incompatibility_ineqs(db, colla_id_name, pos_of_casteller, relations, ineqs)
 
-    return [castellers_in_position, obj, ineqs, relations]
+#     return [castellers_in_position, obj, ineqs, relations]
