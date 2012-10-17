@@ -16,12 +16,12 @@ def xml_to_lp(xmlfilename):
         elif coeff < 0:
             obj_string.append(str(coeff) + ' ' + var)
             var_string.append(' ' + var)
-    return 'maximize\n' + \
-        ' '.join(obj_string) + \
-        '\nsubject to\n' + \
-        '\n'.join(ineqs) + \
-        '\nbinary\n' + \
-        ' '.join(var_string)        
+    return '\n'.join(('maximize', \
+                          ' '.join(obj_string), \
+                          'subject to', \
+                          '\n'.join(ineqs), \
+                          'binary', \
+                          ' '.join(var_string)))
 
 def xml_to_lp_impl(xmlfilename, ineqs, obj):
     f = open(xmlfilename, 'r')
@@ -60,8 +60,9 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     return [ineqs, obj]
 
 def write_lp(pinya_name):
-    f = open('../www/' + pinya_dir + '/' + pinya_name + '/pinya.lp', 'w')
-    f.write(xml_to_lp('../www/' + pinya_dir + '/' + pinya_name + '/pinya.xml'))
+    filename = '../www/' + pinya_dir + '/' + pinya_name + '/pinya'
+    f = open(filename + '.lp', 'w')
+    f.write(xml_to_lp(filename + '.xml'))
 
 
 if __name__=='__main__':
