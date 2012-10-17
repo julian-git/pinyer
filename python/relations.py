@@ -2,16 +2,12 @@ from local_config import tolerances, text_splitter, numeric_splitter
 
 def ring_relations(rd, position_in_ring, relations, has_folre):
     # the default values for all relations created in this function
-    if has_folre:
-        sense = 'le'
-    else:
-        sense = 'ge'
     rel0 = dict([('pos_list', None), \
                      ('coeff_list', '1_1'), \
                      ('relation_type', 'zero_or_tol'), \
                      ('field_names', \
                           'shoulder_height' + text_splitter + 'shoulder_height'), \
-                     ('sense', sense), \
+                     ('sense', 'le'), \
                      ('rhs', tolerances['height']), \
                      ('pos_list', None), \
                      ('role_list', None)])
@@ -19,14 +15,12 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
     # first, the relations between rengles de mans and rengles de vents
     for j in range(2*rd['period']):
         if j%2 == 0:
-            pt = 'ma'  # Ma
+            pt = 'ma'  
         else:
-            pt = 'vent'  # Vent
+            pt = 'vent'
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             rel = rel0.copy()
-            rel['pos_list'] = \
-                str(position_in_ring[i,j,0]['xml_id']) + '_' + \
-                str(position_in_ring[i+1,j,0]['xml_id'])
+            rel['pos_list'] = make_height_difference(i, j, 0, 0, has_folre, position_in_ring)
             rel['role_list'] = pt + text_splitter + pt
             relations.append(rel)
 
@@ -37,16 +31,12 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
         for i in range(rd['start_n_in_slice'], rd['end_n_in_slice']):
             for m in range(1, i+1):
                 rel = rel0.copy()
-                rel['pos_list'] = \
-                    str(position_in_ring[i,j,m]['xml_id']) + '_' + \
-                    str(position_in_ring[i+1,j,m]['xml_id'])
+                rel['pos_list'] = make_height_difference(i, j, m, 0, has_folre, position_in_ring)
                 rel['role_list'] = 'pinya' + text_splitter + 'pinya'
                 relations.append(rel) # quesito
 
                 rel1 = rel.copy()
-                rel1['pos_list'] = \
-                    str(position_in_ring[i,j,m]['xml_id']) + '_' + \
-                    str(position_in_ring[i+1,j,m+1]['xml_id'])
+                rel1['pos_list'] = make_height_difference(i, j, m, 1, has_folre, position_in_ring)
                 rel1['role_list'] = 'pinya' + text_splitter + 'pinya'
                 relations.append(rel1) # quesito
 
@@ -68,6 +58,16 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
                 rel['coeff_list'] += numeric_splitter + '1'
             relations.append(rel)
     return relations
+
+def make_height_difference(i, j, m, delta_m, has_folre, position_in_ring):
+    if has_folre: # the outer rings must be taller than the inner ones
+        return \
+            str(position_in_ring[i+1,j,m+delta_m]['xml_id']) + '_' + \
+            str(position_in_ring[i,j,m]['xml_id'])
+    else: # vice versa
+        return \
+            str(position_in_ring[i,j,m]['xml_id']) + '_' + \
+            str(position_in_ring[i+1,j,m+delta_m]['xml_id'])
 
 def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrosses, relations):
     rel0 = dict([('pos_list', None), \
