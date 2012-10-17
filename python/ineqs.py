@@ -14,7 +14,7 @@ def var(casteller_id, pos_id):
         vars[casteller_id, pos_id] = v
         return v
 
-def sum_vars(pos_id, castellers, field_name = None, operator = " + ", coeff = 1):
+def sum_vars(pos_id, castellers, field_name = None, operator = '+ ', coeff = 1):
     """
     make the sum of all casteller indicator variables that involve the position pos.
     If field_name is None, use coeff(=1) as a coefficient; 
@@ -32,11 +32,17 @@ def sum_vars(pos_id, castellers, field_name = None, operator = " + ", coeff = 1)
 
         if field_name is not None:
             if field_name not in casteller: # then we use it as a constant coefficient
-                ineq += str(coeff * field_name) + ' '
+                ineq += stringify(coeff * field_name) + ' '
             else:
-                ineq += str(coeff * casteller[field_name]) + ' '
+                ineq += stringify(coeff * casteller[field_name]) + ' '
         ineq += var(casteller['id'], pos_id)  + ' '
     return ineq
+
+def stringify(val):
+    if val>=0:
+        return str(val)
+    else:
+        return '- ' + str(-val)
 
 def combine_vars(from_pos_id, to_pos_id, from_castellers, to_castellers, field_names):
     """
@@ -45,7 +51,7 @@ def combine_vars(from_pos_id, to_pos_id, from_castellers, to_castellers, field_n
     the coefficient of the second set is field_names[1].
     """
     return sum_vars(from_pos_id, from_castellers, field_names[0]) + \
-        " - " + sum_vars(to_pos_id, to_castellers, field_names[1], " - ")
+        '- ' + sum_vars(to_pos_id, to_castellers, field_names[1], '- ')
 
 
 
@@ -132,9 +138,9 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
         label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
         ineqs.append(label + \
                          sum_vars(fpi, cot[role_list[0]]) + \
-                         " - " + \
-                         sum_vars(tpi, cot[role_list[1]], None, " - ") + \
-                         " >= 0")
+                         '- ' + \
+                         sum_vars(tpi, cot[role_list[1]], None, '- ') + \
+                         ">= 0")
 
     if relation_type == 'zero_or_tol': 
         #
@@ -169,9 +175,9 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
         x = combine_vars(fpi, tpi, cot[role_list[0]], cot[role_list[1]], field_names)
         M = 1000000
         label = text_splitter.join(field_names) + "_" + str(fpi) + "_" + str(tpi) + ": "
-        ineqs.append(label + x + " + " + sum_vars(tpi, cot[role_list[1]], M) + \
+        ineqs.append(label + x + "+" + sum_vars(tpi, cot[role_list[1]], M) + \
                          " <= " + str(M + rhs))
-        ineqs.append(label + x + " " + sum_vars(tpi, cot[role_list[1]], -M, "   ") + \
+        ineqs.append(label + x + sum_vars(tpi, cot[role_list[1]], -M, '') + \
                          " >= " + str(-M))
         #
         # Next, we update the objective function to minimize
@@ -212,10 +218,10 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
             for c in cot[role_list[pos_ct]]:
                 coeff = coeff_list[pos_ct] * c[field_names[pos_ct]]
                 if coeff > 0:
-                    ineq_str += ' + '
+                    ineq_str += ' + ' + str(coeff)
                 else:
-                    ineq_str += ' '
-                ineq_str += str(coeff) + ' ' + var(c['id'], pos)
+                    ineq_str += ' - ' + str(-coeff)
+                ineq_str += ' ' + var(c['id'], pos)
                 
         if relation_type == 'sum_in_interval':
             target_width = len(pos_list) * aux_data['avg_shoulder_width']

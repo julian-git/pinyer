@@ -14,7 +14,7 @@ def xml_to_lp(xmlfilename):
             obj_string.append('+ ' + str(coeff) + ' ' + var)
             var_string.append(' ' + var)
         elif coeff < 0:
-            obj_string.append(str(coeff) + ' ' + var)
+            obj_string.append('- ' + str(-coeff) + ' ' + var)
             var_string.append(' ' + var)
     return '\n'.join(('maximize', \
                           ' '.join(obj_string), \
