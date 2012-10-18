@@ -68,6 +68,6 @@ def write_lp(pinya_name):
 if __name__=='__main__':
     write_lp('cvg.3de9f')
 #    import cProfile
-#    cProfile.run('run()', 'xml_to_lp.stats')
+#    cProfile.run("write_lp('cvg.3de9f')", 'xml_to_lp.stats')
 
 

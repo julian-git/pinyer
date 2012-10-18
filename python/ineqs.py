@@ -174,11 +174,11 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
             raise RuntimeError('should have exactly two field names in "' + field_names + '"')
         x = combine_vars(fpi, tpi, cot[role_list[0]], cot[role_list[1]], field_names)
         M = 1000000
-        label = text_splitter.join(field_names) + "_" + str(fpi) + "_" + str(tpi) + ": "
-        ineqs.append(label + x + "+" + sum_vars(tpi, cot[role_list[1]], M) + \
-                         " <= " + str(M + rhs))
+        label = text_splitter.join(field_names) + '_' + str(fpi) + '_' + str(tpi) + ': '
+        ineqs.append(label + x + '+' + sum_vars(tpi, cot[role_list[1]], M) + \
+                         ' <= ' + str(M + rhs))
         ineqs.append(label + x + sum_vars(tpi, cot[role_list[1]], -M, '') + \
-                         " >= " + str(-M))
+                         ' >= ' + str(-M))
         #
         # Next, we update the objective function to minimize
         # (value of field_names at from_pos) - (value of field_names at to_pos).
@@ -217,11 +217,9 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
             pos_ct = pos_ct + 1
             for c in cot[role_list[pos_ct]]:
                 coeff = coeff_list[pos_ct] * c[field_names[pos_ct]]
-                if coeff > 0:
-                    ineq_str += ' + ' + str(coeff)
-                else:
-                    ineq_str += ' - ' + str(-coeff)
-                ineq_str += ' ' + var(c['id'], pos)
+                if coeff >= 0:
+                    ineq_str += ' + '
+                ineq_str += stringify(coeff) + ' ' + var(c['id'], pos) + ' '
                 
         if relation_type == 'sum_in_interval':
             target_width = len(pos_list) * aux_data['avg_shoulder_width']
