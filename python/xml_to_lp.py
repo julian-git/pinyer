@@ -29,20 +29,25 @@ def xml_to_lp_impl(xmlfilename, ineqs, obj):
     return handleXML(dom.documentElement, ineqs, obj)
 
 def handleXML(xml, ineqs, obj):
-    castell_id_name = xml.getElementsByTagName("castell")[0].getAttribute("castell_id_name")
-    colla_id_name = xml.getElementsByTagName("colla")[0].getAttribute("colla_id_name")
-    relations = xml.getElementsByTagName("relations")[0]
     db = get_db()
     (cot, aux_data) = castellers(db, colla_id_name)
-    for r in cot.keys():
-        print r, [c['id'] for c in cot[r]]
-    print 'done.'
 
-    positions = dict()
+    castell_id_name = xml.getElementsByTagName("castell")[0].getAttribute("castell_id_name")
+    colla_id_name = xml.getElementsByTagName("colla")[0].getAttribute("colla_id_name")
+
+    role_of_pos = dict()
+    positions = xml.getElementsByTagName('positions')[0]
+    for child in positions.childNodes:
+        if child.nodeName == 'position':
+            role_of_pos = RolesOfPosition(child, role_of_pos)
+
+    relations = xml.getElementsByTagName('relations')[0]
     for child in relations.childNodes:
         if child.nodeName == 'relation':
-            [ineqs, obj, positions] = handleRelation(child, cot, aux_data, ineqs, obj, positions)
-    ineqs = handlePositions(db, cot, ineqs, positions)
+            [ineqs, obj] = handleRelation(child, cot, aux_data, ineqs, obj, positions)
+
+    
+    ineqs = IneqsOfPositions(db, cot, ineqs, positions)
     return [ineqs, obj]
 
 def castellers(db, colla_id_name):
@@ -52,7 +57,7 @@ def castellers(db, colla_id_name):
         cot[role] = castellers_of_type(db, colla_id_name, role)
     return (cot, aux_data)
 
-def handleRelation(relation, cot, aux_data, ineqs, obj, positions):
+def handleRelation(relation, cot, aux_data, ineqs, obj):
     field_names = [str(f) for f in relation.getAttribute('field_names').split(text_splitter)]
     pos_list = [int(p) for p in relation.getAttribute('pos_list').split(numeric_splitter)]
     role_list = [r for r in str(relation.getAttribute('role_list')).split(text_splitter)]
@@ -62,14 +67,7 @@ def handleRelation(relation, cot, aux_data, ineqs, obj, positions):
     if relation.getAttribute('sense') != 'le':
         sense = '>='
     rhs = float(relation.getAttribute('rhs'))
-    [ineqs, obj] = relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, aux_data, ineqs, obj)
-    for i in range(len(pos_list)):
-        try:
-            positions[role_list[i]] += [pos_list[i]]
-        except KeyError:
-            positions[role_list[i]] = [pos_list[i]]
-    print 'found positions for roles', positions.keys()
-    return [ineqs, obj, positions]
+    return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, aux_data, ineqs, obj)
 
 def handlePositions(db, cot, ineqs, positions):
     castellers_in_position = dict()

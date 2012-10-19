@@ -31,8 +31,8 @@ def handleXML(xml):
     for child in xml.childNodes:
         if child.nodeName == 'title':
             handleTitle(child)
-        if child.nodeName == 'pinya':
-            handlePinya(child)
+        if child.nodeName == 'positions':
+            handlePositions(child)
         if child.nodeName == 'relations':
             handleRelations(child)
     svg.append('</svg>')
@@ -40,9 +40,9 @@ def handleXML(xml):
 def handleTitle(titles):
     pass
 
-def handlePinya(pinya):
-    svg.append('<g id="pinya">')
-    for child in pinya.childNodes:
+def handlePositions(positions):
+    svg.append('<g id="positions">')
+    for child in positions.childNodes:
         if child.nodeName == 'position_group':
             handlePositionGroup(child)
         elif child.nodeName == 'position':
@@ -90,12 +90,6 @@ def apply_transform(id, translation, angle):
         print 'result', id, coo
     coos[id] = [round(coo[0],2), round(coo[1], 2)]
     
-def handlePositions(positions):
-    ids = []
-    for position in positions:
-        ids += handlePosition(position)
-    return ids
-
 def handlePosition(position):
     ids = []
     printAttr('g', position, ('id', 'transform'))
@@ -153,6 +147,7 @@ def handleRelation(relation):
                  relation.getAttribute('pos_list') + \
                  '" d="')
     first = True
+    print relation.getAttribute('pos_list')
     for pos in relation.getAttribute('pos_list').split(numeric_splitter):
         if not first:
             d.append('L')
@@ -170,9 +165,10 @@ def getText(nodelist):
             rc.append(node.data)
     return ''.join(rc)
 
-def write_svg(pinya_name):
-    f = open('../www/' + pinya_dir + '/' + pinya_name + '/pinya.svg', 'w')
-    f.write(xml_to_svg('../www/' + pinya_dir + '/' + pinya_name + '/pinya.xml'))
+def write_svg(castell_id_name):
+    filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
+    f = open(filename + '.svg', 'w')
+    f.write(xml_to_svg(filename + '.xml'))
 
 
 if __name__=='__main__':
