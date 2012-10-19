@@ -34,6 +34,10 @@ def handleXML(xml, ineqs, obj):
     relations = xml.getElementsByTagName("relations")[0]
     db = get_db()
     (cot, aux_data) = castellers(db, colla_id_name)
+    for r in cot.keys():
+        print r, [c['id'] for c in cot[r]]
+    print 'done.'
+
     positions = dict()
     for child in relations.childNodes:
         if child.nodeName == 'relation':
@@ -64,10 +68,12 @@ def handleRelation(relation, cot, aux_data, ineqs, obj, positions):
             positions[role_list[i]] += [pos_list[i]]
         except KeyError:
             positions[role_list[i]] = [pos_list[i]]
+    print 'found positions for roles', positions.keys()
     return [ineqs, obj, positions]
 
 def handlePositions(db, cot, ineqs, positions):
     castellers_in_position = dict()
+    print "handlePos"
     for role, pos_list in positions.iteritems():
         print role, pos_list
         for pos in set(pos_list):

@@ -87,7 +87,7 @@ def baix(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _xml_id=xml_id,\
                                    #_xml_text = str([i,j]), \
                                    _xml_text=xml_id, \
-                                   _class='b', \
+                                   _class='baix', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
@@ -120,7 +120,7 @@ def crossa(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _xml_id=xml_id,\
                                    #_xml_text = str([i,j]), \
                                    _xml_text=xml_id, \
-                                   _class='cr', \
+                                   _class='crossa', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
@@ -149,7 +149,7 @@ def contrafort(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _xml_id=xml_id,\
                                    #_xml_text = str([i,j]), \
                                    _xml_text=xml_id, \
-                                   _class='co', \
+                                   _class='contrafort', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
@@ -178,7 +178,7 @@ def agulla(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _xml_id=xml_id,\
                                    #_xml_text = str([i,j]), \
                                    _xml_text=xml_id, \
-                                   _class='a', \
+                                   _class='agulla', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
@@ -211,7 +211,7 @@ def lateral(i, j, bd, pibg, xml, xml_id, coo_of):
                                    _xml_id=xml_id,\
                                    #_xml_text = str([i,j]), \
                                    _xml_text=xml_id, \
-                                   _class='lat', \
+                                   _class='lateral', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pibg[i,j] = dict([('xml_id', xml_id), \
@@ -274,11 +274,11 @@ def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
                                    _xml_id=xml_id,\
                                    #_xml_text = str([i,j]), \
                                    _xml_text=xml_id, \
-                                   _class='pc', \
+                                   _class='portacrossa', \
                                    _name=xml_id, \
                                    _index_props=[i,j])
     pipcg[i,j] = dict([('xml_id', xml_id), \
-                           ('role', 'portacrosses'), \
+                           ('role', 'portacrossa'), \
                            #('xml_text', 'portacrosses'), \
                            ('xml_text', xml_id), \
                            ('x', x), \

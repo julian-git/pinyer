@@ -2,14 +2,16 @@ from local_config import \
     UseCBC, DoLogging, DoSolve, \
     numeric_splitter, text_splitter, \
     pinya_dir
-from db_interaction import get_db, get_castellers
+from db_interaction import get_db, db_castellers
 from subprocess import call 
 from os import rename
 
 def sol_from_v(sol, vname, castellers):
     cast_id = int(vname[1:vname.find('p')])
     pos_id = int(vname[vname.find('p')+1:])
+    print pos_id, cast_id
     sol[pos_id] = castellers[cast_id]
+    print sol[pos_id]
             
 def backup_file(filename):
     try:
@@ -17,7 +19,7 @@ def backup_file(filename):
     except OSError:
         pass
 
-def do_solve(filename):
+def solve_castell(filename):
     if UseCBC:
         args = ['cbc', '-import', filename + '.lp', '-solve', '-solu', filename + '.sol', '-quit']
     else:
@@ -75,9 +77,9 @@ def solve_castell(prescribed, castell_id_name, colla_id_name):
     filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya'
 
     if DoSolve:
-        do_solve(filename)
+        solve_castell(filename)
         
-    castellers = get_castellers(get_db(), colla_id_name)
+    castellers = db_castellers(get_db(), colla_id_name)
     sol = read_solved_positions(filename, castellers)
     return dict([('positions', sol), \
                      ('relations', '')]) #relation_values_from_solution(relations, sol))])

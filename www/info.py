@@ -12,9 +12,9 @@ cgitb.enable()
 sys.path.append('../python')
 
 from build_html import solution_as_svg
-from build_ip import solve_castell
-from db_interaction import get_db, get_nicknames_and_char
-from local_config import pinya_svg_dir
+from solve_ip import solve_castell
+from db_interaction import get_db, db_nicknames_and_char
+from local_config import pinya_dir
 
 
 
@@ -43,12 +43,13 @@ if what=='get_colla':
                     ['total_height', 'shoulder_height', \
                          'axle_height', 'hip_height', 'stretched_height', \
                          'shoulder_height', 'shoulder_width'])
-    colla = get_nicknames_and_char(db, colla_id, char)
+    colla = db_nicknames_and_char(db, colla_id, char)
     print json.dumps(colla, separators=(',', ':'), ensure_ascii=False)
 
 elif what=='get_pinya':
-    pinya_name = form["pinya_name"].value
-    f = open(pinya_svg_dir + pinya_name + '.pinya.svg', 'r')
+    castell_id_name = form['castell_id_name'].value
+    filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya'
+    f = open(filename + '.svg', 'r')
     print f.read()
 
 elif what=='optimize_pinya':
@@ -56,10 +57,9 @@ elif what=='optimize_pinya':
     castell_type_id = form["castell_type_id"].value
     colla_id = 1
 #
-    [castell_type_id, colla_id] = [1000, 2]  # for debugging
-#    [castell_type_id, colla_id] = [3, 1] # for "real"
+    [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg'] # for "real"
 #
-    solution = solve_castell(prescribed, castell_type_id, colla_id)
+    solution = solve_castell(prescribed, castell_id_name, colla_id_name)
     positions = [[pos,c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     relations = solution['relations']
     sol_dict = dict([('positions', positions), ('relations', relations)])

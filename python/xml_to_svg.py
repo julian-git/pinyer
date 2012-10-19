@@ -1,7 +1,7 @@
 import xml.dom.minidom
 from local_config import pinya_dir
 from math import sin, cos, pi
-from local_config import numeric_splitter
+from local_config import text_splitter, numeric_splitter
 
 svg = []
 coos = dict()
@@ -147,8 +147,11 @@ def handleRelations(relations):
 
 def handleRelation(relation):
     d = []
-    d.append('<path class="' + relation.getAttribute('pos_type_list') + \
-                 '" pos_list="' + relation.getAttribute('pos_list') + '" d="')
+    d.append('<path class="' + \
+                 relation.getAttribute('role_list').replace(text_splitter, numeric_splitter) + \
+                 '" pos_list="' + \
+                 relation.getAttribute('pos_list') + \
+                 '" d="')
     first = True
     for pos in relation.getAttribute('pos_list').split(numeric_splitter):
         if not first:

@@ -20,16 +20,16 @@ circle.prescribed { fill: lightgreen;}
 circle.design { stroke: green;}
 
 
-rect    { fill: lightblue; }
-rect.ma { fill: purple;    }  /* rengles, mans */
-rect.vt { fill: blue;      }  /* vents         */
-rect.cr { fill: yellow;    }  /* crosses       */
-rect.co { fill: orange;    }  /* contraforts   */
-rect.b  { fill: red;       }  /* baixos        */
-rect.a  { fill: brown;     }  /* agulles       */
-rect.pc { fill: teal;      }  /* portacrosses  */
-rect.lat{ fill: darkblue;  }  /* lateral       */
-rect.design { stroke: green;}
+rect                { fill: lightblue; }
+rect.ma             { fill: purple;    }
+rect.vent           { fill: blue;      }
+rect.crossa         { fill: yellow;    }
+rect.contrafort     { fill: orange;    }
+rect.baix           { fill: red;       }
+rect.agulla         { fill: brown;     }
+rect.portacrossa    { fill: teal;      }
+rect.lateral        { fill: darkblue;  }  /* lateral       */
+rect.design         { stroke: green;}
 
 
 path { stroke-width:2; fill:none;}
@@ -37,13 +37,13 @@ path { stroke-width:2; fill:none;}
 path.ma { stroke: seagreen}
 path.ma_ma { stroke: seagreen}
 
-path.vt { stroke: lightgreen}
-path.vt_vt { stroke: lightgreen}
+path.vent { stroke: lightgreen}
+path.vent_vent { stroke: lightgreen}
 
-path.p { stroke: lightblue; }
-path.p_p { stroke: lightblue;}
+path.pinya { stroke: lightblue; }
+path.pinya_pinya { stroke: lightblue;}
 
-path.b_c { stroke: teal; }
+path.baix_crossa { stroke: teal; }
 
 
 
