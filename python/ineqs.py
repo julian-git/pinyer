@@ -55,7 +55,7 @@ def combine_vars(from_pos_id, to_pos_id, from_castellers, to_castellers, field_n
 
 
 
-def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, prescribed, ineqs):
+def castellers_in_position_ineqs(castellers_in_position, ineqs):
     """ 
     write the inequalities that say that in each position, there may be at most one casteller.
     Fill in pos_of_casteller
@@ -72,6 +72,7 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
             casteller_id = casteller['id']
             v = var(casteller_id, pos_id)
             if first_pos_ineq:
+
                 first_pos_ineq = False
             else:
                 position_ineq += " + "
@@ -96,19 +97,19 @@ def castellers_in_position_ineqs(castellers_in_position, is_essential_pos, presc
             casteller_ineq += var(casteller_id, pos_id)
         rel = " <= 1"
         label = "cas" + str(casteller_id) + ": "
-        is_position_prescribed = False
-        if casteller_id in prescribed: # decide whether to definitely include or exclude her
-            if prescribed[casteller_id] == 0:
-                rel = " = 0" # She won't participate
-            else: # We fix the position where she must go
-                is_position_prescribed = True
-                for pos_id in positions:
-                    rel2 = " = 0" # usually, she won't go to the current position
-                    if pos_id == prescribed[casteller_id]:
-                        rel2 = " = 1" # except when we're told she does
-                    ineqs.append(label + var(casteller_id, pos_id) + rel2)
-        if not is_position_prescribed:
-            ineqs.append(label + casteller_ineq + rel)
+        # is_position_prescribed = False
+        # if casteller_id in prescribed: # decide whether to definitely include or exclude her
+        #     if prescribed[casteller_id] == 0:
+        #         rel = " = 0" # She won't participate
+        #     else: # We fix the position where she must go
+        #         is_position_prescribed = True
+        #         for pos_id in positions:
+        #             rel2 = " = 0" # usually, she won't go to the current position
+        #             if pos_id == prescribed[casteller_id]:
+        #                 rel2 = " = 1" # except when we're told she does
+        #             ineqs.append(label + var(casteller_id, pos_id) + rel2)
+        # if not is_position_prescribed:
+        ineqs.append(label + casteller_ineq + rel)
 
     return [ineqs, pos_of_casteller]
 
@@ -242,7 +243,7 @@ def incompatibility_ineqs(db, colla_id_name, pos_of_casteller, relations, ineqs)
     """
     if DoLogging:
         print "write_incompatibility_ineqs"
-    incompatible_castellers = get_incompatible_castellers(db, colla_id_name)
+    incompatible_castellers = db_incompatible_castellers(db, colla_id_name)
     for pair in incompatible_castellers:
         p0 = int(pair[0])
         p1 = int(pair[1])

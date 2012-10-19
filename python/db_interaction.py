@@ -40,7 +40,7 @@ def get_db():
 #          values (%s, %s, %s, %s, %s, %s, %s)"""
 #     c.executemany(query, vals)
 
-def get_castell(db, castell_type_id):
+def db_castell(db, castell_type_id):
     """
     returns the characteristics of the castell with the given id
     """
@@ -49,6 +49,24 @@ def get_castell(db, castell_type_id):
     res = c.fetchall()[0]
     return dict(zip(('name', 'description'), res))
 
+
+def db_castellers(db, colla_id_name):
+    c = db.cursor()
+    c.execute("""
+select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, axle_height, weight, strength 
+from casteller
+left join casteller_colla on casteller_colla.casteller_id = casteller.id
+where casteller_colla.colla_id_name = %s 
+""", (colla_id_name,))
+    res = c.fetchall()
+    ans = []
+    for row in res:
+        new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'axle_height', 'weight', 'strength'), row))
+        new_ans['id'] = int(new_ans['id'])
+        ans.append(new_ans)
+    if len(ans)==0:
+        raise RuntimeError('No castellers found for colla_id_name=' + str(colla_id_name))
+    return ans
 
 def castellers_of_type(db, colla_id_name, role):
     c = db.cursor()
@@ -71,7 +89,7 @@ where casteller_colla.colla_id_name = %s and casteller_role.role = %s
     return ans
 
 
-def get_colla(db, colla_id):
+def db_colla(db, colla_id):
     """
     returns all castellers of the given colla 
     """
@@ -90,7 +108,7 @@ where casteller_colla.colla_id = %s
         ans.append(new_ans)
     return ans
 
-def get_nicknames_and_char(db, colla_id, char):
+def db_nicknames_and_char(db, colla_id, char):
     """
     returns the nicknames of all castellers of the given colla 
     """
@@ -109,7 +127,7 @@ where casteller_colla.colla_id = %s order by c
     return ans
 
 
-def get_relations(db, castell_type_id):
+def db_relations(db, castell_type_id):
     """
     returns all relations between positions in the given castell_type_id
     """
@@ -144,7 +162,7 @@ def write_relations(db, castell_type_id, relations):
     c.executemany(query, vals)
     
 
-def get_incompatible_castellers(db, colla_id):
+def db_incompatible_castellers(db, colla_id):
     """
     returns all pairs of incompatible castellers in a colla
     """
@@ -153,7 +171,7 @@ def get_incompatible_castellers(db, colla_id):
     return c.fetchall()
 
 
-def get_avg_shoulder_width(db, colla_id):
+def db_avg_shoulder_width(db, colla_id):
     """ 
     the average shoulder width of all members in the colla
     that are present
