@@ -1,7 +1,7 @@
 
 <xml xmlns="http://www.w3.org/2000/xml" xmlns:xlink="http://www.w3.org/1999/xlink"
  viewBox="-190 -190 380 380"> 
-<title>Tres de vuit amb folre</title>
+<title>Tres de nou amb folre</title>
 <castell castell_id_name="cvg.3de9f"/>
 <colla colla_id_name="cvg"/>
 <positions>
@@ -12,10 +12,10 @@
   </label>
 </position>
 
-<position id="2" role="q" transform="translate(86.6 50.0) rotate(30.0)" essential="true">
-  <rect id="2_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="2" role="pinya" transform="translate(86.6 50.0) rotate(30.0)" essential="true">
+  <rect id="2_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="2_text" class="q vtext" text-anchor="middle">2</text>
+  <text id="2_text" class="pinya vtext" text-anchor="middle">2</text>
   </label>
 </position>
 
@@ -26,10 +26,10 @@
   </label>
 </position>
 
-<position id="4" role="q" transform="translate(0.0 100.0) rotate(90.0)" essential="true">
-  <rect id="4_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="4" role="pinya" transform="translate(0.0 100.0) rotate(90.0)" essential="true">
+  <rect id="4_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="4_text" class="q vtext" text-anchor="middle">4</text>
+  <text id="4_text" class="pinya vtext" text-anchor="middle">4</text>
   </label>
 </position>
 
@@ -40,10 +40,10 @@
   </label>
 </position>
 
-<position id="6" role="q" transform="translate(-86.6 50.0) rotate(150.0)" essential="true">
-  <rect id="6_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="6" role="pinya" transform="translate(-86.6 50.0) rotate(150.0)" essential="true">
+  <rect id="6_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="6_text" class="q vtext" text-anchor="middle">6</text>
+  <text id="6_text" class="pinya vtext" text-anchor="middle">6</text>
   </label>
 </position>
 
@@ -54,10 +54,10 @@
   </label>
 </position>
 
-<position id="8" role="q" transform="translate(-86.6 -50.0) rotate(210.0)" essential="true">
-  <rect id="8_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="8" role="pinya" transform="translate(-86.6 -50.0) rotate(210.0)" essential="true">
+  <rect id="8_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="8_text" class="q vtext" text-anchor="middle">8</text>
+  <text id="8_text" class="pinya vtext" text-anchor="middle">8</text>
   </label>
 </position>
 
@@ -68,10 +68,10 @@
   </label>
 </position>
 
-<position id="10" role="q" transform="translate(-0.0 -100.0) rotate(270.0)" essential="true">
-  <rect id="10_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="10" role="pinya" transform="translate(-0.0 -100.0) rotate(270.0)" essential="true">
+  <rect id="10_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="10_text" class="q vtext" text-anchor="middle">10</text>
+  <text id="10_text" class="pinya vtext" text-anchor="middle">10</text>
   </label>
 </position>
 
@@ -82,10 +82,10 @@
   </label>
 </position>
 
-<position id="12" role="q" transform="translate(86.6 -50.0) rotate(330.0)" essential="true">
-  <rect id="12_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="12" role="pinya" transform="translate(86.6 -50.0) rotate(330.0)" essential="true">
+  <rect id="12_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="12_text" class="q vtext" text-anchor="middle">12</text>
+  <text id="12_text" class="pinya vtext" text-anchor="middle">12</text>
   </label>
 </position>
 
@@ -96,17 +96,17 @@
   </label>
 </position>
 
-<position id="14" role="q" transform="translate(117.46 42.75) rotate(20.0)" essential="true">
-  <rect id="14_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="14" role="pinya" transform="translate(117.46 42.75) rotate(20.0)" essential="true">
+  <rect id="14_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="14_text" class="q vtext" text-anchor="middle">14</text>
+  <text id="14_text" class="pinya vtext" text-anchor="middle">14</text>
   </label>
 </position>
 
-<position id="15" role="q" transform="translate(95.76 80.35) rotate(40.0)" essential="true">
-  <rect id="15_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="15" role="pinya" transform="translate(95.76 80.35) rotate(40.0)" essential="true">
+  <rect id="15_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="15_text" class="q vtext" text-anchor="middle">15</text>
+  <text id="15_text" class="pinya vtext" text-anchor="middle">15</text>
   </label>
 </position>
 
@@ -117,17 +117,17 @@
   </label>
 </position>
 
-<position id="17" role="q" transform="translate(21.71 123.1) rotate(80.0)" essential="true">
-  <rect id="17_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="17" role="pinya" transform="translate(21.71 123.1) rotate(80.0)" essential="true">
+  <rect id="17_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="17_text" class="q vtext" text-anchor="middle">17</text>
+  <text id="17_text" class="pinya vtext" text-anchor="middle">17</text>
   </label>
 </position>
 
-<position id="18" role="q" transform="translate(-21.71 123.1) rotate(100.0)" essential="true">
-  <rect id="18_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="18" role="pinya" transform="translate(-21.71 123.1) rotate(100.0)" essential="true">
+  <rect id="18_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="18_text" class="q vtext" text-anchor="middle">18</text>
+  <text id="18_text" class="pinya vtext" text-anchor="middle">18</text>
   </label>
 </position>
 
@@ -138,17 +138,17 @@
   </label>
 </position>
 
-<position id="20" role="q" transform="translate(-95.76 80.35) rotate(140.0)" essential="true">
-  <rect id="20_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="20" role="pinya" transform="translate(-95.76 80.35) rotate(140.0)" essential="true">
+  <rect id="20_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="20_text" class="q vtext" text-anchor="middle">20</text>
+  <text id="20_text" class="pinya vtext" text-anchor="middle">20</text>
   </label>
 </position>
 
-<position id="21" role="q" transform="translate(-117.46 42.75) rotate(160.0)" essential="true">
-  <rect id="21_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="21" role="pinya" transform="translate(-117.46 42.75) rotate(160.0)" essential="true">
+  <rect id="21_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="21_text" class="q vtext" text-anchor="middle">21</text>
+  <text id="21_text" class="pinya vtext" text-anchor="middle">21</text>
   </label>
 </position>
 
@@ -159,17 +159,17 @@
   </label>
 </position>
 
-<position id="23" role="q" transform="translate(-117.46 -42.75) rotate(200.0)" essential="true">
-  <rect id="23_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="23" role="pinya" transform="translate(-117.46 -42.75) rotate(200.0)" essential="true">
+  <rect id="23_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="23_text" class="q vtext" text-anchor="middle">23</text>
+  <text id="23_text" class="pinya vtext" text-anchor="middle">23</text>
   </label>
 </position>
 
-<position id="24" role="q" transform="translate(-95.76 -80.35) rotate(220.0)" essential="true">
-  <rect id="24_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="24" role="pinya" transform="translate(-95.76 -80.35) rotate(220.0)" essential="true">
+  <rect id="24_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="24_text" class="q vtext" text-anchor="middle">24</text>
+  <text id="24_text" class="pinya vtext" text-anchor="middle">24</text>
   </label>
 </position>
 
@@ -180,17 +180,17 @@
   </label>
 </position>
 
-<position id="26" role="q" transform="translate(-21.71 -123.1) rotate(260.0)" essential="true">
-  <rect id="26_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="26" role="pinya" transform="translate(-21.71 -123.1) rotate(260.0)" essential="true">
+  <rect id="26_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="26_text" class="q vtext" text-anchor="middle">26</text>
+  <text id="26_text" class="pinya vtext" text-anchor="middle">26</text>
   </label>
 </position>
 
-<position id="27" role="q" transform="translate(21.71 -123.1) rotate(280.0)" essential="true">
-  <rect id="27_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="27" role="pinya" transform="translate(21.71 -123.1) rotate(280.0)" essential="true">
+  <rect id="27_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="27_text" class="q vtext" text-anchor="middle">27</text>
+  <text id="27_text" class="pinya vtext" text-anchor="middle">27</text>
   </label>
 </position>
 
@@ -201,17 +201,17 @@
   </label>
 </position>
 
-<position id="29" role="q" transform="translate(95.76 -80.35) rotate(320.0)" essential="true">
-  <rect id="29_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="29" role="pinya" transform="translate(95.76 -80.35) rotate(320.0)" essential="true">
+  <rect id="29_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="29_text" class="q vtext" text-anchor="middle">29</text>
+  <text id="29_text" class="pinya vtext" text-anchor="middle">29</text>
   </label>
 </position>
 
-<position id="30" role="q" transform="translate(117.46 -42.75) rotate(340.0)" essential="true">
-  <rect id="30_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="30" role="pinya" transform="translate(117.46 -42.75) rotate(340.0)" essential="true">
+  <rect id="30_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="30_text" class="q vtext" text-anchor="middle">30</text>
+  <text id="30_text" class="pinya vtext" text-anchor="middle">30</text>
   </label>
 </position>
 
@@ -222,24 +222,24 @@
   </label>
 </position>
 
-<position id="32" role="q" transform="translate(144.89 38.82) rotate(15.0)" essential="true">
-  <rect id="32_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="32" role="pinya" transform="translate(144.89 38.82) rotate(15.0)" essential="true">
+  <rect id="32_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="32_text" class="q vtext" text-anchor="middle">32</text>
+  <text id="32_text" class="pinya vtext" text-anchor="middle">32</text>
   </label>
 </position>
 
-<position id="33" role="q" transform="translate(129.9 75.0) rotate(30.0)" essential="true">
-  <rect id="33_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="33" role="pinya" transform="translate(129.9 75.0) rotate(30.0)" essential="true">
+  <rect id="33_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="33_text" class="q vtext" text-anchor="middle">33</text>
+  <text id="33_text" class="pinya vtext" text-anchor="middle">33</text>
   </label>
 </position>
 
-<position id="34" role="q" transform="translate(106.07 106.07) rotate(45.0)" essential="true">
-  <rect id="34_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="34" role="pinya" transform="translate(106.07 106.07) rotate(45.0)" essential="true">
+  <rect id="34_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="34_text" class="q vtext" text-anchor="middle">34</text>
+  <text id="34_text" class="pinya vtext" text-anchor="middle">34</text>
   </label>
 </position>
 
@@ -250,24 +250,24 @@
   </label>
 </position>
 
-<position id="36" role="q" transform="translate(38.82 144.89) rotate(75.0)" essential="true">
-  <rect id="36_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="36" role="pinya" transform="translate(38.82 144.89) rotate(75.0)" essential="true">
+  <rect id="36_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="36_text" class="q vtext" text-anchor="middle">36</text>
+  <text id="36_text" class="pinya vtext" text-anchor="middle">36</text>
   </label>
 </position>
 
-<position id="37" role="q" transform="translate(0.0 150.0) rotate(90.0)" essential="true">
-  <rect id="37_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="37" role="pinya" transform="translate(0.0 150.0) rotate(90.0)" essential="true">
+  <rect id="37_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="37_text" class="q vtext" text-anchor="middle">37</text>
+  <text id="37_text" class="pinya vtext" text-anchor="middle">37</text>
   </label>
 </position>
 
-<position id="38" role="q" transform="translate(-38.82 144.89) rotate(105.0)" essential="true">
-  <rect id="38_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="38" role="pinya" transform="translate(-38.82 144.89) rotate(105.0)" essential="true">
+  <rect id="38_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="38_text" class="q vtext" text-anchor="middle">38</text>
+  <text id="38_text" class="pinya vtext" text-anchor="middle">38</text>
   </label>
 </position>
 
@@ -278,24 +278,24 @@
   </label>
 </position>
 
-<position id="40" role="q" transform="translate(-106.07 106.07) rotate(135.0)" essential="true">
-  <rect id="40_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="40" role="pinya" transform="translate(-106.07 106.07) rotate(135.0)" essential="true">
+  <rect id="40_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="40_text" class="q vtext" text-anchor="middle">40</text>
+  <text id="40_text" class="pinya vtext" text-anchor="middle">40</text>
   </label>
 </position>
 
-<position id="41" role="q" transform="translate(-129.9 75.0) rotate(150.0)" essential="true">
-  <rect id="41_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="41" role="pinya" transform="translate(-129.9 75.0) rotate(150.0)" essential="true">
+  <rect id="41_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="41_text" class="q vtext" text-anchor="middle">41</text>
+  <text id="41_text" class="pinya vtext" text-anchor="middle">41</text>
   </label>
 </position>
 
-<position id="42" role="q" transform="translate(-144.89 38.82) rotate(165.0)" essential="true">
-  <rect id="42_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="42" role="pinya" transform="translate(-144.89 38.82) rotate(165.0)" essential="true">
+  <rect id="42_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="42_text" class="q vtext" text-anchor="middle">42</text>
+  <text id="42_text" class="pinya vtext" text-anchor="middle">42</text>
   </label>
 </position>
 
@@ -306,24 +306,24 @@
   </label>
 </position>
 
-<position id="44" role="q" transform="translate(-144.89 -38.82) rotate(195.0)" essential="true">
-  <rect id="44_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="44" role="pinya" transform="translate(-144.89 -38.82) rotate(195.0)" essential="true">
+  <rect id="44_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="44_text" class="q vtext" text-anchor="middle">44</text>
+  <text id="44_text" class="pinya vtext" text-anchor="middle">44</text>
   </label>
 </position>
 
-<position id="45" role="q" transform="translate(-129.9 -75.0) rotate(210.0)" essential="true">
-  <rect id="45_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="45" role="pinya" transform="translate(-129.9 -75.0) rotate(210.0)" essential="true">
+  <rect id="45_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="45_text" class="q vtext" text-anchor="middle">45</text>
+  <text id="45_text" class="pinya vtext" text-anchor="middle">45</text>
   </label>
 </position>
 
-<position id="46" role="q" transform="translate(-106.07 -106.07) rotate(225.0)" essential="true">
-  <rect id="46_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="46" role="pinya" transform="translate(-106.07 -106.07) rotate(225.0)" essential="true">
+  <rect id="46_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="46_text" class="q vtext" text-anchor="middle">46</text>
+  <text id="46_text" class="pinya vtext" text-anchor="middle">46</text>
   </label>
 </position>
 
@@ -334,24 +334,24 @@
   </label>
 </position>
 
-<position id="48" role="q" transform="translate(-38.82 -144.89) rotate(255.0)" essential="true">
-  <rect id="48_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="48" role="pinya" transform="translate(-38.82 -144.89) rotate(255.0)" essential="true">
+  <rect id="48_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="48_text" class="q vtext" text-anchor="middle">48</text>
+  <text id="48_text" class="pinya vtext" text-anchor="middle">48</text>
   </label>
 </position>
 
-<position id="49" role="q" transform="translate(-0.0 -150.0) rotate(270.0)" essential="true">
-  <rect id="49_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="49" role="pinya" transform="translate(-0.0 -150.0) rotate(270.0)" essential="true">
+  <rect id="49_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="49_text" class="q vtext" text-anchor="middle">49</text>
+  <text id="49_text" class="pinya vtext" text-anchor="middle">49</text>
   </label>
 </position>
 
-<position id="50" role="q" transform="translate(38.82 -144.89) rotate(285.0)" essential="true">
-  <rect id="50_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="50" role="pinya" transform="translate(38.82 -144.89) rotate(285.0)" essential="true">
+  <rect id="50_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="50_text" class="q vtext" text-anchor="middle">50</text>
+  <text id="50_text" class="pinya vtext" text-anchor="middle">50</text>
   </label>
 </position>
 
@@ -362,24 +362,24 @@
   </label>
 </position>
 
-<position id="52" role="q" transform="translate(106.07 -106.07) rotate(315.0)" essential="true">
-  <rect id="52_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="52" role="pinya" transform="translate(106.07 -106.07) rotate(315.0)" essential="true">
+  <rect id="52_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="52_text" class="q vtext" text-anchor="middle">52</text>
+  <text id="52_text" class="pinya vtext" text-anchor="middle">52</text>
   </label>
 </position>
 
-<position id="53" role="q" transform="translate(129.9 -75.0) rotate(330.0)" essential="true">
-  <rect id="53_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="53" role="pinya" transform="translate(129.9 -75.0) rotate(330.0)" essential="true">
+  <rect id="53_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="53_text" class="q vtext" text-anchor="middle">53</text>
+  <text id="53_text" class="pinya vtext" text-anchor="middle">53</text>
   </label>
 </position>
 
-<position id="54" role="q" transform="translate(144.89 -38.82) rotate(345.0)" essential="true">
-  <rect id="54_rect" class="q" width="20" height="40" x="-10.0" y="-20.0"/>
+<position id="54" role="pinya" transform="translate(144.89 -38.82) rotate(345.0)" essential="true">
+  <rect id="54_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
-  <text id="54_text" class="q vtext" text-anchor="middle">54</text>
+  <text id="54_text" class="pinya vtext" text-anchor="middle">54</text>
   </label>
 </position>
 <position_group id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">

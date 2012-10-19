@@ -9,9 +9,7 @@ from os import rename
 def sol_from_v(sol, vname, castellers):
     cast_id = int(vname[1:vname.find('p')])
     pos_id = int(vname[vname.find('p')+1:])
-    print pos_id, cast_id
     sol[pos_id] = castellers[cast_id]
-    print sol[pos_id]
             
 def backup_file(filename):
     try:
@@ -91,7 +89,7 @@ def do_opt():
 
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
     solution = solve_castell(prescribed, castell_id_name, colla_id_name)
-    print [[pos, c['nickname'], c['id']] for [pos, c] in solution['positions'].iteritems()]
+    print [[pos, c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     print solution['relations']
 
 if __name__ == "__main__":

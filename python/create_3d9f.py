@@ -32,7 +32,7 @@ def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
                     c = 'vent'  # Vent
                     role = 'vent'
             else:
-                c = 'q'       # Quesito
+                c = 'pinya'       # Quesito
                 role = 'pinya'
             x=round(r*cos(a), 2)
             y=round(r*sin(a), 2)
@@ -394,7 +394,7 @@ def tresde9f():
 
     # start the xml
     xml = xml_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
-    xml += '<title>Tres de vuit amb folre</title>\n' + \
+    xml += '<title>Tres de nou amb folre</title>\n' + \
         '<castell castell_id_name="cvg.3de9f"/>\n' + \
         '<colla colla_id_name="cvg"/>\n'
 
