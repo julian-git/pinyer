@@ -51,6 +51,8 @@ path.baix_crossa { stroke: teal; }
 -webkit-transform:rotate(-90deg);
 -moz-transform:rotate(-90deg);
 -o-transform: rotate(-90deg);
+font-size: .5em;
+dominant-baseline: 'mathematical';
 display:block;}
 
 

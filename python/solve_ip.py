@@ -5,6 +5,7 @@ from local_config import \
 from db_interaction import get_db, db_castellers
 from subprocess import call 
 from os import rename
+from string import Template
 
 def sol_from_v(sol, vname, castellers):
     cast_id = int(vname[1:vname.find('p')])
@@ -89,6 +90,13 @@ def do_opt():
 
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
     solution = solve_castell(prescribed, castell_id_name, colla_id_name)
+    filename =  '../www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
+    fin = open(filename + '.svg', 'r')
+    fout = open(filename + '.solved.svg', 'w')
+    t = Template(fin.read())
+    positions = solution['positions']
+    sol = dict([('_' + str(i), positions[i]['nickname']) for i in positions.keys()])
+    fout.write(t.safe_substitute(sol))
     print [[pos, c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     print solution['relations']
 

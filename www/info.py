@@ -49,7 +49,7 @@ if what=='get_colla':
 elif what=='get_pinya':
     castell_id_name = form['castell_id_name'].value
     filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya'
-    f = open(filename + '.svg', 'r')
+    f = open(filename + '.solved.svg', 'r')
     print f.read()
 
 elif what=='optimize_pinya':
