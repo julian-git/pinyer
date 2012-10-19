@@ -5,7 +5,7 @@
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="1_text" class="ma vtext" text-anchor="middle">
-${_1}
+1 ${_1} ${_c1}
 </text>
 </g>
 </g>
@@ -14,7 +14,7 @@ ${_1}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="2_text" class="pinya vtext" text-anchor="middle">
-${_2}
+2 ${_2} ${_c2}
 </text>
 </g>
 </g>
@@ -23,7 +23,7 @@ ${_2}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="3_text" class="vent vtext" text-anchor="middle">
-${_3}
+3 ${_3} ${_c3}
 </text>
 </g>
 </g>
@@ -32,7 +32,7 @@ ${_3}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="4_text" class="pinya vtext" text-anchor="middle">
-${_4}
+4 ${_4} ${_c4}
 </text>
 </g>
 </g>
@@ -41,7 +41,7 @@ ${_4}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="5_text" class="ma vtext" text-anchor="middle">
-${_5}
+5 ${_5} ${_c5}
 </text>
 </g>
 </g>
@@ -50,7 +50,7 @@ ${_5}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="6_text" class="pinya vtext" text-anchor="middle">
-${_6}
+6 ${_6} ${_c6}
 </text>
 </g>
 </g>
@@ -59,7 +59,7 @@ ${_6}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="7_text" class="vent vtext" text-anchor="middle">
-${_7}
+7 ${_7} ${_c7}
 </text>
 </g>
 </g>
@@ -68,7 +68,7 @@ ${_7}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="8_text" class="pinya vtext" text-anchor="middle">
-${_8}
+8 ${_8} ${_c8}
 </text>
 </g>
 </g>
@@ -77,7 +77,7 @@ ${_8}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="9_text" class="ma vtext" text-anchor="middle">
-${_9}
+9 ${_9} ${_c9}
 </text>
 </g>
 </g>
@@ -86,7 +86,7 @@ ${_9}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="10_text" class="pinya vtext" text-anchor="middle">
-${_10}
+10 ${_10} ${_c10}
 </text>
 </g>
 </g>
@@ -95,7 +95,7 @@ ${_10}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="11_text" class="vent vtext" text-anchor="middle">
-${_11}
+11 ${_11} ${_c11}
 </text>
 </g>
 </g>
@@ -104,7 +104,7 @@ ${_11}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="12_text" class="pinya vtext" text-anchor="middle">
-${_12}
+12 ${_12} ${_c12}
 </text>
 </g>
 </g>
@@ -113,7 +113,7 @@ ${_12}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="13_text" class="ma vtext" text-anchor="middle">
-${_13}
+13 ${_13} ${_c13}
 </text>
 </g>
 </g>
@@ -122,7 +122,7 @@ ${_13}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="14_text" class="pinya vtext" text-anchor="middle">
-${_14}
+14 ${_14} ${_c14}
 </text>
 </g>
 </g>
@@ -131,7 +131,7 @@ ${_14}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="15_text" class="pinya vtext" text-anchor="middle">
-${_15}
+15 ${_15} ${_c15}
 </text>
 </g>
 </g>
@@ -140,7 +140,7 @@ ${_15}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="16_text" class="vent vtext" text-anchor="middle">
-${_16}
+16 ${_16} ${_c16}
 </text>
 </g>
 </g>
@@ -149,7 +149,7 @@ ${_16}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="17_text" class="pinya vtext" text-anchor="middle">
-${_17}
+17 ${_17} ${_c17}
 </text>
 </g>
 </g>
@@ -158,7 +158,7 @@ ${_17}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="18_text" class="pinya vtext" text-anchor="middle">
-${_18}
+18 ${_18} ${_c18}
 </text>
 </g>
 </g>
@@ -167,7 +167,7 @@ ${_18}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="19_text" class="ma vtext" text-anchor="middle">
-${_19}
+19 ${_19} ${_c19}
 </text>
 </g>
 </g>
@@ -176,7 +176,7 @@ ${_19}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="20_text" class="pinya vtext" text-anchor="middle">
-${_20}
+20 ${_20} ${_c20}
 </text>
 </g>
 </g>
@@ -185,7 +185,7 @@ ${_20}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="21_text" class="pinya vtext" text-anchor="middle">
-${_21}
+21 ${_21} ${_c21}
 </text>
 </g>
 </g>
@@ -194,7 +194,7 @@ ${_21}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="22_text" class="vent vtext" text-anchor="middle">
-${_22}
+22 ${_22} ${_c22}
 </text>
 </g>
 </g>
@@ -203,7 +203,7 @@ ${_22}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="23_text" class="pinya vtext" text-anchor="middle">
-${_23}
+23 ${_23} ${_c23}
 </text>
 </g>
 </g>
@@ -212,7 +212,7 @@ ${_23}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="24_text" class="pinya vtext" text-anchor="middle">
-${_24}
+24 ${_24} ${_c24}
 </text>
 </g>
 </g>
@@ -221,7 +221,7 @@ ${_24}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="25_text" class="ma vtext" text-anchor="middle">
-${_25}
+25 ${_25} ${_c25}
 </text>
 </g>
 </g>
@@ -230,7 +230,7 @@ ${_25}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="26_text" class="pinya vtext" text-anchor="middle">
-${_26}
+26 ${_26} ${_c26}
 </text>
 </g>
 </g>
@@ -239,7 +239,7 @@ ${_26}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="27_text" class="pinya vtext" text-anchor="middle">
-${_27}
+27 ${_27} ${_c27}
 </text>
 </g>
 </g>
@@ -248,7 +248,7 @@ ${_27}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="28_text" class="vent vtext" text-anchor="middle">
-${_28}
+28 ${_28} ${_c28}
 </text>
 </g>
 </g>
@@ -257,7 +257,7 @@ ${_28}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="29_text" class="pinya vtext" text-anchor="middle">
-${_29}
+29 ${_29} ${_c29}
 </text>
 </g>
 </g>
@@ -266,7 +266,7 @@ ${_29}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="30_text" class="pinya vtext" text-anchor="middle">
-${_30}
+30 ${_30} ${_c30}
 </text>
 </g>
 </g>
@@ -275,7 +275,7 @@ ${_30}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="31_text" class="ma vtext" text-anchor="middle">
-${_31}
+31 ${_31} ${_c31}
 </text>
 </g>
 </g>
@@ -284,7 +284,7 @@ ${_31}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="32_text" class="pinya vtext" text-anchor="middle">
-${_32}
+32 ${_32} ${_c32}
 </text>
 </g>
 </g>
@@ -293,7 +293,7 @@ ${_32}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="33_text" class="pinya vtext" text-anchor="middle">
-${_33}
+33 ${_33} ${_c33}
 </text>
 </g>
 </g>
@@ -302,7 +302,7 @@ ${_33}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="34_text" class="pinya vtext" text-anchor="middle">
-${_34}
+34 ${_34} ${_c34}
 </text>
 </g>
 </g>
@@ -311,7 +311,7 @@ ${_34}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="35_text" class="vent vtext" text-anchor="middle">
-${_35}
+35 ${_35} ${_c35}
 </text>
 </g>
 </g>
@@ -320,7 +320,7 @@ ${_35}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="36_text" class="pinya vtext" text-anchor="middle">
-${_36}
+36 ${_36} ${_c36}
 </text>
 </g>
 </g>
@@ -329,7 +329,7 @@ ${_36}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="37_text" class="pinya vtext" text-anchor="middle">
-${_37}
+37 ${_37} ${_c37}
 </text>
 </g>
 </g>
@@ -338,7 +338,7 @@ ${_37}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="38_text" class="pinya vtext" text-anchor="middle">
-${_38}
+38 ${_38} ${_c38}
 </text>
 </g>
 </g>
@@ -347,7 +347,7 @@ ${_38}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="39_text" class="ma vtext" text-anchor="middle">
-${_39}
+39 ${_39} ${_c39}
 </text>
 </g>
 </g>
@@ -356,7 +356,7 @@ ${_39}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="40_text" class="pinya vtext" text-anchor="middle">
-${_40}
+40 ${_40} ${_c40}
 </text>
 </g>
 </g>
@@ -365,7 +365,7 @@ ${_40}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="41_text" class="pinya vtext" text-anchor="middle">
-${_41}
+41 ${_41} ${_c41}
 </text>
 </g>
 </g>
@@ -374,7 +374,7 @@ ${_41}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="42_text" class="pinya vtext" text-anchor="middle">
-${_42}
+42 ${_42} ${_c42}
 </text>
 </g>
 </g>
@@ -383,7 +383,7 @@ ${_42}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="43_text" class="vent vtext" text-anchor="middle">
-${_43}
+43 ${_43} ${_c43}
 </text>
 </g>
 </g>
@@ -392,7 +392,7 @@ ${_43}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="44_text" class="pinya vtext" text-anchor="middle">
-${_44}
+44 ${_44} ${_c44}
 </text>
 </g>
 </g>
@@ -401,7 +401,7 @@ ${_44}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="45_text" class="pinya vtext" text-anchor="middle">
-${_45}
+45 ${_45} ${_c45}
 </text>
 </g>
 </g>
@@ -410,7 +410,7 @@ ${_45}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="46_text" class="pinya vtext" text-anchor="middle">
-${_46}
+46 ${_46} ${_c46}
 </text>
 </g>
 </g>
@@ -419,7 +419,7 @@ ${_46}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="47_text" class="ma vtext" text-anchor="middle">
-${_47}
+47 ${_47} ${_c47}
 </text>
 </g>
 </g>
@@ -428,7 +428,7 @@ ${_47}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="48_text" class="pinya vtext" text-anchor="middle">
-${_48}
+48 ${_48} ${_c48}
 </text>
 </g>
 </g>
@@ -437,7 +437,7 @@ ${_48}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="49_text" class="pinya vtext" text-anchor="middle">
-${_49}
+49 ${_49} ${_c49}
 </text>
 </g>
 </g>
@@ -446,7 +446,7 @@ ${_49}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="50_text" class="pinya vtext" text-anchor="middle">
-${_50}
+50 ${_50} ${_c50}
 </text>
 </g>
 </g>
@@ -455,7 +455,7 @@ ${_50}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="51_text" class="vent vtext" text-anchor="middle">
-${_51}
+51 ${_51} ${_c51}
 </text>
 </g>
 </g>
@@ -464,7 +464,7 @@ ${_51}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="52_text" class="pinya vtext" text-anchor="middle">
-${_52}
+52 ${_52} ${_c52}
 </text>
 </g>
 </g>
@@ -473,7 +473,7 @@ ${_52}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="53_text" class="pinya vtext" text-anchor="middle">
-${_53}
+53 ${_53} ${_c53}
 </text>
 </g>
 </g>
@@ -482,7 +482,7 @@ ${_53}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="54_text" class="pinya vtext" text-anchor="middle">
-${_54}
+54 ${_54} ${_c54}
 </text>
 </g>
 </g>
@@ -492,7 +492,7 @@ ${_54}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="55_text" class="baix vtext" text-anchor="middle">
-${_55}
+55 ${_55} ${_c55}
 </text>
 </g>
 </g>
@@ -501,7 +501,7 @@ ${_55}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="56_text" class="crossa vtext" text-anchor="middle">
-${_56}
+56 ${_56} ${_c56}
 </text>
 </g>
 </g>
@@ -510,7 +510,7 @@ ${_56}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="57_text" class="crossa vtext" text-anchor="middle">
-${_57}
+57 ${_57} ${_c57}
 </text>
 </g>
 </g>
@@ -519,7 +519,7 @@ ${_57}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="58_text" class="contrafort vtext" text-anchor="middle">
-${_58}
+58 ${_58} ${_c58}
 </text>
 </g>
 </g>
@@ -528,7 +528,7 @@ ${_58}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="59_text" class="agulla vtext" text-anchor="middle">
-${_59}
+59 ${_59} ${_c59}
 </text>
 </g>
 </g>
@@ -537,7 +537,7 @@ ${_59}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="60_text" class="lateral vtext" text-anchor="middle">
-${_60}
+60 ${_60} ${_c60}
 </text>
 </g>
 </g>
@@ -546,7 +546,7 @@ ${_60}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="61_text" class="lateral vtext" text-anchor="middle">
-${_61}
+61 ${_61} ${_c61}
 </text>
 </g>
 </g>
@@ -557,7 +557,7 @@ ${_61}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="62_text" class="baix vtext" text-anchor="middle">
-${_62}
+62 ${_62} ${_c62}
 </text>
 </g>
 </g>
@@ -566,7 +566,7 @@ ${_62}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="63_text" class="crossa vtext" text-anchor="middle">
-${_63}
+63 ${_63} ${_c63}
 </text>
 </g>
 </g>
@@ -575,7 +575,7 @@ ${_63}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="64_text" class="crossa vtext" text-anchor="middle">
-${_64}
+64 ${_64} ${_c64}
 </text>
 </g>
 </g>
@@ -584,7 +584,7 @@ ${_64}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="65_text" class="contrafort vtext" text-anchor="middle">
-${_65}
+65 ${_65} ${_c65}
 </text>
 </g>
 </g>
@@ -593,7 +593,7 @@ ${_65}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="66_text" class="agulla vtext" text-anchor="middle">
-${_66}
+66 ${_66} ${_c66}
 </text>
 </g>
 </g>
@@ -602,7 +602,7 @@ ${_66}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="67_text" class="lateral vtext" text-anchor="middle">
-${_67}
+67 ${_67} ${_c67}
 </text>
 </g>
 </g>
@@ -611,7 +611,7 @@ ${_67}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="68_text" class="lateral vtext" text-anchor="middle">
-${_68}
+68 ${_68} ${_c68}
 </text>
 </g>
 </g>
@@ -622,7 +622,7 @@ ${_68}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="69_text" class="baix vtext" text-anchor="middle">
-${_69}
+69 ${_69} ${_c69}
 </text>
 </g>
 </g>
@@ -631,7 +631,7 @@ ${_69}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="70_text" class="crossa vtext" text-anchor="middle">
-${_70}
+70 ${_70} ${_c70}
 </text>
 </g>
 </g>
@@ -640,7 +640,7 @@ ${_70}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="71_text" class="crossa vtext" text-anchor="middle">
-${_71}
+71 ${_71} ${_c71}
 </text>
 </g>
 </g>
@@ -649,7 +649,7 @@ ${_71}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="72_text" class="contrafort vtext" text-anchor="middle">
-${_72}
+72 ${_72} ${_c72}
 </text>
 </g>
 </g>
@@ -658,7 +658,7 @@ ${_72}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="73_text" class="agulla vtext" text-anchor="middle">
-${_73}
+73 ${_73} ${_c73}
 </text>
 </g>
 </g>
@@ -667,7 +667,7 @@ ${_73}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="74_text" class="lateral vtext" text-anchor="middle">
-${_74}
+74 ${_74} ${_c74}
 </text>
 </g>
 </g>
@@ -676,7 +676,7 @@ ${_74}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="75_text" class="lateral vtext" text-anchor="middle">
-${_75}
+75 ${_75} ${_c75}
 </text>
 </g>
 </g>
@@ -687,7 +687,7 @@ ${_75}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="76_text" class="portacrossa vtext" text-anchor="middle">
-${_76}
+76 ${_76} ${_c76}
 </text>
 </g>
 </g>
@@ -698,7 +698,7 @@ ${_76}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="77_text" class="portacrossa vtext" text-anchor="middle">
-${_77}
+77 ${_77} ${_c77}
 </text>
 </g>
 </g>
@@ -709,7 +709,7 @@ ${_77}
 </rect>
 <g transform="rotate(90) translate(0 6)">
 <text id="78_text" class="portacrossa vtext" text-anchor="middle">
-${_78}
+78 ${_78} ${_c78}
 </text>
 </g>
 </g>

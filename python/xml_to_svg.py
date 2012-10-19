@@ -125,7 +125,8 @@ def handleLabel(label):
 
 def handleText(text):
     printAttr('text', text, ('id', 'class', 'text-anchor'))
-    svg.append('${_' + getText(text.childNodes) + '}')
+    label = getText(text.childNodes)
+    svg.append(label + ' ${_' + label + '} ${_c' + label + '}')
     svg.append('</text>')
 
 def handleRelations(relations):

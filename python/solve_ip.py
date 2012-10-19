@@ -95,7 +95,10 @@ def do_opt():
     fout = open(filename + '.solved.svg', 'w')
     t = Template(fin.read())
     positions = solution['positions']
-    sol = dict([('_' + str(i), positions[i]['nickname']) for i in positions.keys()])
+    sol = dict()
+    for i in positions.keys():
+        sol['_' + str(i)] = positions[i]['nickname']
+        sol['_c' + str(i)] = positions[i]['id']
     fout.write(t.safe_substitute(sol))
     print [[pos, c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     print solution['relations']
