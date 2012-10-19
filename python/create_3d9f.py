@@ -399,10 +399,10 @@ def tresde9f():
         '<colla colla_id_name="cvg"/>\n'
 
     # go!
-    xml += '<pinya>'
+    xml += '<positions>'
     [xml, position_in_ring, position_in_baix_group, \
          position_in_portacrosses, coo_of] = pinya(rd, bd, pcd, xml)
-    xml += '</pinya>\n'
+    xml += '</positions>\n'
 
     relations = []
 

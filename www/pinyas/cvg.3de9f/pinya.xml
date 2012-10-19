@@ -4,7 +4,7 @@
 <title>Tres de vuit amb folre</title>
 <castell castell_id_name="cvg.3de9f"/>
 <colla colla_id_name="cvg"/>
-<pinya>
+<positions>
 <position id="1" role="ma" transform="translate(100.0 0.0) rotate(0.0)" essential="true">
   <rect id="1_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0"/>
   <label transform="rotate(90) translate(0 6)">
@@ -556,7 +556,7 @@
   </label>
 </position>
 </position_group>
-</pinya>
+</positions>
 
 <relations id="rels">
 <relation role_list="ma~ma" pos_list="13_1" sense="le" rhs="5" coeff_list="1_1" field_names="shoulder_height~shoulder_height" relation_type="zero_or_tol"/>

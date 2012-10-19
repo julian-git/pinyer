@@ -28,13 +28,9 @@ def xml_to_svg_impl(xmlfilename):
 
 def handleXML(xml):
     printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'))
-    for child in xml.childNodes:
-        if child.nodeName == 'title':
-            handleTitle(child)
-        if child.nodeName == 'positions':
-            handlePositions(child)
-        if child.nodeName == 'relations':
-            handleRelations(child)
+    handleTitle(xml.getElementsByTagName('title')[0])
+    handlePositions(xml.getElementsByTagName('positions')[0])
+    handleRelations(xml.getElementsByTagName('relations')[0])
     svg.append('</svg>')
 
 def handleTitle(titles):
@@ -147,7 +143,6 @@ def handleRelation(relation):
                  relation.getAttribute('pos_list') + \
                  '" d="')
     first = True
-    print relation.getAttribute('pos_list')
     for pos in relation.getAttribute('pos_list').split(numeric_splitter):
         if not first:
             d.append('L')
