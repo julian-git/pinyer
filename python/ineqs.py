@@ -130,56 +130,26 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
     fpi = pos_list[0]
     if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
         tpi = pos_list[1]
-        # we implement "pinyas have no holes" using binary indicator variables y_pos_id
-        # that are 1 if the position pos_id is filled, and 0 otherwise
-        # To simplify the system, we don't create these indicator variables explicitly,
-        # but substitute them by a call to sum_vars. So, in the comments below,
-        # y_fpi = sum_vars(fpi, castellers_in_position)
-        # y_tpi = sum_vars(tpi, castellers_in_position)
-        label = "fill_" + str(fpi) + "_" + str(tpi) + ": "
-        ineqs.append(label + \
-                         sum_vars(fpi, cot[role_list[0]]) + \
-                         '- ' + \
-                         sum_vars(tpi, cot[role_list[1]], None, '- ') + \
-                         ">= 0")
 
     if relation_type == 'zero_or_tol': 
         #
-        # If y_tpi = 1, then the constraint 
+        # The constraint 
         #   0 <= x <= tolerance
         # must hold, where 
         #   x = (value of field_name[0] at from_pos) - (value of field_name[1] at to_pos).
         #
         # We model this as
-        # " either y_tpi = 0  or  0 <= x <= tolerance  must hold ",
-        #
-        # and this in turn as
-        #   x <= tolerance + M (1 - y_tpi)        (1)
-        #   x >= M (y_tpi - 1),                   (2)
-        # where M is a suitably large constant. 
-        #
-        # This works because for y_tpi == 0 the equations read
-        #   x <= tolerance + M                    (1')
-        #   x >= -M                               (2')
-        # and thus are always fulfilled because M is so large; on the other hand,
-        # for y_tpi = 1 we get
-        #   x <= tolerance                        (1'')
-        #   x >= 0                                (2'')
-        # just as it should be.
-        #
-        # In LP format, this reads
+        #   x <= tolerance        (1)
+        #   x >= 0                (2)
         #   x + M y_tpi <= tolerance + M
         #   x - M y_tpi >= -M
         #
         if len(field_names) != 2:
             raise RuntimeError('should have exactly two field names in "' + field_names + '"')
         x = combine_vars(fpi, tpi, cot[role_list[0]], cot[role_list[1]], field_names)
-        M = 1000000
         label = text_splitter.join(field_names) + '_' + str(fpi) + '_' + str(tpi) + ': '
-        ineqs.append(label + x + '+' + sum_vars(tpi, cot[role_list[1]], M) + \
-                         ' <= ' + str(M + rhs))
-        ineqs.append(label + x + sum_vars(tpi, cot[role_list[1]], -M, '') + \
-                         ' >= ' + str(-M))
+        ineqs.append(label + x + ' <= ' + str(rhs))
+        ineqs.append(label + x + ' >= ' + '0')
         #
         # Next, we update the objective function to minimize
         # (value of field_names at from_pos) - (value of field_names at to_pos).

@@ -47,7 +47,7 @@ def read_solved_positions(filename, castellers):
             first_line = False
         else:
             a = line.split()
-            if a[base_index + 1] == '1':
+            if float(a[base_index + 1]) > 0.5:
                 sol_from_v(sol, a[base_index], castellers)
     if len(sol.keys()) == 0:
         raise RuntimeError("Solution file empty. No solution found")
@@ -98,7 +98,7 @@ def do_opt():
     sol = dict()
     for i in positions.keys():
         sol['_' + str(i)] = positions[i]['nickname']
-        sol['_c' + str(i)] = positions[i]['id']
+        sol['_c' + str(i)] = positions[i]['shoulder_height']
     fout.write(t.safe_substitute(sol))
     print [[pos, c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     print solution['relations']
