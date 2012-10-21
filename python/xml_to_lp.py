@@ -13,10 +13,9 @@ def xml_to_lp(xmlfilename):
     for var, coeff in obj.iteritems():
         if coeff > 0:
             obj_string.append('+ ' + str(coeff) + ' ' + var)
-            var_string.append(' ' + var)
         elif coeff < 0:
             obj_string.append('- ' + str(-coeff) + ' ' + var)
-            var_string.append(' ' + var)
+        var_string.append(' ' + var)
     return '\n'.join(('maximize', \
                           ' '.join(obj_string), \
                           'subject to', \
