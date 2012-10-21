@@ -59,11 +59,11 @@ left join casteller_colla on casteller_colla.casteller_id = casteller.id
 where casteller_colla.colla_id_name = %s 
 """, (colla_id_name,))
     res = c.fetchall()
-    ans = []
+    ans = dict()
     for row in res:
         new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'axle_height', 'weight', 'strength'), row))
         new_ans['id'] = int(new_ans['id'])
-        ans.append(new_ans)
+        ans[new_ans['id']] = new_ans
     if len(ans)==0:
         raise RuntimeError('No castellers found for colla_id_name=' + str(colla_id_name))
     return ans

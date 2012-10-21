@@ -98,7 +98,8 @@ def do_opt():
     sol = dict()
     for i in positions.keys():
         sol['_' + str(i)] = positions[i]['nickname']
-        sol['_c' + str(i)] = positions[i]['shoulder_height']
+        sol['_c' + str(i)] = str(positions[i]['shoulder_height']) + \
+            '_' + str(positions[i]['id'])
     fout.write(t.safe_substitute(sol))
     print [[pos, c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     print solution['relations']
