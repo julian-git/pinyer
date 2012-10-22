@@ -114,7 +114,7 @@ def castellers_in_position_ineqs(castellers_in_position, ineqs):
     return [ineqs, pos_of_casteller]
 
 
-def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, aux_data, ineqs, obj): #, rel, castellers_in_position, aux_data, ineqs, obj):
+def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, min_tol, max_tol, aux_data, ineqs, obj): #, rel, castellers_in_position, aux_data, ineqs, obj):
     """
     write the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
@@ -131,42 +131,13 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
     if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
         tpi = pos_list[1]
 
-    if relation_type == 'zero_or_tol': 
-        #
-        # The constraint 
-        #   0 <= x <= tolerance
-        # must hold, where 
-        #   x = (value of field_name[0] at from_pos) - (value of field_name[1] at to_pos).
-        #
-        # We model this as
-        #   x <= tolerance        (1)
-        #   x >= 0                (2)
-        #   x + M y_tpi <= tolerance + M
-        #   x - M y_tpi >= -M
-        #
-        if len(field_names) != 2:
-            raise RuntimeError('should have exactly two field names in "' + field_names + '"')
-        x = combine_vars(fpi, tpi, cot[role_list[0]], cot[role_list[1]], field_names)
-        label = text_splitter.join(field_names) + '_' + str(fpi) + '_' + str(tpi) + ': '
-        ineqs.append(label + x + ' <= ' + str(rhs))
-        ineqs.append(label + x + ' >= ' + '0')
-        #
-        # Next, we update the objective function to minimize
-        # (value of field_names at from_pos) - (value of field_names at to_pos).
-        # Since we maximize the objective function, we must flip the signs.
-        #
-        for casteller in cot[role_list[0]]:
-            try:
-                obj[var(casteller['id'], fpi)] -= casteller[field_names[0]]
-            except KeyError:
-                obj[var(casteller['id'], fpi)] = - casteller[field_names[0]]
+    for casteller in cot[role_list[0]]:
+        obj[var(casteller['id'], fpi)] = 1
+    if len(role_list)>1:
         for casteller in cot[role_list[1]]:
-            try:
-                obj[var(casteller['id'], tpi)] += casteller[field_names[1]]
-            except KeyError:
-                obj[var(casteller['id'], tpi)] = casteller[field_names[1]]
+            obj[var(casteller['id'], tpi)] = 1
 
-    elif relation_type == 'val_tol': 
+    if relation_type == 'val_tol': 
         # Ma can support segon:
         # value of field_names at position is at least fparam
         if rel['field_names'].find(text_splitter) > -1:
@@ -194,8 +165,8 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
                 
         if relation_type == 'sum_in_interval':
             target_width = len(pos_list) * aux_data['avg_shoulder_width']
-            ineqs.append(label + ineq_str + " >= " + str(target_width - rhs))
-            ineqs.append(label + ineq_str + " <= " + str(target_width + rhs))
+            ineqs.append(label + ineq_str + " >= " + str(target_width - min_tol))
+            ineqs.append(label + ineq_str + " <= " + str(target_width + max_tol))
 
         else:
             ineq = label + ineq_str + ' ' + sense + ' ' + str(rhs)

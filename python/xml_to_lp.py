@@ -8,20 +8,25 @@ def xml_to_lp(xmlfilename):
     ineqs = []
     obj = dict()
     [ineqs, obj] = xml_to_lp_impl(xmlfilename, ineqs, obj)
-    var_string = []
+#    print obj.keys()
+    var_string = ' '.join(obj.keys())
+    print var_string
     obj_string = []
+    # for var, coeff in obj.iteritems():
+    #     if coeff > 0:
+    #         obj_string.append('+ ' + str(coeff) + ' ' + var)
+    #     elif coeff < 0:
+    #         obj_string.append('- ' + str(-coeff) + ' ' + var)
     for var, coeff in obj.iteritems():
-        if coeff > 0:
-            obj_string.append('+ ' + str(coeff) + ' ' + var)
-        elif coeff < 0:
-            obj_string.append('- ' + str(-coeff) + ' ' + var)
-        var_string.append(' ' + var)
+        obj_string.append(var)
+        break
     return '\n'.join(('maximize', \
                           ' '.join(obj_string), \
                           'subject to', \
                           '\n'.join(ineqs), \
                           'binary', \
-                          ' '.join(var_string)))
+                          var_string, \
+                         '\n'))
 
 
 def xml_to_lp_impl(xmlfilename, ineqs, obj):
@@ -85,9 +90,20 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     sense = '<='
     if relation.getAttribute('sense') != 'le':
         sense = '>='
-    rhs = float(relation.getAttribute('rhs'))
 
-    return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, aux_data, ineqs, obj)
+    try:
+        rhs = float(relation.getAttribute('rhs'))
+    except ValueError:
+        rhs = None
+
+    try:
+        min_tol = float(relation.getAttribute('min_tol'))
+        max_tol = float(relation.getAttribute('max_tol'))
+    except ValueError:
+        min_tol = None
+        max_tol = None
+
+    return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, min_tol, max_tol, aux_data, ineqs, obj)
 
 
 def handlePositions(db, cot, ineqs, positions):

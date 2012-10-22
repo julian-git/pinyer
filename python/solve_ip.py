@@ -117,6 +117,7 @@ def do_opt():
 #    prescribed = dict([(9, 0), (17, 5)])
 
     excluded = make_excluded()
+    print excluded
     prescribed = dict()
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
     complete_lp(prescribed, excluded, castell_id_name, colla_id_name)

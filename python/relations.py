@@ -3,12 +3,13 @@ from local_config import tolerances, text_splitter, numeric_splitter
 def ring_relations(rd, position_in_ring, relations, has_folre):
     # the default values for all relations created in this function
     rel0 = dict([('pos_list', None), \
-                     ('coeff_list', '1_1'), \
-                     ('relation_type', 'zero_or_tol'), \
+                     ('coeff_list', '1_-1'), \
+                     ('relation_type', 'sum_in_interval'), \
                      ('field_names', \
                           'shoulder_height' + text_splitter + 'shoulder_height'), \
                      ('sense', 'le'), \
-                     ('rhs', tolerances['height']), \
+                     ('min_tol', tolerances['min_height_tol']), \
+                     ('max_tol', tolerances['max_height_tol']), \
                      ('pos_list', None), \
                      ('role_list', None)])
 
@@ -43,7 +44,8 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
     # next, the relations for the shoulder_width
     rel0['relation_type'] = 'sum_in_interval'
     rel0['field_names'] = ''
-    rel0['rhs_tol'] = tolerances['width']
+    rel0['min_tol'] = tolerances['min_width_tol']
+    rel0['max_tol'] = tolerances['max_width_tol']
     rel0['role_list'] = 'pinya'
     rel0['coeff_list'] = '1'
     for j in range(2*rd['period']):

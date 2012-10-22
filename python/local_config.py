@@ -33,8 +33,10 @@ DoLogging = False
 
 # the tolerance in height between successive mans, vents, and pinya,
 # and in width between adjacent pinya in the same ring
-tolerances = dict([('height', 5), \
-                       ('width', 6), \
+tolerances = dict([('min_height_tol', 2), \
+                       ('max_height_tol', 5), \
+                       ('min_width_tol', 0), \
+                       ('max_width_tol', 6), \
                        ('delta_height_c_b', 5), \
                        ('delta_height_c_b_tol', 5) \
                        ])
