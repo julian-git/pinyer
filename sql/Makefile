@@ -9,6 +9,7 @@ database-definition.up-to-date: pinyer.sql init-cvg.sql
 	python ../python/create_3de9f.py
 	python ../python/xml_to_svg.py
 	python ../python/xml_to_lp.py
+	python ../python/solve_ip.py
 
 
 database-dummy-entries.up-to-date: pinyer_dummy_entries.sql

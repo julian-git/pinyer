@@ -532,7 +532,7 @@
   </label>
 </position>
 </position_group>
-<position_group id="portacrosses_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
+<position_group id="portacrossa_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
 <position id="76" role="portacrossa" transform="translate(0 0) rotate(0)" essential="true">
   <rect id="76_rect" class="portacrossa" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -540,7 +540,7 @@
   </label>
 </position>
 </position_group>
-<position_group id="portacrosses_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
+<position_group id="portacrossa_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
 <position id="77" role="portacrossa" transform="translate(0 0) rotate(0)" essential="true">
   <rect id="77_rect" class="portacrossa" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
@@ -548,7 +548,7 @@
   </label>
 </position>
 </position_group>
-<position_group id="portacrosses_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
+<position_group id="portacrossa_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
 <position id="78" role="portacrossa" transform="translate(0 0) rotate(0)" essential="true">
   <rect id="78_rect" class="portacrossa" width="20" height="40" x="-10" y="-20"/>
   <label transform="rotate(90) translate(0 6)">
