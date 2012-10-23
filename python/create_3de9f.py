@@ -258,7 +258,7 @@ def baixos(bd, xml, xml_id, coo_of):
 
 def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
     """
-    make one portacrosses
+    make one portacrossa
     """
     xml_id = xml_id + 1
     [x,y] = pcd[index + '_pos']
@@ -279,7 +279,7 @@ def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
                                    _index_props=[i,j])
     pipcg[i,j] = dict([('xml_id', xml_id), \
                            ('role', 'portacrossa'), \
-                           #('xml_text', 'portacrosses'), \
+                           #('xml_text', 'portacrossa'), \
                            ('xml_text', xml_id), \
                            ('x', x), \
                            ('y', y), \
@@ -288,41 +288,41 @@ def pc(i, j, index, pcd, pipcg, xml, xml_id, coo_of):
     return [xml, xml_id, pipcg, coo_of]
                                    
 
-def portacrosses_group(pcd, i, xml, xml_id, pipcg, coo_of):
+def portacrossa_group(pcd, i, xml, xml_id, pipcg, coo_of):
     """
-    make a group of one portacrosses (pc_c) and two laterals (pc_i, pc_d)
+    make a group of one portacrossa (pc_c) and two laterals (pc_i, pc_d)
     """
     [xml, xml_id, pipcg, coo_of] = pc(i, 0, 'pc_c', pcd, pipcg, xml, xml_id, coo_of)
 #    [xml, xml_id, pipcg, coo_of] = pc(i, 1, 'pc_i', pcd, pipcg, xml, xml_id, coo_of)
 #    [xml, xml_id, pipcg, coo_of] = pc(i, 2, 'pc_d', pcd, pipcg, xml, xml_id, coo_of)
     return [xml, xml_id, pipcg, coo_of]
 
-def portacrosses(pcd, xml, xml_id, coo_of):
+def portacrossa(pcd, xml, xml_id, coo_of):
     """
-    make as many groups of portacrosses as the symmetry says to
+    make as many groups of portacrossa as the symmetry says to
     """
-    position_in_portacrosses = dict()
+    position_in_portacrossa = dict()
     for i in range(pcd['number']): 
         alpha = (i * 2.0 + 1.0) * pi / pcd['number']
         x = round(pcd['radius'] * cos(alpha), 2)
         y = round(pcd['radius'] * sin(alpha), 2)
-        xml += '<position_group id="portacrosses_gp_' + str(i) + \
+        xml += '<position_group id="portacrossa_gp_' + str(i) + \
             '" transform="translate(' + \
             str(x) + ' ' + \
             str(y) + ') rotate(' + \
             str(round(180 / pi * alpha, 2)) + ')">'
-        [xml, xml_id, position_in_portacrosses, coo_of] = \
-            portacrosses_group(pcd, i, xml, xml_id, position_in_portacrosses, coo_of)
+        [xml, xml_id, position_in_portacrossa, coo_of] = \
+            portacrossa_group(pcd, i, xml, xml_id, position_in_portacrossa, coo_of)
         xml += '</position_group>\n'         
-    return [xml, xml_id, position_in_portacrosses, coo_of]
+    return [xml, xml_id, position_in_portacrossa, coo_of]
 
 def pinya(rd, bd, pcd, xml):
     xml_id = 0
     coo_of = dict()
     [xml, xml_id, position_in_ring, coo_of] = rings(rd, xml, xml_id, coo_of)
     [xml, xml_id, position_in_baix_group, coo_of] = baixos(bd, xml, xml_id, coo_of)
-    [xml, xml_id, position_in_portacrosses, coo_of] = portacrosses(pcd, xml, xml_id, coo_of)
-    return [xml, position_in_ring, position_in_baix_group, position_in_portacrosses, coo_of]
+    [xml, xml_id, position_in_portacrossa, coo_of] = portacrossa(pcd, xml, xml_id, coo_of)
+    return [xml, position_in_ring, position_in_baix_group, position_in_portacrossa, coo_of]
 
 
 def tresde9f():
@@ -368,11 +368,11 @@ def tresde9f():
                                   ('w', 2*lw2), ('h', 2*lh2), ('angle', 30)])) \
                    ])
 
-    # data for the portacrosses 
-    pcw2 = 8  # half the width of a portacrosses rectangle
-    pch2 = 15 # half the height of a portacrosses rectangle
-    pcw02 = 10  # half the width of a portacrosses rectangle
-    pch02 = 20 # half the height of a portacrosses rectangle
+    # data for the portacrossa 
+    pcw2 = 8  # half the width of a portacrossa rectangle
+    pch2 = 15 # half the height of a portacrossa rectangle
+    pcw02 = 10  # half the width of a portacrossa rectangle
+    pch02 = 20 # half the height of a portacrossa rectangle
     pcd = dict([('number', 3),  \
                     ('radius', 70), \
                     ('pc_c_dim', \
@@ -401,24 +401,24 @@ def tresde9f():
     # go!
     xml += '<positions>'
     [xml, position_in_ring, position_in_baix_group, \
-         position_in_portacrosses, coo_of] = pinya(rd, bd, pcd, xml)
+         position_in_portacrossa, coo_of] = pinya(rd, bd, pcd, xml)
     xml += '</positions>\n'
 
     relations = []
 
     relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
-    relations = baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations)
+    relations = baixos_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
 
     xml += '\n<relations id="rels">\n'    
     xml += relations_xml(relations, coo_of)
     xml += '</relations>\n'
 
     xml += '</xml>'
-    return [xml, position_in_ring, position_in_baix_group, position_in_portacrosses, relations]
+    return [xml, position_in_ring, position_in_baix_group, position_in_portacrossa, relations]
 
 def save_tresde9f_xml():
     [xml, position_in_ring, position_in_baix_group, \
-         position_in_portacrosses, relations] = tresde9f()
+         position_in_portacrossa, relations] = tresde9f()
     f = open('../www/' + pinya_dir + '/cvg.3de9f/pinya.xml', 'w')
     f.write(xml)
     f.close()

@@ -74,7 +74,7 @@ def make_height_difference(i, j, m, delta_m, has_folre, position_in_ring):
             str(position_in_ring[i,j,m]['xml_id']) + '_' + \
             str(position_in_ring[i+1,j,m+delta_m]['xml_id'])
 
-def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrosses, relations):
+def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, relations):
     rel0 = dict([('pos_list', None), \
                      ('coeff_list', '1_-1'), \
                      ('relation_type', 'one_sided'), \
@@ -100,8 +100,8 @@ def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrosses,
     return relations
 
 
-def baixos_relations(bd, position_in_baix_group, position_in_portacrosses, relations):
-    relations = baix_crosses_relations(bd, position_in_baix_group, position_in_portacrosses, relations)
+def baixos_relations(bd, position_in_baix_group, position_in_portacrossa, relations):
+    relations = baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
     return relations
 
 def relations_xml(relations, coo_of):

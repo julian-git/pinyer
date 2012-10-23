@@ -607,7 +607,7 @@
 <relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="3" min_tol="2" pos_list="53_29" sense="le" field_names="shoulder_height~shoulder_height" role_list="pinya~pinya" max_tol="2"/>
 <relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="3" min_tol="2" pos_list="53_30" sense="le" field_names="shoulder_height~shoulder_height" role_list="pinya~pinya" max_tol="2"/>
 <relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="3" min_tol="2" pos_list="54_30" sense="le" field_names="shoulder_height~shoulder_height" role_list="pinya~pinya" max_tol="2"/>
-<relation coeff_list="1" relation_type="fresh_sum_in_interval" target_val="0" fresh_field="avg_shoulder_width" min_tol="0" pos_list="2" sense="le" field_names="shoulder_width" role_list="pinya" max_tol="12"/>
+<relation coeff_list="1" relation_type="fresh_sum_in_interval" target_val="0" fresh_field="avg_shoulder_width" min_tol="0" pos_list="2" sense="le" field_names="shoulder_width" role_list="pinya" max_tol="10"/>
 <relation coeff_list="1_1" relation_type="fresh_sum_in_interval" target_val="0" fresh_field="avg_shoulder_width" min_tol="0" pos_list="14_15" sense="le" field_names="shoulder_width~shoulder_width" role_list="pinya~pinya" max_tol="10"/>
 <relation coeff_list="1_1_1" relation_type="fresh_sum_in_interval" target_val="0" fresh_field="avg_shoulder_width" min_tol="0" pos_list="32_33_34" sense="le" field_names="shoulder_width~shoulder_width~shoulder_width" role_list="pinya~pinya~pinya" max_tol="10"/>
 <relation coeff_list="1" relation_type="fresh_sum_in_interval" target_val="0" fresh_field="avg_shoulder_width" min_tol="0" pos_list="4" sense="le" field_names="shoulder_width" role_list="pinya" max_tol="10"/>

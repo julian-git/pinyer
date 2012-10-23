@@ -23,7 +23,7 @@ numeric_splitter = '_'
 text_splitter = '~'
 
 # roles
-pos_types = ('crossa', 'baix', 'contrafort', 'vent', 'ma', 'agulla', 'portacrosses', 'pinya')
+pos_types = ('crossa', 'baix', 'contrafort', 'vent', 'ma', 'agulla', 'portacrossa', 'pinya', 'lateral')
 
 
 # Print log information?

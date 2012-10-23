@@ -40,11 +40,16 @@ def handleXML(xml, ineqs, obj):
 
     db = get_db()
     (cot, aux_data) = castellers(db, colla_id_name)
+    print 'cot keys', cot.keys()
 
     pos_with_role = dict()
     for child in xml.getElementsByTagName('positions')[0].childNodes:
         if child.nodeName == 'position':
             pos_with_role = RoleOfPosition(child, pos_with_role)
+        elif child.nodeName == 'position_group':
+            for child2 in child.childNodes:
+                if child2.nodeName == 'position':
+                    pos_with_role = RoleOfPosition(child2, pos_with_role)
 
     for child in xml.getElementsByTagName('relations')[0].childNodes:
         if child.nodeName == 'relation':
@@ -65,6 +70,7 @@ def RoleOfPosition(position, pos_with_role):
 
 def IneqsOfPositions(db, cot, ineqs, pos_with_role):
     castellers_in_position = dict()
+    print 'pwr keys',  pos_with_role.keys()
     for role, positions in pos_with_role.iteritems():
         for pos in positions:
             castellers_in_position[pos] = cot[role]
@@ -108,17 +114,17 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, target_val, min_tol, max_tol, fresh_field, aux_data, ineqs, obj)
 
 
-def handlePositions(db, cot, ineqs, positions):
-    castellers_in_position = dict()
-    print "handlePos"
-    for role, pos_list in positions.iteritems():
-        for pos in set(pos_list):
-            try:
-                castellers_in_position[pos] += cot[role]
-            except KeyError:
-                castellers_in_position[pos] = cot[role]
-    [ineqs, pos_of_casteller] = castellers_in_position_ineqs(castellers_in_position, ineqs)
-    return ineqs
+# def handlePositions(db, cot, ineqs, positions):
+#     castellers_in_position = dict()
+#     print "handlePos"
+#     for role, pos_list in positions.iteritems():
+#         for pos in set(pos_list):
+#             try:
+#                 castellers_in_position[pos] += cot[role]
+#             except KeyError:
+#                 castellers_in_position[pos] = cot[role]
+#     [ineqs, pos_of_casteller] = castellers_in_position_ineqs(castellers_in_position, ineqs)
+#     return ineqs
 
 def write_lp(castell_id_name):
     filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya'
