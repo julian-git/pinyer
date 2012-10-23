@@ -8,6 +8,7 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
                      ('field_names', \
                           'shoulder_height' + text_splitter + 'shoulder_height'), \
                      ('sense', 'le'), \
+                     ('target_val', tolerances['height_target']), \
                      ('min_tol', tolerances['min_height_tol']), \
                      ('max_tol', tolerances['max_height_tol']), \
                      ('pos_list', None), \
@@ -42,8 +43,10 @@ def ring_relations(rd, position_in_ring, relations, has_folre):
                 relations.append(rel1) # quesito
 
     # next, the relations for the shoulder_width
-    rel0['relation_type'] = 'sum_in_interval'
+    rel0['relation_type'] = 'fresh_sum_in_interval'
+    rel0['fresh_field'] = 'avg_shoulder_width'
     rel0['field_names'] = ''
+    rel0['target_val'] = tolerances['width_target']
     rel0['min_tol'] = tolerances['min_width_tol']
     rel0['max_tol'] = tolerances['max_width_tol']
     rel0['role_list'] = 'pinya'

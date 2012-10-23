@@ -10,7 +10,6 @@ def xml_to_lp(xmlfilename):
     [ineqs, obj] = xml_to_lp_impl(xmlfilename, ineqs, obj)
 #    print obj.keys()
     var_string = ' '.join(obj.keys())
-    print var_string
     obj_string = []
     # for var, coeff in obj.iteritems():
     #     if coeff > 0:
@@ -80,6 +79,15 @@ def castellers(db, colla_id_name):
         cot[role] = castellers_of_type(db, colla_id_name, role)
     return (cot, aux_data)
 
+def extract_or_null(relation, field_name, convert_to_float=True):
+    try:
+        val = relation.getAttribute(field_name)
+        if convert_to_float:
+            return float(val)
+        else:
+            return val
+    except ValueError:
+        return None
 
 def handleRelation(relation, cot, aux_data, ineqs, obj):
     field_names = [str(f) for f in relation.getAttribute('field_names').split(text_splitter)]
@@ -91,26 +99,19 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     if relation.getAttribute('sense') != 'le':
         sense = '>='
 
-    try:
-        rhs = float(relation.getAttribute('rhs'))
-    except ValueError:
-        rhs = None
+    rhs = extract_or_null(relation, 'rhs')
+    min_tol = extract_or_null(relation, 'min_tol')
+    max_tol = extract_or_null(relation, 'max_tol')
+    target_val = extract_or_null(relation, 'target_val')
+    fresh_field = extract_or_null(relation, 'fresh_field', False)
 
-    try:
-        min_tol = float(relation.getAttribute('min_tol'))
-        max_tol = float(relation.getAttribute('max_tol'))
-    except ValueError:
-        min_tol = None
-        max_tol = None
-
-    return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, min_tol, max_tol, aux_data, ineqs, obj)
+    return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, target_val, min_tol, max_tol, fresh_field, aux_data, ineqs, obj)
 
 
 def handlePositions(db, cot, ineqs, positions):
     castellers_in_position = dict()
     print "handlePos"
     for role, pos_list in positions.iteritems():
-        print role, pos_list
         for pos in set(pos_list):
             try:
                 castellers_in_position[pos] += cot[role]

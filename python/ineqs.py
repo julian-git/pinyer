@@ -114,7 +114,7 @@ def castellers_in_position_ineqs(castellers_in_position, ineqs):
     return [ineqs, pos_of_casteller]
 
 
-def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, min_tol, max_tol, aux_data, ineqs, obj): #, rel, castellers_in_position, aux_data, ineqs, obj):
+def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, target_val, min_tol, max_tol, fresh_field, aux_data, ineqs, obj): #, rel, castellers_in_position, aux_data, ineqs, obj):
     """
     write the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
@@ -128,12 +128,11 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
         print "relation_ineq"
 
     fpi = pos_list[0]
-    if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
-        tpi = pos_list[1]
-
     for casteller in cot[role_list[0]]:
         obj[var(casteller['id'], fpi)] = 1
-    if len(role_list)>1:
+
+    if fpi is not None and len(pos_list)>=2: # There are at least two positions to consider
+        tpi = pos_list[1]
         for casteller in cot[role_list[1]]:
             obj[var(casteller['id'], tpi)] = 1
 
@@ -148,7 +147,7 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
                          " >= " + \
                          str(rhs))
 
-    elif relation_type in ('sum_in_interval', 'one_sided'): 
+    elif relation_type in ('sum_in_interval', 'fresh_sum_in_interval', 'one_sided'): 
         # sum of values is at most rhs in absolute value
         if len(pos_list) == 0:
             raise RuntimeError('Expected pos_list to be nonempty, in sum_in_interval')
@@ -163,10 +162,13 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
                     ineq_str += ' + '
                 ineq_str += stringify(coeff) + ' ' + var(c['id'], pos) + ' '
                 
-        if relation_type == 'sum_in_interval':
-            target_width = len(pos_list) * aux_data['avg_shoulder_width']
-            ineqs.append(label + ineq_str + " >= " + str(target_width - min_tol))
-            ineqs.append(label + ineq_str + " <= " + str(target_width + max_tol))
+        if relation_type in ('sum_in_interval', 'fresh_sum_in_interval'):
+            if relation_type == 'fresh_sum_in_interval':
+                _target_val = len(pos_list) * aux_data[fresh_field]
+            else:
+                _target_val = target_val
+            ineqs.append(label + ineq_str + " >= " + str(_target_val - max_tol))
+            ineqs.append(label + ineq_str + " <= " + str(_target_val + max_tol))
 
         else:
             ineq = label + ineq_str + ' ' + sense + ' ' + str(rhs)
