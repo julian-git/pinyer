@@ -43,7 +43,6 @@ def handleXML(xml, ineqs, obj):
 
     db = get_db()
     (cot, aux_data) = castellers(db, colla_id_name)
-    print 'cot keys', cot.keys()
 
     pos_with_role = dict()
     for child in xml.getElementsByTagName('positions')[0].childNodes:
@@ -73,7 +72,6 @@ def RoleOfPosition(position, pos_with_role):
 
 def IneqsOfPositions(db, cot, ineqs, pos_with_role):
     castellers_in_position = dict()
-    print 'pwr keys',  pos_with_role.keys()
     for role, positions in pos_with_role.iteritems():
         for pos in positions:
             castellers_in_position[pos] = cot[role]
