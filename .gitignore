@@ -8,8 +8,9 @@
 # Project
 *log
 *up-to-date
-pinya.lp
-solution.sol*
+pinya*.lp
+pinya*.sol
+pinya.solved.svg
 tests/index.html
 tests/test.py
 www/js/jquery-ui-1.8.23/*
