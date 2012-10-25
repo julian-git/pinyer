@@ -1,7 +1,10 @@
 from local_config import \
+    RootDir, \
     UseCBC, DoLogging, DoSolve, \
     numeric_splitter, text_splitter, \
     pinya_dir
+import sys 
+sys.path.append(RootDir + 'python/util/')
 from db_interaction import get_db, db_castellers
 from subprocess import call 
 from os import rename
@@ -22,7 +25,7 @@ def backup_file(filename):
     except OSError:
         pass
 
-def solve_castell(filename):
+def run_solver(filename):
     if UseCBC:
         args = ['cbc', '-import', filename + '.lp', '-solve', '-solu', filename + '.sol', '-quit']
     else:
@@ -73,14 +76,14 @@ def relation_values_from_solution(relations, sol):
                 rel_val[fp, tp] = round(sol[fp][prop[j]] - sol[tp][prop[j]], 2)
     return rel_val
 
-def solve_castell(prescribed, castell_id_name, colla_id_name):
+def solve_castell(castell_id_name, colla_id_name):
     if DoLogging:
         print 'solve_castell...'
         
-    filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya.complete'
+    filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya.complete'
 
     if DoSolve:
-        solve_castell(filename)
+        run_solver(filename)
         
     castellers = db_castellers(get_db(), colla_id_name)
     sol = read_solved_positions(filename, castellers)
@@ -88,41 +91,12 @@ def solve_castell(prescribed, castell_id_name, colla_id_name):
                      ('relations', '')]) #relation_values_from_solution(relations, sol))])
     
 
-def make_excluded():
-    c = get_db().cursor()
-    c.execute("""
-select id from casteller where nickname in ('Abdul', 'AE', 'Aina', 'Alaitz', 'Aleix', 'Alvarito', 'Arnau', 'Berta', 'Eva', 'Joana', 'Joanet', 'Laia O', 'Lali', 'Marco', 'Martina', 'Montxi', 'Oriolet', 'Rafols', 'Rai', 'Santako', 'Stefano');
-""")
-    ans = []
-    for row in c.fetchall():
-        ans.append(int(row[0]))
-    return ans
 
-def complete_lp(prescribed, excluded, castell_id_name, colla_id_name):
-    filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya'
-    fin = open(filename + '.lp', 'r')
-    fout = open(filename + '.complete.lp', 'w')
-    line = fin.readline()
-    while line != 'binary\n':
-        fout.write(line)
-        line = fin.readline()
-    vars = fin.readline().split()
-    for var in vars:
-        [cast_id, pos_id] = split_var(var)
-        if cast_id in excluded:
-            fout.write('excl: ' + var + ' = 0\n')
-    fout.write('binary\n' + ' '.join(vars))
 
 def do_opt():
-#    prescribed = dict([(9, 0), (17, 5)])
-
-    excluded = make_excluded()
-    print excluded
-    prescribed = dict()
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
-    complete_lp(prescribed, excluded, castell_id_name, colla_id_name)
-    solution = solve_castell(prescribed, castell_id_name, colla_id_name)
-    filename =  '../www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
+    solution = solve_castell(castell_id_name, colla_id_name)
+    filename =  RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
     fin = open(filename + '.svg', 'r')
     fout = open(filename + '.solved.svg', 'w')
     t = Template(fin.read())

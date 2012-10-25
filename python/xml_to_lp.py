@@ -1,5 +1,8 @@
 import xml.dom.minidom
-from local_config import pinya_dir, numeric_splitter, text_splitter, pos_types
+from local_config import RootDir, pinya_dir, \
+    numeric_splitter, text_splitter, pos_types
+import sys 
+sys.path.append(RootDir + 'python/util/')
 from db_interaction import get_db, castellers_of_type, db_avg_shoulder_width
 from ineqs import relation_ineq, castellers_in_position_ineqs
 
@@ -127,7 +130,7 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
 #     return ineqs
 
 def write_lp(castell_id_name):
-    filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya'
+    filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
     f = open(filename + '.lp', 'w')
     f.write(xml_to_lp(filename + '.xml'))
 

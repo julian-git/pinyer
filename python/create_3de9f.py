@@ -1,7 +1,10 @@
 from math import cos, sin, pi
+from local_config import RootDir, pinya_dir
+import sys 
+sys.path.append(RootDir + 'python/util/')
 from xml_common import xml_position, xml_head
 from relations import *
-from local_config import pinya_dir
+
 
 def ring(period, i, r, pinya_rect_dim, xml_id, position_in_ring, coo_of):
     """
