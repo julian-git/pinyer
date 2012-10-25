@@ -8,8 +8,11 @@ def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
     fin = open(filename + '.lp', 'r')
     fout = open(filename + '.complete.lp', 'w')
+    frel = open(filename + '.complete.rels', 'w')
     line = fin.readline()
     while line != 'binary\n':
+        if line[0:4] == 'rel_':
+            frel.write(line[4:line.find(':')] + '\n')
         fout.write(line)
         line = fin.readline()
     vars = fin.readline().split()
