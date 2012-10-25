@@ -1,7 +1,7 @@
 import xml.dom.minidom
-from local_config import pinya_dir
+from local_config import RootDir, pinya_dir, \
+    text_splitter, numeric_splitter
 from math import sin, cos, pi
-from local_config import text_splitter, numeric_splitter
 
 svg = []
 coos = dict()
@@ -162,7 +162,7 @@ def getText(nodelist):
     return ''.join(rc)
 
 def write_svg(castell_id_name):
-    filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
+    filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
     f = open(filename + '.svg', 'w')
     f.write(xml_to_svg(filename + '.xml'))
 

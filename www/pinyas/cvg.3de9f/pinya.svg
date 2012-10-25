@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/xml" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-240 -240 480 480">
+<svg xmlns="http://www.w3.org/2000/xml" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-190 -190 380 380">
 <g id="positions">
 <g id="1" transform="translate(100.0 0.0) rotate(0.0)">
 <rect id="1_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0">
@@ -486,824 +486,230 @@
 </text>
 </g>
 </g>
-<g id="55" transform="translate(175.0 0.0) rotate(0.0)">
-<rect id="55_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0">
+<g id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
+<g id="55" transform="translate(0 0) rotate(0)">
+<rect id="55_rect" class="baix" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="55_text" class="ma vtext" text-anchor="middle">
+<text id="55_text" class="baix vtext" text-anchor="middle">
 55 ${_55} ${_c55}
 </text>
 </g>
 </g>
-<g id="56" transform="translate(171.18 36.38) rotate(12.0)">
-<rect id="56_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
+<g id="56" transform="translate(0 30) rotate(90)">
+<rect id="56_rect" class="crossa" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="56_text" class="pinya vtext" text-anchor="middle">
+<text id="56_text" class="crossa vtext" text-anchor="middle">
 56 ${_56} ${_c56}
 </text>
 </g>
 </g>
-<g id="57" transform="translate(159.87 71.18) rotate(24.0)">
-<rect id="57_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
+<g id="57" transform="translate(0 -30) rotate(-90)">
+<rect id="57_rect" class="crossa" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="57_text" class="pinya vtext" text-anchor="middle">
+<text id="57_text" class="crossa vtext" text-anchor="middle">
 57 ${_57} ${_c57}
 </text>
 </g>
 </g>
-<g id="58" transform="translate(141.58 102.86) rotate(36.0)">
-<rect id="58_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
+<g id="58" transform="translate(-20 0) rotate(0)">
+<rect id="58_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="58_text" class="pinya vtext" text-anchor="middle">
+<text id="58_text" class="contrafort vtext" text-anchor="middle">
 58 ${_58} ${_c58}
 </text>
 </g>
 </g>
-<g id="59" transform="translate(117.1 130.05) rotate(48.0)">
-<rect id="59_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
+<g id="59" transform="translate(20 0) rotate(0)">
+<rect id="59_rect" class="agulla" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="59_text" class="pinya vtext" text-anchor="middle">
+<text id="59_text" class="agulla vtext" text-anchor="middle">
 59 ${_59} ${_c59}
 </text>
 </g>
 </g>
-<g id="60" transform="translate(87.5 151.55) rotate(60.0)">
-<rect id="60_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0">
+<g id="60" transform="translate(30 25) rotate(30)">
+<rect id="60_rect" class="lateral" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="60_text" class="vent vtext" text-anchor="middle">
+<text id="60_text" class="lateral vtext" text-anchor="middle">
 60 ${_60} ${_c60}
 </text>
 </g>
 </g>
-<g id="61" transform="translate(54.08 166.43) rotate(72.0)">
-<rect id="61_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
+<g id="61" transform="translate(30 -25) rotate(-30)">
+<rect id="61_rect" class="lateral" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="61_text" class="pinya vtext" text-anchor="middle">
+<text id="61_text" class="lateral vtext" text-anchor="middle">
 61 ${_61} ${_c61}
-</text>
-</g>
-</g>
-<g id="62" transform="translate(18.29 174.04) rotate(84.0)">
-<rect id="62_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="62_text" class="pinya vtext" text-anchor="middle">
-62 ${_62} ${_c62}
-</text>
-</g>
-</g>
-<g id="63" transform="translate(-18.29 174.04) rotate(96.0)">
-<rect id="63_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="63_text" class="pinya vtext" text-anchor="middle">
-63 ${_63} ${_c63}
-</text>
-</g>
-</g>
-<g id="64" transform="translate(-54.08 166.43) rotate(108.0)">
-<rect id="64_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="64_text" class="pinya vtext" text-anchor="middle">
-64 ${_64} ${_c64}
-</text>
-</g>
-</g>
-<g id="65" transform="translate(-87.5 151.55) rotate(120.0)">
-<rect id="65_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="65_text" class="ma vtext" text-anchor="middle">
-65 ${_65} ${_c65}
-</text>
-</g>
-</g>
-<g id="66" transform="translate(-117.1 130.05) rotate(132.0)">
-<rect id="66_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="66_text" class="pinya vtext" text-anchor="middle">
-66 ${_66} ${_c66}
-</text>
-</g>
-</g>
-<g id="67" transform="translate(-141.58 102.86) rotate(144.0)">
-<rect id="67_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="67_text" class="pinya vtext" text-anchor="middle">
-67 ${_67} ${_c67}
-</text>
-</g>
-</g>
-<g id="68" transform="translate(-159.87 71.18) rotate(156.0)">
-<rect id="68_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="68_text" class="pinya vtext" text-anchor="middle">
-68 ${_68} ${_c68}
-</text>
-</g>
-</g>
-<g id="69" transform="translate(-171.18 36.38) rotate(168.0)">
-<rect id="69_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="69_text" class="pinya vtext" text-anchor="middle">
-69 ${_69} ${_c69}
-</text>
-</g>
-</g>
-<g id="70" transform="translate(-175.0 0.0) rotate(180.0)">
-<rect id="70_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="70_text" class="vent vtext" text-anchor="middle">
-70 ${_70} ${_c70}
-</text>
-</g>
-</g>
-<g id="71" transform="translate(-171.18 -36.38) rotate(192.0)">
-<rect id="71_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="71_text" class="pinya vtext" text-anchor="middle">
-71 ${_71} ${_c71}
-</text>
-</g>
-</g>
-<g id="72" transform="translate(-159.87 -71.18) rotate(204.0)">
-<rect id="72_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="72_text" class="pinya vtext" text-anchor="middle">
-72 ${_72} ${_c72}
-</text>
-</g>
-</g>
-<g id="73" transform="translate(-141.58 -102.86) rotate(216.0)">
-<rect id="73_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="73_text" class="pinya vtext" text-anchor="middle">
-73 ${_73} ${_c73}
-</text>
-</g>
-</g>
-<g id="74" transform="translate(-117.1 -130.05) rotate(228.0)">
-<rect id="74_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="74_text" class="pinya vtext" text-anchor="middle">
-74 ${_74} ${_c74}
-</text>
-</g>
-</g>
-<g id="75" transform="translate(-87.5 -151.55) rotate(240.0)">
-<rect id="75_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="75_text" class="ma vtext" text-anchor="middle">
-75 ${_75} ${_c75}
-</text>
-</g>
-</g>
-<g id="76" transform="translate(-54.08 -166.43) rotate(252.0)">
-<rect id="76_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="76_text" class="pinya vtext" text-anchor="middle">
-76 ${_76} ${_c76}
-</text>
-</g>
-</g>
-<g id="77" transform="translate(-18.29 -174.04) rotate(264.0)">
-<rect id="77_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="77_text" class="pinya vtext" text-anchor="middle">
-77 ${_77} ${_c77}
-</text>
-</g>
-</g>
-<g id="78" transform="translate(18.29 -174.04) rotate(276.0)">
-<rect id="78_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="78_text" class="pinya vtext" text-anchor="middle">
-78 ${_78} ${_c78}
-</text>
-</g>
-</g>
-<g id="79" transform="translate(54.08 -166.43) rotate(288.0)">
-<rect id="79_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="79_text" class="pinya vtext" text-anchor="middle">
-79 ${_79} ${_c79}
-</text>
-</g>
-</g>
-<g id="80" transform="translate(87.5 -151.55) rotate(300.0)">
-<rect id="80_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="80_text" class="vent vtext" text-anchor="middle">
-80 ${_80} ${_c80}
-</text>
-</g>
-</g>
-<g id="81" transform="translate(117.1 -130.05) rotate(312.0)">
-<rect id="81_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="81_text" class="pinya vtext" text-anchor="middle">
-81 ${_81} ${_c81}
-</text>
-</g>
-</g>
-<g id="82" transform="translate(141.58 -102.86) rotate(324.0)">
-<rect id="82_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="82_text" class="pinya vtext" text-anchor="middle">
-82 ${_82} ${_c82}
-</text>
-</g>
-</g>
-<g id="83" transform="translate(159.87 -71.18) rotate(336.0)">
-<rect id="83_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="83_text" class="pinya vtext" text-anchor="middle">
-83 ${_83} ${_c83}
-</text>
-</g>
-</g>
-<g id="84" transform="translate(171.18 -36.38) rotate(348.0)">
-<rect id="84_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="84_text" class="pinya vtext" text-anchor="middle">
-84 ${_84} ${_c84}
-</text>
-</g>
-</g>
-<g id="85" transform="translate(200.0 0.0) rotate(0.0)">
-<rect id="85_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="85_text" class="ma vtext" text-anchor="middle">
-85 ${_85} ${_c85}
-</text>
-</g>
-</g>
-<g id="86" transform="translate(196.96 34.73) rotate(10.0)">
-<rect id="86_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="86_text" class="pinya vtext" text-anchor="middle">
-86 ${_86} ${_c86}
-</text>
-</g>
-</g>
-<g id="87" transform="translate(187.94 68.4) rotate(20.0)">
-<rect id="87_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="87_text" class="pinya vtext" text-anchor="middle">
-87 ${_87} ${_c87}
-</text>
-</g>
-</g>
-<g id="88" transform="translate(173.21 100.0) rotate(30.0)">
-<rect id="88_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="88_text" class="pinya vtext" text-anchor="middle">
-88 ${_88} ${_c88}
-</text>
-</g>
-</g>
-<g id="89" transform="translate(153.21 128.56) rotate(40.0)">
-<rect id="89_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="89_text" class="pinya vtext" text-anchor="middle">
-89 ${_89} ${_c89}
-</text>
-</g>
-</g>
-<g id="90" transform="translate(128.56 153.21) rotate(50.0)">
-<rect id="90_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="90_text" class="pinya vtext" text-anchor="middle">
-90 ${_90} ${_c90}
-</text>
-</g>
-</g>
-<g id="91" transform="translate(100.0 173.21) rotate(60.0)">
-<rect id="91_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="91_text" class="vent vtext" text-anchor="middle">
-91 ${_91} ${_c91}
-</text>
-</g>
-</g>
-<g id="92" transform="translate(68.4 187.94) rotate(70.0)">
-<rect id="92_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="92_text" class="pinya vtext" text-anchor="middle">
-92 ${_92} ${_c92}
-</text>
-</g>
-</g>
-<g id="93" transform="translate(34.73 196.96) rotate(80.0)">
-<rect id="93_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="93_text" class="pinya vtext" text-anchor="middle">
-93 ${_93} ${_c93}
-</text>
-</g>
-</g>
-<g id="94" transform="translate(0.0 200.0) rotate(90.0)">
-<rect id="94_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="94_text" class="pinya vtext" text-anchor="middle">
-94 ${_94} ${_c94}
-</text>
-</g>
-</g>
-<g id="95" transform="translate(-34.73 196.96) rotate(100.0)">
-<rect id="95_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="95_text" class="pinya vtext" text-anchor="middle">
-95 ${_95} ${_c95}
-</text>
-</g>
-</g>
-<g id="96" transform="translate(-68.4 187.94) rotate(110.0)">
-<rect id="96_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="96_text" class="pinya vtext" text-anchor="middle">
-96 ${_96} ${_c96}
-</text>
-</g>
-</g>
-<g id="97" transform="translate(-100.0 173.21) rotate(120.0)">
-<rect id="97_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="97_text" class="ma vtext" text-anchor="middle">
-97 ${_97} ${_c97}
-</text>
-</g>
-</g>
-<g id="98" transform="translate(-128.56 153.21) rotate(130.0)">
-<rect id="98_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="98_text" class="pinya vtext" text-anchor="middle">
-98 ${_98} ${_c98}
-</text>
-</g>
-</g>
-<g id="99" transform="translate(-153.21 128.56) rotate(140.0)">
-<rect id="99_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="99_text" class="pinya vtext" text-anchor="middle">
-99 ${_99} ${_c99}
-</text>
-</g>
-</g>
-<g id="100" transform="translate(-173.21 100.0) rotate(150.0)">
-<rect id="100_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="100_text" class="pinya vtext" text-anchor="middle">
-100 ${_100} ${_c100}
-</text>
-</g>
-</g>
-<g id="101" transform="translate(-187.94 68.4) rotate(160.0)">
-<rect id="101_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="101_text" class="pinya vtext" text-anchor="middle">
-101 ${_101} ${_c101}
-</text>
-</g>
-</g>
-<g id="102" transform="translate(-196.96 34.73) rotate(170.0)">
-<rect id="102_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="102_text" class="pinya vtext" text-anchor="middle">
-102 ${_102} ${_c102}
-</text>
-</g>
-</g>
-<g id="103" transform="translate(-200.0 0.0) rotate(180.0)">
-<rect id="103_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="103_text" class="vent vtext" text-anchor="middle">
-103 ${_103} ${_c103}
-</text>
-</g>
-</g>
-<g id="104" transform="translate(-196.96 -34.73) rotate(190.0)">
-<rect id="104_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="104_text" class="pinya vtext" text-anchor="middle">
-104 ${_104} ${_c104}
-</text>
-</g>
-</g>
-<g id="105" transform="translate(-187.94 -68.4) rotate(200.0)">
-<rect id="105_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="105_text" class="pinya vtext" text-anchor="middle">
-105 ${_105} ${_c105}
-</text>
-</g>
-</g>
-<g id="106" transform="translate(-173.21 -100.0) rotate(210.0)">
-<rect id="106_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="106_text" class="pinya vtext" text-anchor="middle">
-106 ${_106} ${_c106}
-</text>
-</g>
-</g>
-<g id="107" transform="translate(-153.21 -128.56) rotate(220.0)">
-<rect id="107_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="107_text" class="pinya vtext" text-anchor="middle">
-107 ${_107} ${_c107}
-</text>
-</g>
-</g>
-<g id="108" transform="translate(-128.56 -153.21) rotate(230.0)">
-<rect id="108_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="108_text" class="pinya vtext" text-anchor="middle">
-108 ${_108} ${_c108}
-</text>
-</g>
-</g>
-<g id="109" transform="translate(-100.0 -173.21) rotate(240.0)">
-<rect id="109_rect" class="ma" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="109_text" class="ma vtext" text-anchor="middle">
-109 ${_109} ${_c109}
-</text>
-</g>
-</g>
-<g id="110" transform="translate(-68.4 -187.94) rotate(250.0)">
-<rect id="110_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="110_text" class="pinya vtext" text-anchor="middle">
-110 ${_110} ${_c110}
-</text>
-</g>
-</g>
-<g id="111" transform="translate(-34.73 -196.96) rotate(260.0)">
-<rect id="111_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="111_text" class="pinya vtext" text-anchor="middle">
-111 ${_111} ${_c111}
-</text>
-</g>
-</g>
-<g id="112" transform="translate(-0.0 -200.0) rotate(270.0)">
-<rect id="112_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="112_text" class="pinya vtext" text-anchor="middle">
-112 ${_112} ${_c112}
-</text>
-</g>
-</g>
-<g id="113" transform="translate(34.73 -196.96) rotate(280.0)">
-<rect id="113_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="113_text" class="pinya vtext" text-anchor="middle">
-113 ${_113} ${_c113}
-</text>
-</g>
-</g>
-<g id="114" transform="translate(68.4 -187.94) rotate(290.0)">
-<rect id="114_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="114_text" class="pinya vtext" text-anchor="middle">
-114 ${_114} ${_c114}
-</text>
-</g>
-</g>
-<g id="115" transform="translate(100.0 -173.21) rotate(300.0)">
-<rect id="115_rect" class="vent" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="115_text" class="vent vtext" text-anchor="middle">
-115 ${_115} ${_c115}
-</text>
-</g>
-</g>
-<g id="116" transform="translate(128.56 -153.21) rotate(310.0)">
-<rect id="116_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="116_text" class="pinya vtext" text-anchor="middle">
-116 ${_116} ${_c116}
-</text>
-</g>
-</g>
-<g id="117" transform="translate(153.21 -128.56) rotate(320.0)">
-<rect id="117_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="117_text" class="pinya vtext" text-anchor="middle">
-117 ${_117} ${_c117}
-</text>
-</g>
-</g>
-<g id="118" transform="translate(173.21 -100.0) rotate(330.0)">
-<rect id="118_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="118_text" class="pinya vtext" text-anchor="middle">
-118 ${_118} ${_c118}
-</text>
-</g>
-</g>
-<g id="119" transform="translate(187.94 -68.4) rotate(340.0)">
-<rect id="119_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="119_text" class="pinya vtext" text-anchor="middle">
-119 ${_119} ${_c119}
-</text>
-</g>
-</g>
-<g id="120" transform="translate(196.96 -34.73) rotate(350.0)">
-<rect id="120_rect" class="pinya" width="20" height="40" x="-10.0" y="-20.0">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="120_text" class="pinya vtext" text-anchor="middle">
-120 ${_120} ${_c120}
-</text>
-</g>
-</g>
-<g id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
-<g id="121" transform="translate(0 0) rotate(0)">
-<rect id="121_rect" class="baix" width="20" height="40" x="-10" y="-20">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="121_text" class="baix vtext" text-anchor="middle">
-121 ${_121} ${_c121}
-</text>
-</g>
-</g>
-<g id="122" transform="translate(0 30) rotate(90)">
-<rect id="122_rect" class="crossa" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="122_text" class="crossa vtext" text-anchor="middle">
-122 ${_122} ${_c122}
-</text>
-</g>
-</g>
-<g id="123" transform="translate(0 -30) rotate(-90)">
-<rect id="123_rect" class="crossa" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="123_text" class="crossa vtext" text-anchor="middle">
-123 ${_123} ${_c123}
-</text>
-</g>
-</g>
-<g id="124" transform="translate(-20 0) rotate(0)">
-<rect id="124_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="124_text" class="contrafort vtext" text-anchor="middle">
-124 ${_124} ${_c124}
-</text>
-</g>
-</g>
-<g id="125" transform="translate(20 0) rotate(0)">
-<rect id="125_rect" class="agulla" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="125_text" class="agulla vtext" text-anchor="middle">
-125 ${_125} ${_c125}
-</text>
-</g>
-</g>
-<g id="126" transform="translate(30 25) rotate(30)">
-<rect id="126_rect" class="lateral" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="126_text" class="lateral vtext" text-anchor="middle">
-126 ${_126} ${_c126}
-</text>
-</g>
-</g>
-<g id="127" transform="translate(30 -25) rotate(-30)">
-<rect id="127_rect" class="lateral" width="16" height="30" x="-8" y="-15">
-</rect>
-<g transform="rotate(90) translate(0 6)">
-<text id="127_text" class="lateral vtext" text-anchor="middle">
-127 ${_127} ${_c127}
 </text>
 </g>
 </g>
 </g>
 <g id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
-<g id="128" transform="translate(0 0) rotate(0)">
-<rect id="128_rect" class="baix" width="20" height="40" x="-10" y="-20">
+<g id="62" transform="translate(0 0) rotate(0)">
+<rect id="62_rect" class="baix" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="128_text" class="baix vtext" text-anchor="middle">
-128 ${_128} ${_c128}
+<text id="62_text" class="baix vtext" text-anchor="middle">
+62 ${_62} ${_c62}
 </text>
 </g>
 </g>
-<g id="129" transform="translate(0 30) rotate(90)">
-<rect id="129_rect" class="crossa" width="16" height="30" x="-8" y="-15">
+<g id="63" transform="translate(0 30) rotate(90)">
+<rect id="63_rect" class="crossa" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="129_text" class="crossa vtext" text-anchor="middle">
-129 ${_129} ${_c129}
+<text id="63_text" class="crossa vtext" text-anchor="middle">
+63 ${_63} ${_c63}
 </text>
 </g>
 </g>
-<g id="130" transform="translate(0 -30) rotate(-90)">
-<rect id="130_rect" class="crossa" width="16" height="30" x="-8" y="-15">
+<g id="64" transform="translate(0 -30) rotate(-90)">
+<rect id="64_rect" class="crossa" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="130_text" class="crossa vtext" text-anchor="middle">
-130 ${_130} ${_c130}
+<text id="64_text" class="crossa vtext" text-anchor="middle">
+64 ${_64} ${_c64}
 </text>
 </g>
 </g>
-<g id="131" transform="translate(-20 0) rotate(0)">
-<rect id="131_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
+<g id="65" transform="translate(-20 0) rotate(0)">
+<rect id="65_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="131_text" class="contrafort vtext" text-anchor="middle">
-131 ${_131} ${_c131}
+<text id="65_text" class="contrafort vtext" text-anchor="middle">
+65 ${_65} ${_c65}
 </text>
 </g>
 </g>
-<g id="132" transform="translate(20 0) rotate(0)">
-<rect id="132_rect" class="agulla" width="16" height="30" x="-8" y="-15">
+<g id="66" transform="translate(20 0) rotate(0)">
+<rect id="66_rect" class="agulla" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="132_text" class="agulla vtext" text-anchor="middle">
-132 ${_132} ${_c132}
+<text id="66_text" class="agulla vtext" text-anchor="middle">
+66 ${_66} ${_c66}
 </text>
 </g>
 </g>
-<g id="133" transform="translate(30 25) rotate(30)">
-<rect id="133_rect" class="lateral" width="16" height="30" x="-8" y="-15">
+<g id="67" transform="translate(30 25) rotate(30)">
+<rect id="67_rect" class="lateral" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="133_text" class="lateral vtext" text-anchor="middle">
-133 ${_133} ${_c133}
+<text id="67_text" class="lateral vtext" text-anchor="middle">
+67 ${_67} ${_c67}
 </text>
 </g>
 </g>
-<g id="134" transform="translate(30 -25) rotate(-30)">
-<rect id="134_rect" class="lateral" width="16" height="30" x="-8" y="-15">
+<g id="68" transform="translate(30 -25) rotate(-30)">
+<rect id="68_rect" class="lateral" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="134_text" class="lateral vtext" text-anchor="middle">
-134 ${_134} ${_c134}
+<text id="68_text" class="lateral vtext" text-anchor="middle">
+68 ${_68} ${_c68}
 </text>
 </g>
 </g>
 </g>
 <g id="baixos_gp_2" transform="translate(-20.0 -34.64) rotate(240.0)">
-<g id="135" transform="translate(0 0) rotate(0)">
-<rect id="135_rect" class="baix" width="20" height="40" x="-10" y="-20">
+<g id="69" transform="translate(0 0) rotate(0)">
+<rect id="69_rect" class="baix" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="135_text" class="baix vtext" text-anchor="middle">
-135 ${_135} ${_c135}
+<text id="69_text" class="baix vtext" text-anchor="middle">
+69 ${_69} ${_c69}
 </text>
 </g>
 </g>
-<g id="136" transform="translate(0 30) rotate(90)">
-<rect id="136_rect" class="crossa" width="16" height="30" x="-8" y="-15">
+<g id="70" transform="translate(0 30) rotate(90)">
+<rect id="70_rect" class="crossa" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="136_text" class="crossa vtext" text-anchor="middle">
-136 ${_136} ${_c136}
+<text id="70_text" class="crossa vtext" text-anchor="middle">
+70 ${_70} ${_c70}
 </text>
 </g>
 </g>
-<g id="137" transform="translate(0 -30) rotate(-90)">
-<rect id="137_rect" class="crossa" width="16" height="30" x="-8" y="-15">
+<g id="71" transform="translate(0 -30) rotate(-90)">
+<rect id="71_rect" class="crossa" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="137_text" class="crossa vtext" text-anchor="middle">
-137 ${_137} ${_c137}
+<text id="71_text" class="crossa vtext" text-anchor="middle">
+71 ${_71} ${_c71}
 </text>
 </g>
 </g>
-<g id="138" transform="translate(-20 0) rotate(0)">
-<rect id="138_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
+<g id="72" transform="translate(-20 0) rotate(0)">
+<rect id="72_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="138_text" class="contrafort vtext" text-anchor="middle">
-138 ${_138} ${_c138}
+<text id="72_text" class="contrafort vtext" text-anchor="middle">
+72 ${_72} ${_c72}
 </text>
 </g>
 </g>
-<g id="139" transform="translate(20 0) rotate(0)">
-<rect id="139_rect" class="agulla" width="16" height="30" x="-8" y="-15">
+<g id="73" transform="translate(20 0) rotate(0)">
+<rect id="73_rect" class="agulla" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="139_text" class="agulla vtext" text-anchor="middle">
-139 ${_139} ${_c139}
+<text id="73_text" class="agulla vtext" text-anchor="middle">
+73 ${_73} ${_c73}
 </text>
 </g>
 </g>
-<g id="140" transform="translate(30 25) rotate(30)">
-<rect id="140_rect" class="lateral" width="16" height="30" x="-8" y="-15">
+<g id="74" transform="translate(30 25) rotate(30)">
+<rect id="74_rect" class="lateral" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="140_text" class="lateral vtext" text-anchor="middle">
-140 ${_140} ${_c140}
+<text id="74_text" class="lateral vtext" text-anchor="middle">
+74 ${_74} ${_c74}
 </text>
 </g>
 </g>
-<g id="141" transform="translate(30 -25) rotate(-30)">
-<rect id="141_rect" class="lateral" width="16" height="30" x="-8" y="-15">
+<g id="75" transform="translate(30 -25) rotate(-30)">
+<rect id="75_rect" class="lateral" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="141_text" class="lateral vtext" text-anchor="middle">
-141 ${_141} ${_c141}
+<text id="75_text" class="lateral vtext" text-anchor="middle">
+75 ${_75} ${_c75}
 </text>
 </g>
 </g>
 </g>
 <g id="portacrossa_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
-<g id="142" transform="translate(0 0) rotate(0)">
-<rect id="142_rect" class="portacrossa" width="20" height="40" x="-10" y="-20">
+<g id="76" transform="translate(0 0) rotate(0)">
+<rect id="76_rect" class="portacrossa" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="142_text" class="portacrossa vtext" text-anchor="middle">
-142 ${_142} ${_c142}
+<text id="76_text" class="portacrossa vtext" text-anchor="middle">
+76 ${_76} ${_c76}
 </text>
 </g>
 </g>
 </g>
 <g id="portacrossa_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
-<g id="143" transform="translate(0 0) rotate(0)">
-<rect id="143_rect" class="portacrossa" width="20" height="40" x="-10" y="-20">
+<g id="77" transform="translate(0 0) rotate(0)">
+<rect id="77_rect" class="portacrossa" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="143_text" class="portacrossa vtext" text-anchor="middle">
-143 ${_143} ${_c143}
+<text id="77_text" class="portacrossa vtext" text-anchor="middle">
+77 ${_77} ${_c77}
 </text>
 </g>
 </g>
 </g>
 <g id="portacrossa_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
-<g id="144" transform="translate(0 0) rotate(0)">
-<rect id="144_rect" class="portacrossa" width="20" height="40" x="-10" y="-20">
+<g id="78" transform="translate(0 0) rotate(0)">
+<rect id="78_rect" class="portacrossa" width="20" height="40" x="-10" y="-20">
 </rect>
 <g transform="rotate(90) translate(0 6)">
-<text id="144_text" class="portacrossa vtext" text-anchor="middle">
-144 ${_144} ${_c144}
+<text id="78_text" class="portacrossa vtext" text-anchor="middle">
+78 ${_78} ${_c78}
 </text>
 </g>
 </g>
@@ -1312,183 +718,75 @@
 <g id="relations">
 <path class="ma_ma" pos_list="13_1" d="M125.0,0.0L100.0,0.0"/>
 <path class="ma_ma" pos_list="31_13" d="M150.0,0.0L125.0,0.0"/>
-<path class="ma_ma" pos_list="55_31" d="M175.0,0.0L150.0,0.0"/>
-<path class="ma_ma" pos_list="85_55" d="M200.0,0.0L175.0,0.0"/>
 <path class="vent_vent" pos_list="16_3" d="M62.5,108.25L50.0,86.6"/>
 <path class="vent_vent" pos_list="35_16" d="M75.0,129.9L62.5,108.25"/>
-<path class="vent_vent" pos_list="60_35" d="M87.5,151.55L75.0,129.9"/>
-<path class="vent_vent" pos_list="91_60" d="M100.0,173.21L87.5,151.55"/>
 <path class="ma_ma" pos_list="19_5" d="M-62.5,108.25L-50.0,86.6"/>
 <path class="ma_ma" pos_list="39_19" d="M-75.0,129.9L-62.5,108.25"/>
-<path class="ma_ma" pos_list="65_39" d="M-87.5,151.55L-75.0,129.9"/>
-<path class="ma_ma" pos_list="97_65" d="M-100.0,173.21L-87.5,151.55"/>
 <path class="vent_vent" pos_list="22_7" d="M-125.0,0.0L-100.0,0.0"/>
 <path class="vent_vent" pos_list="43_22" d="M-150.0,0.0L-125.0,0.0"/>
-<path class="vent_vent" pos_list="70_43" d="M-175.0,0.0L-150.0,0.0"/>
-<path class="vent_vent" pos_list="103_70" d="M-200.0,0.0L-175.0,0.0"/>
 <path class="ma_ma" pos_list="25_9" d="M-62.5,-108.25L-50.0,-86.6"/>
 <path class="ma_ma" pos_list="47_25" d="M-75.0,-129.9L-62.5,-108.25"/>
-<path class="ma_ma" pos_list="75_47" d="M-87.5,-151.55L-75.0,-129.9"/>
-<path class="ma_ma" pos_list="109_75" d="M-100.0,-173.21L-87.5,-151.55"/>
 <path class="vent_vent" pos_list="28_11" d="M62.5,-108.25L50.0,-86.6"/>
 <path class="vent_vent" pos_list="51_28" d="M75.0,-129.9L62.5,-108.25"/>
-<path class="vent_vent" pos_list="80_51" d="M87.5,-151.55L75.0,-129.9"/>
-<path class="vent_vent" pos_list="115_80" d="M100.0,-173.21L87.5,-151.55"/>
 <path class="pinya_pinya" pos_list="14_2" d="M117.46,42.75L86.6,50.0"/>
 <path class="pinya_pinya" pos_list="15_2" d="M95.76,80.35L86.6,50.0"/>
 <path class="pinya_pinya" pos_list="32_14" d="M144.89,38.82L117.46,42.75"/>
 <path class="pinya_pinya" pos_list="33_14" d="M129.9,75.0L117.46,42.75"/>
 <path class="pinya_pinya" pos_list="33_15" d="M129.9,75.0L95.76,80.35"/>
 <path class="pinya_pinya" pos_list="34_15" d="M106.07,106.07L95.76,80.35"/>
-<path class="pinya_pinya" pos_list="56_32" d="M171.18,36.38L144.89,38.82"/>
-<path class="pinya_pinya" pos_list="57_32" d="M159.87,71.18L144.89,38.82"/>
-<path class="pinya_pinya" pos_list="57_33" d="M159.87,71.18L129.9,75.0"/>
-<path class="pinya_pinya" pos_list="58_33" d="M141.58,102.86L129.9,75.0"/>
-<path class="pinya_pinya" pos_list="58_34" d="M141.58,102.86L106.07,106.07"/>
-<path class="pinya_pinya" pos_list="59_34" d="M117.1,130.05L106.07,106.07"/>
-<path class="pinya_pinya" pos_list="86_56" d="M196.96,34.73L171.18,36.38"/>
-<path class="pinya_pinya" pos_list="87_56" d="M187.94,68.4L171.18,36.38"/>
-<path class="pinya_pinya" pos_list="87_57" d="M187.94,68.4L159.87,71.18"/>
-<path class="pinya_pinya" pos_list="88_57" d="M173.21,100.0L159.87,71.18"/>
-<path class="pinya_pinya" pos_list="88_58" d="M173.21,100.0L141.58,102.86"/>
-<path class="pinya_pinya" pos_list="89_58" d="M153.21,128.56L141.58,102.86"/>
-<path class="pinya_pinya" pos_list="89_59" d="M153.21,128.56L117.1,130.05"/>
-<path class="pinya_pinya" pos_list="90_59" d="M128.56,153.21L117.1,130.05"/>
 <path class="pinya_pinya" pos_list="17_4" d="M21.71,123.1L0.0,100.0"/>
 <path class="pinya_pinya" pos_list="18_4" d="M-21.71,123.1L0.0,100.0"/>
 <path class="pinya_pinya" pos_list="36_17" d="M38.82,144.89L21.71,123.1"/>
 <path class="pinya_pinya" pos_list="37_17" d="M0.0,150.0L21.71,123.1"/>
 <path class="pinya_pinya" pos_list="37_18" d="M0.0,150.0L-21.71,123.1"/>
 <path class="pinya_pinya" pos_list="38_18" d="M-38.82,144.89L-21.71,123.1"/>
-<path class="pinya_pinya" pos_list="61_36" d="M54.08,166.43L38.82,144.89"/>
-<path class="pinya_pinya" pos_list="62_36" d="M18.29,174.04L38.82,144.89"/>
-<path class="pinya_pinya" pos_list="62_37" d="M18.29,174.04L0.0,150.0"/>
-<path class="pinya_pinya" pos_list="63_37" d="M-18.29,174.04L0.0,150.0"/>
-<path class="pinya_pinya" pos_list="63_38" d="M-18.29,174.04L-38.82,144.89"/>
-<path class="pinya_pinya" pos_list="64_38" d="M-54.08,166.43L-38.82,144.89"/>
-<path class="pinya_pinya" pos_list="92_61" d="M68.4,187.94L54.08,166.43"/>
-<path class="pinya_pinya" pos_list="93_61" d="M34.73,196.96L54.08,166.43"/>
-<path class="pinya_pinya" pos_list="93_62" d="M34.73,196.96L18.29,174.04"/>
-<path class="pinya_pinya" pos_list="94_62" d="M0.0,200.0L18.29,174.04"/>
-<path class="pinya_pinya" pos_list="94_63" d="M0.0,200.0L-18.29,174.04"/>
-<path class="pinya_pinya" pos_list="95_63" d="M-34.73,196.96L-18.29,174.04"/>
-<path class="pinya_pinya" pos_list="95_64" d="M-34.73,196.96L-54.08,166.43"/>
-<path class="pinya_pinya" pos_list="96_64" d="M-68.4,187.94L-54.08,166.43"/>
 <path class="pinya_pinya" pos_list="20_6" d="M-95.76,80.35L-86.6,50.0"/>
 <path class="pinya_pinya" pos_list="21_6" d="M-117.46,42.75L-86.6,50.0"/>
 <path class="pinya_pinya" pos_list="40_20" d="M-106.07,106.07L-95.76,80.35"/>
 <path class="pinya_pinya" pos_list="41_20" d="M-129.9,75.0L-95.76,80.35"/>
 <path class="pinya_pinya" pos_list="41_21" d="M-129.9,75.0L-117.46,42.75"/>
 <path class="pinya_pinya" pos_list="42_21" d="M-144.89,38.82L-117.46,42.75"/>
-<path class="pinya_pinya" pos_list="66_40" d="M-117.1,130.05L-106.07,106.07"/>
-<path class="pinya_pinya" pos_list="67_40" d="M-141.58,102.86L-106.07,106.07"/>
-<path class="pinya_pinya" pos_list="67_41" d="M-141.58,102.86L-129.9,75.0"/>
-<path class="pinya_pinya" pos_list="68_41" d="M-159.87,71.18L-129.9,75.0"/>
-<path class="pinya_pinya" pos_list="68_42" d="M-159.87,71.18L-144.89,38.82"/>
-<path class="pinya_pinya" pos_list="69_42" d="M-171.18,36.38L-144.89,38.82"/>
-<path class="pinya_pinya" pos_list="98_66" d="M-128.56,153.21L-117.1,130.05"/>
-<path class="pinya_pinya" pos_list="99_66" d="M-153.21,128.56L-117.1,130.05"/>
-<path class="pinya_pinya" pos_list="99_67" d="M-153.21,128.56L-141.58,102.86"/>
-<path class="pinya_pinya" pos_list="100_67" d="M-173.21,100.0L-141.58,102.86"/>
-<path class="pinya_pinya" pos_list="100_68" d="M-173.21,100.0L-159.87,71.18"/>
-<path class="pinya_pinya" pos_list="101_68" d="M-187.94,68.4L-159.87,71.18"/>
-<path class="pinya_pinya" pos_list="101_69" d="M-187.94,68.4L-171.18,36.38"/>
-<path class="pinya_pinya" pos_list="102_69" d="M-196.96,34.73L-171.18,36.38"/>
 <path class="pinya_pinya" pos_list="23_8" d="M-117.46,-42.75L-86.6,-50.0"/>
 <path class="pinya_pinya" pos_list="24_8" d="M-95.76,-80.35L-86.6,-50.0"/>
 <path class="pinya_pinya" pos_list="44_23" d="M-144.89,-38.82L-117.46,-42.75"/>
 <path class="pinya_pinya" pos_list="45_23" d="M-129.9,-75.0L-117.46,-42.75"/>
 <path class="pinya_pinya" pos_list="45_24" d="M-129.9,-75.0L-95.76,-80.35"/>
 <path class="pinya_pinya" pos_list="46_24" d="M-106.07,-106.07L-95.76,-80.35"/>
-<path class="pinya_pinya" pos_list="71_44" d="M-171.18,-36.38L-144.89,-38.82"/>
-<path class="pinya_pinya" pos_list="72_44" d="M-159.87,-71.18L-144.89,-38.82"/>
-<path class="pinya_pinya" pos_list="72_45" d="M-159.87,-71.18L-129.9,-75.0"/>
-<path class="pinya_pinya" pos_list="73_45" d="M-141.58,-102.86L-129.9,-75.0"/>
-<path class="pinya_pinya" pos_list="73_46" d="M-141.58,-102.86L-106.07,-106.07"/>
-<path class="pinya_pinya" pos_list="74_46" d="M-117.1,-130.05L-106.07,-106.07"/>
-<path class="pinya_pinya" pos_list="104_71" d="M-196.96,-34.73L-171.18,-36.38"/>
-<path class="pinya_pinya" pos_list="105_71" d="M-187.94,-68.4L-171.18,-36.38"/>
-<path class="pinya_pinya" pos_list="105_72" d="M-187.94,-68.4L-159.87,-71.18"/>
-<path class="pinya_pinya" pos_list="106_72" d="M-173.21,-100.0L-159.87,-71.18"/>
-<path class="pinya_pinya" pos_list="106_73" d="M-173.21,-100.0L-141.58,-102.86"/>
-<path class="pinya_pinya" pos_list="107_73" d="M-153.21,-128.56L-141.58,-102.86"/>
-<path class="pinya_pinya" pos_list="107_74" d="M-153.21,-128.56L-117.1,-130.05"/>
-<path class="pinya_pinya" pos_list="108_74" d="M-128.56,-153.21L-117.1,-130.05"/>
 <path class="pinya_pinya" pos_list="26_10" d="M-21.71,-123.1L0.0,-100.0"/>
 <path class="pinya_pinya" pos_list="27_10" d="M21.71,-123.1L0.0,-100.0"/>
 <path class="pinya_pinya" pos_list="48_26" d="M-38.82,-144.89L-21.71,-123.1"/>
 <path class="pinya_pinya" pos_list="49_26" d="M0.0,-150.0L-21.71,-123.1"/>
 <path class="pinya_pinya" pos_list="49_27" d="M0.0,-150.0L21.71,-123.1"/>
 <path class="pinya_pinya" pos_list="50_27" d="M38.82,-144.89L21.71,-123.1"/>
-<path class="pinya_pinya" pos_list="76_48" d="M-54.08,-166.43L-38.82,-144.89"/>
-<path class="pinya_pinya" pos_list="77_48" d="M-18.29,-174.04L-38.82,-144.89"/>
-<path class="pinya_pinya" pos_list="77_49" d="M-18.29,-174.04L0.0,-150.0"/>
-<path class="pinya_pinya" pos_list="78_49" d="M18.29,-174.04L0.0,-150.0"/>
-<path class="pinya_pinya" pos_list="78_50" d="M18.29,-174.04L38.82,-144.89"/>
-<path class="pinya_pinya" pos_list="79_50" d="M54.08,-166.43L38.82,-144.89"/>
-<path class="pinya_pinya" pos_list="110_76" d="M-68.4,-187.94L-54.08,-166.43"/>
-<path class="pinya_pinya" pos_list="111_76" d="M-34.73,-196.96L-54.08,-166.43"/>
-<path class="pinya_pinya" pos_list="111_77" d="M-34.73,-196.96L-18.29,-174.04"/>
-<path class="pinya_pinya" pos_list="112_77" d="M0.0,-200.0L-18.29,-174.04"/>
-<path class="pinya_pinya" pos_list="112_78" d="M0.0,-200.0L18.29,-174.04"/>
-<path class="pinya_pinya" pos_list="113_78" d="M34.73,-196.96L18.29,-174.04"/>
-<path class="pinya_pinya" pos_list="113_79" d="M34.73,-196.96L54.08,-166.43"/>
-<path class="pinya_pinya" pos_list="114_79" d="M68.4,-187.94L54.08,-166.43"/>
 <path class="pinya_pinya" pos_list="29_12" d="M95.76,-80.35L86.6,-50.0"/>
 <path class="pinya_pinya" pos_list="30_12" d="M117.46,-42.75L86.6,-50.0"/>
 <path class="pinya_pinya" pos_list="52_29" d="M106.07,-106.07L95.76,-80.35"/>
 <path class="pinya_pinya" pos_list="53_29" d="M129.9,-75.0L95.76,-80.35"/>
 <path class="pinya_pinya" pos_list="53_30" d="M129.9,-75.0L117.46,-42.75"/>
 <path class="pinya_pinya" pos_list="54_30" d="M144.89,-38.82L117.46,-42.75"/>
-<path class="pinya_pinya" pos_list="81_52" d="M117.1,-130.05L106.07,-106.07"/>
-<path class="pinya_pinya" pos_list="82_52" d="M141.58,-102.86L106.07,-106.07"/>
-<path class="pinya_pinya" pos_list="82_53" d="M141.58,-102.86L129.9,-75.0"/>
-<path class="pinya_pinya" pos_list="83_53" d="M159.87,-71.18L129.9,-75.0"/>
-<path class="pinya_pinya" pos_list="83_54" d="M159.87,-71.18L144.89,-38.82"/>
-<path class="pinya_pinya" pos_list="84_54" d="M171.18,-36.38L144.89,-38.82"/>
-<path class="pinya_pinya" pos_list="116_81" d="M128.56,-153.21L117.1,-130.05"/>
-<path class="pinya_pinya" pos_list="117_81" d="M153.21,-128.56L117.1,-130.05"/>
-<path class="pinya_pinya" pos_list="117_82" d="M153.21,-128.56L141.58,-102.86"/>
-<path class="pinya_pinya" pos_list="118_82" d="M173.21,-100.0L141.58,-102.86"/>
-<path class="pinya_pinya" pos_list="118_83" d="M173.21,-100.0L159.87,-71.18"/>
-<path class="pinya_pinya" pos_list="119_83" d="M187.94,-68.4L159.87,-71.18"/>
-<path class="pinya_pinya" pos_list="119_84" d="M187.94,-68.4L171.18,-36.38"/>
-<path class="pinya_pinya" pos_list="120_84" d="M196.96,-34.73L171.18,-36.38"/>
 <path class="pinya" pos_list="2" d="M86.6,50.0"/>
 <path class="pinya_pinya" pos_list="14_15" d="M117.46,42.75L95.76,80.35"/>
 <path class="pinya_pinya_pinya" pos_list="32_33_34" d="M144.89,38.82L129.9,75.0L106.07,106.07"/>
-<path class="pinya_pinya_pinya_pinya" pos_list="56_57_58_59" d="M171.18,36.38L159.87,71.18L141.58,102.86L117.1,130.05"/>
-<path class="pinya_pinya_pinya_pinya_pinya" pos_list="86_87_88_89_90" d="M196.96,34.73L187.94,68.4L173.21,100.0L153.21,128.56L128.56,153.21"/>
 <path class="pinya" pos_list="4" d="M0.0,100.0"/>
 <path class="pinya_pinya" pos_list="17_18" d="M21.71,123.1L-21.71,123.1"/>
 <path class="pinya_pinya_pinya" pos_list="36_37_38" d="M38.82,144.89L0.0,150.0L-38.82,144.89"/>
-<path class="pinya_pinya_pinya_pinya" pos_list="61_62_63_64" d="M54.08,166.43L18.29,174.04L-18.29,174.04L-54.08,166.43"/>
-<path class="pinya_pinya_pinya_pinya_pinya" pos_list="92_93_94_95_96" d="M68.4,187.94L34.73,196.96L0.0,200.0L-34.73,196.96L-68.4,187.94"/>
 <path class="pinya" pos_list="6" d="M-86.6,50.0"/>
 <path class="pinya_pinya" pos_list="20_21" d="M-95.76,80.35L-117.46,42.75"/>
 <path class="pinya_pinya_pinya" pos_list="40_41_42" d="M-106.07,106.07L-129.9,75.0L-144.89,38.82"/>
-<path class="pinya_pinya_pinya_pinya" pos_list="66_67_68_69" d="M-117.1,130.05L-141.58,102.86L-159.87,71.18L-171.18,36.38"/>
-<path class="pinya_pinya_pinya_pinya_pinya" pos_list="98_99_100_101_102" d="M-128.56,153.21L-153.21,128.56L-173.21,100.0L-187.94,68.4L-196.96,34.73"/>
 <path class="pinya" pos_list="8" d="M-86.6,-50.0"/>
 <path class="pinya_pinya" pos_list="23_24" d="M-117.46,-42.75L-95.76,-80.35"/>
 <path class="pinya_pinya_pinya" pos_list="44_45_46" d="M-144.89,-38.82L-129.9,-75.0L-106.07,-106.07"/>
-<path class="pinya_pinya_pinya_pinya" pos_list="71_72_73_74" d="M-171.18,-36.38L-159.87,-71.18L-141.58,-102.86L-117.1,-130.05"/>
-<path class="pinya_pinya_pinya_pinya_pinya" pos_list="104_105_106_107_108" d="M-196.96,-34.73L-187.94,-68.4L-173.21,-100.0L-153.21,-128.56L-128.56,-153.21"/>
 <path class="pinya" pos_list="10" d="M0.0,-100.0"/>
 <path class="pinya_pinya" pos_list="26_27" d="M-21.71,-123.1L21.71,-123.1"/>
 <path class="pinya_pinya_pinya" pos_list="48_49_50" d="M-38.82,-144.89L0.0,-150.0L38.82,-144.89"/>
-<path class="pinya_pinya_pinya_pinya" pos_list="76_77_78_79" d="M-54.08,-166.43L-18.29,-174.04L18.29,-174.04L54.08,-166.43"/>
-<path class="pinya_pinya_pinya_pinya_pinya" pos_list="110_111_112_113_114" d="M-68.4,-187.94L-34.73,-196.96L0.0,-200.0L34.73,-196.96L68.4,-187.94"/>
 <path class="pinya" pos_list="12" d="M86.6,-50.0"/>
 <path class="pinya_pinya" pos_list="29_30" d="M95.76,-80.35L117.46,-42.75"/>
 <path class="pinya_pinya_pinya" pos_list="52_53_54" d="M106.07,-106.07L129.9,-75.0L144.89,-38.82"/>
-<path class="pinya_pinya_pinya_pinya" pos_list="81_82_83_84" d="M117.1,-130.05L141.58,-102.86L159.87,-71.18L171.18,-36.38"/>
-<path class="pinya_pinya_pinya_pinya_pinya" pos_list="116_117_118_119_120" d="M128.56,-153.21L153.21,-128.56L173.21,-100.0L187.94,-68.4L196.96,-34.73"/>
-<path class="baix_crossa" pos_list="121_122" d="M40.0,0.0L40.0,30.0"/>
-<path class="baix_crossa" pos_list="121_123" d="M40.0,0.0L40.0,-30.0"/>
-<path class="baix_crossa" pos_list="128_129" d="M-20.0,34.64L-45.98,19.64"/>
-<path class="baix_crossa" pos_list="128_130" d="M-20.0,34.64L5.98,49.64"/>
-<path class="baix_crossa" pos_list="135_136" d="M-20.0,-34.64L5.98,-49.64"/>
-<path class="baix_crossa" pos_list="135_137" d="M-20.0,-34.64L-45.98,-19.64"/>
+<path class="baix_crossa" pos_list="55_56" d="M40.0,0.0L40.0,30.0"/>
+<path class="baix_crossa" pos_list="55_57" d="M40.0,0.0L40.0,-30.0"/>
+<path class="baix_crossa" pos_list="62_63" d="M-20.0,34.64L-45.98,19.64"/>
+<path class="baix_crossa" pos_list="62_64" d="M-20.0,34.64L5.98,49.64"/>
+<path class="baix_crossa" pos_list="69_70" d="M-20.0,-34.64L5.98,-49.64"/>
+<path class="baix_crossa" pos_list="69_71" d="M-20.0,-34.64L-45.98,-19.64"/>
 </g>
 </svg>

@@ -11,11 +11,11 @@ import httplib
 cgitb.enable()
 sys.path.append('../python')
 
+from local_config import RootDir, pinya_dir
+sys.path.append(RootDir + 'python/util/')
 from build_html import solution_as_svg
 from solve_ip import solve_castell
 from db_interaction import get_db, db_nicknames_and_char
-from local_config import pinya_dir
-
 
 
 form = cgi.FieldStorage()
@@ -48,7 +48,7 @@ if what=='get_colla':
 
 elif what=='get_pinya':
     castell_id_name = form['castell_id_name'].value
-    filename = '../www/' + pinya_dir + '/' + castell_id_name + '/pinya'
+    filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
     f = open(filename + '.solved.svg', 'r')
     print f.read()
 

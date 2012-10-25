@@ -1,0 +1,4 @@
+all: $(wildcard *)/all
+	$(MAKE) $@
+
+

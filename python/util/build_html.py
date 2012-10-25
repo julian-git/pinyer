@@ -1,5 +1,3 @@
-from html_common import *
-
 def fill_in(pd, svg, svgclass, min_x, max_x, min_y, max_y, name=''):
     if pd['svg_elem'] == 'rect':
         svg = svg + \
