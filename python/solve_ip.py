@@ -73,13 +73,14 @@ def read_solved_relations_from_file(filename):
 
 def read_solved_relations(filename, sol):
     rels = read_solved_relations_from_file(filename)
-    rel_vals = dict()
+    rel_vals = []
     for [fields, positions] in rels:
         for i in range(len(fields)):
-            for j in range(i):
+            for j in range(i+1, len(fields)):
                 fp = int(positions[i])
                 tp = int(positions[j])
-                rel_vals[fp, tp] = round(abs(sol[fp][fields[i]] - sol[tp][fields[i]]), 2)
+                rel_vals.append([str(fp) + '_' + str(tp), \
+                                     round(abs(sol[fp][fields[i]] - sol[tp][fields[i]]), 2)])
     return rel_vals
 
 def solve_castell(castell_id_name, colla_id_name):
@@ -92,27 +93,28 @@ def solve_castell(castell_id_name, colla_id_name):
         run_solver(filename)
         
     castellers = db_castellers(get_db(), colla_id_name)
-    sol = read_solved_positions(filename, castellers)
-    rel_vals = read_solved_relations(filename, sol)
-    return dict([('positions', sol), ('relations', rel_vals)]) 
+    positions = read_solved_positions(filename, castellers)
+    relations = read_solved_relations(filename, positions)
+    return [positions, relations] 
 
 
 def do_opt():
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
-    solution = solve_castell(castell_id_name, colla_id_name)
+    [positions, relations] = solve_castell(castell_id_name, colla_id_name)
     filename =  RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
     fin = open(filename + '.svg', 'r')
     fout = open(filename + '.solved.svg', 'w')
     t = Template(fin.read())
-    positions = solution['positions']
     sol = dict()
     for i in positions.keys():
-        sol['_' + str(i)] = positions[i]['nickname']
-        sol['_c' + str(i)] = str(positions[i]['shoulder_height']) + \
-            '_' + str(positions[i]['id'])
+        casteller = positions[i]
+        sol['_' + str(i)] = casteller['nickname']
+        sol['_c' + str(i)] = str(casteller['shoulder_height']) 
+    for pos, val in relations:
+        sol['_rel' + pos] = str(val)
     fout.write(t.safe_substitute(sol))
-    print [[pos, c['nickname']] for [pos, c] in solution['positions'].iteritems()]
-    print solution['relations']
+    print [[pos, c['nickname']] for [pos, c] in positions.iteritems()]
+    print relations
 
 if __name__ == "__main__":
 #    import cProfile

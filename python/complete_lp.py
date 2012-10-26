@@ -10,9 +10,13 @@ def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
     fout = open(filename + '.complete.lp', 'w')
     frel = open(filename + '.complete.rels', 'w')
     line = fin.readline()
+    last_rel = ''
     while line != 'binary\n':
         if line[0:4] == 'rel_':
-            frel.write(line[4:line.find(':')] + '\n')
+            new_rel = line[4:line.find(':')]
+            if new_rel != last_rel:
+                frel.write(new_rel + '\n')
+                last_rel = new_rel
         fout.write(line)
         line = fin.readline()
     vars = fin.readline().split()

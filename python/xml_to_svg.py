@@ -143,15 +143,29 @@ def handleRelation(relation):
                  '" pos_list="' + \
                  relation.getAttribute('pos_list') + \
                  '" d="')
-    first = True
-    for pos in relation.getAttribute('pos_list').split(numeric_splitter):
-        if not first:
+    xtot = 0
+    ytot = 0
+    count = 0
+    pos_list = relation.getAttribute('pos_list')
+    for pos in pos_list.split(numeric_splitter):
+        if count > 0:
             d.append('L')
         else:
             d.append('M')
-            first = False
-        d.append(str(coos[int(pos)][0]) + ',' + str(coos[int(pos)][1]))
+        count = count + 1
+        x = coos[int(pos)][0]
+        y = coos[int(pos)][1]
+        xtot += x
+        ytot += y
+        d.append(str(x) + ',' + str(y))
     d.append('"/>')
+    svg.append(''.join(d))
+    d = []
+    xtot = round(xtot/count, 2)
+    ytot = round(ytot/count, 2)
+    d.append('<g transform="translate(' + str(xtot) + ' ' + str(ytot) + ')">')
+    d.append('<text>${_rel' + pos_list + '}</text>')
+    d.append('</g>')
     svg.append(''.join(d))
 
 def getText(nodelist):
