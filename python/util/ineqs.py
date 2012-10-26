@@ -141,7 +141,7 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
         # value of field_names at position is at least fparam
         if rel['field_names'].find(text_splitter) > -1:
             raise RuntimeError('Expected only one property in ' + rel['field_names']) 
-        label = 'rel_' + text_splitter.join(field_names) + "_" + str(fpi) + ": "
+        label = 'rel_' + text_splitter.join(field_names) + text_splitter + str(fpi) + ": "
         ineqs.append(label + \
                          sum_vars(fpi, cot[role_list[0]], field_names) + \
                          " >= " + \
@@ -151,7 +151,7 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
         # sum of values is at most rhs in absolute value
         if len(pos_list) == 0:
             raise RuntimeError('Expected pos_list to be nonempty, in sum_in_interval')
-        label = 'rel_' + text_splitter.join(field_names) + "_" + numeric_splitter.join([str(p) for p in pos_list]) + ': '
+        label = 'rel_' + text_splitter.join(field_names) + text_splitter + numeric_splitter.join([str(p) for p in pos_list]) + ': '
         ineq_str = ''
         pos_ct = -1
         for pos in pos_list:

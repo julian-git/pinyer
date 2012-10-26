@@ -60,21 +60,27 @@ def read_solved_positions(filename, castellers):
         raise RuntimeError("Solution file empty. No solution found")
     return sol
 
-def relation_values_from_solution(relations, sol):
-    rel_val = dict()
-    for rel in relations:
-        positions = rel['pos_list'].split(numeric_splitter)
-        prop = rel['field_names'].split(text_splitter)
-        if len(positions) != len(prop):
-            print "positions = ", positions
-            print "prop = ", prop 
-            raise RuntimeError("positions and prop have different length")
-        for i in range(0, len(positions)-1):
-            for j in range(1, len(positions)):
+def read_solved_relations_from_file(filename):
+    rels = []
+    frel = open(filename + '.rels', 'r')
+    for line in frel:
+        fields = line.split(text_splitter)
+        if len(fields) > 2: # there is more than one field (the last entry is the positions)
+            positions = fields[-1].split(numeric_splitter)
+            positions[-1] = positions[-1][:-1] # get rid of trailing newline
+            rels.append([fields[:-1], positions])
+    return rels
+
+def read_solved_relations(filename, sol):
+    rels = read_solved_relations_from_file(filename)
+    rel_vals = dict()
+    for [fields, positions] in rels:
+        for i in range(len(fields)):
+            for j in range(i):
                 fp = int(positions[i])
                 tp = int(positions[j])
-                rel_val[fp, tp] = round(sol[fp][prop[j]] - sol[tp][prop[j]], 2)
-    return rel_val
+                rel_vals[fp, tp] = round(abs(sol[fp][fields[i]] - sol[tp][fields[i]]), 2)
+    return rel_vals
 
 def solve_castell(castell_id_name, colla_id_name):
     if DoLogging:
@@ -87,10 +93,8 @@ def solve_castell(castell_id_name, colla_id_name):
         
     castellers = db_castellers(get_db(), colla_id_name)
     sol = read_solved_positions(filename, castellers)
-    return dict([('positions', sol), \
-                     ('relations', '')]) #relation_values_from_solution(relations, sol))])
-    
-
+    rel_vals = read_solved_relations(filename, sol)
+    return dict([('positions', sol), ('relations', rel_vals)]) 
 
 
 def do_opt():
