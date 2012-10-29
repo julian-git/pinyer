@@ -4,7 +4,7 @@ sys.path.append(RootDir + 'python/util/')
 from db_interaction import get_db
 from solve_ip import split_var
 
-def complete_lp_impl(prescribed, excluded, segons, castell_id_name, colla_id_name):
+def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
     fin = open(filename + '.lp', 'r')
     fout = open(filename + '.complete.lp', 'w')
@@ -24,6 +24,12 @@ def complete_lp_impl(prescribed, excluded, segons, castell_id_name, colla_id_nam
         [cast_id, pos_id] = split_var(var)
         if cast_id in excluded:
             fout.write('excl: ' + var + ' = 0\n')
+        elif cast_id in prescribed.keys():
+            if pos_id == prescribed[cast_id]:
+                fout.write('presc: ' + var + ' = 1\n')
+            else:
+                fout.write('presc: ' + var + ' = 0\n')
+        
     fout.write('binary\n' + ' '.join(vars))
 
 def make_excluded(db):
@@ -49,11 +55,10 @@ select id from casteller where nickname in ('Abdul', 'Arnau', 'Quim');
 
 def complete_lp():
     db = get_db()
-    prescribed = dict()
     excluded = make_excluded(db)
-    segons = make_segons(db)
+    prescribed = dict([(2, 79), (14, 80), (72, 81)]) # Abdul, Arnau, Quim as segons
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
-    complete_lp_impl(prescribed, excluded, segons, castell_id_name, colla_id_name)
+    complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name)
 
 if __name__=="__main__":
     complete_lp()
