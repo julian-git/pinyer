@@ -319,13 +319,60 @@ def portacrossa(pcd, xml, xml_id, coo_of):
         xml += '</position_group>\n'         
     return [xml, xml_id, position_in_portacrossa, coo_of]
 
-def pinya(rd, bd, pcd, xml):
+def segons(sd, xml, xml_id, coo_of):
+    """
+    make as many segons as the symmetry of the castells demands
+    """
+    position_in_segons = dict()
+    for i in range(sd['number']):
+        alpha = i * 2.0 * pi / sd['number']
+        x = round(sd['radius'] * cos(alpha), 2)
+        y = round(sd['radius'] * sin(alpha), 2)
+        [xml, xml_id, position_in_segons, coo_of] = \
+            segon(i, x, y, round(180 / pi * alpha, 2), sd, \
+                      position_in_segons, xml, xml_id, coo_of)
+    return [xml, xml_id, position_in_segons, coo_of]
+
+def segon(i, x, y, angle, sd, pis, xml, xml_id, coo_of):
+    """
+    make the rectangle and text of a segon
+    """
+    xml_id = xml_id + 1
+    xml += xml_position.substitute(_x=x, \
+                                   _y=y, 
+                                   _rx = sd['segon_rect_dim']['x'], \
+                                   _ry = sd['segon_rect_dim']['y'], \
+                                   _rw = sd['segon_rect_dim']['w'], \
+                                   _rh = sd['segon_rect_dim']['h'], \
+                                   _angle = angle, \
+                                   _xml_id=xml_id,\
+                                   #_xml_text = str([i,j]), \
+                                   _xml_text=xml_id, \
+                                   _class='segon', \
+                                   _name=xml_id, \
+                                   _index_props=i)
+    pis[i] = dict([('xml_id', xml_id), \
+                       ('role', 'segon'), \
+                       #('xml_text', 'agulla'), \
+                       ('xml_text', xml_id), \
+                       ('x', x), \
+                       ('y', y), \
+                       ('angle', angle)])
+    coo_of[xml_id] = [x,y]
+    return [xml, xml_id, pis, coo_of]
+
+
+def pinya(rd, bd, pcd, sd, xml):
     xml_id = 0
     coo_of = dict()
     [xml, xml_id, position_in_ring, coo_of] = rings(rd, xml, xml_id, coo_of)
     [xml, xml_id, position_in_baix_group, coo_of] = baixos(bd, xml, xml_id, coo_of)
     [xml, xml_id, position_in_portacrossa, coo_of] = portacrossa(pcd, xml, xml_id, coo_of)
-    return [xml, position_in_ring, position_in_baix_group, position_in_portacrossa, coo_of]
+    sd['radius'] = rd['start_radius'] + \
+        (rd['end_n_in_slice'] - rd['start_n_in_slice'] + 1.5) * rd['radius_offset']
+    [xml, xml_id, position_in_segons, coo_of] = segons(sd, xml, xml_id, coo_of)
+    return [xml, position_in_ring, position_in_baix_group, \
+                position_in_portacrossa, position_in_segons, coo_of]
 
 
 def tresde9f():
@@ -395,6 +442,17 @@ def tresde9f():
                          [-10,-45]) \
                     ])
 
+    # data for the segons
+    sw2 = 10 # half the width of a segons rectangle
+    sh2 = 20 # half the height of a segons rectangle
+    sd = dict([('number', 3),\
+                   ('segons_pos', [50,0]),\
+                   ('radius', 50), \
+                   ('segon_rect_dim', \
+                        dict([('x', -sw2), ('y', -sh2),\
+                                  ('w', 2*sw2), ('h', 2*sh2), ('angle', 0)])) \
+                   ])
+
     # start the xml
     xml = xml_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
     xml += '<title>Tres de nou amb folre</title>\n' + \
@@ -404,7 +462,7 @@ def tresde9f():
     # go!
     xml += '<positions>'
     [xml, position_in_ring, position_in_baix_group, \
-         position_in_portacrossa, coo_of] = pinya(rd, bd, pcd, xml)
+         position_in_portacrossa, position_in_segons, coo_of] = pinya(rd, bd, pcd, sd, xml)
     xml += '</positions>\n'
 
     relations = []
@@ -422,7 +480,7 @@ def tresde9f():
 def save_tresde9f_xml():
     [xml, position_in_ring, position_in_baix_group, \
          position_in_portacrossa, relations] = tresde9f()
-    f = open('../www/' + pinya_dir + '/cvg.3de9f/pinya.xml', 'w')
+    f = open('pinya.xml', 'w')
     f.write(xml)
     f.close()
     

@@ -29,6 +29,7 @@ rect.baix           { fill: red;       }
 rect.agulla         { fill: brown;     }
 rect.portacrossa    { fill: teal;      }
 rect.lateral        { fill: darkblue;  }  /* lateral       */
+rect.segon          { fill: darkgreen;      }
 rect.design         { stroke: green;}
 
 

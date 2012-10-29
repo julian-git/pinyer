@@ -714,6 +714,33 @@
 </g>
 </g>
 </g>
+<g id="79" transform="translate(187.5 0.0) rotate(0.0)">
+<rect id="79_rect" class="segon" width="20" height="40" x="-10" y="-20">
+</rect>
+<g transform="rotate(90) translate(0 6)">
+<text id="79_text" class="segon vtext" text-anchor="middle">
+79 ${_79} ${_c79}
+</text>
+</g>
+</g>
+<g id="80" transform="translate(-93.75 162.38) rotate(120.0)">
+<rect id="80_rect" class="segon" width="20" height="40" x="-10" y="-20">
+</rect>
+<g transform="rotate(90) translate(0 6)">
+<text id="80_text" class="segon vtext" text-anchor="middle">
+80 ${_80} ${_c80}
+</text>
+</g>
+</g>
+<g id="81" transform="translate(-93.75 -162.38) rotate(240.0)">
+<rect id="81_rect" class="segon" width="20" height="40" x="-10" y="-20">
+</rect>
+<g transform="rotate(90) translate(0 6)">
+<text id="81_text" class="segon vtext" text-anchor="middle">
+81 ${_81} ${_c81}
+</text>
+</g>
+</g>
 </g>
 <g id="relations">
 <path class="ma_ma" pos_list="13_1" d="M125.0,0.0L100.0,0.0"/>

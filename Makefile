@@ -1,5 +1,4 @@
-all: sql/all www/pinyas/all 
-doc/all # tests/all
+all: sql/all doc/all # tests/all www/pinyas/all 
 
 sql/all:
 	$(MAKE) -C sql

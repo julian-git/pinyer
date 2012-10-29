@@ -4,7 +4,7 @@ sys.path.append(RootDir + 'python/util/')
 from db_interaction import get_db
 from solve_ip import split_var
 
-def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
+def complete_lp_impl(prescribed, excluded, segons, castell_id_name, colla_id_name):
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
     fin = open(filename + '.lp', 'r')
     fout = open(filename + '.complete.lp', 'w')
@@ -12,7 +12,7 @@ def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
     line = fin.readline()
     last_rel = ''
     while line != 'binary\n':
-        if line[0:4] == 'rel_':
+        if line[0:4] == 'rel_': # output relations into auxiliary file frel
             new_rel = line[4:line.find(':')]
             if new_rel != last_rel:
                 frel.write(new_rel + '\n')
@@ -26,8 +26,8 @@ def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
             fout.write('excl: ' + var + ' = 0\n')
     fout.write('binary\n' + ' '.join(vars))
 
-def make_excluded():
-    c = get_db().cursor()
+def make_excluded(db):
+    c = db.cursor()
     c.execute("""
 select id from casteller where nickname in ('Abdul', 'AE', 'Aina', 'Alaitz', 'Aleix', 'Alvarito', 'Arnau', 'Berta', 'Eva', 'Joana', 'Joanet', 'Laia O', 'Lali', 'Marco', 'Martina', 'Montxi', 'Oriolet', 'Rafols', 'Rai', 'Santako', 'Stefano');
 """)
@@ -36,11 +36,24 @@ select id from casteller where nickname in ('Abdul', 'AE', 'Aina', 'Alaitz', 'Al
         ans.append(int(row[0]))
     return ans
 
+def make_segons(db):
+    c = db.cursor()
+    c.execute("""
+select id from casteller where nickname in ('Abdul', 'Arnau', 'Quim');
+""")
+    ans = []
+    for row in c.fetchall():
+        ans.append(int(row[0]))
+    print ans
+    return ans
+
 def complete_lp():
-    excluded = make_excluded()
+    db = get_db()
     prescribed = dict()
+    excluded = make_excluded(db)
+    segons = make_segons(db)
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
-    complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name)
+    complete_lp_impl(prescribed, excluded, segons, castell_id_name, colla_id_name)
 
 if __name__=="__main__":
     complete_lp()

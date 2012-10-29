@@ -556,6 +556,27 @@
   </label>
 </position>
 </position_group>
+
+<position id="79" role="segon" transform="translate(187.5 0.0) rotate(0.0)" essential="true">
+  <rect id="79_rect" class="segon" width="20" height="40" x="-10" y="-20"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="79_text" class="segon vtext" text-anchor="middle">79</text>
+  </label>
+</position>
+
+<position id="80" role="segon" transform="translate(-93.75 162.38) rotate(120.0)" essential="true">
+  <rect id="80_rect" class="segon" width="20" height="40" x="-10" y="-20"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="80_text" class="segon vtext" text-anchor="middle">80</text>
+  </label>
+</position>
+
+<position id="81" role="segon" transform="translate(-93.75 -162.38) rotate(240.0)" essential="true">
+  <rect id="81_rect" class="segon" width="20" height="40" x="-10" y="-20"/>
+  <label transform="rotate(90) translate(0 6)">
+  <text id="81_text" class="segon vtext" text-anchor="middle">81</text>
+  </label>
+</position>
 </positions>
 
 <relations id="rels">
