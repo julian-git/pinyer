@@ -454,7 +454,7 @@ def tresde9f():
                    ])
 
     # start the xml
-    xml = xml_head.substitute(_vx=-r-40, _vy=-r-40, _vw=2*r+80, _vh=2*r+80) 
+    xml = xml_head.substitute(_vx=-r-80, _vy=-r-40, _vw=2*r+160, _vh=2*r+80) 
     xml += '<title>Tres de nou amb folre</title>\n' + \
         '<castell castell_id_name="cvg.3de9f"/>\n' + \
         '<colla colla_id_name="cvg"/>\n'
