@@ -5,41 +5,6 @@ def get_db():
     return connect(user="pinyer", passwd="", db="pinyer")
 
 
-# def get_positions(db, castell_type_id):
-#     """
-#     returns all id numbers of the positions in the given castell type
-#     """
-#     position_data = dict()
-#     c = db.cursor()
-#     c.execute("""select p.svg_id, role, role.name, is_essential, svg_id, svg_text, svg_elem, svg_class, x, y, rx, ry, rw, rh, angle from castell_position p left join role on p.role=role.name where castell_type_id=%s""", (castell_type_id,))
-#     res = c.fetchall()
-#     for row in res:
-#         new_ans = dict(zip(('id', 'role', 'role_name', 'is_essential', 'svg_id', 'svg_text', 'svg_elem', 'svg_class', 'x', 'y', 'rx', 'ry', 'rw', 'rh', 'angle'), row))
-#         for ind in ['id', 'svg_id']:
-#             new_ans[ind] = int(new_ans[ind])
-#         position_data[new_ans['id']] = new_ans
-#     if len(position_data) == 0:
-#         raise RuntimeError('No data found in database for castell_type_id ' + castell_type_id)
-#     return position_data
-
-# def write_positions(db, castell_type_id, position_at):
-#     """ 
-#     writes the positions of the given castell to the database
-#     """
-#     c = db.cursor()
-#     vals = []
-#     for pos_id, pos in position_at.iteritems():
-#         vals.append((3, \
-#                          pos['role'], \
-#                          pos['svg_id'], \
-#                          pos['svg_text'], \
-#                          pos['x'], \
-#                          pos['y'], \
-#                          pos['angle']))
-#     query = """insert into castell_position (castell_type_id, role, svg_id, svg_text, x, y, angle)
-#          values (%s, %s, %s, %s, %s, %s, %s)"""
-#     c.executemany(query, vals)
-
 def db_castell(db, castell_type_id):
     """
     returns the characteristics of the castell with the given id
@@ -126,41 +91,6 @@ where casteller_colla.colla_id = %s order by c
         ans.append(dict([('id', int(row[0])), ('nickname', row[1]), ('c', row[2])]))
     return ans
 
-
-def db_relations(db, castell_type_id):
-    """
-    returns all relations between positions in the given castell_type_id
-    """
-    c = db.cursor()
-    c.execute("""select * from castell_relation where castell_type_id=%s""", (castell_type_id,))
-    res = c.fetchall()
-    ans = []
-    for row in res:
-        new_ans = dict(zip(('id', 'castell_type_id', 'relation_type', 'coeff_list', 'field_names', 'pos_list', 'pos_type_list', 'sense', 'rhs'), row))
-        for ind in ('id', 'castell_type_id'):
-            new_ans[ind] = int(new_ans[ind])
-        ans.append(new_ans)
-    return ans
-
-def write_relations(db, castell_type_id, relations):
-    """ 
-    writes the relations of the given castell to the database
-    """
-    c = db.cursor()
-    vals = []
-    for rel in relations:
-        vals.append((castell_type_id, \
-                         rel['relation_type'], \
-                         rel['coeff_list'], \
-                         rel['field_names'], \
-                         rel['pos_list'], \
-                         rel['pos_type_list'], \
-                         rel['sense'], \
-                         rel['rhs']))
-    query = """insert into castell_relation (castell_type_id, relation_type, coeff_list, field_names, pos_list, pos_type_list, sense, rhs) 
-         values (%s, %s, %s, %s, %s, %s, %s, %s)"""
-    c.executemany(query, vals)
-    
 
 def db_incompatible_castellers(db, colla_id):
     """

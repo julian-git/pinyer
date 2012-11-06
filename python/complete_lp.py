@@ -8,30 +8,10 @@ def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
     fin = open(filename + '.lp', 'r')
     fout = open(filename + '.complete.lp', 'w')
-    frel = open(filename + '.complete.rels', 'w')
     line = fin.readline()
-    last_rel = ''
-    bounds = []
     while line != 'binary\n':
-        if line[0:4] == 'rel_': # output relations into auxiliary file frel
-            new_rel = line[4:line.find(':')]
-            bounds.append(float(line[line.find('=')+2:-1]))
-            if new_rel == last_rel:
-                last_rel = ''
-                sbounds = sorted(bounds)
-                bounds = []
-                frel.write(new_rel + text_splitter + str(sbounds[0]) + \
-                               numeric_splitter + str(sbounds[1]) + '\n')
-            elif last_rel != '':
-                frel.write(last_rel + text_splitter + str(sbounds[0]) + '\n')
-                last_rel = new_rel
-            else:
-                last_rel = new_rel
-                
         fout.write(line)
         line = fin.readline()
-    if last_rel != '':
-        frel.write(last_rel + text_splitter + str(sbounds[0]) + '\n')
     vars = fin.readline().split()
     for var in vars:
         [cast_id, pos_id] = split_var(var)

@@ -61,7 +61,6 @@ def read_solved_positions(filename, castellers):
     return sol
 
 def read_solved_relations_from_file(filename):
-    # TODO: move this to create_pinya
     rels = []
     frel = open(filename + '.rels', 'r')
     for line in frel:

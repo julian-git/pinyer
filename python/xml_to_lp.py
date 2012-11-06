@@ -22,13 +22,13 @@ def xml_to_lp(xmlfilename):
     for var, coeff in obj.iteritems():
         obj_string.append(var)
         break
-    return '\n'.join(('maximize', \
+    return [ineqs, '\n'.join(('maximize', \
                           ' '.join(obj_string), \
                           'subject to', \
                           '\n'.join(ineqs), \
                           'binary', \
                           var_string, \
-                         '\n'))
+                         '\n'))]
 
 
 def xml_to_lp_impl(xmlfilename, ineqs, obj):
@@ -115,22 +115,40 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, target_val, min_tol, max_tol, fresh_field, aux_data, ineqs, obj)
 
 
-# def handlePositions(db, cot, ineqs, positions):
-#     castellers_in_position = dict()
-#     print "handlePos"
-#     for role, pos_list in positions.iteritems():
-#         for pos in set(pos_list):
-#             try:
-#                 castellers_in_position[pos] += cot[role]
-#             except KeyError:
-#                 castellers_in_position[pos] = cot[role]
-#     [ineqs, pos_of_casteller] = castellers_in_position_ineqs(castellers_in_position, ineqs)
-#     return ineqs
+def write_relations(frel, ineqs):
+    last_rel = ''
+    bounds = []
+    for line in ineqs:
+        if line[0:4] == 'rel_':
+            new_rel = line[4:line.find(':')]
+            bounds.append(float(line[line.find('=')+2:-1]))
+            if new_rel == last_rel:
+                sbounds = sorted(bounds)
+                bounds = []
+                frel.write(new_rel + text_splitter + str(sbounds[0]) + \
+                               numeric_splitter + str(sbounds[1]) + '\n')
+                last_rel = ''
+            elif last_rel != '':
+                frel.write(last_rel + text_splitter + str(bounds[0]) + '\n')
+                last_rel = new_rel
+            else:
+                last_rel = new_rel
+    if last_rel != '':
+        frel.write(last_rel + text_splitter + str(sbounds[0]) + '\n')
+                
+        
+
 
 def write_lp(castell_id_name):
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
+    [ineqs, lp_string] = xml_to_lp(filename + '.xml')
+
     f = open(filename + '.lp', 'w')
-    f.write(xml_to_lp(filename + '.xml'))
+    f.write(lp_string)
+
+    frel = open(filename + '.rels', 'w')
+    write_relations(frel, ineqs)
+    
 
 
 if __name__=='__main__':

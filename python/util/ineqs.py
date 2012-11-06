@@ -119,10 +119,6 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
     write the inequalities that express relations between different positions in the castell.
     We always build an inequality that expresses the relation between the values in 
     field_names in from_pos_id and to_pos_id.
-    In case that both from_pos_id and to_pos_id exist, we also implement that
-    "pinyas have no holes": 
-    this means that the position to_pos_id in the castell may not be filled, unless 
-    the position from_pos_id is also filled.
     """ 
     if DoLogging:
         print "relation_ineq"
