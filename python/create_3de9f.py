@@ -470,6 +470,7 @@ def tresde9f():
     relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
     relations = baixos_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
     relations = segons_mans_relations(rd, position_in_ring, position_in_baix_group, position_in_segons, relations)
+    relations = segons_agulla_relations(rd, position_in_baix_group, position_in_segons, relations)
 
     xml += '\n<relations id="rels">\n'    
     xml += relations_xml(relations, coo_of)

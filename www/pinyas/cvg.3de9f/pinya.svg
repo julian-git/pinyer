@@ -893,5 +893,11 @@
 <g transform="translate(-54.58 94.54)"></g>
 <path class="ma_baix_segon" pos_list="9_69_81" d="M-50.0,-86.6L-20.0,-34.64L-93.75,-162.38"/>
 <g transform="translate(-54.58 -94.54)"></g>
+<path class="agulla_baix_segon" pos_list="59_55_79" d="M60.0,0.0L40.0,0.0L187.5,0.0"/>
+<g transform="translate(95.83 0.0)"></g>
+<path class="agulla_baix_segon" pos_list="66_62_80" d="M-30.0,51.96L-20.0,34.64L-93.75,162.38"/>
+<g transform="translate(-47.92 82.99)"></g>
+<path class="agulla_baix_segon" pos_list="73_69_81" d="M-30.0,-51.96L-20.0,-34.64L-93.75,-162.38"/>
+<g transform="translate(-47.92 -82.99)"></g>
 </g>
 </svg>

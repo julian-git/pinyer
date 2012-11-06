@@ -131,6 +131,32 @@ def segons_mans_relations(rd, position_in_ring, position_in_baix_group, position
     return relations
 
 
+def segons_agulla_relations(rd, position_in_baix_group, position_in_segons, relations):
+    rel0 = dict([ \
+            ('coeff_list', '1_-1_-1'), \
+                ('relation_type', 'sum_in_interval'), \
+                ('field_names', \
+                     'stretched_height' + text_splitter + \
+                     'shoulder_height' + text_splitter + \
+                     'hip_height'), \
+                ('sense', 'le'), \
+                ('target_val', 0), \
+                ('min_tol', 0), \
+                ('max_tol', tolerances['ma_baix_segon_tol']), \
+                ('role_list', 'agulla~baix~segon'), \
+                ('pos_list', None) ])
+
+    for i in range(rd['period']):
+        rel = rel0.copy()
+        rel['pos_list'] = \
+            str(position_in_baix_group[i, 'agulla']['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_segons[i]['xml_id']) 
+        relations.append(rel)
+
+    return relations
+
+
 def relations_xml(relations, coo_of):
     relations_xml = ''
     for rel in relations:
