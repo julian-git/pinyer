@@ -50,8 +50,6 @@ def complete_lp():
     db = get_db()
     excluded = make_excluded(db)
     prescribed = dict([(2, 79), (14, 80), (72, 81)]) # Abdul, Arnau, Quim as segons
-    print prescribed
-    print excluded 
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
     complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name)
 

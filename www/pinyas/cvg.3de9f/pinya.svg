@@ -887,5 +887,11 @@
 <g transform="translate(-7.01 -42.14)"><text>${_rel69_70}</text></g>
 <path class="baix_crossa" pos_list="69_71" d="M-20.0,-34.64L-45.98,-19.64"/>
 <g transform="translate(-32.99 -27.14)"><text>${_rel69_71}</text></g>
+<path class="ma_baix_segon" pos_list="1_55_79" d="M100.0,0.0L40.0,0.0L187.5,0.0"/>
+<g transform="translate(109.17 0.0)"></g>
+<path class="ma_baix_segon" pos_list="5_62_80" d="M-50.0,86.6L-20.0,34.64L-93.75,162.38"/>
+<g transform="translate(-54.58 94.54)"></g>
+<path class="ma_baix_segon" pos_list="9_69_81" d="M-50.0,-86.6L-20.0,-34.64L-93.75,-162.38"/>
+<g transform="translate(-54.58 -94.54)"></g>
 </g>
 </svg>

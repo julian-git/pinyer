@@ -38,6 +38,7 @@ DoLogging = False
 tolerances = dict([('height_target', 3), \
                        ('min_height_tol', 2), \
                        ('max_height_tol', 2), \
+                       ('ma_baix_segon_tol', 50), \
                        ('width_target', 0), \
                        ('min_width_tol', 0), \
                        ('max_width_tol', 10), \

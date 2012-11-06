@@ -2,17 +2,17 @@ from local_config import tolerances, text_splitter, numeric_splitter
 
 def ring_relations(rd, position_in_ring, relations, has_folre):
     # the default values for all relations created in this function
-    rel0 = dict([('pos_list', None), \
-                     ('coeff_list', '1_-1'), \
-                     ('relation_type', 'sum_in_interval'), \
-                     ('field_names', \
-                          'shoulder_height' + text_splitter + 'shoulder_height'), \
-                     ('sense', 'le'), \
-                     ('target_val', tolerances['height_target']), \
-                     ('min_tol', tolerances['min_height_tol']), \
-                     ('max_tol', tolerances['max_height_tol']), \
-                     ('pos_list', None), \
-                     ('role_list', None)])
+    rel0 = dict([ \
+            ('coeff_list', '1_-1'), \
+                ('relation_type', 'sum_in_interval'), \
+                ('field_names', \
+                     'shoulder_height' + text_splitter + 'shoulder_height'), \
+                ('sense', 'le'), \
+                ('target_val', tolerances['height_target']), \
+                ('min_tol', tolerances['min_height_tol']), \
+                ('max_tol', tolerances['max_height_tol']), \
+                ('pos_list', None), \
+                ('role_list', None)])
 
     # first, the relations between rengles de mans and rengles de vents
     for j in range(2*rd['period']):
@@ -103,6 +103,33 @@ def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, 
 def baixos_relations(bd, position_in_baix_group, position_in_portacrossa, relations):
     relations = baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
     return relations
+
+
+def segons_mans_relations(rd, position_in_ring, position_in_baix_group, position_in_segons, relations):
+    rel0 = dict([ \
+            ('coeff_list', '1_-1_-1'), \
+                ('relation_type', 'sum_in_interval'), \
+                ('field_names', \
+                     'stretched_height' + text_splitter + \
+                     'shoulder_height' + text_splitter + \
+                     'hip_height'), \
+                ('sense', 'le'), \
+                ('target_val', 0), \
+                ('min_tol', 0), \
+                ('max_tol', tolerances['ma_baix_segon_tol']), \
+                ('role_list', 'ma~baix~segon'), \
+                ('pos_list', None) ])
+
+    for i in range(rd['period']):
+        rel = rel0.copy()
+        rel['pos_list'] = \
+            str(position_in_ring[1, 2*i, 0]['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_segons[i]['xml_id']) 
+        relations.append(rel)
+
+    return relations
+
 
 def relations_xml(relations, coo_of):
     relations_xml = ''
