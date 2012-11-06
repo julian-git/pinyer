@@ -28,7 +28,7 @@ def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
 def make_excluded(db):
     c = db.cursor()
     c.execute("""
-select id from casteller where nickname in ('Abdul', 'AE', 'Aina', 'Alaitz', 'Aleix', 'Alvarito', 'Arnau', 'Berta', 'Eva', 'Joana', 'Joanet', 'Laia O', 'Lali', 'Marco', 'Martina', 'Montxi', 'Oriolet', 'Rafols', 'Rai', 'Santako', 'Stefano');
+select id from casteller where nickname in ('AE', 'Aina', 'Alaitz', 'Aleix', 'Alvarito', 'Berta', 'Eva', 'Joana', 'Joanet', 'Laia O', 'Lali', 'Marco', 'Martina', 'Montxi', 'Oriolet', 'Rafols', 'Rai', 'Santako', 'Stefano');
 """)
     ans = []
     for row in c.fetchall():
@@ -50,6 +50,8 @@ def complete_lp():
     db = get_db()
     excluded = make_excluded(db)
     prescribed = dict([(2, 79), (14, 80), (72, 81)]) # Abdul, Arnau, Quim as segons
+    print prescribed
+    print excluded 
     [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg']
     complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name)
 

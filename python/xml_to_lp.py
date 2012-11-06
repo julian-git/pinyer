@@ -10,9 +10,9 @@ from ineqs import relation_ineq, castellers_in_position_ineqs
 def xml_to_lp(xmlfilename):
     ineqs = []
     obj = dict()
-    [ineqs, obj] = xml_to_lp_impl(xmlfilename, ineqs, obj)
+    [ineqs, obj, vars] = xml_to_lp_impl(xmlfilename, ineqs, obj)
 #    print obj.keys()
-    var_string = ' '.join(obj.keys())
+    var_string = ' '.join(vars.values())
     obj_string = []
     # for var, coeff in obj.iteritems():
     #     if coeff > 0:
@@ -57,8 +57,8 @@ def handleXML(xml, ineqs, obj):
         if child.nodeName == 'relation':
             [ineqs, obj] = handleRelation(child, cot, aux_data, ineqs, obj)
 
-    ineqs = IneqsOfPositions(db, cot, ineqs, pos_with_role)
-    return [ineqs, obj]
+    [ineqs, vars] = IneqsOfPositions(db, cot, ineqs, pos_with_role)
+    return [ineqs, obj, vars]
 
 
 def RoleOfPosition(position, pos_with_role):
@@ -75,8 +75,8 @@ def IneqsOfPositions(db, cot, ineqs, pos_with_role):
     for role, positions in pos_with_role.iteritems():
         for pos in positions:
             castellers_in_position[pos] = cot[role]
-    [ineqs, pos_of_casteller] = castellers_in_position_ineqs(castellers_in_position, ineqs)
-    return ineqs
+    [ineqs, pos_of_casteller, vars] = castellers_in_position_ineqs(castellers_in_position, ineqs)
+    return [ineqs, vars]
 
 
 def castellers(db, colla_id_name):

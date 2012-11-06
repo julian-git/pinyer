@@ -111,7 +111,7 @@ def castellers_in_position_ineqs(castellers_in_position, ineqs):
         # if not is_position_prescribed:
         ineqs.append(label + casteller_ineq + rel)
 
-    return [ineqs, pos_of_casteller]
+    return [ineqs, pos_of_casteller, vars]
 
 
 def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, target_val, min_tol, max_tol, fresh_field, aux_data, ineqs, obj): #, rel, castellers_in_position, aux_data, ineqs, obj):
