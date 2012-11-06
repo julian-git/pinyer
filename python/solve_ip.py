@@ -61,23 +61,27 @@ def read_solved_positions(filename, castellers):
     return sol
 
 def read_solved_relations_from_file(filename):
+    # TODO: move this to create_pinya
     rels = []
     frel = open(filename + '.rels', 'r')
     for line in frel:
-        fields = line.split(text_splitter)
-        if len(fields) > 2: # there is more than one field (the last entry is the positions)
-            positions = fields[-1].split(numeric_splitter)
-            positions[-1] = positions[-1][:-1] # get rid of trailing newline
-            rels.append([fields[:-1], positions])
+        rel = line.split(text_splitter)
+        if len(rel) > 3: 
+            # there is more than one field 
+            # (the last entries are positions and bounds)
+            positions = rel[-2].split(numeric_splitter)
+            bounds = rel[-1].split(numeric_splitter)
+            bounds[-1] = bounds[-1][:-1] # get rid of trailing newline
+            rels.append([rel[:-2], positions, bounds])
     return rels
 
 def read_solved_relations(filename, sol):
     rels = read_solved_relations_from_file(filename)
     rel_vals = []
-    for [fields, positions] in rels:
+    for [fields, positions, bounds] in rels:
         for i in range(len(fields)):
+            fp = int(positions[i])
             for j in range(i+1, len(fields)):
-                fp = int(positions[i])
                 tp = int(positions[j])
                 rel_vals.append([str(fp) + '_' + str(tp), \
                                      round(abs(sol[fp][fields[i]] - sol[tp][fields[i]]), 2)])

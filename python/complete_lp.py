@@ -1,4 +1,4 @@
-from local_config import RootDir, pinya_dir
+from local_config import RootDir, pinya_dir, text_splitter, numeric_splitter
 import sys 
 sys.path.append(RootDir + 'python/util/')
 from db_interaction import get_db
@@ -11,11 +11,17 @@ def complete_lp_impl(prescribed, excluded, castell_id_name, colla_id_name):
     frel = open(filename + '.complete.rels', 'w')
     line = fin.readline()
     last_rel = ''
+    bounds = []
     while line != 'binary\n':
         if line[0:4] == 'rel_': # output relations into auxiliary file frel
             new_rel = line[4:line.find(':')]
-            if new_rel != last_rel:
-                frel.write(new_rel + '\n')
+            bounds.append(float(line[line.find('=')+2:-1]))
+            if new_rel == last_rel:
+                sbounds = sorted(bounds)
+                bounds = []
+                frel.write(new_rel + text_splitter + str(sbounds[0]) + \
+                               numeric_splitter + str(sbounds[1]) + '\n')
+            else:
                 last_rel = new_rel
         fout.write(line)
         line = fin.readline()
