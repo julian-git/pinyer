@@ -840,41 +840,41 @@
 <path class="pinya_pinya" pos_list="54_30" d="M144.89,-38.82L117.46,-42.75"/>
 <g transform="translate(131.17 -40.78)"><text>${_rel54_30}</text></g>
 <path class="pinya" pos_list="2" d="M86.6,50.0"/>
-<g transform="translate(86.6 50.0)"><text>${_rel2}</text></g>
+<g transform="translate(86.6 50.0)"></g>
 <path class="pinya_pinya" pos_list="14_15" d="M117.46,42.75L95.76,80.35"/>
 <g transform="translate(106.61 61.55)"><text>${_rel14_15}</text></g>
 <path class="pinya_pinya_pinya" pos_list="32_33_34" d="M144.89,38.82L129.9,75.0L106.07,106.07"/>
-<g transform="translate(126.95 73.3)"><text>${_rel32_33_34}</text></g>
+<g transform="translate(126.95 73.3)"></g>
 <path class="pinya" pos_list="4" d="M0.0,100.0"/>
-<g transform="translate(0.0 100.0)"><text>${_rel4}</text></g>
+<g transform="translate(0.0 100.0)"></g>
 <path class="pinya_pinya" pos_list="17_18" d="M21.71,123.1L-21.71,123.1"/>
 <g transform="translate(0.0 123.1)"><text>${_rel17_18}</text></g>
 <path class="pinya_pinya_pinya" pos_list="36_37_38" d="M38.82,144.89L0.0,150.0L-38.82,144.89"/>
-<g transform="translate(0.0 146.59)"><text>${_rel36_37_38}</text></g>
+<g transform="translate(0.0 146.59)"></g>
 <path class="pinya" pos_list="6" d="M-86.6,50.0"/>
-<g transform="translate(-86.6 50.0)"><text>${_rel6}</text></g>
+<g transform="translate(-86.6 50.0)"></g>
 <path class="pinya_pinya" pos_list="20_21" d="M-95.76,80.35L-117.46,42.75"/>
 <g transform="translate(-106.61 61.55)"><text>${_rel20_21}</text></g>
 <path class="pinya_pinya_pinya" pos_list="40_41_42" d="M-106.07,106.07L-129.9,75.0L-144.89,38.82"/>
-<g transform="translate(-126.95 73.3)"><text>${_rel40_41_42}</text></g>
+<g transform="translate(-126.95 73.3)"></g>
 <path class="pinya" pos_list="8" d="M-86.6,-50.0"/>
-<g transform="translate(-86.6 -50.0)"><text>${_rel8}</text></g>
+<g transform="translate(-86.6 -50.0)"></g>
 <path class="pinya_pinya" pos_list="23_24" d="M-117.46,-42.75L-95.76,-80.35"/>
 <g transform="translate(-106.61 -61.55)"><text>${_rel23_24}</text></g>
 <path class="pinya_pinya_pinya" pos_list="44_45_46" d="M-144.89,-38.82L-129.9,-75.0L-106.07,-106.07"/>
-<g transform="translate(-126.95 -73.3)"><text>${_rel44_45_46}</text></g>
+<g transform="translate(-126.95 -73.3)"></g>
 <path class="pinya" pos_list="10" d="M0.0,-100.0"/>
-<g transform="translate(0.0 -100.0)"><text>${_rel10}</text></g>
+<g transform="translate(0.0 -100.0)"></g>
 <path class="pinya_pinya" pos_list="26_27" d="M-21.71,-123.1L21.71,-123.1"/>
 <g transform="translate(0.0 -123.1)"><text>${_rel26_27}</text></g>
 <path class="pinya_pinya_pinya" pos_list="48_49_50" d="M-38.82,-144.89L0.0,-150.0L38.82,-144.89"/>
-<g transform="translate(0.0 -146.59)"><text>${_rel48_49_50}</text></g>
+<g transform="translate(0.0 -146.59)"></g>
 <path class="pinya" pos_list="12" d="M86.6,-50.0"/>
-<g transform="translate(86.6 -50.0)"><text>${_rel12}</text></g>
+<g transform="translate(86.6 -50.0)"></g>
 <path class="pinya_pinya" pos_list="29_30" d="M95.76,-80.35L117.46,-42.75"/>
 <g transform="translate(106.61 -61.55)"><text>${_rel29_30}</text></g>
 <path class="pinya_pinya_pinya" pos_list="52_53_54" d="M106.07,-106.07L129.9,-75.0L144.89,-38.82"/>
-<g transform="translate(126.95 -73.3)"><text>${_rel52_53_54}</text></g>
+<g transform="translate(126.95 -73.3)"></g>
 <path class="baix_crossa" pos_list="55_56" d="M40.0,0.0L40.0,30.0"/>
 <g transform="translate(40.0 15.0)"><text>${_rel55_56}</text></g>
 <path class="baix_crossa" pos_list="55_57" d="M40.0,0.0L40.0,-30.0"/>

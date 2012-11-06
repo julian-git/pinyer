@@ -164,7 +164,8 @@ def handleRelation(relation):
     xtot = round(xtot/count, 2)
     ytot = round(ytot/count, 2)
     d.append('<g transform="translate(' + str(xtot) + ' ' + str(ytot) + ')">')
-    d.append('<text>${_rel' + pos_list + '}</text>')
+    if len(pos_list.split(numeric_splitter)) == 2:
+        d.append('<text>${_rel' + pos_list + '}</text>')
     d.append('</g>')
     svg.append(''.join(d))
 
