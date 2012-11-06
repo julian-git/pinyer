@@ -1,4 +1,4 @@
-all: sql/all doc/all # tests/all www/pinyas/all 
+all: sql/all doc/all www/pinyas/cvg.3de9f/all # tests/all www/pinyas/all 
 
 sql/all:
 	$(MAKE) -C sql
@@ -8,6 +8,9 @@ doc/all:
 
 tests/all:
 	$(MAKE) -C tests
+
+www/pinyas/cvg.3de9f/all:
+	$(MAKE) -C www/pinyas/cvg.3de9f
 
 clean:
 	rm -f *~ gurobi.log

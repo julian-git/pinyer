@@ -96,28 +96,6 @@ create table castell_type (
   foreign key (colla_id_name) references colla(id_name)
 ) engine=InnoDB default character set utf8;
 
-/**
- *  The data for establishing relations between two positions in a given castell. 
- *  field_names: the names of the coefficient properties 
- *  pos_list: the svg_ids of the participating positions,
- *            in the form "23_45_24" for a relation between positions 23, 45, 24
- *  sense:  true = ">=", false = "<=" 
- *  rhs: the right-hand side of the inequality 
- */
-create table castell_relation (
-  id   	       int  not null auto_increment,
-  castell_name varchar(100) not null,
-  relation_type varchar(15) not null,
-  coeff_list    varchar(100) default null,
-  field_names   varchar(100) not null, 
-  pos_list    	varchar(100) not null, 
-  pos_type_list varchar(100) not null,
-  sense         char(2)  default '<=',  
-  rhs 		float(10,4) default 0, 
-  primary key (id),
-  foreign key (castell_name) references castell_type (id_name)
-) engine=InnoDB default character set utf8;
-
 
 /** 
  *  Which castellers don't get along and have to be separated?
