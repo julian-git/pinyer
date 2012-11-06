@@ -83,7 +83,7 @@ def read_solved_relations(filename, sol):
             for j in range(i+1, len(fields)):
                 tp = int(positions[j])
                 rel_vals.append([str(fp) + '_' + str(tp), \
-                                     round(abs(sol[fp][fields[i]] - sol[tp][fields[i]]), 2)])
+                                     round(abs(sol[fp][fields[i]] - sol[tp][fields[j]]), 2)])
     return rel_vals
 
 def solve_castell(castell_id_name, colla_id_name):
