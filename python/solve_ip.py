@@ -65,6 +65,7 @@ def read_solved_relations_from_file(filename):
     frel = open(filename + '.rels', 'r')
     for line in frel:
         rel = line.split(text_splitter)
+        print rel
         if len(rel) > 3: 
             # there is more than one field 
             # (the last entries are positions and bounds)

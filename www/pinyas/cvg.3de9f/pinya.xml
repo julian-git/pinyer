@@ -404,14 +404,14 @@
   </label>
 </position>
 
-<position id="58" role="contrafort" transform="translate(-20 0) rotate(0)" essential="true">
+<position id="58" role="contrafort" transform="translate(20 0) rotate(0)" essential="true">
   <rect id="58_rect" class="contrafort" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
   <text id="58_text" class="contrafort vtext" text-anchor="middle">58</text>
   </label>
 </position>
 
-<position id="59" role="agulla" transform="translate(20 0) rotate(0)" essential="true">
+<position id="59" role="agulla" transform="translate(-20 0) rotate(0)" essential="true">
   <rect id="59_rect" class="agulla" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
   <text id="59_text" class="agulla vtext" text-anchor="middle">59</text>
@@ -454,14 +454,14 @@
   </label>
 </position>
 
-<position id="65" role="contrafort" transform="translate(-20 0) rotate(0)" essential="true">
+<position id="65" role="contrafort" transform="translate(20 0) rotate(0)" essential="true">
   <rect id="65_rect" class="contrafort" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
   <text id="65_text" class="contrafort vtext" text-anchor="middle">65</text>
   </label>
 </position>
 
-<position id="66" role="agulla" transform="translate(20 0) rotate(0)" essential="true">
+<position id="66" role="agulla" transform="translate(-20 0) rotate(0)" essential="true">
   <rect id="66_rect" class="agulla" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
   <text id="66_text" class="agulla vtext" text-anchor="middle">66</text>
@@ -504,14 +504,14 @@
   </label>
 </position>
 
-<position id="72" role="contrafort" transform="translate(-20 0) rotate(0)" essential="true">
+<position id="72" role="contrafort" transform="translate(20 0) rotate(0)" essential="true">
   <rect id="72_rect" class="contrafort" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
   <text id="72_text" class="contrafort vtext" text-anchor="middle">72</text>
   </label>
 </position>
 
-<position id="73" role="agulla" transform="translate(20 0) rotate(0)" essential="true">
+<position id="73" role="agulla" transform="translate(-20 0) rotate(0)" essential="true">
   <rect id="73_rect" class="agulla" width="16" height="30" x="-8" y="-15"/>
   <label transform="rotate(90) translate(0 6)">
   <text id="73_text" class="agulla vtext" text-anchor="middle">73</text>
@@ -658,5 +658,14 @@
 <relation coeff_list="1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="0" max_tol="50" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="agulla~baix~segon" pos_list="59_55_79"/>
 <relation coeff_list="1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="0" max_tol="50" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="agulla~baix~segon" pos_list="66_62_80"/>
 <relation coeff_list="1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="0" max_tol="50" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="agulla~baix~segon" pos_list="73_69_81"/>
+<relation coeff_list="1_1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="2" max_tol="2" sense="le" field_names="shoulder_height~shoulder_height~shoulder_height~shoulder_height" role_list="baix~segon~baix~segon" pos_list="55_79_62_80"/>
+<relation coeff_list="1_1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="2" max_tol="2" sense="le" field_names="shoulder_height~shoulder_height~shoulder_height~shoulder_height" role_list="baix~segon~baix~segon" pos_list="62_80_69_81"/>
+<relation coeff_list="1_1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="2" max_tol="2" sense="le" field_names="shoulder_height~shoulder_height~shoulder_height~shoulder_height" role_list="baix~segon~baix~segon" pos_list="69_81_55_79"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="55_59"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="62_66"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="69_73"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="55_58"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="62_65"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="69_72"/>
 </relations>
 </xml>

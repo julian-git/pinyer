@@ -146,7 +146,7 @@ def write_lp(castell_id_name):
     f = open(filename + '.lp', 'w')
     f.write(lp_string)
 
-    frel = open(filename + '.rels', 'w')
+    frel = open(filename + '.complete.rels', 'w')
     write_relations(frel, ineqs)
     
 

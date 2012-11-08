@@ -402,12 +402,12 @@ def tresde9f():
                         dict([('x', -cw2), ('y', -ch2), \
                                   ('w', 2*cw2), ('h', 2*ch2), ('angle', 90)])), \
                    ('contrafort_pos', \
-                        [-20,0]), \
+                        [20,0]), \
                    ('contrafort_rect_dim', \
                         dict([('x', -cw2), ('y', -ch2), \
                                   ('w', 2*cw2), ('h', 2*ch2), ('angle', 0)])), \
                    ('agulla_pos', \
-                        [20,0]), \
+                        [-20,0]), \
                    ('agulla_rect_dim', \
                         dict([('x', -cw2), ('y', -ch2), \
                                   ('w', 2*cw2), ('h', 2*ch2), ('angle', 0)])), \
@@ -468,9 +468,12 @@ def tresde9f():
     relations = []
 
     relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
-    relations = baixos_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
+    relations = baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
     relations = segons_mans_relations(rd, position_in_ring, position_in_baix_group, position_in_segons, relations)
     relations = segons_agulla_relations(rd, position_in_baix_group, position_in_segons, relations)
+    relations = segons_baixos_relations(rd, position_in_baix_group, position_in_segons, relations)
+    relations = baix_agulla_relations(rd, position_in_baix_group, relations)
+    relations = baix_contrafort_relations(rd, position_in_baix_group, relations)
 
     xml += '\n<relations id="rels">\n'    
     xml += relations_xml(relations, coo_of)

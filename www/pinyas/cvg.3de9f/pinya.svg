@@ -514,7 +514,7 @@
 </text>
 </g>
 </g>
-<g id="58" transform="translate(-20 0) rotate(0)">
+<g id="58" transform="translate(20 0) rotate(0)">
 <rect id="58_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
@@ -523,7 +523,7 @@
 </text>
 </g>
 </g>
-<g id="59" transform="translate(20 0) rotate(0)">
+<g id="59" transform="translate(-20 0) rotate(0)">
 <rect id="59_rect" class="agulla" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
@@ -579,7 +579,7 @@
 </text>
 </g>
 </g>
-<g id="65" transform="translate(-20 0) rotate(0)">
+<g id="65" transform="translate(20 0) rotate(0)">
 <rect id="65_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
@@ -588,7 +588,7 @@
 </text>
 </g>
 </g>
-<g id="66" transform="translate(20 0) rotate(0)">
+<g id="66" transform="translate(-20 0) rotate(0)">
 <rect id="66_rect" class="agulla" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
@@ -644,7 +644,7 @@
 </text>
 </g>
 </g>
-<g id="72" transform="translate(-20 0) rotate(0)">
+<g id="72" transform="translate(20 0) rotate(0)">
 <rect id="72_rect" class="contrafort" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
@@ -653,7 +653,7 @@
 </text>
 </g>
 </g>
-<g id="73" transform="translate(20 0) rotate(0)">
+<g id="73" transform="translate(-20 0) rotate(0)">
 <rect id="73_rect" class="agulla" width="16" height="30" x="-8" y="-15">
 </rect>
 <g transform="rotate(90) translate(0 6)">
@@ -893,11 +893,29 @@
 <g transform="translate(-54.58 94.54)"></g>
 <path class="ma_baix_segon" pos_list="9_69_81" d="M-50.0,-86.6L-20.0,-34.64L-93.75,-162.38"/>
 <g transform="translate(-54.58 -94.54)"></g>
-<path class="agulla_baix_segon" pos_list="59_55_79" d="M60.0,0.0L40.0,0.0L187.5,0.0"/>
-<g transform="translate(95.83 0.0)"></g>
-<path class="agulla_baix_segon" pos_list="66_62_80" d="M-30.0,51.96L-20.0,34.64L-93.75,162.38"/>
-<g transform="translate(-47.92 82.99)"></g>
-<path class="agulla_baix_segon" pos_list="73_69_81" d="M-30.0,-51.96L-20.0,-34.64L-93.75,-162.38"/>
-<g transform="translate(-47.92 -82.99)"></g>
+<path class="agulla_baix_segon" pos_list="59_55_79" d="M20.0,0.0L40.0,0.0L187.5,0.0"/>
+<g transform="translate(82.5 0.0)"></g>
+<path class="agulla_baix_segon" pos_list="66_62_80" d="M-10.0,17.32L-20.0,34.64L-93.75,162.38"/>
+<g transform="translate(-41.25 71.45)"></g>
+<path class="agulla_baix_segon" pos_list="73_69_81" d="M-10.0,-17.32L-20.0,-34.64L-93.75,-162.38"/>
+<g transform="translate(-41.25 -71.45)"></g>
+<path class="baix_segon_baix_segon" pos_list="55_79_62_80" d="M40.0,0.0L187.5,0.0L-20.0,34.64L-93.75,162.38"/>
+<g transform="translate(28.44 49.25)"></g>
+<path class="baix_segon_baix_segon" pos_list="62_80_69_81" d="M-20.0,34.64L-93.75,162.38L-20.0,-34.64L-93.75,-162.38"/>
+<g transform="translate(-56.88 0.0)"></g>
+<path class="baix_segon_baix_segon" pos_list="69_81_55_79" d="M-20.0,-34.64L-93.75,-162.38L40.0,0.0L187.5,0.0"/>
+<g transform="translate(28.44 -49.25)"></g>
+<path class="baix_agulla" pos_list="55_59" d="M40.0,0.0L20.0,0.0"/>
+<g transform="translate(30.0 0.0)"><text>${_rel55_59}</text></g>
+<path class="baix_agulla" pos_list="62_66" d="M-20.0,34.64L-10.0,17.32"/>
+<g transform="translate(-15.0 25.98)"><text>${_rel62_66}</text></g>
+<path class="baix_agulla" pos_list="69_73" d="M-20.0,-34.64L-10.0,-17.32"/>
+<g transform="translate(-15.0 -25.98)"><text>${_rel69_73}</text></g>
+<path class="baix_contrafort" pos_list="55_58" d="M40.0,0.0L60.0,0.0"/>
+<g transform="translate(50.0 0.0)"><text>${_rel55_58}</text></g>
+<path class="baix_contrafort" pos_list="62_65" d="M-20.0,34.64L-30.0,51.96"/>
+<g transform="translate(-25.0 43.3)"><text>${_rel62_65}</text></g>
+<path class="baix_contrafort" pos_list="69_72" d="M-20.0,-34.64L-30.0,-51.96"/>
+<g transform="translate(-25.0 -43.3)"><text>${_rel69_72}</text></g>
 </g>
 </svg>

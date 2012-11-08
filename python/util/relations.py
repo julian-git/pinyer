@@ -100,8 +100,51 @@ def baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, 
     return relations
 
 
-def baixos_relations(bd, position_in_baix_group, position_in_portacrossa, relations):
-    relations = baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
+
+def baix_agulla_relations(rd, position_in_baix_group, relations):
+    rel0 = dict([ \
+            ('coeff_list', '1_-1'), \
+                ('relation_type', 'sum_in_interval'), \
+                ('field_names', \
+                     'shoulder_height' + text_splitter + \
+                     'shoulder_height'), \
+                ('sense', 'le'), \
+                ('target_val', 0), \
+                ('min_tol', tolerances['baix_agulla_tol']), \
+                ('max_tol', tolerances['baix_agulla_tol']), \
+                ('role_list', 'baix~agulla'), \
+                ('pos_list', None) ])
+
+    for i in range(rd['period']):
+        rel = rel0.copy()
+        rel['pos_list'] = \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[i, 'agulla']['xml_id']) 
+        relations.append(rel)
+
+    return relations
+
+def baix_contrafort_relations(rd, position_in_baix_group, relations):
+    rel0 = dict([ \
+            ('coeff_list', '1_-1'), \
+                ('relation_type', 'sum_in_interval'), \
+                ('field_names', \
+                     'shoulder_height' + text_splitter + \
+                     'shoulder_height'), \
+                ('sense', 'le'), \
+                ('target_val', 0), \
+                ('min_tol', tolerances['baix_contrafort_tol']), \
+                ('max_tol', tolerances['baix_contrafort_tol']), \
+                ('role_list', 'baix~contrafort'), \
+                ('pos_list', None) ])
+
+    for i in range(rd['period']):
+        rel = rel0.copy()
+        rel['pos_list'] = \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[i, 'contrafort']['xml_id']) 
+        relations.append(rel)
+
     return relations
 
 
@@ -152,6 +195,35 @@ def segons_agulla_relations(rd, position_in_baix_group, position_in_segons, rela
             str(position_in_baix_group[i, 'agulla']['xml_id']) + numeric_splitter + \
             str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
             str(position_in_segons[i]['xml_id']) 
+        relations.append(rel)
+
+    return relations
+
+
+def segons_baixos_relations(rd, position_in_baix_group, position_in_segons, relations):
+    rel0 = dict([ \
+            ('coeff_list', '1_1_-1_-1'), \
+                ('relation_type', 'sum_in_interval'), \
+                ('field_names', \
+                     'shoulder_height' + text_splitter + \
+                     'shoulder_height' + text_splitter + \
+                     'shoulder_height' + text_splitter + \
+                     'shoulder_height'), \
+                ('sense', 'le'), \
+                ('target_val', 0), \
+                ('min_tol', tolerances['baix_segon_tol']), \
+                ('max_tol', tolerances['baix_segon_tol']), \
+                ('role_list', 'baix~segon~baix~segon'), \
+                ('pos_list', None) ])
+
+    for i in range(rd['period']):
+        rel = rel0.copy()
+        j = (i+1) % rd['period']
+        rel['pos_list'] = \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_segons[i]['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[j, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_segons[j]['xml_id']) 
         relations.append(rel)
 
     return relations
