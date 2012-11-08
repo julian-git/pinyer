@@ -190,8 +190,17 @@ def segons_vent_relations(rd, position_in_ring, position_in_baix_group, position
 
     for i in range(rd['period']):
         rel = rel0.copy()
+        vent_pos = 2*i+1
         rel['pos_list'] = \
-            str(position_in_ring[1, 2*i+1, 0]['xml_id']) + numeric_splitter + \
+            str(position_in_ring[1, vent_pos, 0]['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_segons[i]['xml_id']) 
+        relations.append(rel)
+
+        rel = rel0.copy()
+        vent_pos = (2*i-1) % (2*rd['period'])
+        rel['pos_list'] = \
+            str(position_in_ring[1, vent_pos, 0]['xml_id']) + numeric_splitter + \
             str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
             str(position_in_segons[i]['xml_id']) 
         relations.append(rel)

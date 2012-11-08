@@ -35,6 +35,8 @@ rect.design         { stroke: green;}
 
 path { stroke-width:2; fill:none;}
 
+path.rel { stroke: purple; stroke-width: 1; }
+
 path.ma { stroke: seagreen}
 path.ma_ma { stroke: seagreen}
 
@@ -46,7 +48,7 @@ path.pinya_pinya { stroke: lightblue;}
 
 path.baix_crossa { stroke: teal; }
 
-path.rel { display: none; }
+/* path.rel { display: none; } */
 text.rel { display: none; }
 
 .vtext {

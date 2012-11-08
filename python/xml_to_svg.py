@@ -2,6 +2,7 @@ import xml.dom.minidom
 from local_config import RootDir, pinya_dir, \
     text_splitter, numeric_splitter
 from math import sin, cos, pi
+from random import random
 
 svg = []
 coos = dict()
@@ -153,8 +154,8 @@ def handleRelation(relation):
         else:
             d.append('M')
         count = count + 1
-        x = coos[int(pos)][0]
-        y = coos[int(pos)][1]
+        x = coos[int(pos)][0] + 5 * random()
+        y = coos[int(pos)][1] + 5 * random()
         xtot += x
         ytot += y
         d.append(str(x) + ',' + str(y))
