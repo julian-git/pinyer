@@ -138,8 +138,8 @@ def handleRelations(relations):
 
 def handleRelation(relation):
     d = []
-    d.append('<path class="' + \
-                 relation.getAttribute('role_list').replace(text_splitter, numeric_splitter) + \
+    rel_class = relation.getAttribute('role_list').replace(text_splitter, numeric_splitter)
+    d.append('<path class="rel ' + rel_class + \
                  '" pos_list="' + \
                  relation.getAttribute('pos_list') + \
                  '" d="')
@@ -165,7 +165,7 @@ def handleRelation(relation):
     ytot = round(ytot/count, 2)
     d.append('<g transform="translate(' + str(xtot) + ' ' + str(ytot) + ')">')
     if len(pos_list.split(numeric_splitter)) == 2:
-        d.append('<text>${_rel' + pos_list + '}</text>')
+        d.append('<text class="rel ' + rel_class + '">${_rel' + pos_list + '}</text>')
     d.append('</g>')
     svg.append(''.join(d))
 

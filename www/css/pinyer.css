@@ -46,7 +46,8 @@ path.pinya_pinya { stroke: lightblue;}
 
 path.baix_crossa { stroke: teal; }
 
-
+path.rel { display: none; }
+text.rel { display: none; }
 
 .vtext {
 -webkit-transform:rotate(-90deg);
