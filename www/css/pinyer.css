@@ -35,21 +35,24 @@ rect.design         { stroke: green;}
 
 path { stroke-width:2; fill:none;}
 
-path.rel { stroke: purple; stroke-width: 1; }
+/* path.rel { stroke: purple; } */
 
-path.ma { stroke: seagreen}
-path.ma_ma { stroke: seagreen}
+path.ma:hover { stroke: seagreen}
+path.ma_ma:hover { stroke: seagreen}
 
-path.vent { stroke: lightgreen}
-path.vent_vent { stroke: lightgreen}
+path.vent:hover { stroke: lightgreen}
+path.vent_vent:hover { stroke: lightgreen}
 
-path.pinya { stroke: lightblue; }
-path.pinya_pinya { stroke: lightblue;}
+path.pinya:hover { stroke: lightblue; }
+path.pinya_pinya:hover { stroke: lightblue;}
 
-path.baix_crossa { stroke: teal; }
+path.baix_crossa:hover { stroke: teal; }
 
 /* path.rel { display: none; } */
-text.rel { display: none; }
+text.rel { color: rgba(1,0,0,0.1); fill: rgba(1,0,0,0.1); }
+text.rel:hover { color: rgba(1,0,0,1); fill: rgba(1,0,0,1); }
+path.rel { color: rgba(1,0,0,0.1); fill: rgba(0,1,0,0.1); }
+path.rel:hover { color: rgba(1,0,0,1); }
 
 .vtext {
 -webkit-transform:rotate(-90deg);

@@ -53,3 +53,7 @@ tolerances = dict([('height_target', 3), \
 
 # the directories used for pinya xml and svg files
 pinya_dir = 'pinyas/'
+
+
+# how to draw a casteller figure
+floor_level = -60

@@ -42,6 +42,7 @@ create table casteller (
   circumference     float(10,2) default 100,
   weight            float(10,2) default 60,
   strength 	    float(10,2) default 5,
+  svg_rep           varchar(1000) default '',
   is_present 	    bool default true,
   last_revision     timestamp default current_timestamp,
   primary key (id),
