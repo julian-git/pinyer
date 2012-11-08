@@ -466,14 +466,14 @@ def tresde9f():
     xml += '</positions>\n'
 
     relations = []
-
     relations = ring_relations(rd, position_in_ring, relations, has_folre = True) 
     relations = baix_crosses_relations(bd, position_in_baix_group, position_in_portacrossa, relations)
+    relations = baix_agulla_relations(rd, position_in_baix_group, relations)
+    relations = baix_contrafort_relations(rd, position_in_baix_group, relations)
     relations = segons_mans_relations(rd, position_in_ring, position_in_baix_group, position_in_segons, relations)
     relations = segons_agulla_relations(rd, position_in_baix_group, position_in_segons, relations)
     relations = segons_baixos_relations(rd, position_in_baix_group, position_in_segons, relations)
-    relations = baix_agulla_relations(rd, position_in_baix_group, relations)
-    relations = baix_contrafort_relations(rd, position_in_baix_group, relations)
+    relations = segons_lateral_relations(rd, position_in_baix_group, position_in_segons, relations)
 
     xml += '\n<relations id="rels">\n'    
     xml += relations_xml(relations, coo_of)

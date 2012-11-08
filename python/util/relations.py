@@ -228,6 +228,38 @@ def segons_baixos_relations(rd, position_in_baix_group, position_in_segons, rela
 
     return relations
 
+def segons_lateral_relations(rd, position_in_baix_group, position_in_segons, relations):
+    rel0 = dict([ \
+            ('coeff_list', '1_-1_-0.75'), \
+                ('relation_type', 'sum_in_interval'), \
+                ('field_names', \
+                     'stretched_height' + text_splitter + \
+                     'shoulder_height' + text_splitter + \
+                     'hip_height'), \
+                ('sense', 'le'), \
+                ('target_val', 0), \
+                ('min_tol', tolerances['lateral_segon_tol']), \
+                ('max_tol', tolerances['lateral_segon_tol']), \
+                ('role_list', 'lateral~baix~segon'), \
+                ('pos_list', None) ])
+
+    for i in range(rd['period']):
+        rel = rel0.copy()
+        rel['pos_list'] = \
+            str(position_in_baix_group[i, 'lateral1']['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_segons[i]['xml_id']) 
+        relations.append(rel)
+
+        rel = rel0.copy()
+        rel['pos_list'] = \
+            str(position_in_baix_group[i, 'lateral2']['xml_id']) + numeric_splitter + \
+            str(position_in_baix_group[i, 'baix']['xml_id']) + numeric_splitter + \
+            str(position_in_segons[i]['xml_id']) 
+        relations.append(rel)
+
+    return relations
+
 
 def relations_xml(relations, coo_of):
     relations_xml = ''

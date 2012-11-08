@@ -652,6 +652,12 @@
 <relation role_list="baix~crossa" pos_list="62_64" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
 <relation role_list="baix~crossa" pos_list="69_70" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
 <relation role_list="baix~crossa" pos_list="69_71" sense="le" rhs="5" coeff_list="1_-1" field_names="shoulder_height~axle_height" relation_type="one_sided"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="55_59"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="62_66"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="69_73"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="55_58"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="62_65"/>
+<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="69_72"/>
 <relation coeff_list="1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="0" max_tol="50" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="ma~baix~segon" pos_list="1_55_79"/>
 <relation coeff_list="1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="0" max_tol="50" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="ma~baix~segon" pos_list="5_62_80"/>
 <relation coeff_list="1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="0" max_tol="50" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="ma~baix~segon" pos_list="9_69_81"/>
@@ -661,11 +667,11 @@
 <relation coeff_list="1_1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="2" max_tol="2" sense="le" field_names="shoulder_height~shoulder_height~shoulder_height~shoulder_height" role_list="baix~segon~baix~segon" pos_list="55_79_62_80"/>
 <relation coeff_list="1_1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="2" max_tol="2" sense="le" field_names="shoulder_height~shoulder_height~shoulder_height~shoulder_height" role_list="baix~segon~baix~segon" pos_list="62_80_69_81"/>
 <relation coeff_list="1_1_-1_-1" relation_type="sum_in_interval" target_val="0" min_tol="2" max_tol="2" sense="le" field_names="shoulder_height~shoulder_height~shoulder_height~shoulder_height" role_list="baix~segon~baix~segon" pos_list="69_81_55_79"/>
-<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="55_59"/>
-<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="62_66"/>
-<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~agulla" pos_list="69_73"/>
-<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="55_58"/>
-<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="62_65"/>
-<relation coeff_list="1_-1" relation_type="sum_in_interval" target_val="0" min_tol="5" max_tol="5" sense="le" field_names="shoulder_height~shoulder_height" role_list="baix~contrafort" pos_list="69_72"/>
+<relation coeff_list="1_-1_-0.75" relation_type="sum_in_interval" target_val="0" min_tol="10" max_tol="10" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="lateral~baix~segon" pos_list="60_55_79"/>
+<relation coeff_list="1_-1_-0.75" relation_type="sum_in_interval" target_val="0" min_tol="10" max_tol="10" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="lateral~baix~segon" pos_list="61_55_79"/>
+<relation coeff_list="1_-1_-0.75" relation_type="sum_in_interval" target_val="0" min_tol="10" max_tol="10" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="lateral~baix~segon" pos_list="67_62_80"/>
+<relation coeff_list="1_-1_-0.75" relation_type="sum_in_interval" target_val="0" min_tol="10" max_tol="10" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="lateral~baix~segon" pos_list="68_62_80"/>
+<relation coeff_list="1_-1_-0.75" relation_type="sum_in_interval" target_val="0" min_tol="10" max_tol="10" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="lateral~baix~segon" pos_list="74_69_81"/>
+<relation coeff_list="1_-1_-0.75" relation_type="sum_in_interval" target_val="0" min_tol="10" max_tol="10" sense="le" field_names="stretched_height~shoulder_height~hip_height" role_list="lateral~baix~segon" pos_list="75_69_81"/>
 </relations>
 </xml>

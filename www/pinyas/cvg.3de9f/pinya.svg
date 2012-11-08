@@ -887,6 +887,18 @@
 <g transform="translate(-7.01 -42.14)"><text>${_rel69_70}</text></g>
 <path class="baix_crossa" pos_list="69_71" d="M-20.0,-34.64L-45.98,-19.64"/>
 <g transform="translate(-32.99 -27.14)"><text>${_rel69_71}</text></g>
+<path class="baix_agulla" pos_list="55_59" d="M40.0,0.0L20.0,0.0"/>
+<g transform="translate(30.0 0.0)"><text>${_rel55_59}</text></g>
+<path class="baix_agulla" pos_list="62_66" d="M-20.0,34.64L-10.0,17.32"/>
+<g transform="translate(-15.0 25.98)"><text>${_rel62_66}</text></g>
+<path class="baix_agulla" pos_list="69_73" d="M-20.0,-34.64L-10.0,-17.32"/>
+<g transform="translate(-15.0 -25.98)"><text>${_rel69_73}</text></g>
+<path class="baix_contrafort" pos_list="55_58" d="M40.0,0.0L60.0,0.0"/>
+<g transform="translate(50.0 0.0)"><text>${_rel55_58}</text></g>
+<path class="baix_contrafort" pos_list="62_65" d="M-20.0,34.64L-30.0,51.96"/>
+<g transform="translate(-25.0 43.3)"><text>${_rel62_65}</text></g>
+<path class="baix_contrafort" pos_list="69_72" d="M-20.0,-34.64L-30.0,-51.96"/>
+<g transform="translate(-25.0 -43.3)"><text>${_rel69_72}</text></g>
 <path class="ma_baix_segon" pos_list="1_55_79" d="M100.0,0.0L40.0,0.0L187.5,0.0"/>
 <g transform="translate(109.17 0.0)"></g>
 <path class="ma_baix_segon" pos_list="5_62_80" d="M-50.0,86.6L-20.0,34.64L-93.75,162.38"/>
@@ -905,17 +917,17 @@
 <g transform="translate(-56.88 0.0)"></g>
 <path class="baix_segon_baix_segon" pos_list="69_81_55_79" d="M-20.0,-34.64L-93.75,-162.38L40.0,0.0L187.5,0.0"/>
 <g transform="translate(28.44 -49.25)"></g>
-<path class="baix_agulla" pos_list="55_59" d="M40.0,0.0L20.0,0.0"/>
-<g transform="translate(30.0 0.0)"><text>${_rel55_59}</text></g>
-<path class="baix_agulla" pos_list="62_66" d="M-20.0,34.64L-10.0,17.32"/>
-<g transform="translate(-15.0 25.98)"><text>${_rel62_66}</text></g>
-<path class="baix_agulla" pos_list="69_73" d="M-20.0,-34.64L-10.0,-17.32"/>
-<g transform="translate(-15.0 -25.98)"><text>${_rel69_73}</text></g>
-<path class="baix_contrafort" pos_list="55_58" d="M40.0,0.0L60.0,0.0"/>
-<g transform="translate(50.0 0.0)"><text>${_rel55_58}</text></g>
-<path class="baix_contrafort" pos_list="62_65" d="M-20.0,34.64L-30.0,51.96"/>
-<g transform="translate(-25.0 43.3)"><text>${_rel62_65}</text></g>
-<path class="baix_contrafort" pos_list="69_72" d="M-20.0,-34.64L-30.0,-51.96"/>
-<g transform="translate(-25.0 -43.3)"><text>${_rel69_72}</text></g>
+<path class="lateral_baix_segon" pos_list="60_55_79" d="M70.0,25.0L40.0,0.0L187.5,0.0"/>
+<g transform="translate(99.17 8.33)"></g>
+<path class="lateral_baix_segon" pos_list="61_55_79" d="M70.0,-25.0L40.0,0.0L187.5,0.0"/>
+<g transform="translate(99.17 -8.33)"></g>
+<path class="lateral_baix_segon" pos_list="67_62_80" d="M-56.65,48.12L-20.0,34.64L-93.75,162.38"/>
+<g transform="translate(-56.8 81.71)"></g>
+<path class="lateral_baix_segon" pos_list="68_62_80" d="M-13.35,73.12L-20.0,34.64L-93.75,162.38"/>
+<g transform="translate(-42.37 90.05)"></g>
+<path class="lateral_baix_segon" pos_list="74_69_81" d="M-13.35,-73.12L-20.0,-34.64L-93.75,-162.38"/>
+<g transform="translate(-42.37 -90.05)"></g>
+<path class="lateral_baix_segon" pos_list="75_69_81" d="M-56.65,-48.12L-20.0,-34.64L-93.75,-162.38"/>
+<g transform="translate(-56.8 -81.71)"></g>
 </g>
 </svg>

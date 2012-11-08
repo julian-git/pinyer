@@ -42,6 +42,7 @@ tolerances = dict([('height_target', 3), \
                        ('baix_segon_tol', 2), \
                        ('baix_agulla_tol', 5), \
                        ('baix_contrafort_tol', 5), \
+                       ('lateral_segon_tol', 10), \
                        ('width_target', 0), \
                        ('min_width_tol', 0), \
                        ('max_width_tol', 10), \
