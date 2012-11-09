@@ -33,19 +33,32 @@ def draw_casteller_as_rect(xml_id, xml_text, _class, \
 def draw_castellers_to_db(colla_id_name):
     db = get_db()
     c = db.cursor()
-    c.execute("""
-select id, nickname, shoulder_height, shoulder_width, axle_height, hip_height
+    where_str = """
 from casteller
 left join casteller_colla on casteller_colla.casteller_id=casteller.id
-where casteller_colla.colla_id_name = %s""", colla_id_name)
-    svg_arr = []
+where casteller_colla.colla_id_name = %s"""
+
+    extreme_vals = dict()
+    for field in ('shoulder_height', 'shoulder_width', 'axle_height', 'hip_height'):
+        c.execute('select min(' + field + '), max(' + field + ') ' + where_str, colla_id_name)
+        [[min_val, max_val]] = c.fetchall()
+        extreme_vals[field] = [min_val, max_val]
+
+    c.execute('select id, nickname, shoulder_height, shoulder_width, axle_height, hip_height' + where_str, colla_id_name)
     castellers = c.fetchall()
-    
+    svg_arr = []
     for (id, nickname, shoulder_height, shoulder_width, axle_height, hip_height) in castellers:
+        shdiff = 1.1 * (extreme_vals['shoulder_height'][1] - extreme_vals['shoulder_height'][0])
+        swdiff = 1.1 * (extreme_vals['shoulder_width'][1] - extreme_vals['shoulder_width'][0])
+        sh = shoulder_height - shdiff
+        ah = axle_height - shdiff
+        hh = hip_height * sh / shoulder_height 
+        sw = shoulder_width - swdiff
         svg = draw_casteller('cast_' + str(id), nickname, '${_class_' + str(id) + '}', \
-                                  shoulder_height, shoulder_width, axle_height, hip_height)
+                                 sh, sw, ah, hh)
         c.execute("update casteller set svg_rep=%s where id=%s", (svg, int(id),))
         svg_arr.append(svg)
+
     db.commit()
     return ''.join(svg_arr)
 

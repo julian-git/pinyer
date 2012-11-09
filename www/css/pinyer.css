@@ -58,7 +58,8 @@ path.rel:hover { color: rgba(1,0,0,1); }
 -webkit-transform:rotate(-90deg);
 -moz-transform:rotate(-90deg);
 -o-transform: rotate(-90deg);
-font-size: .25em;
+font-size: .28em;
+font-weight: bold;
 dominant-baseline: 'mathematical';
 display:block;}
 

@@ -117,7 +117,7 @@ def handleRect(rect):
     if drawSketch:
         svg.append('<g id="' + str(id) + '_casteller" ' + \
                        'class="' + rect.getAttribute('class') + '" ' + \
-                       'transform="scale(.15 .15) rotate(-90)">')
+                       'transform="scale(.2 .2) rotate(-90)">')
         svg.append('${_rep' + str(id) + '}')
         svg.append('</g>')
     else:
