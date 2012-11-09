@@ -9,6 +9,7 @@ from db_interaction import get_db, db_castellers
 from subprocess import call 
 from os import rename
 from string import Template
+import pickle
 
 def split_var(vname):
     cast_id = int(vname[1:vname.find('p')])
@@ -107,6 +108,8 @@ def do_opt():
     filename =  RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
     fin = open(filename + '.svg', 'r')
     fout = open(filename + '.solved.svg', 'w')
+    froles = open(filename + '.roles', 'r')
+    role_of = pickle.load(froles)
     t = Template(fin.read())
     sol = dict()
     for i in positions.keys():
@@ -114,9 +117,12 @@ def do_opt():
         sol['_' + str(i)] = casteller['nickname']
         sol['_c' + str(i)] = str(casteller['shoulder_height']) 
         sol['_rep' + str(i)] = casteller['svg_rep']
+        sol['_class_' + str(casteller['id'])] = role_of[i]
     for pos, val in relations:
         sol['_rel' + pos] = str(val)
-    fout.write(t.safe_substitute(sol))
+    solved_svg = t.safe_substitute(sol)
+    solved_svg = Template(solved_svg).safe_substitute(sol)
+    fout.write(solved_svg)
     print [[pos, c['nickname']] for [pos, c] in positions.iteritems()]
     print relations
 

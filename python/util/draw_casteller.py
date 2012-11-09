@@ -6,6 +6,11 @@ svg = ''
 
 def draw_casteller(xml_id, xml_text, _class, \
                        shoulder_height, shoulder_width, axle_height, hip_height):
+    return draw_casteller_as_rect(xml_id, xml_text, _class, \
+                                      shoulder_height, shoulder_width, axle_height, hip_height)
+
+def draw_casteller_as_rect(xml_id, xml_text, _class, \
+                       shoulder_height, shoulder_width, axle_height, hip_height):
     floor_level = -60
     svg  = ''.join(['<rect id="', xml_id, '_body" class="', _class,  '" ', \
                        'width="', str(shoulder_width), '" ', \
@@ -37,7 +42,7 @@ where casteller_colla.colla_id_name = %s""", colla_id_name)
     castellers = c.fetchall()
     
     for (id, nickname, shoulder_height, shoulder_width, axle_height, hip_height) in castellers:
-        svg = draw_casteller('cast_' + str(id), nickname, 'casteller', \
+        svg = draw_casteller('cast_' + str(id), nickname, '${_class_' + str(id) + '}', \
                                   shoulder_height, shoulder_width, axle_height, hip_height)
         c.execute("update casteller set svg_rep=%s where id=%s", (svg, int(id),))
         svg_arr.append(svg)

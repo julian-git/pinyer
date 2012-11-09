@@ -3,9 +3,11 @@ from local_config import RootDir, pinya_dir, \
     text_splitter, numeric_splitter, drawSketch
 from math import sin, cos, pi
 from random import random
+import pickle
 
 svg = []
 coos = dict()
+role_of = dict()
 
 cids=() #11,77) # print debug info for these
 
@@ -23,9 +25,11 @@ def printAttr(tag, elem, attr_list):
     svg.append(''.join(res))
 
 def xml_to_svg_impl(xmlfilename):
-    f = open(xmlfilename, 'r')
+    f = open(xmlfilename + '.xml', 'r')
     dom = xml.dom.minidom.parseString(f.read())
     handleXML(dom.documentElement)
+    g = open(xmlfilename + '.roles', 'w')
+    pickle.dump(role_of, g)
 
 def handleXML(xml):
     printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'))
@@ -90,6 +94,7 @@ def apply_transform(id, translation, angle):
 def handlePosition(position):
     ids = []
     printAttr('g', position, ('id', 'transform'))
+    extract_role(position)
     for child in position.childNodes:
         if child.nodeName == 'rect':
             ids.append(handleRect(child))
@@ -177,6 +182,9 @@ def handleRelation(relation):
     d.append('</g>')
     svg.append(''.join(d))
 
+def extract_role(position):
+    role_of[int(position.getAttribute('id'))] = str(position.getAttribute('role'))
+
 def getText(nodelist):
     rc = []
     for node in nodelist:
@@ -187,7 +195,7 @@ def getText(nodelist):
 def write_svg(castell_id_name):
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
     f = open(filename + '.svg', 'w')
-    f.write(xml_to_svg(filename + '.xml'))
+    f.write(xml_to_svg(filename))
 
 
 if __name__=='__main__':
