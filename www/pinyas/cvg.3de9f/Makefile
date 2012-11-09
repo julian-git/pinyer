@@ -3,7 +3,7 @@ SQLDIR = ../../../sql
 
 all: pinya.solved.svg 
 
-pinya.solved.svg: pinya.complete.lp $(PYTHONDIR)/solve_ip.py 
+pinya.solved.svg: pinya.complete.lp pinya.svg $(PYTHONDIR)/solve_ip.py 
 	python $(PYTHONDIR)/solve_ip.py
 
 pinya.svg: pinya.xml $(PYTHONDIR)/xml_to_svg.py $(SQLDIR)/database-entries.up-to-date

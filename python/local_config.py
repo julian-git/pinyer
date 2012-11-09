@@ -57,3 +57,6 @@ pinya_dir = 'pinyas/'
 
 # how to draw a casteller figure
 floor_level = -60
+
+# draw the figure? if False, a rectangle is drawn
+drawSketch = True

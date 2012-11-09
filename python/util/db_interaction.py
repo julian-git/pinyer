@@ -18,7 +18,7 @@ def db_castell(db, castell_type_id):
 def db_castellers(db, colla_id_name):
     c = db.cursor()
     c.execute("""
-select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, axle_height, weight, strength 
+select casteller.id, nickname, total_height, shoulder_height, shoulder_width, hip_height, stretched_height, axle_height, weight, strength, svg_rep
 from casteller
 left join casteller_colla on casteller_colla.casteller_id = casteller.id
 where casteller_colla.colla_id_name = %s 
@@ -26,7 +26,7 @@ where casteller_colla.colla_id_name = %s
     res = c.fetchall()
     ans = dict()
     for row in res:
-        new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'axle_height', 'weight', 'strength'), row))
+        new_ans = dict(zip(('id', 'nickname', 'total_height', 'shoulder_height', 'shoulder_width', 'hip_height', 'stretched_height', 'axle_height', 'weight', 'strength', 'svg_rep'), row))
         new_ans['id'] = int(new_ans['id'])
         ans[new_ans['id']] = new_ans
     if len(ans)==0:

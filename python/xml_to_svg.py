@@ -1,6 +1,6 @@
 import xml.dom.minidom
 from local_config import RootDir, pinya_dir, \
-    text_splitter, numeric_splitter
+    text_splitter, numeric_splitter, drawSketch
 from math import sin, cos, pi
 from random import random
 
@@ -108,9 +108,16 @@ def handlePosition(position):
     return ids
 
 def handleRect(rect):
-    printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
-    svg.append('</rect>')
     id = int(rect.getAttribute('id').split(numeric_splitter)[0])
+    if drawSketch:
+        svg.append('<g id="' + str(id) + '_casteller" ' + \
+                       'class="' + rect.getAttribute('class') + '" ' + \
+                       'transform="scale(.15 .15) rotate(-90)">')
+        svg.append('${_rep' + str(id) + '}')
+        svg.append('</g>')
+    else:
+        printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
+        svg.append('</rect>')
     coos[id] = [float(rect.getAttribute('x')) + float(rect.getAttribute('width'))/2, \
                     float(rect.getAttribute('y')) + float(rect.getAttribute('height'))/2]
     if id in cids:
