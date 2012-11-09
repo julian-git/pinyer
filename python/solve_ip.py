@@ -121,7 +121,8 @@ def do_opt():
     for pos, val in relations:
         sol['_rel' + pos] = str(val)
     solved_svg = t.safe_substitute(sol)
-    solved_svg = Template(solved_svg).safe_substitute(sol)
+    # now substitute again so that the _class_## fields in the database get substituted, too
+    solved_svg = Template(solved_svg).safe_substitute(sol) 
     fout.write(solved_svg)
     print [[pos, c['nickname']] for [pos, c] in positions.iteritems()]
     print relations
