@@ -125,6 +125,7 @@ def handleRect(rect):
         svg.append('</rect>')
     coos[id] = [float(rect.getAttribute('x')) + float(rect.getAttribute('width'))/2, \
                     float(rect.getAttribute('y')) + float(rect.getAttribute('height'))/2]
+#    coos[id][1] = round(coos[id][1]/2, 2)
     if id in cids:
         print 'handleRect', id, coos[id]
     return id
