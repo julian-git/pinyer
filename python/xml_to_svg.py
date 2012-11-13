@@ -1,12 +1,15 @@
 import xml.dom.minidom
 from local_config import RootDir, pinya_dir, \
-    text_splitter, numeric_splitter, drawSketch
-from math import sin, cos, pi
+    text_splitter, numeric_splitter, drawSketch, \
+    Debug
 from random import random
 import pickle
 
+import sys 
+sys.path.append(RootDir + 'python/util/')
+from transforms import extract_transform, make_transform, apply_transform, view_mapping
+
 svg = []
-coos = dict()
 role_of = dict()
 
 cids=() #11,77) # print debug info for these
@@ -32,87 +35,82 @@ def xml_to_svg_impl(xmlfilename):
     pickle.dump(role_of, g)
 
 def handleXML(xml):
+    coos = dict()
     printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'))
     handleTitle(xml.getElementsByTagName('title')[0])
-    handlePositions(xml.getElementsByTagName('positions')[0])
-    handleRelations(xml.getElementsByTagName('relations')[0])
+    coos = handlePositions(xml.getElementsByTagName('positions')[0], coos)
+    handleRelations(xml.getElementsByTagName('relations')[0], coos)
     svg.append('</svg>')
 
 def handleTitle(titles):
     pass
 
-def handlePositions(positions):
+def handlePositions(positions, coos):
+    if Debug:
+        print "handlePositions", coos
     svg.append('<g id="positions">')
     for child in positions.childNodes:
         if child.nodeName == 'position_group':
-            handlePositionGroup(child)
+            coos = handlePositionGroup(child, coos)
         elif child.nodeName == 'position':
-            handlePosition(child)
+            [new_ids, coos] = handlePosition(child, coos)
+#            ids += new_ids
+        if Debug:
+            print "in handlePositions; coos now", coos
     svg.append('</g>')
+    return coos
 
-def handlePositionGroup(group):
+def handlePositionGroup(group, coos):
     ids = []
+    if Debug:
+        print "handlePositionGroup", coos
     printAttr('g', group, ('id', 'transform'))
     for child in group.childNodes:
         if child.nodeName == 'position':
-            ids += handlePosition(child)
+            [new_ids, coos] = handlePosition(child, coos)
+            ids += new_ids
     [translation, angle] = extract_transform(group.getAttribute('transform'))
-    for cid in cids:
-        if cid in ids:
-            print 'posgroup', cid, 'before', coos[cid], translation, angle
+    new_translation = view_mapping(translation)
+    group.setAttribute('transform', make_transform(new_translation, angle))
+#    for cid in cids:
+#        print 'posgroup', cid, 'before', coos[cid], translation, angle
     for id in ids: 
-        apply_transform(id, translation, angle)
+        coos = apply_transform(id, new_translation, angle, coos)
     for cid in cids:
         if cid in ids:
             print 'posgroup', cid, 'result', coos[cid], translation, angle
     svg.append('</g>')
-
-def extract_transform(transform):
-    if transform is None:
-        return [None, None]
-    p1 = transform.index('translate(')
-    t = transform[p1+10 : transform.index(')', p1+10)].split(' ')
-    translation = [float(t[0]), float(t[1])]
-    p2 = transform.index('rotate(')
-    angle = float(transform[p2+7 : transform.index(')', p2+7)])
-    return [translation, angle]
-
-def apply_transform(id, translation, angle):
-    coo = coos[id]
-    if id in cids:
-        print 'apply', translation, angle, 'to', id, coo
-    if angle is not None:
-        alpha = angle * pi/180
-        coo = [coo[0] * cos(alpha) - coo[1] * sin(alpha), \
-                     coo[0] * sin(alpha) + coo[1] * cos(alpha)]
-    if translation is not None:
-        coo = [coo[0] + translation[0], coo[1] + translation[1]]
-    if id in cids:
-        print 'result', id, coo
-    coos[id] = [round(coo[0],2), round(coo[1], 2)]
+    return coos
     
-def handlePosition(position):
+def handlePosition(position, coos):
     ids = []
+    if Debug:
+        print "handlePosition", position.getAttribute('id'), coos
+    [translation, angle] = extract_transform(position.getAttribute('transform'))
+    new_translation = view_mapping(translation)
+    position.setAttribute('transform', make_transform(new_translation, angle))
     printAttr('g', position, ('id', 'transform'))
     extract_role(position)
     for child in position.childNodes:
         if child.nodeName == 'rect':
-            ids.append(handleRect(child))
+            [id, coos] = handleRect(child, coos)
+            if Debug: 
+                print "after handleRect:", coos
+            ids.append(id)
         if child.nodeName == 'label':
             handleLabel(child)
-    [translation, angle] = extract_transform(position.getAttribute('transform'))
     for cid in cids:
         if cid in ids:
             print 'before handlePOsition', cid, coos[cid], translation, angle
     for id in ids:
-        apply_transform(id, translation, angle)
+        coos = apply_transform(id, new_translation, angle, coos)
     for cid in cids:
         if cid in ids:
             print 'after handlePOsition', cid, coos[cid], translation, angle
     svg.append('</g>')
-    return ids
+    return [ids, coos]
 
-def handleRect(rect):
+def handleRect(rect, coos):
     id = int(rect.getAttribute('id').split(numeric_splitter)[0])
     if drawSketch:
         svg.append('<g id="' + str(id) + '_casteller" ' + \
@@ -123,12 +121,14 @@ def handleRect(rect):
     else:
         printAttr('rect', rect, ('id', 'class', 'width', 'height', 'x', 'y'))
         svg.append('</rect>')
+    if Debug:
+        print "in handleRect", rect.getAttribute('id'), id, coos
     coos[id] = [float(rect.getAttribute('x')) + float(rect.getAttribute('width'))/2, \
                     float(rect.getAttribute('y')) + float(rect.getAttribute('height'))/2]
 #    coos[id][1] = round(coos[id][1]/2, 2)
-    if id in cids:
-        print 'handleRect', id, coos[id]
-    return id
+    if Debug:
+        print "in handleRect: coos now", coos
+    return [id, coos]
 
 def handleLabel(label):
     printAttr('g', label, ('transform',))
@@ -143,14 +143,14 @@ def handleText(text):
     svg.append(label + ' ${_' + label + '} ${_c' + label + '}')
     svg.append('</text>')
 
-def handleRelations(relations):
+def handleRelations(relations, coos):
     svg.append('<g id="relations">')
     for child in relations.childNodes:
         if child.nodeName == 'relation':
-            handleRelation(child)
+            handleRelation(child, coos)
     svg.append('</g>')
 
-def handleRelation(relation):
+def handleRelation(relation, coos):
     d = []
     rel_class = relation.getAttribute('role_list').replace(text_splitter, numeric_splitter)
     d.append('<path class="rel ' + rel_class + \

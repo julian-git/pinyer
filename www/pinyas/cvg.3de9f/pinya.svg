@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/xml" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-230 -190 460 380">
 <g id="positions">
-<g id="1" transform="translate(100.0 0.0) rotate(0.0)">
+<g id="1" transform="translate(100.0,0.0) rotate(0.0)">
 <g id="1_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep1}
 </g>
@@ -10,7 +10,7 @@ ${_rep1}
 </text>
 </g>
 </g>
-<g id="2" transform="translate(86.6 50.0) rotate(30.0)">
+<g id="2" transform="translate(86.6,25.0) rotate(30.0)">
 <g id="2_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep2}
 </g>
@@ -20,7 +20,7 @@ ${_rep2}
 </text>
 </g>
 </g>
-<g id="3" transform="translate(50.0 86.6) rotate(60.0)">
+<g id="3" transform="translate(50.0,43.3) rotate(60.0)">
 <g id="3_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep3}
 </g>
@@ -30,7 +30,7 @@ ${_rep3}
 </text>
 </g>
 </g>
-<g id="4" transform="translate(0.0 100.0) rotate(90.0)">
+<g id="4" transform="translate(0.0,50.0) rotate(90.0)">
 <g id="4_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep4}
 </g>
@@ -40,7 +40,7 @@ ${_rep4}
 </text>
 </g>
 </g>
-<g id="5" transform="translate(-50.0 86.6) rotate(120.0)">
+<g id="5" transform="translate(-50.0,43.3) rotate(120.0)">
 <g id="5_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep5}
 </g>
@@ -50,7 +50,7 @@ ${_rep5}
 </text>
 </g>
 </g>
-<g id="6" transform="translate(-86.6 50.0) rotate(150.0)">
+<g id="6" transform="translate(-86.6,25.0) rotate(150.0)">
 <g id="6_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep6}
 </g>
@@ -60,7 +60,7 @@ ${_rep6}
 </text>
 </g>
 </g>
-<g id="7" transform="translate(-100.0 0.0) rotate(180.0)">
+<g id="7" transform="translate(-100.0,0.0) rotate(180.0)">
 <g id="7_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep7}
 </g>
@@ -70,7 +70,7 @@ ${_rep7}
 </text>
 </g>
 </g>
-<g id="8" transform="translate(-86.6 -50.0) rotate(210.0)">
+<g id="8" transform="translate(-86.6,-25.0) rotate(210.0)">
 <g id="8_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep8}
 </g>
@@ -80,7 +80,7 @@ ${_rep8}
 </text>
 </g>
 </g>
-<g id="9" transform="translate(-50.0 -86.6) rotate(240.0)">
+<g id="9" transform="translate(-50.0,-43.3) rotate(240.0)">
 <g id="9_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep9}
 </g>
@@ -90,7 +90,7 @@ ${_rep9}
 </text>
 </g>
 </g>
-<g id="10" transform="translate(-0.0 -100.0) rotate(270.0)">
+<g id="10" transform="translate(-0.0,-50.0) rotate(270.0)">
 <g id="10_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep10}
 </g>
@@ -100,7 +100,7 @@ ${_rep10}
 </text>
 </g>
 </g>
-<g id="11" transform="translate(50.0 -86.6) rotate(300.0)">
+<g id="11" transform="translate(50.0,-43.3) rotate(300.0)">
 <g id="11_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep11}
 </g>
@@ -110,7 +110,7 @@ ${_rep11}
 </text>
 </g>
 </g>
-<g id="12" transform="translate(86.6 -50.0) rotate(330.0)">
+<g id="12" transform="translate(86.6,-25.0) rotate(330.0)">
 <g id="12_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep12}
 </g>
@@ -120,7 +120,7 @@ ${_rep12}
 </text>
 </g>
 </g>
-<g id="13" transform="translate(125.0 0.0) rotate(0.0)">
+<g id="13" transform="translate(125.0,0.0) rotate(0.0)">
 <g id="13_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep13}
 </g>
@@ -130,7 +130,7 @@ ${_rep13}
 </text>
 </g>
 </g>
-<g id="14" transform="translate(117.46 42.75) rotate(20.0)">
+<g id="14" transform="translate(117.46,21.375) rotate(20.0)">
 <g id="14_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep14}
 </g>
@@ -140,7 +140,7 @@ ${_rep14}
 </text>
 </g>
 </g>
-<g id="15" transform="translate(95.76 80.35) rotate(40.0)">
+<g id="15" transform="translate(95.76,40.175) rotate(40.0)">
 <g id="15_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep15}
 </g>
@@ -150,7 +150,7 @@ ${_rep15}
 </text>
 </g>
 </g>
-<g id="16" transform="translate(62.5 108.25) rotate(60.0)">
+<g id="16" transform="translate(62.5,54.125) rotate(60.0)">
 <g id="16_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep16}
 </g>
@@ -160,7 +160,7 @@ ${_rep16}
 </text>
 </g>
 </g>
-<g id="17" transform="translate(21.71 123.1) rotate(80.0)">
+<g id="17" transform="translate(21.71,61.55) rotate(80.0)">
 <g id="17_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep17}
 </g>
@@ -170,7 +170,7 @@ ${_rep17}
 </text>
 </g>
 </g>
-<g id="18" transform="translate(-21.71 123.1) rotate(100.0)">
+<g id="18" transform="translate(-21.71,61.55) rotate(100.0)">
 <g id="18_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep18}
 </g>
@@ -180,7 +180,7 @@ ${_rep18}
 </text>
 </g>
 </g>
-<g id="19" transform="translate(-62.5 108.25) rotate(120.0)">
+<g id="19" transform="translate(-62.5,54.125) rotate(120.0)">
 <g id="19_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep19}
 </g>
@@ -190,7 +190,7 @@ ${_rep19}
 </text>
 </g>
 </g>
-<g id="20" transform="translate(-95.76 80.35) rotate(140.0)">
+<g id="20" transform="translate(-95.76,40.175) rotate(140.0)">
 <g id="20_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep20}
 </g>
@@ -200,7 +200,7 @@ ${_rep20}
 </text>
 </g>
 </g>
-<g id="21" transform="translate(-117.46 42.75) rotate(160.0)">
+<g id="21" transform="translate(-117.46,21.375) rotate(160.0)">
 <g id="21_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep21}
 </g>
@@ -210,7 +210,7 @@ ${_rep21}
 </text>
 </g>
 </g>
-<g id="22" transform="translate(-125.0 0.0) rotate(180.0)">
+<g id="22" transform="translate(-125.0,0.0) rotate(180.0)">
 <g id="22_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep22}
 </g>
@@ -220,7 +220,7 @@ ${_rep22}
 </text>
 </g>
 </g>
-<g id="23" transform="translate(-117.46 -42.75) rotate(200.0)">
+<g id="23" transform="translate(-117.46,-21.375) rotate(200.0)">
 <g id="23_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep23}
 </g>
@@ -230,7 +230,7 @@ ${_rep23}
 </text>
 </g>
 </g>
-<g id="24" transform="translate(-95.76 -80.35) rotate(220.0)">
+<g id="24" transform="translate(-95.76,-40.175) rotate(220.0)">
 <g id="24_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep24}
 </g>
@@ -240,7 +240,7 @@ ${_rep24}
 </text>
 </g>
 </g>
-<g id="25" transform="translate(-62.5 -108.25) rotate(240.0)">
+<g id="25" transform="translate(-62.5,-54.125) rotate(240.0)">
 <g id="25_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep25}
 </g>
@@ -250,7 +250,7 @@ ${_rep25}
 </text>
 </g>
 </g>
-<g id="26" transform="translate(-21.71 -123.1) rotate(260.0)">
+<g id="26" transform="translate(-21.71,-61.55) rotate(260.0)">
 <g id="26_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep26}
 </g>
@@ -260,7 +260,7 @@ ${_rep26}
 </text>
 </g>
 </g>
-<g id="27" transform="translate(21.71 -123.1) rotate(280.0)">
+<g id="27" transform="translate(21.71,-61.55) rotate(280.0)">
 <g id="27_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep27}
 </g>
@@ -270,7 +270,7 @@ ${_rep27}
 </text>
 </g>
 </g>
-<g id="28" transform="translate(62.5 -108.25) rotate(300.0)">
+<g id="28" transform="translate(62.5,-54.125) rotate(300.0)">
 <g id="28_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep28}
 </g>
@@ -280,7 +280,7 @@ ${_rep28}
 </text>
 </g>
 </g>
-<g id="29" transform="translate(95.76 -80.35) rotate(320.0)">
+<g id="29" transform="translate(95.76,-40.175) rotate(320.0)">
 <g id="29_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep29}
 </g>
@@ -290,7 +290,7 @@ ${_rep29}
 </text>
 </g>
 </g>
-<g id="30" transform="translate(117.46 -42.75) rotate(340.0)">
+<g id="30" transform="translate(117.46,-21.375) rotate(340.0)">
 <g id="30_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep30}
 </g>
@@ -300,7 +300,7 @@ ${_rep30}
 </text>
 </g>
 </g>
-<g id="31" transform="translate(150.0 0.0) rotate(0.0)">
+<g id="31" transform="translate(150.0,0.0) rotate(0.0)">
 <g id="31_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep31}
 </g>
@@ -310,7 +310,7 @@ ${_rep31}
 </text>
 </g>
 </g>
-<g id="32" transform="translate(144.89 38.82) rotate(15.0)">
+<g id="32" transform="translate(144.89,19.41) rotate(15.0)">
 <g id="32_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep32}
 </g>
@@ -320,7 +320,7 @@ ${_rep32}
 </text>
 </g>
 </g>
-<g id="33" transform="translate(129.9 75.0) rotate(30.0)">
+<g id="33" transform="translate(129.9,37.5) rotate(30.0)">
 <g id="33_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep33}
 </g>
@@ -330,7 +330,7 @@ ${_rep33}
 </text>
 </g>
 </g>
-<g id="34" transform="translate(106.07 106.07) rotate(45.0)">
+<g id="34" transform="translate(106.07,53.035) rotate(45.0)">
 <g id="34_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep34}
 </g>
@@ -340,7 +340,7 @@ ${_rep34}
 </text>
 </g>
 </g>
-<g id="35" transform="translate(75.0 129.9) rotate(60.0)">
+<g id="35" transform="translate(75.0,64.95) rotate(60.0)">
 <g id="35_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep35}
 </g>
@@ -350,7 +350,7 @@ ${_rep35}
 </text>
 </g>
 </g>
-<g id="36" transform="translate(38.82 144.89) rotate(75.0)">
+<g id="36" transform="translate(38.82,72.445) rotate(75.0)">
 <g id="36_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep36}
 </g>
@@ -360,7 +360,7 @@ ${_rep36}
 </text>
 </g>
 </g>
-<g id="37" transform="translate(0.0 150.0) rotate(90.0)">
+<g id="37" transform="translate(0.0,75.0) rotate(90.0)">
 <g id="37_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep37}
 </g>
@@ -370,7 +370,7 @@ ${_rep37}
 </text>
 </g>
 </g>
-<g id="38" transform="translate(-38.82 144.89) rotate(105.0)">
+<g id="38" transform="translate(-38.82,72.445) rotate(105.0)">
 <g id="38_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep38}
 </g>
@@ -380,7 +380,7 @@ ${_rep38}
 </text>
 </g>
 </g>
-<g id="39" transform="translate(-75.0 129.9) rotate(120.0)">
+<g id="39" transform="translate(-75.0,64.95) rotate(120.0)">
 <g id="39_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep39}
 </g>
@@ -390,7 +390,7 @@ ${_rep39}
 </text>
 </g>
 </g>
-<g id="40" transform="translate(-106.07 106.07) rotate(135.0)">
+<g id="40" transform="translate(-106.07,53.035) rotate(135.0)">
 <g id="40_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep40}
 </g>
@@ -400,7 +400,7 @@ ${_rep40}
 </text>
 </g>
 </g>
-<g id="41" transform="translate(-129.9 75.0) rotate(150.0)">
+<g id="41" transform="translate(-129.9,37.5) rotate(150.0)">
 <g id="41_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep41}
 </g>
@@ -410,7 +410,7 @@ ${_rep41}
 </text>
 </g>
 </g>
-<g id="42" transform="translate(-144.89 38.82) rotate(165.0)">
+<g id="42" transform="translate(-144.89,19.41) rotate(165.0)">
 <g id="42_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep42}
 </g>
@@ -420,7 +420,7 @@ ${_rep42}
 </text>
 </g>
 </g>
-<g id="43" transform="translate(-150.0 0.0) rotate(180.0)">
+<g id="43" transform="translate(-150.0,0.0) rotate(180.0)">
 <g id="43_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep43}
 </g>
@@ -430,7 +430,7 @@ ${_rep43}
 </text>
 </g>
 </g>
-<g id="44" transform="translate(-144.89 -38.82) rotate(195.0)">
+<g id="44" transform="translate(-144.89,-19.41) rotate(195.0)">
 <g id="44_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep44}
 </g>
@@ -440,7 +440,7 @@ ${_rep44}
 </text>
 </g>
 </g>
-<g id="45" transform="translate(-129.9 -75.0) rotate(210.0)">
+<g id="45" transform="translate(-129.9,-37.5) rotate(210.0)">
 <g id="45_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep45}
 </g>
@@ -450,7 +450,7 @@ ${_rep45}
 </text>
 </g>
 </g>
-<g id="46" transform="translate(-106.07 -106.07) rotate(225.0)">
+<g id="46" transform="translate(-106.07,-53.035) rotate(225.0)">
 <g id="46_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep46}
 </g>
@@ -460,7 +460,7 @@ ${_rep46}
 </text>
 </g>
 </g>
-<g id="47" transform="translate(-75.0 -129.9) rotate(240.0)">
+<g id="47" transform="translate(-75.0,-64.95) rotate(240.0)">
 <g id="47_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep47}
 </g>
@@ -470,7 +470,7 @@ ${_rep47}
 </text>
 </g>
 </g>
-<g id="48" transform="translate(-38.82 -144.89) rotate(255.0)">
+<g id="48" transform="translate(-38.82,-72.445) rotate(255.0)">
 <g id="48_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep48}
 </g>
@@ -480,7 +480,7 @@ ${_rep48}
 </text>
 </g>
 </g>
-<g id="49" transform="translate(-0.0 -150.0) rotate(270.0)">
+<g id="49" transform="translate(-0.0,-75.0) rotate(270.0)">
 <g id="49_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep49}
 </g>
@@ -490,7 +490,7 @@ ${_rep49}
 </text>
 </g>
 </g>
-<g id="50" transform="translate(38.82 -144.89) rotate(285.0)">
+<g id="50" transform="translate(38.82,-72.445) rotate(285.0)">
 <g id="50_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep50}
 </g>
@@ -500,7 +500,7 @@ ${_rep50}
 </text>
 </g>
 </g>
-<g id="51" transform="translate(75.0 -129.9) rotate(300.0)">
+<g id="51" transform="translate(75.0,-64.95) rotate(300.0)">
 <g id="51_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep51}
 </g>
@@ -510,7 +510,7 @@ ${_rep51}
 </text>
 </g>
 </g>
-<g id="52" transform="translate(106.07 -106.07) rotate(315.0)">
+<g id="52" transform="translate(106.07,-53.035) rotate(315.0)">
 <g id="52_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep52}
 </g>
@@ -520,7 +520,7 @@ ${_rep52}
 </text>
 </g>
 </g>
-<g id="53" transform="translate(129.9 -75.0) rotate(330.0)">
+<g id="53" transform="translate(129.9,-37.5) rotate(330.0)">
 <g id="53_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep53}
 </g>
@@ -530,7 +530,7 @@ ${_rep53}
 </text>
 </g>
 </g>
-<g id="54" transform="translate(144.89 -38.82) rotate(345.0)">
+<g id="54" transform="translate(144.89,-19.41) rotate(345.0)">
 <g id="54_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep54}
 </g>
@@ -541,7 +541,7 @@ ${_rep54}
 </g>
 </g>
 <g id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
-<g id="55" transform="translate(0 0) rotate(0)">
+<g id="55" transform="translate(0.0,0.0) rotate(0.0)">
 <g id="55_casteller" class="baix" transform="scale(.2 .2) rotate(-90)">
 ${_rep55}
 </g>
@@ -551,7 +551,7 @@ ${_rep55}
 </text>
 </g>
 </g>
-<g id="56" transform="translate(0 30) rotate(90)">
+<g id="56" transform="translate(0.0,15.0) rotate(90.0)">
 <g id="56_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep56}
 </g>
@@ -561,7 +561,7 @@ ${_rep56}
 </text>
 </g>
 </g>
-<g id="57" transform="translate(0 -30) rotate(-90)">
+<g id="57" transform="translate(0.0,-15.0) rotate(-90.0)">
 <g id="57_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep57}
 </g>
@@ -571,7 +571,7 @@ ${_rep57}
 </text>
 </g>
 </g>
-<g id="58" transform="translate(20 0) rotate(0)">
+<g id="58" transform="translate(20.0,0.0) rotate(0.0)">
 <g id="58_casteller" class="contrafort" transform="scale(.2 .2) rotate(-90)">
 ${_rep58}
 </g>
@@ -581,7 +581,7 @@ ${_rep58}
 </text>
 </g>
 </g>
-<g id="59" transform="translate(-20 0) rotate(0)">
+<g id="59" transform="translate(-20.0,0.0) rotate(0.0)">
 <g id="59_casteller" class="agulla" transform="scale(.2 .2) rotate(-90)">
 ${_rep59}
 </g>
@@ -591,7 +591,7 @@ ${_rep59}
 </text>
 </g>
 </g>
-<g id="60" transform="translate(30 25) rotate(30)">
+<g id="60" transform="translate(30.0,12.5) rotate(30.0)">
 <g id="60_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep60}
 </g>
@@ -601,7 +601,7 @@ ${_rep60}
 </text>
 </g>
 </g>
-<g id="61" transform="translate(30 -25) rotate(-30)">
+<g id="61" transform="translate(30.0,-12.5) rotate(-30.0)">
 <g id="61_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep61}
 </g>
@@ -613,7 +613,7 @@ ${_rep61}
 </g>
 </g>
 <g id="baixos_gp_1" transform="translate(-20.0 34.64) rotate(120.0)">
-<g id="62" transform="translate(0 0) rotate(0)">
+<g id="62" transform="translate(0.0,0.0) rotate(0.0)">
 <g id="62_casteller" class="baix" transform="scale(.2 .2) rotate(-90)">
 ${_rep62}
 </g>
@@ -623,7 +623,7 @@ ${_rep62}
 </text>
 </g>
 </g>
-<g id="63" transform="translate(0 30) rotate(90)">
+<g id="63" transform="translate(0.0,15.0) rotate(90.0)">
 <g id="63_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep63}
 </g>
@@ -633,7 +633,7 @@ ${_rep63}
 </text>
 </g>
 </g>
-<g id="64" transform="translate(0 -30) rotate(-90)">
+<g id="64" transform="translate(0.0,-15.0) rotate(-90.0)">
 <g id="64_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep64}
 </g>
@@ -643,7 +643,7 @@ ${_rep64}
 </text>
 </g>
 </g>
-<g id="65" transform="translate(20 0) rotate(0)">
+<g id="65" transform="translate(20.0,0.0) rotate(0.0)">
 <g id="65_casteller" class="contrafort" transform="scale(.2 .2) rotate(-90)">
 ${_rep65}
 </g>
@@ -653,7 +653,7 @@ ${_rep65}
 </text>
 </g>
 </g>
-<g id="66" transform="translate(-20 0) rotate(0)">
+<g id="66" transform="translate(-20.0,0.0) rotate(0.0)">
 <g id="66_casteller" class="agulla" transform="scale(.2 .2) rotate(-90)">
 ${_rep66}
 </g>
@@ -663,7 +663,7 @@ ${_rep66}
 </text>
 </g>
 </g>
-<g id="67" transform="translate(30 25) rotate(30)">
+<g id="67" transform="translate(30.0,12.5) rotate(30.0)">
 <g id="67_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep67}
 </g>
@@ -673,7 +673,7 @@ ${_rep67}
 </text>
 </g>
 </g>
-<g id="68" transform="translate(30 -25) rotate(-30)">
+<g id="68" transform="translate(30.0,-12.5) rotate(-30.0)">
 <g id="68_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep68}
 </g>
@@ -685,7 +685,7 @@ ${_rep68}
 </g>
 </g>
 <g id="baixos_gp_2" transform="translate(-20.0 -34.64) rotate(240.0)">
-<g id="69" transform="translate(0 0) rotate(0)">
+<g id="69" transform="translate(0.0,0.0) rotate(0.0)">
 <g id="69_casteller" class="baix" transform="scale(.2 .2) rotate(-90)">
 ${_rep69}
 </g>
@@ -695,7 +695,7 @@ ${_rep69}
 </text>
 </g>
 </g>
-<g id="70" transform="translate(0 30) rotate(90)">
+<g id="70" transform="translate(0.0,15.0) rotate(90.0)">
 <g id="70_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep70}
 </g>
@@ -705,7 +705,7 @@ ${_rep70}
 </text>
 </g>
 </g>
-<g id="71" transform="translate(0 -30) rotate(-90)">
+<g id="71" transform="translate(0.0,-15.0) rotate(-90.0)">
 <g id="71_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep71}
 </g>
@@ -715,7 +715,7 @@ ${_rep71}
 </text>
 </g>
 </g>
-<g id="72" transform="translate(20 0) rotate(0)">
+<g id="72" transform="translate(20.0,0.0) rotate(0.0)">
 <g id="72_casteller" class="contrafort" transform="scale(.2 .2) rotate(-90)">
 ${_rep72}
 </g>
@@ -725,7 +725,7 @@ ${_rep72}
 </text>
 </g>
 </g>
-<g id="73" transform="translate(-20 0) rotate(0)">
+<g id="73" transform="translate(-20.0,0.0) rotate(0.0)">
 <g id="73_casteller" class="agulla" transform="scale(.2 .2) rotate(-90)">
 ${_rep73}
 </g>
@@ -735,7 +735,7 @@ ${_rep73}
 </text>
 </g>
 </g>
-<g id="74" transform="translate(30 25) rotate(30)">
+<g id="74" transform="translate(30.0,12.5) rotate(30.0)">
 <g id="74_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep74}
 </g>
@@ -745,7 +745,7 @@ ${_rep74}
 </text>
 </g>
 </g>
-<g id="75" transform="translate(30 -25) rotate(-30)">
+<g id="75" transform="translate(30.0,-12.5) rotate(-30.0)">
 <g id="75_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep75}
 </g>
@@ -757,7 +757,7 @@ ${_rep75}
 </g>
 </g>
 <g id="portacrossa_gp_0" transform="translate(35.0 60.62) rotate(60.0)">
-<g id="76" transform="translate(0 0) rotate(0)">
+<g id="76" transform="translate(0.0,0.0) rotate(0.0)">
 <g id="76_casteller" class="portacrossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep76}
 </g>
@@ -769,7 +769,7 @@ ${_rep76}
 </g>
 </g>
 <g id="portacrossa_gp_1" transform="translate(-70.0 0.0) rotate(180.0)">
-<g id="77" transform="translate(0 0) rotate(0)">
+<g id="77" transform="translate(0.0,0.0) rotate(0.0)">
 <g id="77_casteller" class="portacrossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep77}
 </g>
@@ -781,7 +781,7 @@ ${_rep77}
 </g>
 </g>
 <g id="portacrossa_gp_2" transform="translate(35.0 -60.62) rotate(300.0)">
-<g id="78" transform="translate(0 0) rotate(0)">
+<g id="78" transform="translate(0.0,0.0) rotate(0.0)">
 <g id="78_casteller" class="portacrossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep78}
 </g>
@@ -792,7 +792,7 @@ ${_rep78}
 </g>
 </g>
 </g>
-<g id="79" transform="translate(187.5 0.0) rotate(0.0)">
+<g id="79" transform="translate(187.5,0.0) rotate(0.0)">
 <g id="79_casteller" class="segon" transform="scale(.2 .2) rotate(-90)">
 ${_rep79}
 </g>
@@ -802,7 +802,7 @@ ${_rep79}
 </text>
 </g>
 </g>
-<g id="80" transform="translate(-93.75 162.38) rotate(120.0)">
+<g id="80" transform="translate(-93.75,81.19) rotate(120.0)">
 <g id="80_casteller" class="segon" transform="scale(.2 .2) rotate(-90)">
 ${_rep80}
 </g>
@@ -812,7 +812,7 @@ ${_rep80}
 </text>
 </g>
 </g>
-<g id="81" transform="translate(-93.75 -162.38) rotate(240.0)">
+<g id="81" transform="translate(-93.75,-81.19) rotate(240.0)">
 <g id="81_casteller" class="segon" transform="scale(.2 .2) rotate(-90)">
 ${_rep81}
 </g>
@@ -824,203 +824,203 @@ ${_rep81}
 </g>
 </g>
 <g id="relations">
-<path class="rel ma_ma" pos_list="13_1" d="M125.662740635,2.14569263836L102.934990772,4.29553974184"/>
-<g transform="translate(114.3 3.22)"><text class="rel ma_ma">${_rel13_1}</text></g>
-<path class="rel ma_ma" pos_list="31_13" d="M151.423754132,4.91540536587L129.263527938,3.55801577058"/>
-<g transform="translate(140.34 4.24)"><text class="rel ma_ma">${_rel31_13}</text></g>
-<path class="rel vent_vent" pos_list="16_3" d="M66.0431033593,113.188071066L54.5854377136,90.6493991165"/>
-<g transform="translate(60.31 101.92)"><text class="rel vent_vent">${_rel16_3}</text></g>
-<path class="rel vent_vent" pos_list="35_16" d="M76.8471358323,134.613172009L63.0017120845,110.273840433"/>
-<g transform="translate(69.92 122.44)"><text class="rel vent_vent">${_rel35_16}</text></g>
-<path class="rel ma_ma" pos_list="19_5" d="M-60.9361453229,110.925182851L-48.192486642,87.6813566986"/>
-<g transform="translate(-54.56 99.3)"><text class="rel ma_ma">${_rel19_5}</text></g>
-<path class="rel ma_ma" pos_list="39_19" d="M-72.0903841551,134.184752765L-62.2526599423,112.285869323"/>
-<g transform="translate(-67.17 123.24)"><text class="rel ma_ma">${_rel39_19}</text></g>
-<path class="rel vent_vent" pos_list="22_7" d="M-120.459878087,2.69201510088L-95.3702152582,1.07238064128"/>
-<g transform="translate(-107.92 1.88)"><text class="rel vent_vent">${_rel22_7}</text></g>
-<path class="rel vent_vent" pos_list="43_22" d="M-147.084987173,1.42664718629L-120.953031775,1.08957349854"/>
-<g transform="translate(-134.02 1.26)"><text class="rel vent_vent">${_rel43_22}</text></g>
-<path class="rel ma_ma" pos_list="25_9" d="M-61.2512774964,-103.829014404L-48.8718904299,-86.3376085469"/>
-<g transform="translate(-55.06 -95.08)"><text class="rel ma_ma">${_rel25_9}</text></g>
-<path class="rel ma_ma" pos_list="47_25" d="M-73.7374875003,-129.591051065L-60.7197825789,-107.564735035"/>
-<g transform="translate(-67.23 -118.58)"><text class="rel ma_ma">${_rel47_25}</text></g>
-<path class="rel vent_vent" pos_list="28_11" d="M64.2723986971,-103.7969903L50.8592621093,-83.2370803774"/>
-<g transform="translate(57.57 -93.52)"><text class="rel vent_vent">${_rel28_11}</text></g>
-<path class="rel vent_vent" pos_list="51_28" d="M76.066446814,-125.930053205L65.5359348212,-104.559830228"/>
-<g transform="translate(70.8 -115.24)"><text class="rel vent_vent">${_rel51_28}</text></g>
-<path class="rel pinya_pinya" pos_list="14_2" d="M120.890357545,43.6616564299L90.6070754065,50.7522331328"/>
-<g transform="translate(105.75 47.21)"><text class="rel pinya_pinya">${_rel14_2}</text></g>
-<path class="rel pinya_pinya" pos_list="15_2" d="M99.3320152807,80.76923334L90.9156651392,53.537281913"/>
-<g transform="translate(95.12 67.15)"><text class="rel pinya_pinya">${_rel15_2}</text></g>
-<path class="rel pinya_pinya" pos_list="32_14" d="M148.421132289,41.734239895L117.951795005,47.2618825409"/>
-<g transform="translate(133.19 44.5)"><text class="rel pinya_pinya">${_rel32_14}</text></g>
-<path class="rel pinya_pinya" pos_list="33_14" d="M134.398764083,76.3289065505L121.97022837,45.9498738031"/>
-<g transform="translate(128.18 61.14)"><text class="rel pinya_pinya">${_rel33_14}</text></g>
-<path class="rel pinya_pinya" pos_list="33_15" d="M130.860015211,77.3227546297L98.9792823022,83.7802019312"/>
-<g transform="translate(114.92 80.55)"><text class="rel pinya_pinya">${_rel33_15}</text></g>
-<path class="rel pinya_pinya" pos_list="34_15" d="M109.252394399,108.785104051L98.7932110265,82.2167781952"/>
-<g transform="translate(104.02 95.5)"><text class="rel pinya_pinya">${_rel34_15}</text></g>
-<path class="rel pinya_pinya" pos_list="17_4" d="M26.3726830931,127.85936531L0.951418619653,100.856275331"/>
-<g transform="translate(13.66 114.36)"><text class="rel pinya_pinya">${_rel17_4}</text></g>
-<path class="rel pinya_pinya" pos_list="18_4" d="M-21.4926058137,126.366464122L0.762980660612,104.568021805"/>
-<g transform="translate(-10.36 115.47)"><text class="rel pinya_pinya">${_rel18_4}</text></g>
-<path class="rel pinya_pinya" pos_list="36_17" d="M41.1544695974,147.941923457L23.8508635405,125.848015726"/>
-<g transform="translate(32.5 136.89)"><text class="rel pinya_pinya">${_rel36_17}</text></g>
-<path class="rel pinya_pinya" pos_list="37_17" d="M4.84879529715,152.213873715L22.7198557688,126.315060225"/>
-<g transform="translate(13.78 139.26)"><text class="rel pinya_pinya">${_rel37_17}</text></g>
-<path class="rel pinya_pinya" pos_list="37_18" d="M4.16293512173,153.173440543L-20.1321827536,126.979572396"/>
-<g transform="translate(-7.98 140.08)"><text class="rel pinya_pinya">${_rel37_18}</text></g>
-<path class="rel pinya_pinya" pos_list="38_18" d="M-38.4054482384,146.966714849L-20.2777769983,126.179457954"/>
-<g transform="translate(-29.34 136.57)"><text class="rel pinya_pinya">${_rel38_18}</text></g>
-<path class="rel pinya_pinya" pos_list="20_6" d="M-91.9176922292,83.0961496845L-83.2818960042,54.2318598897"/>
-<g transform="translate(-87.6 68.66)"><text class="rel pinya_pinya">${_rel20_6}</text></g>
-<path class="rel pinya_pinya" pos_list="21_6" d="M-115.303002793,44.3614868143L-81.8227048616,51.6838482926"/>
-<g transform="translate(-98.56 48.02)"><text class="rel pinya_pinya">${_rel21_6}</text></g>
-<path class="rel pinya_pinya" pos_list="40_20" d="M-104.745608246,106.076155869L-95.2655586052,82.0171806531"/>
-<g transform="translate(-100.01 94.05)"><text class="rel pinya_pinya">${_rel40_20}</text></g>
-<path class="rel pinya_pinya" pos_list="41_20" d="M-129.265607095,79.290256915L-92.4892323048,81.1603316528"/>
-<g transform="translate(-110.88 80.23)"><text class="rel pinya_pinya">${_rel41_20}</text></g>
-<path class="rel pinya_pinya" pos_list="41_21" d="M-129.634757565,76.4517283941L-115.463622617,42.798875299"/>
-<g transform="translate(-122.55 59.63)"><text class="rel pinya_pinya">${_rel41_21}</text></g>
-<path class="rel pinya_pinya" pos_list="42_21" d="M-141.71680102,40.9609849527L-116.66804549,43.4776711701"/>
-<g transform="translate(-129.19 42.22)"><text class="rel pinya_pinya">${_rel42_21}</text></g>
-<path class="rel pinya_pinya" pos_list="23_8" d="M-112.943085847,-41.3909749714L-81.96551618,-47.9079958843"/>
-<g transform="translate(-97.45 -44.65)"><text class="rel pinya_pinya">${_rel23_8}</text></g>
-<path class="rel pinya_pinya" pos_list="24_8" d="M-94.270041208,-76.231852503L-86.2487146598,-45.8463500746"/>
-<g transform="translate(-90.26 -61.04)"><text class="rel pinya_pinya">${_rel24_8}</text></g>
-<path class="rel pinya_pinya" pos_list="44_23" d="M-143.982569868,-36.969709484L-115.533938785,-39.2391498527"/>
-<g transform="translate(-129.76 -38.1)"><text class="rel pinya_pinya">${_rel44_23}</text></g>
-<path class="rel pinya_pinya" pos_list="45_23" d="M-127.125671894,-72.2343006568L-113.983163598,-41.0788387487"/>
-<g transform="translate(-120.55 -56.66)"><text class="rel pinya_pinya">${_rel45_23}</text></g>
-<path class="rel pinya_pinya" pos_list="45_24" d="M-129.011266131,-74.5165003245L-95.5793132607,-79.4329982979"/>
-<g transform="translate(-112.3 -76.97)"><text class="rel pinya_pinya">${_rel45_24}</text></g>
-<path class="rel pinya_pinya" pos_list="46_24" d="M-103.043300381,-105.788104828L-91.0282541756,-77.9501814814"/>
-<g transform="translate(-97.04 -91.87)"><text class="rel pinya_pinya">${_rel46_24}</text></g>
-<path class="rel pinya_pinya" pos_list="26_10" d="M-17.0104308539,-118.707361741L1.21351678516,-97.4597315229"/>
-<g transform="translate(-7.9 -108.08)"><text class="rel pinya_pinya">${_rel26_10}</text></g>
-<path class="rel pinya_pinya" pos_list="27_10" d="M23.354101396,-119.179527447L4.54668991889,-97.6709332148"/>
-<g transform="translate(13.95 -108.43)"><text class="rel pinya_pinya">${_rel27_10}</text></g>
-<path class="rel pinya_pinya" pos_list="48_26" d="M-35.3283525349,-144.88062842L-21.7054331123,-121.042282804"/>
-<g transform="translate(-28.52 -132.96)"><text class="rel pinya_pinya">${_rel48_26}</text></g>
-<path class="rel pinya_pinya" pos_list="49_26" d="M2.37497616947,-148.050847233L-17.5505289752,-119.42430589"/>
-<g transform="translate(-7.59 -133.74)"><text class="rel pinya_pinya">${_rel49_26}</text></g>
-<path class="rel pinya_pinya" pos_list="49_27" d="M2.50483305744,-146.129287691L26.5452393901,-118.582001797"/>
-<g transform="translate(14.53 -132.36)"><text class="rel pinya_pinya">${_rel49_27}</text></g>
-<path class="rel pinya_pinya" pos_list="50_27" d="M39.1425801153,-143.669769647L26.5160412432,-120.692339744"/>
-<g transform="translate(32.83 -132.18)"><text class="rel pinya_pinya">${_rel50_27}</text></g>
-<path class="rel pinya_pinya" pos_list="29_12" d="M96.8920964811,-77.5588362477L89.5070299272,-47.8553748554"/>
-<g transform="translate(93.2 -62.71)"><text class="rel pinya_pinya">${_rel29_12}</text></g>
-<path class="rel pinya_pinya" pos_list="30_12" d="M120.264136133,-41.4793270953L89.2015106863,-49.2113352936"/>
-<g transform="translate(104.73 -45.35)"><text class="rel pinya_pinya">${_rel30_12}</text></g>
-<path class="rel pinya_pinya" pos_list="52_29" d="M109.275492762,-102.027546792L97.9895520661,-78.1240413771"/>
-<g transform="translate(103.63 -90.08)"><text class="rel pinya_pinya">${_rel52_29}</text></g>
-<path class="rel pinya_pinya" pos_list="53_29" d="M133.071731859,-73.2379008541L98.167658032,-77.7953288817"/>
-<g transform="translate(115.62 -75.52)"><text class="rel pinya_pinya">${_rel53_29}</text></g>
-<path class="rel pinya_pinya" pos_list="53_30" d="M131.89598196,-71.6617694536L120.064928871,-40.5729661844"/>
-<g transform="translate(125.98 -56.12)"><text class="rel pinya_pinya">${_rel53_30}</text></g>
-<path class="rel pinya_pinya" pos_list="54_30" d="M148.807477693,-36.8932292586L118.973994054,-40.736511011"/>
-<g transform="translate(133.89 -38.81)"><text class="rel pinya_pinya">${_rel54_30}</text></g>
-<path class="rel pinya" pos_list="2" d="M88.1636960316,52.7110036075"/>
-<g transform="translate(88.16 52.71)"></g>
-<path class="rel pinya_pinya" pos_list="14_15" d="M118.365653087,43.0921500669L97.3342458223,84.5848158989"/>
-<g transform="translate(107.85 63.84)"><text class="rel pinya_pinya">${_rel14_15}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="32_33_34" d="M147.744757029,39.8785024987L132.17946356,76.3821553112L107.53862974,108.306177038"/>
-<g transform="translate(129.15 74.86)"></g>
-<path class="rel pinya" pos_list="4" d="M2.44243298419,104.119229945"/>
-<g transform="translate(2.44 104.12)"></g>
-<path class="rel pinya_pinya" pos_list="17_18" d="M24.9186351688,126.306315023L-16.8453526647,125.1409797"/>
-<g transform="translate(4.04 125.72)"><text class="rel pinya_pinya">${_rel17_18}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="36_37_38" d="M42.1714732332,146.134944811L0.228834487277,152.060618987L-36.9594028496,146.793259776"/>
-<g transform="translate(1.81 148.33)"></g>
-<path class="rel pinya" pos_list="6" d="M-85.5573898834,50.1409507505"/>
-<g transform="translate(-85.56 50.14)"></g>
-<path class="rel pinya_pinya" pos_list="20_21" d="M-91.3590453351,83.9010358385L-117.186358913,46.6143910874"/>
-<g transform="translate(-104.27 65.26)"><text class="rel pinya_pinya">${_rel20_21}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="40_41_42" d="M-101.892054701,109.30023916L-127.19146215,78.412829126L-143.06614828,39.7660828809"/>
-<g transform="translate(-124.05 75.83)"></g>
-<path class="rel pinya" pos_list="8" d="M-84.5574543298,-49.1473388781"/>
-<g transform="translate(-84.56 -49.15)"></g>
-<path class="rel pinya_pinya" pos_list="23_24" d="M-116.04144762,-38.3886466879L-92.9770128392,-75.8224157394"/>
-<g transform="translate(-104.51 -57.11)"><text class="rel pinya_pinya">${_rel23_24}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="44_45_46" d="M-144.860155034,-34.8389456022L-127.899414156,-72.5787693274L-105.114342788,-102.748021499"/>
-<g transform="translate(-125.96 -70.06)"></g>
-<path class="rel pinya" pos_list="10" d="M2.04667371047,-95.6815133824"/>
-<g transform="translate(2.05 -95.68)"></g>
-<path class="rel pinya_pinya" pos_list="26_27" d="M-16.9766338043,-120.008299799L23.9545963511,-122.671342608"/>
-<g transform="translate(3.49 -121.34)"><text class="rel pinya_pinya">${_rel26_27}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="48_49_50" d="M-34.6773619446,-140.394127424L3.08596913641,-147.974253746L43.5918486677,-140.101682744"/>
-<g transform="translate(4.0 -142.82)"></g>
-<path class="rel pinya" pos_list="12" d="M90.5450153416,-47.9773261326"/>
-<g transform="translate(90.55 -47.98)"></g>
-<path class="rel pinya_pinya" pos_list="29_30" d="M98.1647413588,-76.8389552381L118.935823113,-41.9112581458"/>
-<g transform="translate(108.55 -59.38)"><text class="rel pinya_pinya">${_rel29_30}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="52_53_54" d="M110.64714407,-101.948793533L131.601681015,-74.8487956331L148.700555757,-35.5444526071"/>
-<g transform="translate(130.32 -70.78)"></g>
-<path class="rel baix_crossa" pos_list="55_56" d="M40.2098177636,0.336817945932L43.3768457771,34.8706284839"/>
-<g transform="translate(41.79 17.6)"><text class="rel baix_crossa">${_rel55_56}</text></g>
-<path class="rel baix_crossa" pos_list="55_57" d="M44.5684322715,2.45265095467L41.0090004394,-25.739177265"/>
-<g transform="translate(42.79 -11.64)"><text class="rel baix_crossa">${_rel55_57}</text></g>
-<path class="rel baix_crossa" pos_list="62_63" d="M-18.8710244609,37.2961551201L-41.4295169747,23.1885482799"/>
-<g transform="translate(-30.15 30.24)"><text class="rel baix_crossa">${_rel62_63}</text></g>
-<path class="rel baix_crossa" pos_list="62_64" d="M-15.9013638883,35.3639779783L8.80556566899,52.7949910796"/>
-<g transform="translate(-3.55 44.08)"><text class="rel baix_crossa">${_rel62_64}</text></g>
-<path class="rel baix_crossa" pos_list="69_70" d="M-17.095197566,-32.0202012425L6.16199500193,-49.0929246685"/>
-<g transform="translate(-5.47 -40.56)"><text class="rel baix_crossa">${_rel69_70}</text></g>
-<path class="rel baix_crossa" pos_list="69_71" d="M-17.5211232021,-32.4342695331L-41.4776716658,-18.4143273202"/>
-<g transform="translate(-29.5 -25.42)"><text class="rel baix_crossa">${_rel69_71}</text></g>
-<path class="rel baix_agulla" pos_list="55_59" d="M40.0723362043,4.27262161726L23.2709743248,1.52419925068"/>
-<g transform="translate(31.67 2.9)"><text class="rel baix_agulla">${_rel55_59}</text></g>
-<path class="rel baix_agulla" pos_list="62_66" d="M-17.1765611185,37.193986219L-9.73158588195,21.7739977058"/>
-<g transform="translate(-13.45 29.48)"><text class="rel baix_agulla">${_rel62_66}</text></g>
-<path class="rel baix_agulla" pos_list="69_73" d="M-17.6921044667,-32.0159704588L-9.72535485062,-16.9442882286"/>
-<g transform="translate(-13.71 -24.48)"><text class="rel baix_agulla">${_rel69_73}</text></g>
-<path class="rel baix_contrafort" pos_list="55_58" d="M41.233208648,1.5033065305L63.3303167693,4.64504174885"/>
-<g transform="translate(52.28 3.07)"><text class="rel baix_contrafort">${_rel55_58}</text></g>
-<path class="rel baix_contrafort" pos_list="62_65" d="M-19.8062246228,34.6516216551L-27.8793017976,54.1290352226"/>
-<g transform="translate(-23.84 44.39)"><text class="rel baix_contrafort">${_rel62_65}</text></g>
-<path class="rel baix_contrafort" pos_list="69_72" d="M-16.8289116133,-33.9525881478L-25.1131889948,-49.2437655889"/>
-<g transform="translate(-20.97 -41.6)"><text class="rel baix_contrafort">${_rel69_72}</text></g>
-<path class="rel ma_baix_segon" pos_list="1_55_79" d="M104.980367096,0.854123963317L42.9004433016,4.23005301991L188.629311103,1.00764791392"/>
-<g transform="translate(112.17 2.03)"></g>
-<path class="rel ma_baix_segon" pos_list="5_62_80" d="M-48.9917869196,90.2640969187L-15.2176866711,37.2535312312L-90.7552467313,163.528013052"/>
-<g transform="translate(-51.65 97.02)"></g>
-<path class="rel ma_baix_segon" pos_list="9_69_81" d="M-48.8032897436,-85.4152896526L-19.8243416638,-33.9566929423L-90.4378726723,-162.185607523"/>
-<g transform="translate(-53.02 -93.85)"></g>
-<path class="rel vent_baix_segon" pos_list="3_55_79" d="M54.4565202271,91.317645705L42.5196244089,0.715639573334L188.44576272,0.636063191461"/>
-<g transform="translate(95.14 30.89)"></g>
-<path class="rel vent_baix_segon" pos_list="11_55_79" d="M54.1285277661,-85.1123813176L42.6354157173,0.588034029128L190.6701315,4.95804808465"/>
-<g transform="translate(95.81 -26.52)"></g>
-<path class="rel vent_baix_segon" pos_list="7_62_80" d="M-95.16000231,1.61234974824L-15.943435185,34.9009809649L-91.9078977454,164.452775532"/>
-<g transform="translate(-67.67 66.99)"></g>
-<path class="rel vent_baix_segon" pos_list="3_62_80" d="M53.2401802331,86.8020906691L-17.6045719479,39.1833971234L-93.6390830727,164.215049226"/>
-<g transform="translate(-19.33 96.73)"></g>
-<path class="rel vent_baix_segon" pos_list="11_69_81" d="M54.6038196971,-82.9339299292L-16.4834988119,-29.8919231704L-88.7732305281,-161.744308237"/>
-<g transform="translate(-16.88 -91.52)"></g>
-<path class="rel vent_baix_segon" pos_list="7_69_81" d="M-96.8733873036,3.06975927568L-15.1002067507,-33.5830649411L-91.5491571491,-161.654829213"/>
-<g transform="translate(-67.84 -64.06)"></g>
-<path class="rel agulla_baix_segon" pos_list="59_55_79" d="M22.9147171462,2.70748468909L40.5666014762,1.9834682268L190.845138769,3.77623026915"/>
-<g transform="translate(84.78 2.82)"></g>
-<path class="rel agulla_baix_segon" pos_list="66_62_80" d="M-6.15982141661,20.8294519965L-16.875961671,35.2424527093L-91.1658176519,162.503863465"/>
-<g transform="translate(-38.07 72.86)"></g>
-<path class="rel agulla_baix_segon" pos_list="73_69_81" d="M-7.52491083612,-16.5228417964L-18.8221754097,-29.6997108225L-91.3490407301,-158.453352712"/>
-<g transform="translate(-39.23 -68.23)"></g>
-<path class="rel baix_segon_baix_segon" pos_list="55_79_62_80" d="M42.2562670675,0.988168917473L189.822347158,1.74328401348L-15.867139623,35.5763482036L-89.3429069065,164.955149528"/>
-<g transform="translate(31.72 50.82)"></g>
-<path class="rel baix_segon_baix_segon" pos_list="62_80_69_81" d="M-17.1811220469,36.5737503425L-90.4222212145,166.740834443L-15.7914683509,-33.4032380364L-90.2921422691,-161.929823218"/>
-<g transform="translate(-53.42 2.0)"></g>
-<path class="rel baix_segon_baix_segon" pos_list="69_81_55_79" d="M-19.947974437,-29.8716512571L-91.4733583492,-161.371677616L40.2135585506,3.5364366539L190.332071058,0.787613030894"/>
-<g transform="translate(29.78 -46.73)"></g>
-<path class="rel lateral_baix_segon" pos_list="60_55_79" d="M71.7008960268,25.8274927234L43.7960894453,1.53959165825L189.717057416,3.45248142185"/>
-<g transform="translate(101.74 10.27)"></g>
-<path class="rel lateral_baix_segon" pos_list="61_55_79" d="M71.8227530727,-21.9544853239L43.9735467833,1.60959782391L190.040272211,1.76685529866"/>
-<g transform="translate(101.95 -6.19)"></g>
-<path class="rel lateral_baix_segon" pos_list="67_62_80" d="M-52.0609414788,51.0745528793L-18.4639347108,35.3703455682L-89.8865822027,163.67336196"/>
-<g transform="translate(-53.47 83.37)"></g>
-<path class="rel lateral_baix_segon" pos_list="68_62_80" d="M-12.4882182316,73.5597863711L-16.3584278997,36.0285382204L-89.1989910593,165.101340721"/>
-<g transform="translate(-39.35 91.56)"></g>
-<path class="rel lateral_baix_segon" pos_list="74_69_81" d="M-11.1417151381,-70.0061061451L-19.4661477543,-32.9196088794L-93.0557901977,-157.742380798"/>
-<g transform="translate(-41.22 -86.89)"></g>
-<path class="rel lateral_baix_segon" pos_list="75_69_81" d="M-53.3912965473,-43.6111332346L-15.5496417688,-34.190848799L-93.3479719982,-157.658942366"/>
-<g transform="translate(-54.1 -78.49)"></g>
+<path class="rel ma_ma" pos_list="13_1" d="M126.168315225,4.32632412476L103.910675806,1.18298934018"/>
+<g transform="translate(115.04 2.75)"><text class="rel ma_ma">${_rel13_1}</text></g>
+<path class="rel ma_ma" pos_list="31_13" d="M153.482279432,4.35600633996L128.236972213,2.36559382332"/>
+<g transform="translate(140.86 3.36)"><text class="rel ma_ma">${_rel31_13}</text></g>
+<path class="rel vent_vent" pos_list="16_3" d="M65.7544630649,56.878409875L51.0372394012,46.9441234844"/>
+<g transform="translate(58.4 51.91)"><text class="rel vent_vent">${_rel16_3}</text></g>
+<path class="rel vent_vent" pos_list="35_16" d="M78.6167917346,69.5806590518L66.818546371,55.4452702497"/>
+<g transform="translate(72.72 62.51)"><text class="rel vent_vent">${_rel35_16}</text></g>
+<path class="rel ma_ma" pos_list="19_5" d="M-59.6672627747,56.2782623642L-48.8761807018,43.914014225"/>
+<g transform="translate(-54.27 50.1)"><text class="rel ma_ma">${_rel19_5}</text></g>
+<path class="rel ma_ma" pos_list="39_19" d="M-70.8922239586,66.2360339274L-61.906631583,54.6890015766"/>
+<g transform="translate(-66.4 60.46)"><text class="rel ma_ma">${_rel39_19}</text></g>
+<path class="rel vent_vent" pos_list="22_7" d="M-123.260110301,2.96625444176L-95.8718335651,2.98392001472"/>
+<g transform="translate(-109.57 2.98)"><text class="rel vent_vent">${_rel22_7}</text></g>
+<path class="rel vent_vent" pos_list="43_22" d="M-146.932943426,1.49814245398L-123.871834373,2.17097984264"/>
+<g transform="translate(-135.4 1.83)"><text class="rel vent_vent">${_rel43_22}</text></g>
+<path class="rel ma_ma" pos_list="25_9" d="M-59.263237801,-50.0550594106L-45.706840486,-42.2780302011"/>
+<g transform="translate(-52.49 -46.17)"><text class="rel ma_ma">${_rel25_9}</text></g>
+<path class="rel ma_ma" pos_list="47_25" d="M-71.5456059642,-62.2801705289L-59.4987834936,-51.6267854225"/>
+<g transform="translate(-65.52 -56.95)"><text class="rel ma_ma">${_rel47_25}</text></g>
+<path class="rel vent_vent" pos_list="28_11" d="M65.2056068157,-49.323623412L50.9415300212,-40.4671985778"/>
+<g transform="translate(58.07 -44.9)"><text class="rel vent_vent">${_rel28_11}</text></g>
+<path class="rel vent_vent" pos_list="51_28" d="M77.6756618569,-62.2836216922L65.4345835949,-53.5624274264"/>
+<g transform="translate(71.56 -57.92)"><text class="rel vent_vent">${_rel51_28}</text></g>
+<path class="rel pinya_pinya" pos_list="14_2" d="M121.604230423,22.6953909548L89.0471325218,25.9448286492"/>
+<g transform="translate(105.33 24.32)"><text class="rel pinya_pinya">${_rel14_2}</text></g>
+<path class="rel pinya_pinya" pos_list="15_2" d="M100.458684181,43.5293096594L89.8221633331,27.5714858602"/>
+<g transform="translate(95.14 35.55)"><text class="rel pinya_pinya">${_rel15_2}</text></g>
+<path class="rel pinya_pinya" pos_list="32_14" d="M145.709701834,20.6218420605L119.001543427,24.7928039829"/>
+<g transform="translate(132.36 22.71)"><text class="rel pinya_pinya">${_rel32_14}</text></g>
+<path class="rel pinya_pinya" pos_list="33_14" d="M132.299263963,40.2409750698L121.501204284,25.641185002"/>
+<g transform="translate(126.9 32.94)"><text class="rel pinya_pinya">${_rel33_14}</text></g>
+<path class="rel pinya_pinya" pos_list="33_15" d="M132.369533929,41.1689914591L99.0161693753,42.2590092927"/>
+<g transform="translate(115.69 41.71)"><text class="rel pinya_pinya">${_rel33_15}</text></g>
+<path class="rel pinya_pinya" pos_list="34_15" d="M111.012811137,56.3796191907L99.2581797876,42.6335926571"/>
+<g transform="translate(105.14 49.51)"><text class="rel pinya_pinya">${_rel34_15}</text></g>
+<path class="rel pinya_pinya" pos_list="17_4" d="M25.2413240247,62.5365635979L0.330447328052,54.5142023603"/>
+<g transform="translate(12.79 58.53)"><text class="rel pinya_pinya">${_rel17_4}</text></g>
+<path class="rel pinya_pinya" pos_list="18_4" d="M-21.5010332766,62.0711285869L2.48669300843,53.856150441"/>
+<g transform="translate(-9.51 57.96)"><text class="rel pinya_pinya">${_rel18_4}</text></g>
+<path class="rel pinya_pinya" pos_list="36_17" d="M41.181435057,73.6067504432L23.5955131808,65.7374036645"/>
+<g transform="translate(32.39 69.67)"><text class="rel pinya_pinya">${_rel36_17}</text></g>
+<path class="rel pinya_pinya" pos_list="37_17" d="M2.10444523167,78.7489041009L24.6896609584,62.2133840246"/>
+<g transform="translate(13.4 70.48)"><text class="rel pinya_pinya">${_rel37_17}</text></g>
+<path class="rel pinya_pinya" pos_list="37_18" d="M1.35204726308,75.1387420422L-19.229315777,61.8496123494"/>
+<g transform="translate(-8.94 68.49)"><text class="rel pinya_pinya">${_rel37_18}</text></g>
+<path class="rel pinya_pinya" pos_list="38_18" d="M-38.3972131741,74.1182027498L-17.3322781092,62.2161399661"/>
+<g transform="translate(-27.86 68.17)"><text class="rel pinya_pinya">${_rel38_18}</text></g>
+<path class="rel pinya_pinya" pos_list="20_6" d="M-90.928152828,42.3825746482L-82.0048303052,25.8910024861"/>
+<g transform="translate(-86.47 34.14)"><text class="rel pinya_pinya">${_rel20_6}</text></g>
+<path class="rel pinya_pinya" pos_list="21_6" d="M-114.490113753,24.9449140793L-84.495444771,25.6945993324"/>
+<g transform="translate(-99.49 25.32)"><text class="rel pinya_pinya">${_rel21_6}</text></g>
+<path class="rel pinya_pinya" pos_list="40_20" d="M-102.221055267,56.2962203933L-95.4550821897,41.8313310228"/>
+<g transform="translate(-98.84 49.06)"><text class="rel pinya_pinya">${_rel40_20}</text></g>
+<path class="rel pinya_pinya" pos_list="41_20" d="M-128.887178741,40.6920753393L-92.2391737408,42.2154339101"/>
+<g transform="translate(-110.56 41.45)"><text class="rel pinya_pinya">${_rel41_20}</text></g>
+<path class="rel pinya_pinya" pos_list="41_21" d="M-129.100902295,37.8154578781L-115.978335494,21.7884174763"/>
+<g transform="translate(-122.54 29.8)"><text class="rel pinya_pinya">${_rel41_21}</text></g>
+<path class="rel pinya_pinya" pos_list="42_21" d="M-144.81761336,20.1068973938L-117.156523493,21.9057840073"/>
+<g transform="translate(-130.99 21.01)"><text class="rel pinya_pinya">${_rel42_21}</text></g>
+<path class="rel pinya_pinya" pos_list="23_8" d="M-113.291200743,-19.5856085943L-82.5670345581,-23.2812249794"/>
+<g transform="translate(-97.93 -21.43)"><text class="rel pinya_pinya">${_rel23_8}</text></g>
+<path class="rel pinya_pinya" pos_list="24_8" d="M-93.9237739001,-37.1109925878L-81.6726450554,-23.1127703984"/>
+<g transform="translate(-87.8 -30.11)"><text class="rel pinya_pinya">${_rel24_8}</text></g>
+<path class="rel pinya_pinya" pos_list="44_23" d="M-141.981908865,-18.2973573893L-115.676420961,-20.1996066069"/>
+<g transform="translate(-128.83 -19.25)"><text class="rel pinya_pinya">${_rel44_23}</text></g>
+<path class="rel pinya_pinya" pos_list="45_23" d="M-129.111662719,-37.2857592061L-114.831115193,-18.0472574372"/>
+<g transform="translate(-121.97 -27.67)"><text class="rel pinya_pinya">${_rel45_23}</text></g>
+<path class="rel pinya_pinya" pos_list="45_24" d="M-129.233580848,-37.3901135735L-91.3609271547,-38.9309770692"/>
+<g transform="translate(-110.3 -38.16)"><text class="rel pinya_pinya">${_rel45_24}</text></g>
+<path class="rel pinya_pinya" pos_list="46_24" d="M-105.190156823,-51.9943799514L-94.6145280359,-37.0088175981"/>
+<g transform="translate(-99.9 -44.5)"><text class="rel pinya_pinya">${_rel46_24}</text></g>
+<path class="rel pinya_pinya" pos_list="26_10" d="M-21.3965417126,-60.850186314L2.02551473674,-45.9882497165"/>
+<g transform="translate(-9.69 -53.42)"><text class="rel pinya_pinya">${_rel26_10}</text></g>
+<path class="rel pinya_pinya" pos_list="27_10" d="M23.1474359525,-58.3970767828L4.46745310446,-49.5085669479"/>
+<g transform="translate(13.81 -53.95)"><text class="rel pinya_pinya">${_rel27_10}</text></g>
+<path class="rel pinya_pinya" pos_list="48_26" d="M-34.6179526762,-70.9834332305L-20.0222005971,-60.3209275417"/>
+<g transform="translate(-27.32 -65.65)"><text class="rel pinya_pinya">${_rel48_26}</text></g>
+<path class="rel pinya_pinya" pos_list="49_26" d="M4.76768002642,-71.2573134135L-17.6470777737,-60.855824721"/>
+<g transform="translate(-6.44 -66.06)"><text class="rel pinya_pinya">${_rel49_26}</text></g>
+<path class="rel pinya_pinya" pos_list="49_27" d="M0.408149297759,-71.0039372657L22.0826292268,-61.1399211684"/>
+<g transform="translate(11.25 -66.07)"><text class="rel pinya_pinya">${_rel49_27}</text></g>
+<path class="rel pinya_pinya" pos_list="50_27" d="M41.7426519815,-68.4454801641L25.1784474758,-57.9242321888"/>
+<g transform="translate(33.46 -63.18)"><text class="rel pinya_pinya">${_rel50_27}</text></g>
+<path class="rel pinya_pinya" pos_list="29_12" d="M96.4756963475,-38.0968966888L89.1758517892,-21.5638053606"/>
+<g transform="translate(92.83 -29.83)"><text class="rel pinya_pinya">${_rel29_12}</text></g>
+<path class="rel pinya_pinya" pos_list="30_12" d="M117.489329403,-19.8530586179L89.8511463654,-22.2915480745"/>
+<g transform="translate(103.67 -21.07)"><text class="rel pinya_pinya">${_rel30_12}</text></g>
+<path class="rel pinya_pinya" pos_list="52_29" d="M110.222763067,-52.6245701156L96.661834807,-38.2038743673"/>
+<g transform="translate(103.44 -45.41)"><text class="rel pinya_pinya">${_rel52_29}</text></g>
+<path class="rel pinya_pinya" pos_list="53_29" d="M131.934024368,-34.5537893064L100.42273952,-38.9329362706"/>
+<g transform="translate(116.18 -36.74)"><text class="rel pinya_pinya">${_rel53_29}</text></g>
+<path class="rel pinya_pinya" pos_list="53_30" d="M133.273222134,-34.1509695833L118.709344362,-16.4223343783"/>
+<g transform="translate(125.99 -25.29)"><text class="rel pinya_pinya">${_rel53_30}</text></g>
+<path class="rel pinya_pinya" pos_list="54_30" d="M148.9332917,-15.3131923612L120.148715587,-18.7320762403"/>
+<g transform="translate(134.54 -17.02)"><text class="rel pinya_pinya">${_rel54_30}</text></g>
+<path class="rel pinya" pos_list="2" d="M89.1167819287,29.933579707"/>
+<g transform="translate(89.12 29.93)"></g>
+<path class="rel pinya_pinya" pos_list="14_15" d="M118.458431754,22.140000763L98.8867571255,44.6363549388"/>
+<g transform="translate(108.67 33.39)"><text class="rel pinya_pinya">${_rel14_15}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="32_33_34" d="M148.288039894,19.630004055L132.311181014,39.1206824389L108.50000062,57.0261771577"/>
+<g transform="translate(129.7 38.59)"></g>
+<path class="rel pinya" pos_list="4" d="M0.618399049143,51.4251813331"/>
+<g transform="translate(0.62 51.43)"></g>
+<path class="rel pinya_pinya" pos_list="17_18" d="M25.6295931088,65.2964859023L-17.4728031043,61.66516012"/>
+<g transform="translate(4.08 63.48)"><text class="rel pinya_pinya">${_rel17_18}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="36_37_38" d="M39.6384979031,73.8288433536L4.75968066925,75.2797918148L-37.0504250517,74.3675480632"/>
+<g transform="translate(2.45 74.49)"></g>
+<path class="rel pinya" pos_list="6" d="M-82.1716263506,26.9006412526"/>
+<g transform="translate(-82.17 26.9)"></g>
+<path class="rel pinya_pinya" pos_list="20_21" d="M-90.8595080832,42.2496675603L-116.164220987,24.1949314566"/>
+<g transform="translate(-103.51 33.22)"><text class="rel pinya_pinya">${_rel20_21}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="40_41_42" d="M-105.546522441,54.7773525482L-129.159507119,39.4464066951L-142.721599113,21.9483405207"/>
+<g transform="translate(-125.81 38.72)"></g>
+<path class="rel pinya" pos_list="8" d="M-84.01450814,-21.5924907408"/>
+<g transform="translate(-84.01 -21.59)"></g>
+<path class="rel pinya_pinya" pos_list="23_24" d="M-116.120128659,-18.1794562741L-95.4110122217,-39.1002183448"/>
+<g transform="translate(-105.77 -28.64)"><text class="rel pinya_pinya">${_rel23_24}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="44_45_46" d="M-141.434892362,-14.5586214809L-126.770358729,-34.2955844498L-104.412622279,-49.1943856205"/>
+<g transform="translate(-124.21 -32.68)"></g>
+<path class="rel pinya" pos_list="10" d="M2.34213741592,-45.2735329648"/>
+<g transform="translate(2.34 -45.27)"></g>
+<path class="rel pinya_pinya" pos_list="26_27" d="M-18.275931556,-57.0185509476L25.1165014519,-58.7652850666"/>
+<g transform="translate(3.42 -57.89)"><text class="rel pinya_pinya">${_rel26_27}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="48_49_50" d="M-38.0584514458,-69.8813362095L4.99181217731,-73.8089498068L39.2924860993,-70.5338030097"/>
+<g transform="translate(2.08 -71.41)"></g>
+<path class="rel pinya" pos_list="12" d="M91.5379424086,-22.2236410745"/>
+<g transform="translate(91.54 -22.22)"></g>
+<path class="rel pinya_pinya" pos_list="29_30" d="M98.7546794851,-37.90097769L122.167288129,-20.7452770983"/>
+<g transform="translate(110.46 -29.32)"><text class="rel pinya_pinya">${_rel29_30}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="52_53_54" d="M107.909326096,-51.2776048833L131.570472102,-33.6507548341L147.565150933,-18.6989226009"/>
+<g transform="translate(129.01 -34.54)"></g>
+<path class="rel baix_crossa" pos_list="55_56" d="M40.5049992104,2.62690506772L41.630418161,18.9529980355"/>
+<g transform="translate(41.07 10.79)"><text class="rel baix_crossa">${_rel55_56}</text></g>
+<path class="rel baix_crossa" pos_list="55_57" d="M41.928652117,4.20985577676L40.9735736116,-13.6318290154"/>
+<g transform="translate(41.45 -4.71)"><text class="rel baix_crossa">${_rel55_57}</text></g>
+<path class="rel baix_crossa" pos_list="62_63" d="M-16.0112963456,18.6637456848L-30.4242343352,13.443546346"/>
+<g transform="translate(-23.22 16.05)"><text class="rel baix_crossa">${_rel62_63}</text></g>
+<path class="rel baix_crossa" pos_list="62_64" d="M-18.2916480204,17.8950435558L-5.6794137492,28.9225814234"/>
+<g transform="translate(-11.99 23.41)"><text class="rel baix_crossa">${_rel62_64}</text></g>
+<path class="rel baix_crossa" pos_list="69_70" d="M-18.2488902953,-14.3562625641L-2.90151881934,-21.9373249173"/>
+<g transform="translate(-10.58 -18.15)"><text class="rel baix_crossa">${_rel69_70}</text></g>
+<path class="rel baix_crossa" pos_list="69_71" d="M-16.0859425095,-15.2149117669L-29.8260724249,-5.0415181345"/>
+<g transform="translate(-22.96 -10.13)"><text class="rel baix_crossa">${_rel69_71}</text></g>
+<path class="rel baix_agulla" pos_list="55_59" d="M43.4098531962,2.84348971335L23.1102323616,4.45162899816"/>
+<g transform="translate(33.26 3.65)"><text class="rel baix_agulla">${_rel55_59}</text></g>
+<path class="rel baix_agulla" pos_list="62_66" d="M-16.8094535109,19.4287963299L-7.71814283953,3.4560843079"/>
+<g transform="translate(-12.26 11.44)"><text class="rel baix_agulla">${_rel62_66}</text></g>
+<path class="rel baix_agulla" pos_list="69_73" d="M-18.7323656443,-14.7823776811L-6.33673284735,4.19332450537"/>
+<g transform="translate(-12.53 -5.29)"><text class="rel baix_agulla">${_rel69_73}</text></g>
+<path class="rel baix_contrafort" pos_list="55_58" d="M43.4465065398,3.71915414258L61.1100695249,4.21662418225"/>
+<g transform="translate(52.28 3.97)"><text class="rel baix_contrafort">${_rel55_58}</text></g>
+<path class="rel baix_contrafort" pos_list="62_65" d="M-17.7782781702,19.9457168881L-27.88536059,37.0263609792"/>
+<g transform="translate(-22.83 28.49)"><text class="rel baix_contrafort">${_rel62_65}</text></g>
+<path class="rel baix_contrafort" pos_list="69_72" d="M-19.4420476872,-13.6913545793L-27.8457338481,-30.3149768546"/>
+<g transform="translate(-23.64 -22.0)"><text class="rel baix_contrafort">${_rel69_72}</text></g>
+<path class="rel ma_baix_segon" pos_list="1_55_79" d="M104.532178612,2.10770404884L40.7963546711,0.217747458253L190.706631576,2.79521823552"/>
+<g transform="translate(112.01 1.71)"></g>
+<path class="rel ma_baix_segon" pos_list="5_62_80" d="M-48.8848507268,44.2162557209L-16.6997403812,19.1042197611L-91.7352879894,81.9835913221"/>
+<g transform="translate(-52.44 48.43)"></g>
+<path class="rel ma_baix_segon" pos_list="9_69_81" d="M-49.2819133737,-42.4099343875L-15.2526263594,-12.492463948L-92.8967953879,-80.9494308591"/>
+<g transform="translate(-52.48 -45.28)"></g>
+<path class="rel vent_baix_segon" pos_list="3_55_79" d="M50.423940336,46.5907355159L42.5394241149,1.00569020197L191.919161579,4.13161351797"/>
+<g transform="translate(94.96 17.24)"></g>
+<path class="rel vent_baix_segon" pos_list="11_55_79" d="M53.7204715112,-39.6135810301L44.627378727,1.97030618745L192.284712108,1.96926046376"/>
+<g transform="translate(96.88 -11.89)"></g>
+<path class="rel vent_baix_segon" pos_list="7_62_80" d="M-97.2585848138,4.35448929173L-15.0580129044,18.6421035072L-93.3399718851,84.0658480941"/>
+<g transform="translate(-68.55 35.69)"></g>
+<path class="rel vent_baix_segon" pos_list="3_62_80" d="M53.5387568061,47.7682722129L-16.7760019716,17.4035519063L-92.3469389421,85.1675404024"/>
+<g transform="translate(-18.53 50.11)"></g>
+<path class="rel vent_baix_segon" pos_list="11_69_81" d="M51.2027863525,-42.8023747627L-16.6208960793,-13.3840062238L-92.0493152624,-80.6928299574"/>
+<g transform="translate(-19.16 -45.63)"></g>
+<path class="rel vent_baix_segon" pos_list="7_69_81" d="M-99.1774647445,3.6088774268L-18.7750517738,-16.6684848713L-90.4504398017,-80.3428994244"/>
+<g transform="translate(-69.47 -31.13)"></g>
+<path class="rel agulla_baix_segon" pos_list="59_55_79" d="M24.1409438602,3.18156821342L42.9824115923,0.571829097589L191.984639489,1.58993420492"/>
+<g transform="translate(86.37 1.78)"></g>
+<path class="rel agulla_baix_segon" pos_list="66_62_80" d="M-7.64212990556,3.55650197241L-15.4735588274,21.0282519099L-89.8871943271,85.1647752048"/>
+<g transform="translate(-37.67 36.58)"></g>
+<path class="rel agulla_baix_segon" pos_list="73_69_81" d="M-5.93206431529,1.24129780833L-19.8241955191,-12.5995623721L-92.806100386,-78.2450149736"/>
+<g transform="translate(-39.52 -29.87)"></g>
+<path class="rel baix_segon_baix_segon" pos_list="55_79_62_80" d="M42.7314387658,1.7550209169L191.827776067,4.04834174329L-18.4951885497,19.9785296578L-90.7645361912,84.2532976957"/>
+<g transform="translate(31.32 27.51)"></g>
+<path class="rel baix_segon_baix_segon" pos_list="62_80_69_81" d="M-15.3666269359,17.9442413182L-89.7746200293,82.0335670507L-17.7933888312,-16.0409964291L-92.9511018769,-78.6189768128"/>
+<g transform="translate(-53.97 1.33)"></g>
+<path class="rel baix_segon_baix_segon" pos_list="69_81_55_79" d="M-15.6734722792,-16.5672367417L-91.6381038722,-77.7438470969L42.7290532167,2.17970698005L189.156009612,0.609654640105"/>
+<g transform="translate(31.14 -22.88)"></g>
+<path class="rel lateral_baix_segon" pos_list="60_55_79" d="M72.7358804533,13.2698167951L40.8360887689,1.5343791725L187.862131656,1.71831810253"/>
+<g transform="translate(100.48 5.51)"></g>
+<path class="rel lateral_baix_segon" pos_list="61_55_79" d="M73.4990873727,-11.9014898199L40.5299464546,3.85360447738L187.770801015,1.07551275164"/>
+<g transform="translate(100.6 -2.32)"></g>
+<path class="rel lateral_baix_segon" pos_list="67_62_80" d="M-43.9983149485,41.338680615L-18.0608287638,19.2553415699L-90.2155315736,82.4938407816"/>
+<g transform="translate(-50.76 47.7)"></g>
+<path class="rel lateral_baix_segon" pos_list="68_62_80" d="M-19.8358020768,52.6481941966L-18.3237375181,17.7719756354L-92.257713798,84.0715722434"/>
+<g transform="translate(-43.47 51.5)"></g>
+<path class="rel lateral_baix_segon" pos_list="74_69_81" d="M-23.5197082546,-47.2879903082L-15.2906585991,-14.7978761204L-90.735719455,-77.4116099359"/>
+<g transform="translate(-43.18 -46.5)"></g>
+<path class="rel lateral_baix_segon" pos_list="75_69_81" d="M-45.4795988495,-34.0068106549L-19.0602630495,-12.8784957736L-90.187721353,-76.661603799"/>
+<g transform="translate(-51.58 -41.18)"></g>
 </g>
 </svg>

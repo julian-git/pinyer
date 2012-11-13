@@ -31,6 +31,9 @@ pos_types = ('crossa', 'baix', 'contrafort', 'vent', 'ma', 'agulla', 'portacross
 # Print log information?
 DoLogging = False
 
+# Print debug information?
+Debug = False
+
 # Data defining the relations between positions 
 
 # the tolerance in height between successive mans, vents, and pinya,
