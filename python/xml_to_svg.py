@@ -65,9 +65,9 @@ def bbox(coos):
         if coo[0] > xmax:
             xmax = coo[0]
         if coo[1] < ymin:
-            ymin = coo[0]
+            ymin = coo[1]
         if coo[1] > ymax:
-            ymax = coo[0]
+            ymax = coo[1]
     return dict([('x', xmin), ('y', ymin), ('w', xmax-xmin), ('h', ymax-ymin)])
 
 def handleTitle(titles, svg):
