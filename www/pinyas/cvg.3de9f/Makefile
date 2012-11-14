@@ -6,7 +6,7 @@ all: pinya.solved.svg
 pinya.solved.svg: pinya.complete.lp pinya.svg $(PYTHONDIR)/solve_ip.py 
 	python $(PYTHONDIR)/solve_ip.py
 
-pinya.svg: pinya.xml $(PYTHONDIR)/xml_to_svg.py $(SQLDIR)/database-entries.up-to-date
+pinya.svg: pinya.xml $(PYTHONDIR)/xml_to_svg.py $(PYTHONDIR)/util/transforms.py $(SQLDIR)/database-entries.up-to-date
 	python $(PYTHONDIR)/xml_to_svg.py
 
 pinya.complete.lp: pinya.lp $(PYTHONDIR)/complete_lp.py

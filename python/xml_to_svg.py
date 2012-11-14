@@ -15,7 +15,7 @@ cids=() #11,77) # print debug info for these
 
 def xml_to_svg(xmlfilename):
     svg = []
-    xml_to_svg_impl(xmlfilename, svg)
+    svg = xml_to_svg_impl(xmlfilename, svg)
     return '\n'.join(svg)
 
 
@@ -38,12 +38,37 @@ def xml_to_svg_impl(xmlfilename, svg):
 
 def handleXML(xml, svg):
     coos = dict()
-    svg = printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'), svg)
     svg = handleTitle(xml.getElementsByTagName('title')[0], svg)
     [coos, svg] = handlePositions(xml.getElementsByTagName('positions')[0], coos, svg)
+    bb = bbox(coos)
     svg = handleRelations(xml.getElementsByTagName('relations')[0], coos, svg)
-    svg.append('</svg>')
-    return svg
+    bb['x'] -= 80
+    bb['y'] -= 40
+    bb['w'] += 160
+    bb['h'] += 80
+    xml.setAttribute('viewBox', ','.join([str(bb[arg]) for arg in ['x', 'y', 'w', 'h']]))
+    svg_tmp = []
+    svg_tmp = printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'), svg_tmp)
+    for i in svg:
+        svg_tmp.append(i)
+    svg_tmp.append('</svg>')
+    return svg_tmp
+
+def bbox(coos):
+    xmin = 100000000
+    xmax = -100000000
+    ymin = 100000000
+    ymax = -100000000
+    for coo in coos.values():
+        if coo[0] < xmin:
+            xmin = coo[0]
+        if coo[0] > xmax:
+            xmax = coo[0]
+        if coo[1] < ymin:
+            ymin = coo[0]
+        if coo[1] > ymax:
+            ymax = coo[0]
+    return dict([('x', xmin), ('y', ymin), ('w', xmax-xmin), ('h', ymax-ymin)])
 
 def handleTitle(titles, svg):
     return svg
