@@ -9,7 +9,6 @@ import sys
 sys.path.append(RootDir + 'python/util/')
 from transforms import extract_transform, make_transform, apply_transform, view_mapping
 
-role_of = dict()
 
 cids=() #11,77) # print debug info for these
 
@@ -31,17 +30,32 @@ def printAttr(tag, elem, attr_list, svg):
 def xml_to_svg_impl(xmlfilename, svg):
     f = open(xmlfilename + '.xml', 'r')
     dom = xml.dom.minidom.parseString(f.read())
-    svg = handleXML(dom.documentElement, svg)
-    g = open(xmlfilename + '.roles', 'w')
-    pickle.dump(role_of, g)
+    role_of = dict()
+    rel_types = []
+    [svg, role_of, rel_types] = handleXML(dom.documentElement, svg, role_of, rel_types)
+    write_roles(xmlfilename, role_of)
+    write_rel_types(xmlfilename, rel_types)
     return svg
 
-def handleXML(xml, svg):
+def write_roles(xmlfilename, role_of):
+    aux = open(xmlfilename + '.roles', 'w')
+    pickle.dump(role_of, aux)
+
+
+def write_rel_types(xmlfilename, rel_types):
+    aux = open(xmlfilename + '.role_types', 'w')
+    aux.write('<role_types>')
+    for rel in sorted(set(rel_types)):
+        aux.write('<rel>' + rel + '</rel>')
+    aux.write('</role_types>')
+    
+
+def handleXML(xml, svg, role_of, rel_types):
     coos = dict()
     svg = handleTitle(xml.getElementsByTagName('title')[0], svg)
-    [coos, svg] = handlePositions(xml.getElementsByTagName('positions')[0], coos, svg)
+    [coos, svg, role_of] = handlePositions(xml.getElementsByTagName('positions')[0], coos, svg, role_of)
     bb = bbox(coos)
-    svg = handleRelations(xml.getElementsByTagName('relations')[0], coos, svg)
+    [svg, rel_types] = handleRelations(xml.getElementsByTagName('relations')[0], coos, svg, rel_types)
     bb['x'] -= 80
     bb['y'] -= 40
     bb['w'] += 160
@@ -52,7 +66,7 @@ def handleXML(xml, svg):
     for i in svg:
         svg_tmp.append(i)
     svg_tmp.append('</svg>')
-    return svg_tmp
+    return [svg_tmp, role_of, rel_types]
 
 def bbox(coos):
     xmin = 100000000
@@ -73,29 +87,29 @@ def bbox(coos):
 def handleTitle(titles, svg):
     return svg
 
-def handlePositions(positions, coos, svg):
+def handlePositions(positions, coos, svg, role_of):
     if Debug:
         print "handlePositions", coos
     svg.append('<g id="positions">')
     for child in positions.childNodes:
         if child.nodeName == 'position_group':
-            [coos, svg] = handlePositionGroup(child, coos, svg)
+            [coos, svg, role_of] = handlePositionGroup(child, coos, svg, role_of)
         elif child.nodeName == 'position':
-            [new_ids, coos, svg] = handlePosition(child, coos, svg)
+            [new_ids, coos, svg, role_of] = handlePosition(child, coos, svg, role_of)
 #            ids += new_ids
         if Debug:
             print "in handlePositions; coos now", coos
     svg.append('</g>')
-    return [coos, svg]
+    return [coos, svg, role_of]
 
-def handlePositionGroup(group, coos, svg):
+def handlePositionGroup(group, coos, svg, role_of):
     ids = []
     if Debug:
         print "handlePositionGroup", coos
     svg = printAttr('g', group, ('id', 'transform'), svg)
     for child in group.childNodes:
         if child.nodeName == 'position':
-            [new_ids, coos, svg] = handlePosition(child, coos, svg)
+            [new_ids, coos, svg, role_of] = handlePosition(child, coos, svg, role_of)
             ids += new_ids
     [translation, angle] = extract_transform(group.getAttribute('transform'))
     new_translation = view_mapping(translation)
@@ -108,9 +122,9 @@ def handlePositionGroup(group, coos, svg):
         if cid in ids:
             print 'posgroup', cid, 'result', coos[cid], translation, angle
     svg.append('</g>')
-    return [coos, svg]
+    return [coos, svg, role_of]
     
-def handlePosition(position, coos, svg):
+def handlePosition(position, coos, svg, role_of):
     ids = []
     if Debug:
         print "handlePosition", position.getAttribute('id'), coos
@@ -118,7 +132,7 @@ def handlePosition(position, coos, svg):
     new_translation = view_mapping(translation)
     position.setAttribute('transform', make_transform(new_translation, angle))
     svg = printAttr('g', position, ('id', 'transform'), svg)
-    extract_role(position)
+    role_of = extract_role(position, role_of)
     for child in position.childNodes:
         if child.nodeName == 'rect':
             [id, coos, svg] = handleRect(child, coos, svg)
@@ -136,7 +150,7 @@ def handlePosition(position, coos, svg):
         if cid in ids:
             print 'after handlePOsition', cid, coos[cid], translation, angle
     svg.append('</g>')
-    return [ids, coos, svg]
+    return [ids, coos, svg, role_of]
 
 def handleRect(rect, coos, svg):
     id = int(rect.getAttribute('id').split(numeric_splitter)[0])
@@ -173,21 +187,22 @@ def handleText(text, svg):
     svg.append('</text>')
     return svg
 
-def handleRelations(relations, coos, svg):
+def handleRelations(relations, coos, svg, rel_types):
     svg.append('<g id="relations">')
     for child in relations.childNodes:
         if child.nodeName == 'relation':
-            svg = handleRelation(child, coos, svg)
+            [svg, rel_types] = handleRelation(child, coos, svg, rel_types)
     svg.append('</g>')
-    return svg
+    return [svg, rel_types]
 
-def handleRelation(relation, coos, svg):
+def handleRelation(relation, coos, svg, rel_types):
     d = []
     rel_class = relation.getAttribute('role_list').replace(text_splitter, numeric_splitter)
     d.append('<path class="rel ' + rel_class + \
                  '" pos_list="' + \
                  relation.getAttribute('pos_list') + \
                  '" d="')
+    rel_types.append(rel_class)
     xtot = 0
     ytot = 0
     count = 0
@@ -213,10 +228,11 @@ def handleRelation(relation, coos, svg):
         d.append('<text class="rel ' + rel_class + '">${_rel' + pos_list + '}</text>')
     d.append('</g>')
     svg.append(''.join(d))
-    return svg
+    return [svg, rel_types]
 
-def extract_role(position):
+def extract_role(position, role_of):
     role_of[int(position.getAttribute('id'))] = str(position.getAttribute('role'))
+    return role_of
 
 def getText(nodelist):
     rc = []
