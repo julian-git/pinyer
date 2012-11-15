@@ -13,9 +13,12 @@
     }
   </style>
   <script>
+    errfunc = function(XMLHttpRequest, textStatus, errorThrown) {
+    console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest.responseText);
+    }
     $(function() {
     $.ajax({
-    url: "http://localhost/pinyer/info.py?what=get_pinya&castell_id_name=cvg.3de9f",
+    url: "http://localhost/pinyer/info.py?what=solved_pinya&castell_id_name=cvg.3de9f",
     dataType: 'text',
 
     success: function(data) {
@@ -25,9 +28,28 @@
       }).appendTo('#pinya_wrap');
     },
 
-    error: function(XMLHttpRequest, textStatus, errorThrown){
-    console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest.responseText);
-    }
+    error: errfunc
+    });
+    
+    $.ajax({
+    url: "http://localhost/pinyer/info.py?what=rel_types&castell_id_name=cvg.3de9f",
+    dataType: 'json',
+
+    success: function(rels) {
+      for (var i=0; i<rels.length; i++) {
+        var label_id = 'chk_' + rels[i];
+        $('<input/>', {
+           'type'   : 'checkbox',
+           'id'     : label_id
+        }).appendTo('#control_wrap');
+        $('<label/>', { 
+           'for'    : label_id,
+           'html'   : rels[i]
+        }).appendTo('#control_wrap');
+      }
+    },
+    
+    error: errfunc
     });
     });
 
@@ -35,12 +57,6 @@
 </head>
 <body>
   <div id="control_wrap">
-    <input type="checkbox" id="chk_pinya"/><label for="chk_pinya">pinya</label>
-    <input type="checkbox" id="chk_pinya_pinya"/><label for="chk_pinya_pinya">pinya_pinya</label>
-    <input type="checkbox"
-    id="chk_pinya_pinya_pinya"/><label for="chk_pinya_pinya_pinya">pinya_pinya_pinya</label>
-    <input type="checkbox" id="chk_baix_crossa"/><label for="chk_baix_crossa">pinya</label>
-
   </div>
   <div id="pinya_wrap">
   </div>

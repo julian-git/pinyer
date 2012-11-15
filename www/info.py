@@ -7,6 +7,7 @@ import sys
 import json 
 import zlib
 import httplib
+import pickle
 
 cgitb.enable()
 sys.path.append('../python')
@@ -46,7 +47,7 @@ if what=='get_colla':
     colla = db_nicknames_and_char(db, colla_id, char)
     print json.dumps(colla, separators=(',', ':'), ensure_ascii=False)
 
-elif what=='get_pinya':
+elif what=='solved_pinya':
     castell_id_name = form['castell_id_name'].value
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
     f = open(filename + '.solved.svg', 'r')
@@ -54,16 +55,25 @@ elif what=='get_pinya':
 
 elif what=='optimize_pinya':
     prescribed = dict()
-    castell_type_id = form["castell_type_id"].value
-    colla_id = 1
+    castell_id_name = form['castell_id_name'].value
 #
-    [castell_id_name, colla_id_name] = ['cvg.3de9f', 'cvg'] # for "real"
+    colla_id_name = 'cvg' # for "real"
 #
     solution = solve_castell(prescribed, castell_id_name, colla_id_name)
     positions = [[pos,c['nickname']] for [pos, c] in solution['positions'].iteritems()]
     relations = solution['relations']
     sol_dict = dict([('positions', positions), ('relations', relations)])
     print json.dumps(sol_dict, separators=(',', ':'), ensure_ascii=False)
+
+elif what=='rel_types':
+    castell_id_name = form['castell_id_name'].value
+#
+    colla_id_name = 'cvg' # for "real"
+#
+    filename =  RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya.rel_types' 
+    aux = open(filename, 'r')
+    rel_types = pickle.load(aux)
+    print json.dumps(rel_types, separators=(',', ':'), ensure_ascii=False)
 
 else:
     print "Unexpected argument: ", what
