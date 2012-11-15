@@ -49,10 +49,13 @@ path.pinya_pinya:hover { stroke: lightblue;}
 path.baix_crossa:hover { stroke: teal; }
 
 /* path.rel { display: none; } */
-text.rel { color: rgba(1,0,0,0.1); fill: rgba(1,0,0,0.1); }
+text.rel { color: rgb(1,0,0); fill: rgb(1,0,0); }
 text.rel:hover { color: rgba(1,0,0,1); fill: rgba(1,0,0,1); }
-path.rel { color: rgba(1,0,0,0.1); fill: rgba(0,1,0,0.1); }
+path.rel { color: rgb(1,0,0); fill: rgb(0,1,0); }
 path.rel:hover { color: rgba(1,0,0,1); }
+
+.rel.invisible { display: none }
+
 
 .vtext {
 -webkit-transform:rotate(-90deg);
