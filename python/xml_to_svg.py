@@ -33,22 +33,13 @@ def xml_to_svg_impl(xmlfilename, svg):
     role_of = dict()
     rel_types = []
     [svg, role_of, rel_types] = handleXML(dom.documentElement, svg, role_of, rel_types)
-    write_roles(xmlfilename, role_of)
-    write_rel_types(xmlfilename, rel_types)
+    write_data(xmlfilename, role_of, '.roles')
+    write_data(xmlfilename, sorted(set(rel_types)), '.rel_types')
     return svg
 
-def write_roles(xmlfilename, role_of):
-    aux = open(xmlfilename + '.roles', 'w')
-    pickle.dump(role_of, aux)
-
-
-def write_rel_types(xmlfilename, rel_types):
-    aux = open(xmlfilename + '.role_types', 'w')
-    aux.write('<role_types>')
-    for rel in sorted(set(rel_types)):
-        aux.write('<rel>' + rel + '</rel>')
-    aux.write('</role_types>')
-    
+def write_data(xmlfilename, data, extension):
+    aux = open(xmlfilename + extension, 'w')
+    pickle.dump(data, aux)
 
 def handleXML(xml, svg, role_of, rel_types):
     coos = dict()
