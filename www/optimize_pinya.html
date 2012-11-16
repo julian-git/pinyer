@@ -26,7 +26,7 @@
          'id'   : 'pinya',
          'html' : data
       }).appendTo('#pinya_wrap');
-      $(".rel").addClass(rel.invisible);
+      $(".rel").addClass("invisible");
     },
 
     error: errfunc
@@ -43,8 +43,9 @@
            'type'   : 'checkbox',
            'id'     : label_id,
            'html'   : rels[i]
-        }).appendTo('#control_wrap').click(function(){
-	   alert($(this).text())
+        }).appendTo('#control_wrap').click(function() {
+           alert(rels[i]);
+	   $("." + rels[i]).toggleClass("invisible");
         });
         $('<label/>', { 
            'for'    : label_id,
