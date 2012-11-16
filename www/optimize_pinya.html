@@ -26,7 +26,7 @@
          'id'   : 'pinya',
          'html' : data
       }).appendTo('#pinya_wrap');
-      $(".rel").addClass("invisible");
+      $("path.rel").addClass("invisible");
     },
 
     error: errfunc
@@ -44,11 +44,11 @@
            'id'     : label_id,
            'html'   : rels[i]
         }).appendTo('#control_wrap').click(function() {
-           alert(rels[i]);
-	   $("." + rels[i]).toggleClass("invisible");
+	   $('.' + $(this).text()).toggleClass("invisible");
         });
         $('<label/>', { 
            'for'    : label_id,
+           'class'  : rels[i],
            'html'   : rels[i]
         }).appendTo('#control_wrap');
       }
