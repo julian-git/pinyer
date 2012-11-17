@@ -6,7 +6,9 @@
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/pinyer.css">
   <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
+  <!--script src="js/jquery-ui.min.js"></script-->
+  <script type="text/javascript" src="js/jquery.svg/jquery.svg.js"></script>
+  <script type="text/javascript" src="js/jquery.svg/jquery.svgdom.js"></script>
   <style>
     cast {
     margin: 0px 0px 0px 0px; padding: 0px; width: 0px; height: 0px;
@@ -14,48 +16,49 @@
   </style>
   <script>
     errfunc = function(XMLHttpRequest, textStatus, errorThrown) {
-    console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest.responseText);
+      console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest);
     }
+    MakeRelationsInvisible = function(svg) {
+       $("path.rel", svg.root()).addClass("invisible");
+       $("text.rel", svg.root()).addClass("invisible");
+    }
+
     $(function() {
-    $.ajax({
-    url: "http://localhost/pinyer/info.py?what=solved_pinya&castell_id_name=cvg.3de9f",
-    dataType: 'text',
-
-    success: function(data) {
-      $('<p/>', {
-         'id'   : 'pinya',
-         'html' : data
-      }).appendTo('#pinya_wrap');
-      $("path.rel").addClass("invisible");
-    },
-
-    error: errfunc
+    $('#pinya_wrap').css('width', '20cm');
+    $('#pinya_wrap').css('height', '10cm');
+    $('#pinya_wrap').svg({
+      loadURL: "http://localhost/pinyer/info.py?what=solved_pinya&castell_id_name=cvg.3de9f",
+      onLoad: MakeRelationsInvisible
     });
-    
+
     $.ajax({
     url: "http://localhost/pinyer/info.py?what=rel_types&castell_id_name=cvg.3de9f",
     dataType: 'json',
 
     success: function(rels) {
+      var svg = $('#pinya_wrap').svg('get');
       for (var i=0; i<rels.length; i++) {
         var label_id = 'chk_' + rels[i];
-        $('<input/>', {
+        $('<input/>', document).attr({
            'type'   : 'checkbox',
-           'id'     : label_id,
-           'html'   : rels[i]
-        }).appendTo('#control_wrap').click(function() {
-	   $('.' + $(this).text()).toggleClass("invisible");
+           'id'     : label_id
+        })
+        .text(rels[i])
+        .appendTo('#control_wrap').click(function() {
+	   $('.' + $(this).text(), svg.root()).toggleClass("invisible");
         });
-        $('<label/>', { 
+        $('<label/>', document).attr({ 
            'for'    : label_id,
-           'class'  : rels[i],
-           'html'   : rels[i]
-        }).appendTo('#control_wrap');
+           'class'  : rels[i]
+        })
+        .text(rels[i])
+        .appendTo('#control_wrap');
       }
     },
     
     error: errfunc
     });
+    
     });
 
   </script>

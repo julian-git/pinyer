@@ -15,7 +15,7 @@ body = Template("""<body>
 """)
 
 xml_head = Template("""
-<xml xmlns="http://www.w3.org/2000/xml" xmlns:xlink="http://www.w3.org/1999/xlink"
+<xml xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
  viewBox="${_vx} ${_vy} ${_vw} ${_vh}"> 
 """)
 
