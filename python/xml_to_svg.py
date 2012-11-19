@@ -3,6 +3,7 @@ from local_config import RootDir, pinya_dir, \
     text_splitter, numeric_splitter, drawSketch, \
     Debug
 from random import random
+from string import replace
 import pickle
 
 import sys 
@@ -54,7 +55,7 @@ def handleXML(xml, svg, role_of, rel_types):
     xml.setAttribute('viewBox', ','.join([str(bb[arg]) for arg in ['x', 'y', 'w', 'h']]))
     svg_tmp = []
     svg_tmp = printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'), svg_tmp)
-    svg_tmp = svg_tmp.substitute('/xml', '/svg')
+    svg_tmp = [replace(svg_tmp[0], '/xml', '/svg')]
     for i in svg:
         svg_tmp.append(i)
     svg_tmp.append('</svg>')
