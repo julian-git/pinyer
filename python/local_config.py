@@ -19,6 +19,7 @@ if not UseCBC:
 # internal constants
 numeric_splitter = '_'
 text_splitter = '~'
+field_splitter = '|'
 
 # roles
 pos_types = ('crossa', 'baix', 'contrafort', 'vent', 'ma', 'agulla', 'portacrossa', 'pinya', 'lateral', 'segon')

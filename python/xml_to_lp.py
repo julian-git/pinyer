@@ -1,6 +1,6 @@
 import xml.dom.minidom
 from local_config import RootDir, pinya_dir, \
-    numeric_splitter, text_splitter, pos_types
+    numeric_splitter, text_splitter, field_splitter, pos_types
 import sys 
 sys.path.append(RootDir + 'python/util/')
 from db_interaction import get_db, castellers_of_type, db_avg_shoulder_width
@@ -30,14 +30,14 @@ def xml_to_lp(xmlfilename):
                           var_string, \
                          '\n'))]
 
-
 def xml_to_lp_impl(xmlfilename, ineqs, obj):
-    f = open(xmlfilename, 'r')
+    f = open(xmlfilename + '.xml', 'r')
     dom = xml.dom.minidom.parseString(f.read())
-    return handleXML(dom.documentElement, ineqs, obj)
+    frel = open(xmlfilename + '.rels', 'w')
+    return handleXML(dom.documentElement, ineqs, obj, frel)
 
 
-def handleXML(xml, ineqs, obj):
+def handleXML(xml, ineqs, obj, frel):
     castell_id_name = xml.getElementsByTagName('castell')[0].getAttribute('castell_id_name')
     colla_id_name = xml.getElementsByTagName('colla')[0].getAttribute('colla_id_name')
 
@@ -55,7 +55,7 @@ def handleXML(xml, ineqs, obj):
 
     for child in xml.getElementsByTagName('relations')[0].childNodes:
         if child.nodeName == 'relation':
-            [ineqs, obj] = handleRelation(child, cot, aux_data, ineqs, obj)
+            [ineqs, obj] = handleRelation(child, cot, aux_data, ineqs, obj, frel)
 
     [ineqs, vars] = IneqsOfPositions(db, cot, ineqs, pos_with_role)
     return [ineqs, obj, vars]
@@ -96,7 +96,7 @@ def extract_or_null(relation, field_name, convert_to_float=True):
     except ValueError:
         return None
 
-def handleRelation(relation, cot, aux_data, ineqs, obj):
+def handleRelation(relation, cot, aux_data, ineqs, obj, frel):
     field_names = [str(f) for f in relation.getAttribute('field_names').split(text_splitter)]
     pos_list = [int(p) for p in relation.getAttribute('pos_list').split(numeric_splitter)]
     role_list = [r for r in str(relation.getAttribute('role_list')).split(text_splitter)]
@@ -112,43 +112,37 @@ def handleRelation(relation, cot, aux_data, ineqs, obj):
     target_val = extract_or_null(relation, 'target_val')
     fresh_field = extract_or_null(relation, 'fresh_field', False)
 
+    if target_val is not None:
+        lo = target_val - min_tol
+        hi = target_val + max_tol
+        frel.write(field_splitter.join([\
+                    relation.getAttribute('field_names'), \
+                    relation.getAttribute('pos_list'), \
+                    relation.getAttribute('coeff_list'), \
+                        str(lo) + numeric_splitter + str(hi) \
+                        ]) + '\n')
+
     return relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_names, sense, rhs, target_val, min_tol, max_tol, fresh_field, aux_data, ineqs, obj)
 
 
-def write_relations(frel, ineqs):
-    last_rel = ''
-    bounds = []
-    for line in ineqs:
-        if line[0:4] == 'rel_':
-            new_rel = line[4:line.find(':')]
-            bounds.append(float(line[line.find('=')+2:-1]))
-            if new_rel == last_rel:
-                sbounds = sorted(bounds)
-                bounds = []
-                frel.write(new_rel + text_splitter + str(sbounds[0]) + \
-                               numeric_splitter + str(sbounds[1]) + '\n')
-                last_rel = ''
-            elif last_rel != '':
-                frel.write(last_rel + text_splitter + str(bounds[0]) + '\n')
-                last_rel = new_rel
-            else:
-                last_rel = new_rel
-    if last_rel != '':
-        frel.write(last_rel + text_splitter + str(sbounds[0]) + '\n')
-                
-        
-
+def write_relations(frel, rel_list):
+    for rel in rel_list:
+        print rel
+        lo = float(rel['target_val']) - float(rel['min_tol'])
+        hi = float(rel['target_val']) + float(rel['max_tol'])
+        frel.write(field_splitter.join([\
+                    text_splitter.join(rel['field_names']), \
+                        numeric_splitter.join([str(p) for p in rel['pos_list']]), \
+                        numeric_splitter.join([str(c) for c in rel['coeff_list']]),
+                    str(lo) + numeric_splitter + str(hi) \
+                    ]) + '\n')
 
 def write_lp(castell_id_name):
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
-    [ineqs, lp_string] = xml_to_lp(filename + '.xml')
+    [ineqs, lp_string] = xml_to_lp(filename)
 
     f = open(filename + '.lp', 'w')
     f.write(lp_string)
-
-    frel = open(filename + '.complete.rels', 'w')
-    write_relations(frel, ineqs)
-    
 
 
 if __name__=='__main__':

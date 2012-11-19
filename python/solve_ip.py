@@ -1,7 +1,7 @@
 from local_config import \
     RootDir, \
     UseCBC, DoLogging, DoSolve, \
-    numeric_splitter, text_splitter, \
+    numeric_splitter, text_splitter, field_splitter, \
     pinya_dir
 import sys 
 sys.path.append(RootDir + 'python/util/')
@@ -65,20 +65,14 @@ def read_solved_relations_from_file(filename):
     rels = []
     frel = open(filename + '.rels', 'r')
     for line in frel:
-        rel = line.split(text_splitter)
-        if len(rel) > 3: 
-            # there is more than one field 
-            # (the last entries are positions and bounds)
-            positions = rel[-2].split(numeric_splitter)
-            bounds = rel[-1].split(numeric_splitter)
-            bounds[-1] = bounds[-1][:-1] # get rid of trailing newline
-            rels.append([rel[:-2], positions, bounds])
+        rels.append(line.split(field_splitter))
+    print rels
     return rels
 
 def read_solved_relations(filename, sol):
     rels = read_solved_relations_from_file(filename)
     rel_vals = []
-    for [fields, positions, bounds] in rels:
+    for [fields, positions, coefficients, bounds] in rels: #Here
         for i in range(len(fields)):
             fp = int(positions[i])
             for j in range(i+1, len(fields)):
@@ -91,13 +85,13 @@ def solve_castell(castell_id_name, colla_id_name):
     if DoLogging:
         print 'solve_castell...'
         
-    filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya.complete'
+    filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
 
     if DoSolve:
         run_solver(filename)
         
     castellers = db_castellers(get_db(), colla_id_name)
-    positions = read_solved_positions(filename, castellers)
+    positions = read_solved_positions(filename + '.complete', castellers)
     relations = read_solved_relations(filename, positions)
     return [positions, relations] 
 
