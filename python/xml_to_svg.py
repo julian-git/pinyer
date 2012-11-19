@@ -32,22 +32,22 @@ def xml_to_svg_impl(xmlfilename, svg):
     f = open(xmlfilename + '.xml', 'r')
     dom = xml.dom.minidom.parseString(f.read())
     role_of = dict()
-    rel_types = []
-    [svg, role_of, rel_types] = handleXML(dom.documentElement, svg, role_of, rel_types)
+    rel_list = []
+    [svg, role_of, rel_list] = handleXML(dom.documentElement, svg, role_of, rel_list)
     write_data(xmlfilename, role_of, '.roles')
-    write_data(xmlfilename, sorted(set(rel_types)), '.rel_types')
+    write_data(xmlfilename, sorted(set([rel['role_list'] for rel in rel_list])), '.rel_types')
     return svg
 
 def write_data(xmlfilename, data, extension):
     aux = open(xmlfilename + extension, 'w')
     pickle.dump(data, aux)
 
-def handleXML(xml, svg, role_of, rel_types):
+def handleXML(xml, svg, role_of, rel_list):
     coos = dict()
     svg = handleTitle(xml.getElementsByTagName('title')[0], svg)
     [coos, svg, role_of] = handlePositions(xml.getElementsByTagName('positions')[0], coos, svg, role_of)
     bb = bbox(coos)
-    [svg, rel_types] = handleRelations(xml.getElementsByTagName('relations')[0], coos, svg, rel_types)
+    [svg, rel_list] = handleRelations(xml.getElementsByTagName('relations')[0], coos, svg, rel_list)
     bb['x'] -= 80
     bb['y'] -= 40
     bb['w'] += 160
@@ -59,7 +59,7 @@ def handleXML(xml, svg, role_of, rel_types):
     for i in svg:
         svg_tmp.append(i)
     svg_tmp.append('</svg>')
-    return [svg_tmp, role_of, rel_types]
+    return [svg_tmp, role_of, rel_list]
 
 def bbox(coos):
     xmin = 100000000
@@ -180,22 +180,21 @@ def handleText(text, svg):
     svg.append('</text>')
     return svg
 
-def handleRelations(relations, coos, svg, rel_types):
+def handleRelations(relations, coos, svg, rel_list):
     svg.append('<g id="relations">')
     for child in relations.childNodes:
         if child.nodeName == 'relation':
-            [svg, rel_types] = handleRelation(child, coos, svg, rel_types)
+            [svg, rel_list] = handleRelation(child, coos, svg, rel_list)
     svg.append('</g>')
-    return [svg, rel_types]
+    return [svg, rel_list]
 
-def handleRelation(relation, coos, svg, rel_types):
+def handleRelation(relation, coos, svg, rel_list):
     d = []
-    rel_class = relation.getAttribute('role_list').replace(text_splitter, numeric_splitter)
-    d.append('<path class="rel ' + rel_class + \
+    role_list = relation.getAttribute('role_list').replace(text_splitter, numeric_splitter)
+    d.append('<path class="rel ' + role_list + \
                  '" pos_list="' + \
                  relation.getAttribute('pos_list') + \
                  '" d="')
-    rel_types.append(rel_class)
     xtot = 0
     ytot = 0
     count = 0
@@ -217,10 +216,24 @@ def handleRelation(relation, coos, svg, rel_types):
     xtot = round(xtot/count, 2)
     ytot = round(ytot/count, 2)
     d.append('<g transform="translate(' + str(xtot) + ' ' + str(ytot) + ')">')
-    d.append('<text class="rel ' + rel_class + '">${_rel' + pos_list + '}</text>')
+    d.append('<text class="rel ' + role_list + '">${_rel' + pos_list + '}</text>')
     d.append('</g>')
     svg.append(''.join(d))
-    return [svg, rel_types]
+    coeff_list = relation.getAttribute('coeff_list')
+    field_names = relation.getAttribute('field_names')
+    target_val = relation.getAttribute('target_val')
+    min_tol = relation.getAttribute('min_tol')
+    max_tol = relation.getAttribute('max_tol')
+    rel_list.append(dict([\
+                ('role_list', role_list), \
+                    ('pos_list', pos_list), \
+                    ('coeff_list', coeff_list), \
+                    ('field_names', field_names), \
+                    ('target_val', target_val), \
+                    ('min_tol', min_tol), \
+                    ('max_tol', max_tol) \
+                    ]))
+    return [svg, rel_list]
 
 def extract_role(position, role_of):
     role_of[int(position.getAttribute('id'))] = str(position.getAttribute('role'))
