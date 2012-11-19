@@ -66,19 +66,19 @@ def read_solved_relations_from_file(filename):
     frel = open(filename + '.rels', 'r')
     for line in frel:
         rels.append(line.split(field_splitter))
-    print rels
     return rels
 
 def read_solved_relations(filename, sol):
     rels = read_solved_relations_from_file(filename)
     rel_vals = []
-    for [fields, positions, coefficients, bounds] in rels: #Here
-        for i in range(len(fields)):
-            fp = int(positions[i])
-            for j in range(i+1, len(fields)):
-                tp = int(positions[j])
-                rel_vals.append([str(fp) + '_' + str(tp), \
-                                     round(abs(sol[fp][fields[i]] - sol[tp][fields[j]]), 2)])
+    for [fields, positions, coeff, bounds] in rels: 
+        fs = fields.split(text_splitter)
+        ps = positions.split(numeric_splitter)
+        cs = coeff.split(numeric_splitter)
+        val = 0
+        for i in range(len(fs)):
+            val += float(cs[i]) * sol[int(ps[i])][fs[i]]
+        rel_vals.append([positions, round(val, 2)])
     return rel_vals
 
 def solve_castell(castell_id_name, colla_id_name):
