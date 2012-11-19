@@ -54,6 +54,7 @@ def handleXML(xml, svg, role_of, rel_types):
     xml.setAttribute('viewBox', ','.join([str(bb[arg]) for arg in ['x', 'y', 'w', 'h']]))
     svg_tmp = []
     svg_tmp = printAttr('svg', xml, ('xmlns', 'xmlns:xlink', 'viewBox'), svg_tmp)
+    svg_tmp = svg_tmp.substitute('/xml', '/svg')
     for i in svg:
         svg_tmp.append(i)
     svg_tmp.append('</svg>')
@@ -215,8 +216,7 @@ def handleRelation(relation, coos, svg, rel_types):
     xtot = round(xtot/count, 2)
     ytot = round(ytot/count, 2)
     d.append('<g transform="translate(' + str(xtot) + ' ' + str(ytot) + ')">')
-    if len(pos_list.split(numeric_splitter)) == 2:
-        d.append('<text class="rel ' + rel_class + '">${_rel' + pos_list + '}</text>')
+    d.append('<text class="rel ' + rel_class + '">${_rel' + pos_list + '}</text>')
     d.append('</g>')
     svg.append(''.join(d))
     return [svg, rel_types]

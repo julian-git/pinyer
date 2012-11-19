@@ -50,10 +50,10 @@ where casteller_colla.colla_id_name = %s"""
     for (id, nickname, shoulder_height, shoulder_width, axle_height, hip_height) in castellers:
         shdiff = 1.1 * (extreme_vals['shoulder_height'][1] - extreme_vals['shoulder_height'][0])
         swdiff = 1.1 * (extreme_vals['shoulder_width'][1] - extreme_vals['shoulder_width'][0])
-        sh = shoulder_height - shdiff
-        ah = axle_height - shdiff
-        hh = hip_height * sh / shoulder_height 
-        sw = shoulder_width - swdiff
+        sh = round(shoulder_height - shdiff, 2)
+        ah = round(axle_height - shdiff, 2)
+        hh = round(hip_height * sh / shoulder_height, 2)
+        sw = round(shoulder_width - swdiff, 2)
         svg = draw_casteller('cast_' + str(id), nickname, '${_class_' + str(id) + '}', \
                                  sh, sw, ah, hh)
         c.execute("update casteller set svg_rep=%s where id=%s", (svg, int(id),))

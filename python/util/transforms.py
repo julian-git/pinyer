@@ -26,4 +26,4 @@ def apply_transform(id, translation, angle, coos):
     return coos
 
 def view_mapping(translation):
-    return [translation[0], translation[1]/1.2]
+    return [translation[0], round(translation[1]/1.2, 2)]
