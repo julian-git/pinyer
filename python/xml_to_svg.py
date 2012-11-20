@@ -1,7 +1,7 @@
 import xml.dom.minidom
 from local_config import RootDir, pinya_dir, \
     text_splitter, numeric_splitter, drawSketch, \
-    Debug, PinyaWhiteUnderlay, RelationsWhiteUnderlay
+    Debug, PinyaWhiteUnderlay, RelationsWhiteUnderlay, RelationCurvature
 from random import random
 from string import replace
 import pickle
@@ -206,19 +206,27 @@ def handleRelation(relation, coos, svg, rel_list):
                  '" d="')
     xtot = 0
     ytot = 0
+    xcurr = 0
+    ycurr = 0
     count = 0
     pos_list = relation.getAttribute('pos_list')
     for pos in pos_list.split(numeric_splitter):
-        if count > 0:
-            d.append('L')
-        else:
-            d.append('M')
-        count = count + 1
-        x = coos[int(pos)][0] + 5 * random()
-        y = coos[int(pos)][1] + 5 * random()
+        x = coos[int(pos)][0] 
+        y = coos[int(pos)][1] 
         xtot += x
         ytot += y
+        if count == 0:
+            isFirst = False
+            xcurr = x
+            ycurr = y
+            d.append('M')
+        else:
+            [xctrl, yctrl] = control_point(xcurr, ycurr, x, y)
+            xcurr = x
+            ycurr = y
+            d.append('Q' + str(xctrl) + ',' + str(yctrl) + ' ')
         d.append(str(x) + ',' + str(y))
+        count = count + 1 
     d.append('"/>')
     svg.append(''.join(d))
     d = []
@@ -245,6 +253,12 @@ def handleRelation(relation, coos, svg, rel_list):
                     ('max_tol', max_tol) \
                     ]))
     return [svg, rel_list]
+
+def control_point(x0, y0, x1, y1):
+    xm = (x0+x1)/2.0
+    ym = (y0+y1)/2.0
+    return [round(xm + RelationCurvature*(y1-y0),2), \
+                round(ym - RelationCurvature*(x1-x0),2)]
 
 def extract_role(position, role_of):
     role_of[int(position.getAttribute('id'))] = str(position.getAttribute('role'))
