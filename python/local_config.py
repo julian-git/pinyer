@@ -62,7 +62,7 @@ floor_level = -60
 drawSketch = True
 
 # how much is the relation curve curved? 0 = nothing, positive = more curved
-RelationCurvature = .5
+RelationCurvature = .2
 
 # Underlay the names of the castellers in white? May take extra time to render
 PinyaWhiteUnderlay = False
