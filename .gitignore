@@ -23,6 +23,7 @@ www/test.html
 cvg/*
 sql/init-cvg.sql
 *stats
+*.zip
 
 # Packages
 *.egg
