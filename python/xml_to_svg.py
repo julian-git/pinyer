@@ -1,7 +1,7 @@
 import xml.dom.minidom
 from local_config import RootDir, pinya_dir, \
     text_splitter, numeric_splitter, drawSketch, \
-    Debug
+    Debug, PinyaWhiteUnderlay, RelationsWhiteUnderlay
 from random import random
 from string import replace
 import pickle
@@ -174,11 +174,20 @@ def handleLabel(label, svg):
     return svg
 
 def handleText(text, svg):
-    svg = printAttr('text', text, ('id', 'class', 'text-anchor'), svg)
-    label = getText(text.childNodes)
-    svg.append(label + ' ${_' + label + '} ${_c' + label + '}')
-    svg.append('</text>')
+    if PinyaWhiteUnderlay:
+        svg.append(writeText(text, 'whiteText'))
+    svg.append(writeText(text))
     return svg
+
+def writeText(text, extra_class = ''):
+    label = getText(text.childNodes)
+    return '<text id="' + text.getAttribute('id') + '" ' + \
+        'class="' + text.getAttribute('class') + ' ' + \
+        extra_class + '" ' + \
+        'text-anchor="' + text.getAttribute('text-anchor') + '" ' + \
+        'x="0" y="0">' + \
+        label + ' ${_' + label + '} ${_c' + label + '}' + \
+        '</text>'
 
 def handleRelations(relations, coos, svg, rel_list):
     svg.append('<g id="relations">')
@@ -216,7 +225,9 @@ def handleRelation(relation, coos, svg, rel_list):
     xtot = round(xtot/count, 2)
     ytot = round(ytot/count, 2)
     d.append('<g transform="translate(' + str(xtot) + ' ' + str(ytot) + ')">')
-    d.append('<text class="rel ' + role_list + '">${_rel' + pos_list + '}</text>')
+    if RelationsWhiteUnderlay:
+        d.append('<text class="rel whiteRelText ' + role_list + '" x="0" y="0">${_rel' + pos_list + '}</text>')
+    d.append('<text class="rel ' + role_list + '" x="0" y="0">${_rel' + pos_list + '}</text>')
     d.append('</g>')
     svg.append(''.join(d))
     coeff_list = relation.getAttribute('coeff_list')
