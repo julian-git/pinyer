@@ -55,7 +55,7 @@ path.vent_baix_segon { stroke: lightgreen; }
 path.vent_vent { stroke: lightgreen}
 
 /* path.rel { display: none; } */
-text.rel { color: rgb(1,0,0); fill: rgb(1,0,0); stroke-width: .2; }
+text.rel { color: rgb(1,0,0); fill: rgb(1,0,0); stroke-width: .2; text-shadow: 0px 0px 2px #7B7B80; }
 text.rel:hover { color: rgba(1,0,0,1); fill: rgba(1,0,0,1); }
 
 .invisible { display: none }
@@ -69,7 +69,9 @@ text.whiteRelText { stroke-width: 2; stroke: white; fill: white; }
 font-size: .28em;
 font-weight: bold;
 dominant-baseline: 'mathematical';
-display:block;}
+display:block;
+text-shadow: 20px 20px 3px #FF0000;
+}
 
 
 text:hover { fill: red;}
