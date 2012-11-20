@@ -36,3 +36,6 @@ pinya.xml: \
 	$(PYTHONDIR)/util/relations.py \
 	$(PYTHONDIR)/local_config.py
 	python $(PYTHONDIR)/create_3de9f.py
+
+clean:
+	rm *~

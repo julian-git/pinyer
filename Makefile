@@ -17,3 +17,4 @@ clean:
 	$(MAKE) -C python clean
 	$(MAKE) -C sql clean
 	$(MAKE) -C doc clean
+	$(MAKE) -C www/pinyas/cvg.3de9f clean

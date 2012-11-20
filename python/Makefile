@@ -1,4 +1,4 @@
 all: clean
 
 clean:
-	rm -f *# *~ gurobi.log solution.txt
+	rm -f *# *~ gurobi.log solution.txt *stats

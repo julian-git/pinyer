@@ -16,4 +16,4 @@ database-dummy-entries.up-to-date: pinyer_dummy_entries.sql
 	touch database-dummy-entries.up-to-date
 
 clean:
-	rm -f *~
+	rm -f *~ *#
