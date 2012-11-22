@@ -108,7 +108,7 @@ def do_opt():
     sol = dict()
     for i in positions.keys():
         casteller = positions[i]
-        sol['_' + str(i)] = casteller['nickname']
+        sol['_' + str(i)] = str(i) + '&#10;' + casteller['nickname']
         sol['_c' + str(i)] = str(casteller['shoulder_height']) 
         sol['_rep' + str(i)] = casteller['svg_rep']
         sol['_alt' + str(i) + '_text'] = casteller['alt_text']

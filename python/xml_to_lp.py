@@ -142,14 +142,19 @@ def build_ineq_rep(rs, ps, cs, fs, lo_hi):
     for i in range(len(rs)):
         role_ct[rs[i]] = role_ct[rs[i]] + 1
         multiplicity = ''
-        if role_ct[rs[i]] >= 2:
+        fcsi = float(cs[i])
+        if role_ct[rs[i]] >= 1:
             multiplicity = '_' + str(role_ct[rs[i]])
         if float(cs[i]) == 1:
-            pass
-        elif float(cs[i]) == -1:
+            if i>0:
+                ineq_rep.append('+')
+        elif fcsi == -1:
             ineq_rep.append('-')
         else:
-            ineq_rep.append(cs[i])
+            if fcsi < 0:
+                ineq_rep.append('- ' + str(-fcsi))
+            else:
+                ineq_rep.append(cs[i])
         
         ineq_rep.append(fs[i] + '[' + rs[i] + multiplicity + ']')
     ineq_rep.append('in [' + str(lo) + ', ' + str(hi) + ']')
