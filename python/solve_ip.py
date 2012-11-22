@@ -111,6 +111,7 @@ def do_opt():
         sol['_' + str(i)] = casteller['nickname']
         sol['_c' + str(i)] = str(casteller['shoulder_height']) 
         sol['_rep' + str(i)] = casteller['svg_rep']
+        sol['_alt' + str(i) + '_text'] = casteller['alt_text']
         sol['_class_' + str(casteller['id'])] = role_of[i]
     for pos, val in relations:
         sol['_rel' + pos] = str(val)

@@ -14,6 +14,7 @@ pinya.svg: \
 	$(PYTHONDIR)/xml_to_svg.py \
 	$(PYTHONDIR)/util/transforms.py \
 	$(PYTHONDIR)/util/xml_common.py \
+	$(PYTHONDIR)/util/db_interaction.py \
 	$(SQLDIR)/database-definition.up-to-date \
 	$(SQLDIR)/database-entries.up-to-date
 	python $(PYTHONDIR)/xml_to_svg.py

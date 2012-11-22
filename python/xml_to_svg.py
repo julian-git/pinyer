@@ -150,7 +150,7 @@ def handleRect(rect, coos, svg):
     if drawSketch:
         svg.append('<g id="' + str(id) + '_casteller" ' + \
                        'class="' + rect.getAttribute('class') + '" ' + \
-                       'transform="scale(.2 .2) rotate(-90)">')
+                       'transform="scale(.2 .2) rotate(-90)" ')
         svg.append('${_rep' + str(id) + '}')
         svg.append('</g>')
     else:
@@ -185,9 +185,11 @@ def writeText(text, extra_class = ''):
         'class="' + text.getAttribute('class') + ' ' + \
         extra_class + '" ' + \
         'text-anchor="' + text.getAttribute('text-anchor') + '" ' + \
-        'x="0" y="0">' + \
-        label + ' ${_' + label + '} ${_c' + label + '}' + \
+        'x="0" y="0" ' + \
+        'alt="${_alt' + text.getAttribute('id') + '}">' + \
+        '${_' + label + '}' + \
         '</text>'
+        #        label + ' ${_' + label + '} ${_c' + label + '}' + 
 
 def handleRelations(relations, coos, svg, rel_list):
     svg.append('<g id="relations">')
@@ -216,15 +218,12 @@ def handleRelation(relation, coos, svg, rel_list):
         xtot += x
         ytot += y
         if count == 0:
-            isFirst = False
-            xcurr = x
-            ycurr = y
             d.append('M')
         else:
             [xctrl, yctrl] = control_point(xcurr, ycurr, x, y)
-            xcurr = x
-            ycurr = y
             d.append('Q' + str(xctrl) + ',' + str(yctrl) + ' ')
+        xcurr = x
+        ycurr = y
         d.append(str(x) + ',' + str(y))
         count = count + 1 
     d.append('"/>')
