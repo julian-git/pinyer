@@ -13,7 +13,7 @@ pinya*.lp
 pinya*.sol
 pinya*.sol.1
 pinya*.roles
-pinya.*types
+pinya.ineq_reps
 pinya.solved.svg
 tests/index.html
 tests/test.py

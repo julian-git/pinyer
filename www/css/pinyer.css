@@ -61,6 +61,8 @@ text.rel:hover { color: rgba(1,0,0,1); fill: rgba(1,0,0,1); }
 .invisible { display: none }
 .whiteText { stroke-width: 2; stroke: white; fill: white; }
 text.whiteRelText { stroke-width: 2; stroke: white; fill: white; }
+.inequality { stroke-width: 2; stroke: red; fill: red; }
+
 
 .vtext {
 /*

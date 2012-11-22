@@ -39,23 +39,24 @@
       var svg = $('#pinya_wrap').svg('get');
       for (var rel in rels) {
         var label_id = 'chk_' + rel;
+        var disp_rel = rel.replace(/~/g, '_')
         $('<input/>', document).attr({
            'type'   : 'checkbox',
            'id'     : label_id
         })
-        .text(rel)
+        .text(disp_rel)
         .appendTo('#control_wrap').click(function() {
-	   $('.' + $(this).text(), svg.root()).toggleClass("invisible");
-/*	   $('.' + $(this).text(), document).toggleClass("invisible");*/
+	   $($(this).text(), svg.root()).addClass("invisible");
+	   $('.' + $(this).text()).toggleClass("invisible");
         });
         $('<label/>', document).attr({ 
            'for'    : label_id,
-           'class'  : 'lab' + rel
+           'class'  : 'lab_' + disp_rel
         })
-        .text(rel)
+        .text(disp_rel)
         .appendTo('#control_wrap');
         $('<div/>', document).attr({
-           'class': rel + "invisible inequality"
+           'class': disp_rel + " invisible inequality"
         })
         .text(rels[rel])
         .appendTo('#control_wrap');
@@ -71,9 +72,11 @@
   </script>
 </head>
 <body>
-  <div id="control_wrap" style="display:block; position:absolute">
-  </div>
-  <div id="pinya_wrap">
+  <div id="global_wrap" style="display:inline">
+    <div id="control_wrap" style="display:block; position:absolute">
+    </div>
+    <div id="pinya_wrap">
+    </div>
   </div>
 </body>
 </html>
