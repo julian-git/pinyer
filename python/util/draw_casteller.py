@@ -69,7 +69,7 @@ def alt_text(fields):
     a = []
     for (field, value) in fields.iteritems():
         a.append(field + '=' + str(value))
-    return ',\n'.join(a)
+    return ',&#10;'.join(a)  # line break
 
 if __name__ == "__main__":
     draw_castellers_to_db('cvg')

@@ -150,7 +150,7 @@ def handleRect(rect, coos, svg):
     if drawSketch:
         svg.append('<g id="' + str(id) + '_casteller" ' + \
                        'class="' + rect.getAttribute('class') + '" ' + \
-                       'transform="scale(.2 .2) rotate(-90)" ')
+                       'transform="scale(.2 .2) rotate(-90)">')
         svg.append('${_rep' + str(id) + '}')
         svg.append('</g>')
     else:
@@ -186,7 +186,7 @@ def writeText(text, extra_class = ''):
         extra_class + '" ' + \
         'text-anchor="' + text.getAttribute('text-anchor') + '" ' + \
         'x="0" y="0" ' + \
-        'alt="${_alt' + text.getAttribute('id') + '}">' + \
+        'title="${_alt' + text.getAttribute('id') + '}">' + \
         '${_' + label + '}' + \
         '</text>'
         #        label + ' ${_' + label + '} ${_c' + label + '}' + 
