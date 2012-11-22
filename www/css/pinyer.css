@@ -21,8 +21,8 @@ circle.design { stroke: green;}
 
 
 rect                { fill: lightblue; }
-rect.ma             { fill: purple;    }
-rect.vent           { fill: blue;      }
+rect.ma             { fill: #EF9BE7;    }
+rect.vent           { fill: #42A7F4;      }
 rect.crossa         { fill: yellow;    }
 rect.contrafort     { fill: orange;    }
 rect.baix           { fill: red;       }
@@ -38,12 +38,12 @@ path { stroke-width:2; fill: none; }
 /* path.rel { stroke: purple; } */
 
 path.rel { stroke: rgb(1,0,0);  }
-path.agulla_baix_segon { stroke: purple; }
-path.baix_agulla { stroke: purple; }
-path.baix_contrafort { stroke: purple; }
+path.agulla_baix_segon { stroke: #EF9BE7; }
+path.baix_agulla { stroke: #EF9BE7; }
+path.baix_contrafort { stroke: #EF9BE7; }
 path.baix_crossa { stroke: teal; }
-path.baix_segon_baix_segon { stroke: purple; }
-path.lateral_baix_segon { stroke: purple; }
+path.baix_segon_baix_segon { stroke: #EF9BE7; }
+path.lateral_baix_segon { stroke: #EF9BE7; }
 path.ma { stroke: seagreen}
 path.ma_baix_segon { stroke: seagreen; }
 path.ma_ma { stroke: seagreen}
@@ -66,11 +66,12 @@ text.whiteRelText { stroke-width: 2; stroke: white; fill: white; }
 -webkit-transform:rotate(-90deg);
 -moz-transform:rotate(-90deg);
 -o-transform: rotate(-90deg);
-font-size: .28em;
+font-size: .40em;
 font-weight: bold;
 dominant-baseline: 'mathematical';
 display:block;
 text-shadow: 20px 20px 3px #FF0000;
+fill: black;
 }
 
 
