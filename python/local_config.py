@@ -3,7 +3,7 @@ RootDir = '/home/julian/Documents/pinyer/'
 # The following variable determines whether or not to invoke the solver.
 # If set to False, the solution is read from the solution file,
 # which is supposed to exist.
-DoSolve = False
+DoSolve = True
 
 # Assuming DoSolve == True,
 # the following variable determines whether or not to use the open source

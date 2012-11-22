@@ -32,22 +32,20 @@ def xml_to_svg_impl(xmlfilename, svg):
     f = open(xmlfilename + '.xml', 'r')
     dom = xml.dom.minidom.parseString(f.read())
     role_of = dict()
-    rel_list = []
-    [svg, role_of, rel_list] = handleXML(dom.documentElement, svg, role_of, rel_list)
+    [svg, role_of] = handleXML(dom.documentElement, svg, role_of)
     write_data(xmlfilename, role_of, '.roles')
-#    write_data(xmlfilename, sorted(set([rel['role_list'] for rel in rel_list])), '.rel_types')
     return svg
 
 def write_data(xmlfilename, data, extension):
     aux = open(xmlfilename + extension, 'w')
     pickle.dump(data, aux)
 
-def handleXML(xml, svg, role_of, rel_list):
+def handleXML(xml, svg, role_of):
     coos = dict()
     svg = handleTitle(xml.getElementsByTagName('title')[0], svg)
     [coos, svg, role_of] = handlePositions(xml.getElementsByTagName('positions')[0], coos, svg, role_of)
     bb = bbox(coos)
-    [svg, rel_list] = handleRelations(xml.getElementsByTagName('relations')[0], coos, svg, rel_list)
+    svg = handleRelations(xml.getElementsByTagName('relations')[0], coos, svg)
     bb['x'] -= 80
     bb['y'] -= 40
     bb['w'] += 160
@@ -59,7 +57,7 @@ def handleXML(xml, svg, role_of, rel_list):
     for i in svg:
         svg_tmp.append(i)
     svg_tmp.append('</svg>')
-    return [svg_tmp, role_of, rel_list]
+    return [svg_tmp, role_of]
 
 def bbox(coos):
     xmin = 100000000
@@ -191,15 +189,15 @@ def writeText(text, extra_class = ''):
         '</text>'
         #        label + ' ${_' + label + '} ${_c' + label + '}' + 
 
-def handleRelations(relations, coos, svg, rel_list):
+def handleRelations(relations, coos, svg):
     svg.append('<g id="relations">')
     for child in relations.childNodes:
         if child.nodeName == 'relation':
-            [svg, rel_list] = handleRelation(child, coos, svg, rel_list)
+            svg = handleRelation(child, coos, svg)
     svg.append('</g>')
-    return [svg, rel_list]
+    return svg
 
-def handleRelation(relation, coos, svg, rel_list):
+def handleRelation(relation, coos, svg):
     d = []
     role_list = relation.getAttribute('role_list').replace(text_splitter, numeric_splitter)
     d.append('<path class="rel ' + role_list + \
@@ -237,21 +235,7 @@ def handleRelation(relation, coos, svg, rel_list):
     d.append('<text class="rel ' + role_list + '" x="0" y="0">${_rel' + pos_list + '}</text>')
     d.append('</g>')
     svg.append(''.join(d))
-    coeff_list = relation.getAttribute('coeff_list')
-    field_names = relation.getAttribute('field_names')
-    target_val = relation.getAttribute('target_val')
-    min_tol = relation.getAttribute('min_tol')
-    max_tol = relation.getAttribute('max_tol')
-    rel_list.append(dict([\
-                ('role_list', role_list), \
-                    ('pos_list', pos_list), \
-                    ('coeff_list', coeff_list), \
-                    ('field_names', field_names), \
-                    ('target_val', target_val), \
-                    ('min_tol', min_tol), \
-                    ('max_tol', max_tol) \
-                    ]))
-    return [svg, rel_list]
+    return svg
 
 def control_point(x0, y0, x1, y1):
     xm = (x0+x1)/2.0

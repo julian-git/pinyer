@@ -210,7 +210,7 @@ def segons_vent_relations(rd, position_in_ring, position_in_baix_group, position
 
 def segons_agulla_relations(rd, position_in_baix_group, position_in_segons, relations):
     rel0 = dict([ \
-            ('coeff_list', '0.75_-1_-1'), \
+            ('coeff_list', '0.9_-1_-1'), \
                 ('relation_type', 'sum_in_interval'), \
                 ('field_names', \
                      'stretched_height' + text_splitter + \
