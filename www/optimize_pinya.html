@@ -37,21 +37,27 @@
 
     success: function(rels) {
       var svg = $('#pinya_wrap').svg('get');
-      for (var i=0; i<rels.length; i++) {
-        var label_id = 'chk_' + rels[i];
+      for (var rel in rels) {
+        var label_id = 'chk_' + rel;
         $('<input/>', document).attr({
            'type'   : 'checkbox',
            'id'     : label_id
         })
-        .text(rels[i])
+        .text(rel)
         .appendTo('#control_wrap').click(function() {
 	   $('.' + $(this).text(), svg.root()).toggleClass("invisible");
+/*	   $('.' + $(this).text(), document).toggleClass("invisible");*/
         });
         $('<label/>', document).attr({ 
            'for'    : label_id,
-           'class'  : rels[i]
+           'class'  : 'lab' + rel
         })
-        .text(rels[i])
+        .text(rel)
+        .appendTo('#control_wrap');
+        $('<div/>', document).attr({
+           'class': rel + "invisible inequality"
+        })
+        .text(rels[rel])
         .appendTo('#control_wrap');
         $('<br/>').appendTo('#control_wrap');
       }

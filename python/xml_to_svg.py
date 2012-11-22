@@ -35,7 +35,7 @@ def xml_to_svg_impl(xmlfilename, svg):
     rel_list = []
     [svg, role_of, rel_list] = handleXML(dom.documentElement, svg, role_of, rel_list)
     write_data(xmlfilename, role_of, '.roles')
-    write_data(xmlfilename, sorted(set([rel['role_list'] for rel in rel_list])), '.rel_types')
+#    write_data(xmlfilename, sorted(set([rel['role_list'] for rel in rel_list])), '.rel_types')
     return svg
 
 def write_data(xmlfilename, data, extension):

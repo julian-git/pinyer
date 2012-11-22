@@ -70,10 +70,10 @@ elif what=='rel_types':
 #
     colla_id_name = 'cvg' # for "real"
 #
-    filename =  RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya.rel_types' 
-    aux = open(filename, 'r')
-    rel_types = pickle.load(aux)
-    print json.dumps(rel_types, separators=(',', ':'), ensure_ascii=False)
+    filename =  RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya' 
+    f2 = open(filename + '.ineq_reps', 'r')
+    ineq_reps = dict(pickle.load(f2))
+    print json.dumps(ineq_reps, separators=(',', ':'), ensure_ascii=False)
 
 else:
     print "Unexpected argument: ", what

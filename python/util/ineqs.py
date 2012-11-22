@@ -153,7 +153,7 @@ def relation_ineq(relation_type, cot, pos_list, role_list, coeff_list, field_nam
         for pos in pos_list:
             pos_ct = pos_ct + 1
             for c in cot[role_list[pos_ct]]:
-                coeff = coeff_list[pos_ct] * c[field_names[pos_ct]]
+                coeff = float(coeff_list[pos_ct]) * c[field_names[pos_ct]]
                 if coeff >= 0:
                     ineq_str += ' + '
                 ineq_str += stringify(coeff) + ' ' + var(c['id'], pos) + ' '

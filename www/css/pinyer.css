@@ -63,9 +63,11 @@ text.rel:hover { color: rgba(1,0,0,1); fill: rgba(1,0,0,1); }
 text.whiteRelText { stroke-width: 2; stroke: white; fill: white; }
 
 .vtext {
+/*
 -webkit-transform:rotate(-90deg);
 -moz-transform:rotate(-90deg);
 -o-transform: rotate(-90deg);
+*/
 font-size: .40em;
 font-weight: bold;
 dominant-baseline: 'mathematical';

@@ -71,14 +71,14 @@ def read_solved_relations_from_file(filename):
 def read_solved_relations(filename, sol):
     rels = read_solved_relations_from_file(filename)
     rel_vals = []
-    for [fields, positions, coeff, bounds] in rels: 
-        fs = fields.split(text_splitter)
-        ps = positions.split(numeric_splitter)
-        cs = coeff.split(numeric_splitter)
+    for [role_list, pos_list, coeff_list, field_names, bounds] in rels: 
+        fs = field_names.split(text_splitter)
+        ps = pos_list.split(numeric_splitter)
+        cs = coeff_list.split(numeric_splitter)
         val = 0
         for i in range(len(fs)):
             val += float(cs[i]) * sol[int(ps[i])][fs[i]]
-        rel_vals.append([positions, round(val, 2)])
+        rel_vals.append([pos_list, round(val, 2)])
     return rel_vals
 
 def solve_castell(castell_id_name, colla_id_name):
