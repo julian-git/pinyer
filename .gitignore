@@ -17,13 +17,21 @@ pinya.ineq_reps
 pinya.solved.svg
 tests/index.html
 tests/test.py
-www/js/jquery-ui-1.8.23/*
-www/js/css/ui-lightness/images/
 www/test.html
 cvg/*
 sql/init-cvg.sql
 *stats
 *.zip
+
+# external javascript libraries
+www/js/jquery-ui-1.8.23/*
+www/js/css/ui-lightness/images/
+www/js/jqGrid
+www/js/jqGrid-4.3.1/
+www/js/jquery-1.7.2-svg/
+www/js/jquery-1.8.1.min.js
+www/js/jquery.svg/
+
 
 # Packages
 *.egg
