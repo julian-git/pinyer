@@ -31,7 +31,7 @@ www/js/jqGrid-4.3.1/
 www/js/jquery-1.7.2-svg/
 www/js/jquery-1.8.1.min.js
 www/js/jquery.svg/
-
+www/js/css
 
 # Packages
 *.egg
