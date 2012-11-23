@@ -4,14 +4,15 @@ from db_interaction import get_db
 
 svg = ''
 
-def draw_casteller(xml_id, _class, shoulder_height, shoulder_width, axle_height, hip_height):
+def draw_casteller(xml_id, _class, shoulder_height, shoulder_width, axle_height, hip_height, scale):
     return draw_casteller_as_rect(xml_id, _class, \
-                                      shoulder_height, shoulder_width, axle_height, hip_height)
+                                      shoulder_height, shoulder_width, axle_height, hip_height, scale)
 
 def draw_casteller_as_rect(xml_id, _class, \
-                               shoulder_height, shoulder_width, axle_height, hip_height):
+                               shoulder_height, shoulder_width, axle_height, hip_height, scale):
     floor_level = -60
-    svg  = ''.join(['<rect id="', xml_id, '_body" class="', _class,  '" ', \
+    svg = '<g transform="translate(0,' + str(shoulder_height) + ') scale(' + str(scale) + ',' + str(scale) + ')">'
+    svg += ''.join(['<rect id="', xml_id, '_body" class="', _class,  '" ', \
                        'width="', str(shoulder_width), '" ', \
                        'height="', str(shoulder_height - hip_height), '" ', \
                        'x="', str(round(-shoulder_width/2, 2)), '" ',
@@ -26,6 +27,7 @@ def draw_casteller_as_rect(xml_id, _class, \
                        'height="', str(hip_height), '" ', \
                        'x="', str(round(shoulder_width/2 - shoulder_width/2.5, 2)), '" ', \
                        'y="', str(round(floor_level, 2)), '"/>'])
+    svg += '</g>'
     return svg
 
 
@@ -47,15 +49,15 @@ where casteller_colla.colla_id_name = %s"""
     cursor.execute('select ' + field_str + where_str, colla_id_name)
     castellers = cursor.fetchall()
     svg_arr = []
-    shdiff = 1.1 * (extreme_vals['shoulder_height'][1] - extreme_vals['shoulder_height'][0])
-    swdiff = 1.1 * (extreme_vals['shoulder_width'][1] - extreme_vals['shoulder_width'][0])
+    shdiff = .9 * extreme_vals['shoulder_height'][0]
+    swdiff = .9 * extreme_vals['shoulder_width'][0]
     for (id, nickname, shoulder_height, shoulder_width, axle_height, hip_height) in castellers:
         sh = round(shoulder_height - shdiff, 2)
         ah = round(axle_height - shdiff, 2)
         hh = round(hip_height * sh / shoulder_height, 2)
         sw = round(shoulder_width - swdiff, 2)
         svg = draw_casteller('cast_' + str(id), '${_class_' + str(id) + '}', \
-                                 sh, sw, ah, hh)
+                                 sh, sw, ah, hh, 3)
         fields = dict(zip(field_str.split(', '), \
                          (id, nickname, shoulder_height, shoulder_width, axle_height, hip_height)))
         cursor.execute("update casteller set svg_rep=%s, alt_text=%s where id=%s", \
