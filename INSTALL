@@ -19,8 +19,12 @@ and add the following lines
 to /etc/apache2/sites-available/default , and run 
 sudo /etc/init.d/apache2 restart
 
-This project uses Nicola Hibbert's liteAccordion code, which is included as a git submodule.
-Thus, after cloning the git repository for pinyer, you must issue the following commands:
-git submodule init
-git submodule update
-See http://git-scm.com/book/en/Git-Tools-Submodules for more information.
+You will need to install the following javascript libraries:
+www/js/jquery-ui-1.8.23/*
+www/js/css/ui-lightness/images/
+www/js/jqGrid
+www/js/jqGrid-4.3.1/
+www/js/jquery-1.7.2-svg/
+www/js/jquery-1.8.1.min.js
+www/js/jquery.svg/
+
