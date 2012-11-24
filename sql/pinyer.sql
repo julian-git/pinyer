@@ -47,6 +47,7 @@ create table casteller (
   is_present 	    bool default true,
   last_revision     timestamp default current_timestamp,
   primary key (id),
+  key(nickname),
   key(is_present)
 ) engine=InnoDB default character set utf8;
 

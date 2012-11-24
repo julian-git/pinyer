@@ -71,7 +71,18 @@
       url: "http://localhost/pinyer/info.py?what=casteller_presence&colla_id_name=cvg",
       dataType: 'json',
       success: function(castellers) {
-
+         var start_letter = '0'
+         alert(castellers)
+         for (var c in castellers) {
+            alert(c);
+            break;
+            if (c[0][0] != start_letter) {
+               start_letter = c[0][0]
+               $('<div/>').attr({
+                  'id': 'cast_' + start_letter
+               }).appendTo('#casteller_wrap');
+            }
+         }   
       },
       error: errfunc
     }); // ajax
