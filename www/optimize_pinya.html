@@ -66,7 +66,16 @@
     
     error: errfunc
     });
-    
+
+    $.ajax({
+      url: "http://localhost/pinyer/info.py?what=casteller_presence&colla_id_name=cvg",
+      dataType: 'json',
+      success: function(castellers) {
+
+      },
+      error: errfunc
+    }); // ajax
+
     });
 
   </script>
