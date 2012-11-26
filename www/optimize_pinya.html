@@ -68,28 +68,29 @@
     });
 
     $.ajax({
-      url: "http://localhost/pinyer/info.py?what=casteller_presence&colla_id_name=cvg",
+      url: "http://localhost/pinyer/info.py?what=absent_castellers&colla_id_name=cvg",
       dataType: 'json',
       success: function(jcastellers) {
          var castellers = jQuery.parseJSON(jcastellers)
          var start_letter = '0';
          for (var i=0; i<castellers.length; i++) {
             var c = castellers[i];
-            if (c[0][0] != start_letter) {
-               start_letter = c[0][0];
+            if (c[0] != start_letter) {
+               start_letter = c[0];
                $('<div/>').attr({
-                  'id': 'cast_' + start_letter
-               }).appendTo('#casteller_wrap');
+                  'id': 'abs_cast_' + start_letter
+               }).appendTo('#absent_casteller_wrap');
                $('<select/>').attr({
-                  'id': 'cast_sel_' + start_letter
-               }).appendTo('#cast_' + start_letter);
+                  'id': 'abs_cast_sel_' + start_letter
+               }).appendTo('#abs_cast_' + start_letter);
             }
          } 
          for (var i=0; i<castellers.length; i++) {
             var c = castellers[i];
             $('<option/>').attr({
-                 'id': c[0]
-            }).appendTo('#cast_sel' + c[0][0]);
+                 'id': c
+            }).text(c)
+            .appendTo('#abs_cast_sel_' + c[0]);
          }  
       },
       error: errfunc
@@ -105,7 +106,11 @@
     </div>
     <div id="pinya_wrap">
     </div>
-    <div id="casteller_wrap">
+    <div id="unused_casteller_wrap">
+      Unused castellers
+    </div>
+    <div id="absent_casteller_wrap">
+      Absent castellers
     </div>
   </div>
 </body>

@@ -16,7 +16,7 @@ from local_config import RootDir, pinya_dir
 sys.path.append(RootDir + 'python/util/')
 from build_html import solution_as_svg
 from solve_ip import solve_castell
-from db_interaction import get_db, db_nicknames_and_char, db_casteller_presence
+from db_interaction import get_db, db_nicknames_and_char, db_absent_castellers
 
 
 form = cgi.FieldStorage()
@@ -47,10 +47,10 @@ if what=='get_colla':
     colla = db_nicknames_and_char(db, colla_id_name, char)
     print json.dumps(colla, separators=(',', ':'), ensure_ascii=False)
 
-elif what=='casteller_presence':
+elif what=='absent_castellers':
     colla_id_name = form["colla_id_name"].value
-    castellers = db_casteller_presence(db, colla_id_name)
-    print json.dumps(castellers, separators=(',', ':'), ensure_ascii=False)    
+    absent_castellers = db_absent_castellers(db, colla_id_name)
+    print json.dumps(absent_castellers, separators=(',', ':'), ensure_ascii=False)    
 
 elif what=='solved_pinya':
     castell_id_name = form['castell_id_name'].value
