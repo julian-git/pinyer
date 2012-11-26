@@ -52,15 +52,15 @@ elif what=='absent_castellers':
     absent_castellers = db_casteller_presence(db, colla_id_name, 0)
     print json.dumps(absent_castellers, separators=(',', ':'), ensure_ascii=False)    
 
-elif what=='unused_castellers':
+elif what=='idle_castellers':
     colla_id_name = form["colla_id_name"].value
     castell_id_name = form["castell_id_name"].value
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
-    f = open(filename + '.used_castellers', 'r')
-    used_castellers = pickle.load(f)
+    f = open(filename + '.active_castellers', 'r')
+    active_castellers = pickle.load(f)
     present_castellers = db_casteller_presence(db, colla_id_name, 1)
-    unused_castellers = sorted(set(present_castellers) - set(used_castellers))
-    print json.dumps(unused_castellers, separators=(',', ':'), ensure_ascii=False)
+    idle_castellers = sorted(set(present_castellers) - set(active_castellers))
+    print json.dumps(idle_castellers, separators=(',', ':'), ensure_ascii=False)
 
 elif what=='solved_pinya':
     castell_id_name = form['castell_id_name'].value

@@ -95,9 +95,9 @@ def solve_castell(castell_id_name, colla_id_name):
         
     castellers = db_castellers(get_db(), colla_id_name)
     positions = read_solved_positions(filename, castellers)
-    f = open('pinya.used_castellers', 'w')
-    used_castellers = [c['nickname'] for [pos, c] in positions.iteritems()]
-    pickle.dump(used_castellers, f)
+    f = open('pinya.active_castellers', 'w')
+    active_castellers = [c['nickname'] for [pos, c] in positions.iteritems()]
+    pickle.dump(active_castellers, f)
 
     relations = read_solved_relations(filename, positions)
     return [positions, relations] 

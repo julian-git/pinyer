@@ -14,16 +14,23 @@
     margin: 0px 0px 0px 0px; padding: 0px; width: 0px; height: 0px;
     }
   </style>
-  <script>
+  <script type="text/javascript"> /* functions used below; may move to a minified library file */
     errfunc = function(XMLHttpRequest, textStatus, errorThrown) {
       console.log('An error "' + errorThrown + '", status "' + textStatus + '" occurred during loading data: ' + XMLHttpRequest);
     }
     MakeRelationsInvisible = function(svg) {
        $("path.rel", svg.root()).addClass("invisible");
        $("text.rel", svg.root()).addClass("invisible");
+       $("text.vtext", svg.root()).droppable({
+         drop: function(event, ui) {
+            $(this)
+             .addClass('ui-state-highlight')
+             .text($('#dragging_casteller').text());
+         }
+       });
     }
     DisplayCastellers = function(type) {
-      /* type in { 'absent', 'unused' } */
+      /* type in { 'absent', 'idle' } */
       $.ajax({
       url: "http://localhost/pinyer/info.py?what=" + type + "_castellers&colla_id_name=cvg&castell_id_name=cvg.3de9f",
       dataType: 'json',
@@ -49,20 +56,23 @@
                   'class': 'list_text_class'
             })
             .text(c)
-            .appendTo('#' + type + '_cast_sel_' + c[0]);
-/*
-           $('<div/>').attr({  
-                 'id': c + '_drag'
-           }).text('drag ' + c)
-           .appendTo('#' + c + '_option')
-           .draggable( { appendTo: '#global_wrap' } ) 
-*/
+            .appendTo('#' + type + '_cast_sel_' + c[0])
+            .click( function(e) {
+                 $('<div/>').attr({
+                    'id': 'dragging_casteller',
+                    'class': 'cast_draggable'
+                 }).text($(this).text())
+                 .appendTo('#dragging_casteller').draggable();
+		 $(this).remove();
+             });
          }  
       },
       error: errfunc
       }); // ajax
     }
+    </script>
 
+    <script type="text/javascript">
     $(function() {
     $('#pinya_wrap').css('width', '30cm');
     $('#pinya_wrap').css('height', '20cm');
@@ -74,7 +84,7 @@
     $.ajax({
     url: "http://localhost/pinyer/info.py?what=rel_types&castell_id_name=cvg.3de9f",
     dataType: 'json',
-
+    async: false,
     success: function(rels) {
       var svg = $('#pinya_wrap').svg('get');
       for (var rel in rels) {
@@ -108,7 +118,7 @@
     });
 
     DisplayCastellers('absent');
-    DisplayCastellers('unused');
+    DisplayCastellers('idle');
  
     });
 
@@ -120,8 +130,11 @@
     </div>
     <div id="pinya_wrap">
     </div>
-    <div id="unused_casteller_wrap">
-      Unused castellers
+    <div id="dragging_casteller" style="display:inline">
+      <div>Dragging casteller</div>
+    </div>
+    <div id="idle_casteller_wrap">
+      Idle castellers
     </div>
     <div id="absent_casteller_wrap">
       Absent castellers
