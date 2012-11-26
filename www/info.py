@@ -53,8 +53,11 @@ elif what=='absent_castellers':
     print json.dumps(absent_castellers, separators=(',', ':'), ensure_ascii=False)    
 
 elif what=='unused_castellers':
-    colla_id_name = form["colla_id_name"].value
-    
+    castell_id_name = form["castell_id_name"].value
+    filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
+    f = open(filename + '.solved_positions', 'r')
+    positions = pickle.load(f)
+    # here
 
 elif what=='solved_pinya':
     castell_id_name = form['castell_id_name'].value

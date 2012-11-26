@@ -50,7 +50,7 @@ def read_solved_positions(filename, castellers):
         base_index = 1  # for reading the solution file
     else:
         base_index = 0  # for reading the solution file
-    f = open(filename + '.sol', 'r')
+    f = open(filename + '.complete.sol', 'r')
     sol = dict()
     first_line = True
     for line in f:
@@ -94,7 +94,10 @@ def solve_castell(castell_id_name, colla_id_name):
         run_solver(filename)
         
     castellers = db_castellers(get_db(), colla_id_name)
-    positions = read_solved_positions(filename + '.complete', castellers)
+    positions = read_solved_positions(filename, castellers)
+    f = open('pinya.solved_positions', 'w')
+    pickle.dump(positions, f)
+
     relations = read_solved_relations(filename, positions)
     return [positions, relations] 
 
