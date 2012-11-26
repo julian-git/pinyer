@@ -70,12 +70,11 @@
     $.ajax({
       url: "http://localhost/pinyer/info.py?what=casteller_presence&colla_id_name=cvg",
       dataType: 'json',
-      success: function(castellers) {
+      success: function(jcastellers) {
+         var castellers = jQuery.parseJSON(jcastellers)
          var start_letter = '0'
-         alert(castellers)
-         for (var c in castellers) {
-            alert(c);
-            break;
+         for (var i=0; i<castellers.length; i++) {
+            var c = castellers[i]
             if (c[0][0] != start_letter) {
                start_letter = c[0][0]
                $('<div/>').attr({

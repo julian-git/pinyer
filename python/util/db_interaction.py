@@ -1,5 +1,6 @@
 from MySQLdb import connect
 from string import Template
+import json
 
 def get_db():
     return connect(user="pinyer", passwd="", db="pinyer")
@@ -43,7 +44,12 @@ where casteller_colla.colla_id_name = %s
 order by nickname
 """ 
     c.execute(stmt, (colla_id_name,))
-    return c.fetchall()
+    res = c.fetchall()
+    ans = []
+    for row in res: 
+        ans.append((row[0],row[1]))
+    return json.dumps(ans, separators=(',', ':'), ensure_ascii=False)
+
 
 def castellers_of_type(db, colla_id_name, role):
     c = db.cursor()
