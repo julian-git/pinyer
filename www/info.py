@@ -16,7 +16,7 @@ from local_config import RootDir, pinya_dir
 sys.path.append(RootDir + 'python/util/')
 from build_html import solution_as_svg
 from solve_ip import solve_castell
-from db_interaction import get_db, db_nicknames_and_char, db_absent_castellers
+from db_interaction import get_db, db_nicknames_and_char, db_casteller_presence
 
 
 form = cgi.FieldStorage()
@@ -49,15 +49,18 @@ if what=='get_colla':
 
 elif what=='absent_castellers':
     colla_id_name = form["colla_id_name"].value
-    absent_castellers = db_absent_castellers(db, colla_id_name)
+    absent_castellers = db_casteller_presence(db, colla_id_name, 0)
     print json.dumps(absent_castellers, separators=(',', ':'), ensure_ascii=False)    
 
 elif what=='unused_castellers':
+    colla_id_name = form["colla_id_name"].value
     castell_id_name = form["castell_id_name"].value
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'
-    f = open(filename + '.solved_positions', 'r')
-    positions = pickle.load(f)
-    # here
+    f = open(filename + '.used_castellers', 'r')
+    used_castellers = pickle.load(f)
+    present_castellers = db_casteller_presence(db, colla_id_name, 1)
+    unused_castellers = sorted(set(present_castellers) - set(used_castellers))
+    print json.dumps(unused_castellers, separators=(',', ':'), ensure_ascii=False)
 
 elif what=='solved_pinya':
     castell_id_name = form['castell_id_name'].value

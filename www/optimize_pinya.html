@@ -22,6 +22,37 @@
        $("path.rel", svg.root()).addClass("invisible");
        $("text.rel", svg.root()).addClass("invisible");
     }
+    DisplayCastellers = function(type) {
+      /* type in { 'absent', 'unused' } */
+      $.ajax({
+      url: "http://localhost/pinyer/info.py?what=" + type + "_castellers&colla_id_name=cvg&castell_id_name=cvg.3de9f",
+      dataType: 'json',
+      success: function(castellers) {
+/*         var castellers = jQuery.parseJSON(jcastellers)*/
+         var start_letter = '0';
+         for (var i=0; i<castellers.length; i++) {
+            var c = castellers[i];
+            if (c[0] != start_letter) {
+               start_letter = c[0];
+               $('<div/>').attr({
+                  'id': type + '_cast_' + start_letter
+               }).appendTo('#' + type + '_casteller_wrap');
+               $('<select/>').attr({
+                  'id': type + '_cast_sel_' + start_letter
+               }).appendTo('#' + type + '_cast_' + start_letter);
+            }
+         } 
+         for (var i=0; i<castellers.length; i++) {
+            var c = castellers[i];
+            $('<option/>').attr({
+                 'id': c
+            }).text(c)
+            .appendTo('#' + type + '_cast_sel_' + c[0]);
+         }  
+      },
+      error: errfunc
+      }); // ajax
+    }
 
     $(function() {
     $('#pinya_wrap').css('width', '30cm');
@@ -67,35 +98,9 @@
     error: errfunc
     });
 
-    $.ajax({
-      url: "http://localhost/pinyer/info.py?what=absent_castellers&colla_id_name=cvg",
-      dataType: 'json',
-      success: function(jcastellers) {
-         var castellers = jQuery.parseJSON(jcastellers)
-         var start_letter = '0';
-         for (var i=0; i<castellers.length; i++) {
-            var c = castellers[i];
-            if (c[0] != start_letter) {
-               start_letter = c[0];
-               $('<div/>').attr({
-                  'id': 'abs_cast_' + start_letter
-               }).appendTo('#absent_casteller_wrap');
-               $('<select/>').attr({
-                  'id': 'abs_cast_sel_' + start_letter
-               }).appendTo('#abs_cast_' + start_letter);
-            }
-         } 
-         for (var i=0; i<castellers.length; i++) {
-            var c = castellers[i];
-            $('<option/>').attr({
-                 'id': c
-            }).text(c)
-            .appendTo('#abs_cast_sel_' + c[0]);
-         }  
-      },
-      error: errfunc
-    }); // ajax
-
+    DisplayCastellers('absent');
+    DisplayCastellers('unused');
+ 
     });
 
   </script>

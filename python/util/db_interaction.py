@@ -34,21 +34,21 @@ where casteller_colla.colla_id_name = %s
         raise RuntimeError('No castellers found for colla_id_name=' + str(colla_id_name))
     return ans
 
-def db_absent_castellers(db, colla_id_name):
+def db_casteller_presence(db, colla_id_name, is_present):
     c = db.cursor()
     stmt = """
 select nickname
 from casteller
 left join casteller_colla on casteller_colla.casteller_id = casteller.id
-where casteller_colla.colla_id_name = %s and is_present = 0
+where casteller_colla.colla_id_name = %s and is_present = %s
 order by nickname
 """ 
-    c.execute(stmt, (colla_id_name,))
+    c.execute(stmt, (colla_id_name,is_present,))
     res = c.fetchall()
     ans = []
     for row in res: 
         ans.append(row[0])
-    return json.dumps(ans, separators=(',', ':'), ensure_ascii=False)
+    return ans
 
 
 def castellers_of_type(db, colla_id_name, role):
