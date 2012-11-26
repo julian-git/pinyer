@@ -52,6 +52,10 @@ elif what=='absent_castellers':
     absent_castellers = db_absent_castellers(db, colla_id_name)
     print json.dumps(absent_castellers, separators=(',', ':'), ensure_ascii=False)    
 
+elif what=='unused_castellers':
+    colla_id_name = form["colla_id_name"].value
+    
+
 elif what=='solved_pinya':
     castell_id_name = form['castell_id_name'].value
     filename = RootDir + '/www/' + pinya_dir + '/' + castell_id_name + '/pinya'

@@ -27,19 +27,22 @@ def backup_file(filename):
         pass
 
 def run_solver(filename):
+    lp_filename = filename + '.complete.lp'
+    sol_filename = filename + '.complete.sol'
+    log_filename = filename + '.complete.log'
     if UseCBC:
-        args = ['cbc', '-import', filename + '.lp', '-solve', '-solu', filename + '.sol', '-quit']
+        args = ['cbc', '-import', lp_filename, '-solve', '-solu', sol_filename, '-quit']
     else:
-        args = ['gurobi_cl', 'ResultFile=' + filename + '.sol', filename + '.lp']
+        args = ['gurobi_cl', 'ResultFile=' + sol_filename, lp_filename]
         base_index = 0  # for reading the solution file
     if DoLogging:
         if UseCBC:
             print "solving lp with cbc..."
         else:
             print "solving with gurobi..."
-    for f in (filename + '.log', filename + '.sol'):
+    for f in (log_filename, sol_filename):
         backup_file(f)
-    out_file = open(filename + '.log', 'w')
+    out_file = open(log_filename, 'w')
     call(args, stdout = out_file)
 
 def read_solved_positions(filename, castellers):
