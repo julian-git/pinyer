@@ -35,7 +35,8 @@
             if (c[0] != start_letter) {
                start_letter = c[0];
                $('<div/>').attr({
-                  'id': type + '_cast_' + start_letter
+                  'id': type + '_cast_' + start_letter,
+                  'class': 'list_class'
                }).appendTo('#' + type + '_casteller_wrap');
                $('<select/>').attr({
                   'id': type + '_cast_sel_' + start_letter
