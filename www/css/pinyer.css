@@ -63,6 +63,7 @@ text.rel:hover { color: rgba(1,0,0,1); fill: rgba(1,0,0,1); }
 text.whiteRelText { stroke-width: 2; stroke: white; fill: white; }
 .inequality { stroke-width: 2; stroke: red; fill: red; }
 .list_class { display:inline; }
+.list_text_class  { font-size:small; }
 
 .vtext {
 /*

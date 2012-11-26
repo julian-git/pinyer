@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/pinyer.css">
   <script src="js/jquery.min.js"></script>
-  <!--script src="js/jquery-ui.min.js"></script-->
+  <script src="js/jquery-ui.min.js"></script>
   <script type="text/javascript" src="js/jquery.svg/jquery.svg.js"></script>
   <script type="text/javascript" src="js/jquery.svg/jquery.svgdom.js"></script>
   <style>
@@ -28,7 +28,6 @@
       url: "http://localhost/pinyer/info.py?what=" + type + "_castellers&colla_id_name=cvg&castell_id_name=cvg.3de9f",
       dataType: 'json',
       success: function(castellers) {
-/*         var castellers = jQuery.parseJSON(jcastellers)*/
          var start_letter = '0';
          for (var i=0; i<castellers.length; i++) {
             var c = castellers[i];
@@ -46,9 +45,18 @@
          for (var i=0; i<castellers.length; i++) {
             var c = castellers[i];
             $('<option/>').attr({
-                 'id': c
-            }).text(c)
+                 'id': c + '_option',
+                  'class': 'list_text_class'
+            })
+            .text(c)
             .appendTo('#' + type + '_cast_sel_' + c[0]);
+/*
+           $('<div/>').attr({  
+                 'id': c + '_drag'
+           }).text('drag ' + c)
+           .appendTo('#' + c + '_option')
+           .draggable( { appendTo: '#global_wrap' } ) 
+*/
          }  
       },
       error: errfunc
