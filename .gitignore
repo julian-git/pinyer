@@ -11,13 +11,15 @@
 *up-to-date
 pinya*.lp
 pinya*.sol
-pinya*.sol.1
+pinya*.sol*
 pinya*.roles
+pinya.active_castellers
 pinya.ineq_reps
 pinya.solved.svg
 tests/index.html
 tests/test.py
 www/test.html
+www/js/examples
 cvg/*
 sql/init-cvg.sql
 *stats
