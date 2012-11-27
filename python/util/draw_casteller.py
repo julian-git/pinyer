@@ -11,7 +11,7 @@ def draw_casteller(xml_id, _class, shoulder_height, shoulder_width, axle_height,
 def draw_casteller_as_rect(xml_id, _class, \
                                shoulder_height, shoulder_width, axle_height, hip_height, scale):
     floor_level = -60
-    svg = '<g transform="translate(0,' + str(shoulder_height) + ') scale(' + str(scale) + ',' + str(scale) + ')">'
+    svg = '<g transform="translate(0,' + str(shoulder_height) + ') scale(' + str(scale) + ',' + str(scale) + ')" onmouseup="Drop(evt)">'
     svg += ''.join(['<rect id="', xml_id, '_body" class="', _class,  '" ', \
                        'width="', str(shoulder_width), '" ', \
                        'height="', str(shoulder_height - hip_height), '" ', \

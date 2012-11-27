@@ -184,7 +184,8 @@ def writeText(text, extra_class = ''):
         extra_class + '" ' + \
         'text-anchor="' + text.getAttribute('text-anchor') + '" ' + \
         'x="0" y="0" ' + \
-        'title="${_alt' + text.getAttribute('id') + '}">' + \
+        'title="${_alt' + text.getAttribute('id') + '}" ' + \
+        'onmouseover="Drop(evt)">' + \
         '${_' + label + '}' + \
         '</text>'
         #        label + ' ${_' + label + '} ${_c' + label + '}' + 
