@@ -26,10 +26,10 @@ rect.vent           { fill: #42A7F4;      }
 rect.crossa         { fill: yellow;    }
 rect.contrafort     { fill: orange;    }
 rect.baix           { fill: red;       }
-rect.agulla         { fill: brown;     }
+rect.agulla         { fill: #C4BD01;     }
 rect.portacrossa    { fill: teal;      }
-rect.lateral        { fill: darkblue;  }  /* lateral       */
-rect.segon          { fill: darkgreen;      }
+rect.lateral        { fill: #274DF7;  }  /* lateral       */
+rect.segon          { fill: #1CA304;      }
 rect.design         { stroke: green;}
 
 
@@ -72,12 +72,12 @@ text.whiteRelText { stroke-width: 2; stroke: white; fill: white; }
 -moz-transform:rotate(-90deg);
 -o-transform: rotate(-90deg);
 */
-font-size: .40em;
+font-size: .50em;
 font-weight: bold;
 dominant-baseline: 'mathematical';
 display:block;
 text-shadow: 20px 20px 3px #FF0000;
-fill: black;
+fill: #772601;
 }
 
 
