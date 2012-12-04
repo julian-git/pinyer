@@ -3,6 +3,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{paralist}
 \begin{document}
 
 \title[El pinyer gra\c cienc] {El pinyer gra\c cienc\\\ \\ 
@@ -20,8 +21,8 @@
 
 \section{Introducción}
 
-Cuando esté acabada, \textsf{\bfseries el pinyer gra\c cienc} será una
-aplicación web diseñada para ayudar a montar pinyes de castells. Está
+\textsf{\bfseries El pinyer gra\c cienc} es una
+aplicación web diseñada para ayudar a montar pinyes de castells, y
 pensada para ser utilizada por varias collas. Internamente, el código
 se formula en inglés, y dispondrá de varios ficheros de traducción
 para que el idioma de la interfície con el usuario pueda configurarse
@@ -32,55 +33,90 @@ está sucediendo por ejemplo en Canadá.
 
 \medskip En líneas generales, consiste de una base de datos y un
 programa de optimización matemática instalados en un servidor fijo
-(por ejemplo, de la colla CVG). Se podrá acceder a él mediante
+(por ejemplo, de la colla CVG). Se puede acceder a él mediante
 cualquier navegador (Firefox, Opera, Chrome, Explorer, etc),
 garantizando así al máximo la independencia tanto del sistema
 operativo como del tipo de dispositivo (móvil, tableta, PC, etc) que
 se usa para conectarse.
 
 \medskip
-El procedimiento para generar una pinya es el siguiente: 
+La aplicación se sustenta en
+\begin{compactitem}
+\item varias medidas corporales que se toman de los integrantes de
+  cada colla;
+\item un plano general de cada piña de castell;
+\item ciertas restricciones que han de satisfacerse entre los
+  integrantes de cada piña concreta;
+\item y la disponibilidad de cada castellero en el momento concreto de
+  ejecutar la optimización, Por ejemplo, puede no asistir al ensayo, o
+  puede tener otra función que le impida formar parte de la pinya.
+\end{compactitem}
 
-\begin{description}
-\item[Preparación] Con antelación al ensayo o a la actuación, cada
-  colla mete los datos de sus castellers en la base de datos, y diseña
-  varios planos generales de castells (3de8, 2de8f, etc). Estos datos
-  serán bastante detallados. Para cada castillero, se apuntan varias
-  medidas corporales y una estimación general de su fortaleza física
-  en el momento presente; y para cada plano de un castell, se
-  incorporan las restricciones que han de respetarse para cada pinya
-  concreta. Tales restricciones pueden ser de medidas corporales, como
-  por ejemplo que el valor de
-  \[
-     (\text{altura hombros baix})  + (\text{altura trasero segon}) - (\text{altura
-     manos alzadas $1^a$ mà})
+Además, la junta técnica puede decidir que ciertas posiciones se hayan
+de ocupar necesariamente por ciertos castilleros.
+
+A partir de estos datos, se genera un fichero fuente para el programa
+de optimización, se ejecuta este programa para encontrar la mejor
+disposición de los castilleros en la piña, y se convierte la salida en
+una distribución concreta, que se visualiza en el navegador.
+
+\section{Preparación y ejecución de la optimización}
+
+Con antelación al ensayo o a la actuación, cada colla mete los datos
+de sus castellers en la base de datos, y diseña varios planos
+generales de castells (3de8, 2de8f, etc). Estos datos serán bastante
+detallados. 
+
+\subsection{Preparación de datos de la colla} 
+
+Para cada castillero, se apuntan varias medidas corporales y una
+estimación general de su fortaleza física en el momento
+presente. Estos datos incluyen, entre otros
+
+\begin{compactitem}
+\item la altura a manos alzadas y la distancia entre hombro y codo y
+  entre codo y muñeca (en los casos de mans y vents), la altura de
+  hombros (para todos), de la axila (de los baixos), de la cadera (de
+  los segons);
+\item el peso (para todos);
+\item la circunferencia de pecho y barriga (todos);
+\item una estimación de la fortaleza física y el aguante psíquico
+  (habrá que pensar cuál es la mejor manera de evaluar esos
+  parámetros).
+\end{compactitem}
+
+\subsection{Preparación de los datos del castillo}
+
+Para cada plano de un castell, se incorporan las restricciones que han
+de respetarse para cada pinya concreta. Tales restricciones pueden ser
+de medidas corporales, como por ejemplo
+\begin{compactitem}
+\item que el valor de
+    \[
+       (\text{altura hombros baix})  + (\text{altura trasero segon}) - (\text{altura
+         manos alzadas $1^a$ mà})
   \]
-  varíe entre unos valores máximos y mínimos permitidos; que el peso
-  mínimo de un baix haya de ser por lo menos cierto valor; o que el
-  total de la anchura de hombros de los castilleros en un ``quesito''
-  haya de ser aproximadamente cierto valor; etc. También se pueden
-  incorporar restricciones como la incompatibilidad entre ciertos
-  castilleros, etc.
+  varíe entre unos valores máximos y mínimos permitidos; 
+\item que el peso mínimo de un baix haya de ser por lo menos cierto
+  valor;
+\item o que el total de la anchura de hombros de los castilleros en un
+  ``quesito'' haya de ser aproximadamente cierto valor; etc.
+\item También se pueden incorporar restricciones como la
+  incompatibilidad entre ciertos castilleros, etc.
+\end{compactitem}
 
-  La arquitectura del software será lo más flexible que sea posible,
-  para dejar la máxima libertad a las juntas técnicas a la hora de
-  diseñar sus pinyas.
+La arquitectura del software será lo más flexible que sea posible,
+para dejar la máxima libertad a las juntas técnicas a la hora de
+diseñar sus pinyas.
 
-\item[Castilleros deseados y asistencia] Para cada castell a ejecutar,
-  la junta técnica puede decidir que ciertas posiciones se hayan de
-  ocupar necesariamente por ciertos castilleros; además, podrán
-  apuntar en la base de datos qué castilleros de la colla están
-  disponibles o no en el momento concreto de montar la pinya. (Por
-  ejemplo, pueden no asistir al ensayo, o pueden tener otra función
-  que les impide formar parte de la pinya.)
+De hecho, habrá que implementar un editor de restricciones, para que
+cada junta técnica pueda introducir las restricciones más adecuadas
+para cada castell, y para el nivel general de conocimiento técnico y
+fortaleza de la colla.
 
-\item[Cálculo de la pinya óptima] Usando los datos acerca de los
-  castilleros en la base de datos, los castilleros requeridos por la
-  junta técnica y las restricciones entre las diversas posiciones en
-  la pinya, el programa de optimización calcula la óptima disposición
-  de los castilleros disponibles en esta pinya, y la envía al
-  navegador del usuario en el formato \texttt{html5/css3/svg}.
-\end{description}
+
+\section{Los componentes del software}
+
 
 A continuación describiremos los elementos del software con un poco más de detalle.
 
@@ -103,6 +139,14 @@ dejado de estar disponible en el ensayo, etc.
 
 \subsection{Servidor web}
 
-Una serie de ficheros en Python para procesar 
+Una serie de ficheros en Python. La implementación está bastante
+completa. 
+
+\section{Necesidades}
+
+Lo más urgente en este momento es implementar un editor de
+restricciones, que trabaje directamente sobre el fichero svg mostrado
+en el servidor, y que guarde las relaciones introducidas por el
+usuario en formato xml.
 
 \end{document}
