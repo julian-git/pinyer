@@ -1,51 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-230.0,-175.32,497.5,350.64">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-230.0,-202.38,497.5,404.76">
 <g id="positions">
 <g id="1" transform="translate(100.0,0.0) rotate(0.0)">
 <g id="1_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep1}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="1_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt1_text}" onmouseover="Drop(evt)">${_1}</text>
+<text id="1_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt1_text}" >${_1}</text>
 </g>
 </g>
-<g id="2" transform="translate(86.6,41.67) rotate(30.0)">
+<g id="2" transform="translate(86.6,50.0) rotate(30.0)">
 <g id="2_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep2}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="2_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt2_text}" onmouseover="Drop(evt)">${_2}</text>
+<text id="2_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt2_text}" >${_2}</text>
 </g>
 </g>
-<g id="3" transform="translate(50.0,72.17) rotate(60.0)">
+<g id="3" transform="translate(50.0,86.6) rotate(60.0)">
 <g id="3_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep3}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="3_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt3_text}" onmouseover="Drop(evt)">${_3}</text>
+<text id="3_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt3_text}" >${_3}</text>
 </g>
 </g>
-<g id="4" transform="translate(0.0,83.33) rotate(90.0)">
+<g id="4" transform="translate(0.0,100.0) rotate(90.0)">
 <g id="4_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep4}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="4_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt4_text}" onmouseover="Drop(evt)">${_4}</text>
+<text id="4_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt4_text}" >${_4}</text>
 </g>
 </g>
-<g id="5" transform="translate(-50.0,72.17) rotate(120.0)">
+<g id="5" transform="translate(-50.0,86.6) rotate(120.0)">
 <g id="5_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep5}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="5_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt5_text}" onmouseover="Drop(evt)">${_5}</text>
+<text id="5_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt5_text}" >${_5}</text>
 </g>
 </g>
-<g id="6" transform="translate(-86.6,41.67) rotate(150.0)">
+<g id="6" transform="translate(-86.6,50.0) rotate(150.0)">
 <g id="6_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep6}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="6_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt6_text}" onmouseover="Drop(evt)">${_6}</text>
+<text id="6_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt6_text}" >${_6}</text>
 </g>
 </g>
 <g id="7" transform="translate(-100.0,0.0) rotate(180.0)">
@@ -53,47 +53,47 @@ ${_rep6}
 ${_rep7}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="7_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt7_text}" onmouseover="Drop(evt)">${_7}</text>
+<text id="7_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt7_text}" >${_7}</text>
 </g>
 </g>
-<g id="8" transform="translate(-86.6,-41.67) rotate(210.0)">
+<g id="8" transform="translate(-86.6,-50.0) rotate(210.0)">
 <g id="8_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep8}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="8_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt8_text}" onmouseover="Drop(evt)">${_8}</text>
+<text id="8_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt8_text}" >${_8}</text>
 </g>
 </g>
-<g id="9" transform="translate(-50.0,-72.17) rotate(240.0)">
+<g id="9" transform="translate(-50.0,-86.6) rotate(240.0)">
 <g id="9_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep9}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="9_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt9_text}" onmouseover="Drop(evt)">${_9}</text>
+<text id="9_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt9_text}" >${_9}</text>
 </g>
 </g>
-<g id="10" transform="translate(-0.0,-83.33) rotate(270.0)">
+<g id="10" transform="translate(-0.0,-100.0) rotate(270.0)">
 <g id="10_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep10}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="10_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt10_text}" onmouseover="Drop(evt)">${_10}</text>
+<text id="10_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt10_text}" >${_10}</text>
 </g>
 </g>
-<g id="11" transform="translate(50.0,-72.17) rotate(300.0)">
+<g id="11" transform="translate(50.0,-86.6) rotate(300.0)">
 <g id="11_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep11}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="11_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt11_text}" onmouseover="Drop(evt)">${_11}</text>
+<text id="11_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt11_text}" >${_11}</text>
 </g>
 </g>
-<g id="12" transform="translate(86.6,-41.67) rotate(330.0)">
+<g id="12" transform="translate(86.6,-50.0) rotate(330.0)">
 <g id="12_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep12}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="12_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt12_text}" onmouseover="Drop(evt)">${_12}</text>
+<text id="12_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt12_text}" >${_12}</text>
 </g>
 </g>
 <g id="13" transform="translate(125.0,0.0) rotate(0.0)">
@@ -101,71 +101,71 @@ ${_rep12}
 ${_rep13}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="13_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt13_text}" onmouseover="Drop(evt)">${_13}</text>
+<text id="13_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt13_text}" >${_13}</text>
 </g>
 </g>
-<g id="14" transform="translate(117.46,35.63) rotate(20.0)">
+<g id="14" transform="translate(117.46,42.75) rotate(20.0)">
 <g id="14_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep14}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="14_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt14_text}" onmouseover="Drop(evt)">${_14}</text>
+<text id="14_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt14_text}" >${_14}</text>
 </g>
 </g>
-<g id="15" transform="translate(95.76,66.96) rotate(40.0)">
+<g id="15" transform="translate(95.76,80.35) rotate(40.0)">
 <g id="15_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep15}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="15_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt15_text}" onmouseover="Drop(evt)">${_15}</text>
+<text id="15_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt15_text}" >${_15}</text>
 </g>
 </g>
-<g id="16" transform="translate(62.5,90.21) rotate(60.0)">
+<g id="16" transform="translate(62.5,108.25) rotate(60.0)">
 <g id="16_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep16}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="16_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt16_text}" onmouseover="Drop(evt)">${_16}</text>
+<text id="16_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt16_text}" >${_16}</text>
 </g>
 </g>
-<g id="17" transform="translate(21.71,102.58) rotate(80.0)">
+<g id="17" transform="translate(21.71,123.1) rotate(80.0)">
 <g id="17_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep17}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="17_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt17_text}" onmouseover="Drop(evt)">${_17}</text>
+<text id="17_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt17_text}" >${_17}</text>
 </g>
 </g>
-<g id="18" transform="translate(-21.71,102.58) rotate(100.0)">
+<g id="18" transform="translate(-21.71,123.1) rotate(100.0)">
 <g id="18_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep18}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="18_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt18_text}" onmouseover="Drop(evt)">${_18}</text>
+<text id="18_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt18_text}" >${_18}</text>
 </g>
 </g>
-<g id="19" transform="translate(-62.5,90.21) rotate(120.0)">
+<g id="19" transform="translate(-62.5,108.25) rotate(120.0)">
 <g id="19_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep19}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="19_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt19_text}" onmouseover="Drop(evt)">${_19}</text>
+<text id="19_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt19_text}" >${_19}</text>
 </g>
 </g>
-<g id="20" transform="translate(-95.76,66.96) rotate(140.0)">
+<g id="20" transform="translate(-95.76,80.35) rotate(140.0)">
 <g id="20_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep20}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="20_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt20_text}" onmouseover="Drop(evt)">${_20}</text>
+<text id="20_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt20_text}" >${_20}</text>
 </g>
 </g>
-<g id="21" transform="translate(-117.46,35.63) rotate(160.0)">
+<g id="21" transform="translate(-117.46,42.75) rotate(160.0)">
 <g id="21_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep21}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="21_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt21_text}" onmouseover="Drop(evt)">${_21}</text>
+<text id="21_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt21_text}" >${_21}</text>
 </g>
 </g>
 <g id="22" transform="translate(-125.0,0.0) rotate(180.0)">
@@ -173,71 +173,71 @@ ${_rep21}
 ${_rep22}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="22_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt22_text}" onmouseover="Drop(evt)">${_22}</text>
+<text id="22_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt22_text}" >${_22}</text>
 </g>
 </g>
-<g id="23" transform="translate(-117.46,-35.63) rotate(200.0)">
+<g id="23" transform="translate(-117.46,-42.75) rotate(200.0)">
 <g id="23_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep23}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="23_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt23_text}" onmouseover="Drop(evt)">${_23}</text>
+<text id="23_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt23_text}" >${_23}</text>
 </g>
 </g>
-<g id="24" transform="translate(-95.76,-66.96) rotate(220.0)">
+<g id="24" transform="translate(-95.76,-80.35) rotate(220.0)">
 <g id="24_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep24}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="24_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt24_text}" onmouseover="Drop(evt)">${_24}</text>
+<text id="24_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt24_text}" >${_24}</text>
 </g>
 </g>
-<g id="25" transform="translate(-62.5,-90.21) rotate(240.0)">
+<g id="25" transform="translate(-62.5,-108.25) rotate(240.0)">
 <g id="25_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep25}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="25_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt25_text}" onmouseover="Drop(evt)">${_25}</text>
+<text id="25_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt25_text}" >${_25}</text>
 </g>
 </g>
-<g id="26" transform="translate(-21.71,-102.58) rotate(260.0)">
+<g id="26" transform="translate(-21.71,-123.1) rotate(260.0)">
 <g id="26_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep26}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="26_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt26_text}" onmouseover="Drop(evt)">${_26}</text>
+<text id="26_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt26_text}" >${_26}</text>
 </g>
 </g>
-<g id="27" transform="translate(21.71,-102.58) rotate(280.0)">
+<g id="27" transform="translate(21.71,-123.1) rotate(280.0)">
 <g id="27_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep27}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="27_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt27_text}" onmouseover="Drop(evt)">${_27}</text>
+<text id="27_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt27_text}" >${_27}</text>
 </g>
 </g>
-<g id="28" transform="translate(62.5,-90.21) rotate(300.0)">
+<g id="28" transform="translate(62.5,-108.25) rotate(300.0)">
 <g id="28_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep28}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="28_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt28_text}" onmouseover="Drop(evt)">${_28}</text>
+<text id="28_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt28_text}" >${_28}</text>
 </g>
 </g>
-<g id="29" transform="translate(95.76,-66.96) rotate(320.0)">
+<g id="29" transform="translate(95.76,-80.35) rotate(320.0)">
 <g id="29_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep29}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="29_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt29_text}" onmouseover="Drop(evt)">${_29}</text>
+<text id="29_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt29_text}" >${_29}</text>
 </g>
 </g>
-<g id="30" transform="translate(117.46,-35.63) rotate(340.0)">
+<g id="30" transform="translate(117.46,-42.75) rotate(340.0)">
 <g id="30_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep30}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="30_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt30_text}" onmouseover="Drop(evt)">${_30}</text>
+<text id="30_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt30_text}" >${_30}</text>
 </g>
 </g>
 <g id="31" transform="translate(150.0,0.0) rotate(0.0)">
@@ -245,95 +245,95 @@ ${_rep30}
 ${_rep31}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="31_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt31_text}" onmouseover="Drop(evt)">${_31}</text>
+<text id="31_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt31_text}" >${_31}</text>
 </g>
 </g>
-<g id="32" transform="translate(144.89,32.35) rotate(15.0)">
+<g id="32" transform="translate(144.89,38.82) rotate(15.0)">
 <g id="32_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep32}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="32_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt32_text}" onmouseover="Drop(evt)">${_32}</text>
+<text id="32_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt32_text}" >${_32}</text>
 </g>
 </g>
-<g id="33" transform="translate(129.9,62.5) rotate(30.0)">
+<g id="33" transform="translate(129.9,75.0) rotate(30.0)">
 <g id="33_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep33}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="33_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt33_text}" onmouseover="Drop(evt)">${_33}</text>
+<text id="33_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt33_text}" >${_33}</text>
 </g>
 </g>
-<g id="34" transform="translate(106.07,88.39) rotate(45.0)">
+<g id="34" transform="translate(106.07,106.07) rotate(45.0)">
 <g id="34_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep34}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="34_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt34_text}" onmouseover="Drop(evt)">${_34}</text>
+<text id="34_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt34_text}" >${_34}</text>
 </g>
 </g>
-<g id="35" transform="translate(75.0,108.25) rotate(60.0)">
+<g id="35" transform="translate(75.0,129.9) rotate(60.0)">
 <g id="35_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep35}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="35_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt35_text}" onmouseover="Drop(evt)">${_35}</text>
+<text id="35_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt35_text}" >${_35}</text>
 </g>
 </g>
-<g id="36" transform="translate(38.82,120.74) rotate(75.0)">
+<g id="36" transform="translate(38.82,144.89) rotate(75.0)">
 <g id="36_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep36}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="36_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt36_text}" onmouseover="Drop(evt)">${_36}</text>
+<text id="36_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt36_text}" >${_36}</text>
 </g>
 </g>
-<g id="37" transform="translate(0.0,125.0) rotate(90.0)">
+<g id="37" transform="translate(0.0,150.0) rotate(90.0)">
 <g id="37_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep37}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="37_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt37_text}" onmouseover="Drop(evt)">${_37}</text>
+<text id="37_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt37_text}" >${_37}</text>
 </g>
 </g>
-<g id="38" transform="translate(-38.82,120.74) rotate(105.0)">
+<g id="38" transform="translate(-38.82,144.89) rotate(105.0)">
 <g id="38_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep38}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="38_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt38_text}" onmouseover="Drop(evt)">${_38}</text>
+<text id="38_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt38_text}" >${_38}</text>
 </g>
 </g>
-<g id="39" transform="translate(-75.0,108.25) rotate(120.0)">
+<g id="39" transform="translate(-75.0,129.9) rotate(120.0)">
 <g id="39_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep39}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="39_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt39_text}" onmouseover="Drop(evt)">${_39}</text>
+<text id="39_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt39_text}" >${_39}</text>
 </g>
 </g>
-<g id="40" transform="translate(-106.07,88.39) rotate(135.0)">
+<g id="40" transform="translate(-106.07,106.07) rotate(135.0)">
 <g id="40_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep40}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="40_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt40_text}" onmouseover="Drop(evt)">${_40}</text>
+<text id="40_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt40_text}" >${_40}</text>
 </g>
 </g>
-<g id="41" transform="translate(-129.9,62.5) rotate(150.0)">
+<g id="41" transform="translate(-129.9,75.0) rotate(150.0)">
 <g id="41_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep41}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="41_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt41_text}" onmouseover="Drop(evt)">${_41}</text>
+<text id="41_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt41_text}" >${_41}</text>
 </g>
 </g>
-<g id="42" transform="translate(-144.89,32.35) rotate(165.0)">
+<g id="42" transform="translate(-144.89,38.82) rotate(165.0)">
 <g id="42_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep42}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="42_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt42_text}" onmouseover="Drop(evt)">${_42}</text>
+<text id="42_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt42_text}" >${_42}</text>
 </g>
 </g>
 <g id="43" transform="translate(-150.0,0.0) rotate(180.0)">
@@ -341,95 +341,95 @@ ${_rep42}
 ${_rep43}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="43_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt43_text}" onmouseover="Drop(evt)">${_43}</text>
+<text id="43_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt43_text}" >${_43}</text>
 </g>
 </g>
-<g id="44" transform="translate(-144.89,-32.35) rotate(195.0)">
+<g id="44" transform="translate(-144.89,-38.82) rotate(195.0)">
 <g id="44_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep44}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="44_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt44_text}" onmouseover="Drop(evt)">${_44}</text>
+<text id="44_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt44_text}" >${_44}</text>
 </g>
 </g>
-<g id="45" transform="translate(-129.9,-62.5) rotate(210.0)">
+<g id="45" transform="translate(-129.9,-75.0) rotate(210.0)">
 <g id="45_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep45}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="45_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt45_text}" onmouseover="Drop(evt)">${_45}</text>
+<text id="45_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt45_text}" >${_45}</text>
 </g>
 </g>
-<g id="46" transform="translate(-106.07,-88.39) rotate(225.0)">
+<g id="46" transform="translate(-106.07,-106.07) rotate(225.0)">
 <g id="46_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep46}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="46_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt46_text}" onmouseover="Drop(evt)">${_46}</text>
+<text id="46_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt46_text}" >${_46}</text>
 </g>
 </g>
-<g id="47" transform="translate(-75.0,-108.25) rotate(240.0)">
+<g id="47" transform="translate(-75.0,-129.9) rotate(240.0)">
 <g id="47_casteller" class="ma" transform="scale(.2 .2) rotate(-90)">
 ${_rep47}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="47_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt47_text}" onmouseover="Drop(evt)">${_47}</text>
+<text id="47_text" class="ma vtext " text-anchor="middle" x="0" y="0" title="${_alt47_text}" >${_47}</text>
 </g>
 </g>
-<g id="48" transform="translate(-38.82,-120.74) rotate(255.0)">
+<g id="48" transform="translate(-38.82,-144.89) rotate(255.0)">
 <g id="48_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep48}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="48_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt48_text}" onmouseover="Drop(evt)">${_48}</text>
+<text id="48_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt48_text}" >${_48}</text>
 </g>
 </g>
-<g id="49" transform="translate(-0.0,-125.0) rotate(270.0)">
+<g id="49" transform="translate(-0.0,-150.0) rotate(270.0)">
 <g id="49_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep49}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="49_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt49_text}" onmouseover="Drop(evt)">${_49}</text>
+<text id="49_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt49_text}" >${_49}</text>
 </g>
 </g>
-<g id="50" transform="translate(38.82,-120.74) rotate(285.0)">
+<g id="50" transform="translate(38.82,-144.89) rotate(285.0)">
 <g id="50_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep50}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="50_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt50_text}" onmouseover="Drop(evt)">${_50}</text>
+<text id="50_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt50_text}" >${_50}</text>
 </g>
 </g>
-<g id="51" transform="translate(75.0,-108.25) rotate(300.0)">
+<g id="51" transform="translate(75.0,-129.9) rotate(300.0)">
 <g id="51_casteller" class="vent" transform="scale(.2 .2) rotate(-90)">
 ${_rep51}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="51_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt51_text}" onmouseover="Drop(evt)">${_51}</text>
+<text id="51_text" class="vent vtext " text-anchor="middle" x="0" y="0" title="${_alt51_text}" >${_51}</text>
 </g>
 </g>
-<g id="52" transform="translate(106.07,-88.39) rotate(315.0)">
+<g id="52" transform="translate(106.07,-106.07) rotate(315.0)">
 <g id="52_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep52}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="52_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt52_text}" onmouseover="Drop(evt)">${_52}</text>
+<text id="52_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt52_text}" >${_52}</text>
 </g>
 </g>
-<g id="53" transform="translate(129.9,-62.5) rotate(330.0)">
+<g id="53" transform="translate(129.9,-75.0) rotate(330.0)">
 <g id="53_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep53}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="53_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt53_text}" onmouseover="Drop(evt)">${_53}</text>
+<text id="53_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt53_text}" >${_53}</text>
 </g>
 </g>
-<g id="54" transform="translate(144.89,-32.35) rotate(345.0)">
+<g id="54" transform="translate(144.89,-38.82) rotate(345.0)">
 <g id="54_casteller" class="pinya" transform="scale(.2 .2) rotate(-90)">
 ${_rep54}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="54_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt54_text}" onmouseover="Drop(evt)">${_54}</text>
+<text id="54_text" class="pinya vtext " text-anchor="middle" x="0" y="0" title="${_alt54_text}" >${_54}</text>
 </g>
 </g>
 <g id="baixos_gp_0" transform="translate(40.0 0.0) rotate(0.0)">
@@ -438,23 +438,23 @@ ${_rep54}
 ${_rep55}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="55_text" class="baix vtext " text-anchor="middle" x="0" y="0" title="${_alt55_text}" onmouseover="Drop(evt)">${_55}</text>
+<text id="55_text" class="baix vtext " text-anchor="middle" x="0" y="0" title="${_alt55_text}" >${_55}</text>
 </g>
 </g>
-<g id="56" transform="translate(0.0,25.0) rotate(90.0)">
+<g id="56" transform="translate(0.0,30.0) rotate(90.0)">
 <g id="56_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep56}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="56_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt56_text}" onmouseover="Drop(evt)">${_56}</text>
+<text id="56_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt56_text}" >${_56}</text>
 </g>
 </g>
-<g id="57" transform="translate(0.0,-25.0) rotate(-90.0)">
+<g id="57" transform="translate(0.0,-30.0) rotate(-90.0)">
 <g id="57_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep57}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="57_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt57_text}" onmouseover="Drop(evt)">${_57}</text>
+<text id="57_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt57_text}" >${_57}</text>
 </g>
 </g>
 <g id="58" transform="translate(20.0,0.0) rotate(0.0)">
@@ -462,7 +462,7 @@ ${_rep57}
 ${_rep58}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="58_text" class="contrafort vtext " text-anchor="middle" x="0" y="0" title="${_alt58_text}" onmouseover="Drop(evt)">${_58}</text>
+<text id="58_text" class="contrafort vtext " text-anchor="middle" x="0" y="0" title="${_alt58_text}" >${_58}</text>
 </g>
 </g>
 <g id="59" transform="translate(-20.0,0.0) rotate(0.0)">
@@ -470,23 +470,23 @@ ${_rep58}
 ${_rep59}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="59_text" class="agulla vtext " text-anchor="middle" x="0" y="0" title="${_alt59_text}" onmouseover="Drop(evt)">${_59}</text>
+<text id="59_text" class="agulla vtext " text-anchor="middle" x="0" y="0" title="${_alt59_text}" >${_59}</text>
 </g>
 </g>
-<g id="60" transform="translate(30.0,20.83) rotate(30.0)">
+<g id="60" transform="translate(30.0,25.0) rotate(30.0)">
 <g id="60_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep60}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="60_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt60_text}" onmouseover="Drop(evt)">${_60}</text>
+<text id="60_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt60_text}" >${_60}</text>
 </g>
 </g>
-<g id="61" transform="translate(30.0,-20.83) rotate(-30.0)">
+<g id="61" transform="translate(30.0,-25.0) rotate(-30.0)">
 <g id="61_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep61}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="61_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt61_text}" onmouseover="Drop(evt)">${_61}</text>
+<text id="61_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt61_text}" >${_61}</text>
 </g>
 </g>
 </g>
@@ -496,23 +496,23 @@ ${_rep61}
 ${_rep62}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="62_text" class="baix vtext " text-anchor="middle" x="0" y="0" title="${_alt62_text}" onmouseover="Drop(evt)">${_62}</text>
+<text id="62_text" class="baix vtext " text-anchor="middle" x="0" y="0" title="${_alt62_text}" >${_62}</text>
 </g>
 </g>
-<g id="63" transform="translate(0.0,25.0) rotate(90.0)">
+<g id="63" transform="translate(0.0,30.0) rotate(90.0)">
 <g id="63_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep63}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="63_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt63_text}" onmouseover="Drop(evt)">${_63}</text>
+<text id="63_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt63_text}" >${_63}</text>
 </g>
 </g>
-<g id="64" transform="translate(0.0,-25.0) rotate(-90.0)">
+<g id="64" transform="translate(0.0,-30.0) rotate(-90.0)">
 <g id="64_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep64}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="64_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt64_text}" onmouseover="Drop(evt)">${_64}</text>
+<text id="64_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt64_text}" >${_64}</text>
 </g>
 </g>
 <g id="65" transform="translate(20.0,0.0) rotate(0.0)">
@@ -520,7 +520,7 @@ ${_rep64}
 ${_rep65}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="65_text" class="contrafort vtext " text-anchor="middle" x="0" y="0" title="${_alt65_text}" onmouseover="Drop(evt)">${_65}</text>
+<text id="65_text" class="contrafort vtext " text-anchor="middle" x="0" y="0" title="${_alt65_text}" >${_65}</text>
 </g>
 </g>
 <g id="66" transform="translate(-20.0,0.0) rotate(0.0)">
@@ -528,23 +528,23 @@ ${_rep65}
 ${_rep66}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="66_text" class="agulla vtext " text-anchor="middle" x="0" y="0" title="${_alt66_text}" onmouseover="Drop(evt)">${_66}</text>
+<text id="66_text" class="agulla vtext " text-anchor="middle" x="0" y="0" title="${_alt66_text}" >${_66}</text>
 </g>
 </g>
-<g id="67" transform="translate(30.0,20.83) rotate(30.0)">
+<g id="67" transform="translate(30.0,25.0) rotate(30.0)">
 <g id="67_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep67}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="67_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt67_text}" onmouseover="Drop(evt)">${_67}</text>
+<text id="67_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt67_text}" >${_67}</text>
 </g>
 </g>
-<g id="68" transform="translate(30.0,-20.83) rotate(-30.0)">
+<g id="68" transform="translate(30.0,-25.0) rotate(-30.0)">
 <g id="68_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep68}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="68_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt68_text}" onmouseover="Drop(evt)">${_68}</text>
+<text id="68_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt68_text}" >${_68}</text>
 </g>
 </g>
 </g>
@@ -554,23 +554,23 @@ ${_rep68}
 ${_rep69}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="69_text" class="baix vtext " text-anchor="middle" x="0" y="0" title="${_alt69_text}" onmouseover="Drop(evt)">${_69}</text>
+<text id="69_text" class="baix vtext " text-anchor="middle" x="0" y="0" title="${_alt69_text}" >${_69}</text>
 </g>
 </g>
-<g id="70" transform="translate(0.0,25.0) rotate(90.0)">
+<g id="70" transform="translate(0.0,30.0) rotate(90.0)">
 <g id="70_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep70}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="70_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt70_text}" onmouseover="Drop(evt)">${_70}</text>
+<text id="70_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt70_text}" >${_70}</text>
 </g>
 </g>
-<g id="71" transform="translate(0.0,-25.0) rotate(-90.0)">
+<g id="71" transform="translate(0.0,-30.0) rotate(-90.0)">
 <g id="71_casteller" class="crossa" transform="scale(.2 .2) rotate(-90)">
 ${_rep71}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="71_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt71_text}" onmouseover="Drop(evt)">${_71}</text>
+<text id="71_text" class="crossa vtext " text-anchor="middle" x="0" y="0" title="${_alt71_text}" >${_71}</text>
 </g>
 </g>
 <g id="72" transform="translate(20.0,0.0) rotate(0.0)">
@@ -578,7 +578,7 @@ ${_rep71}
 ${_rep72}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="72_text" class="contrafort vtext " text-anchor="middle" x="0" y="0" title="${_alt72_text}" onmouseover="Drop(evt)">${_72}</text>
+<text id="72_text" class="contrafort vtext " text-anchor="middle" x="0" y="0" title="${_alt72_text}" >${_72}</text>
 </g>
 </g>
 <g id="73" transform="translate(-20.0,0.0) rotate(0.0)">
@@ -586,23 +586,23 @@ ${_rep72}
 ${_rep73}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="73_text" class="agulla vtext " text-anchor="middle" x="0" y="0" title="${_alt73_text}" onmouseover="Drop(evt)">${_73}</text>
+<text id="73_text" class="agulla vtext " text-anchor="middle" x="0" y="0" title="${_alt73_text}" >${_73}</text>
 </g>
 </g>
-<g id="74" transform="translate(30.0,20.83) rotate(30.0)">
+<g id="74" transform="translate(30.0,25.0) rotate(30.0)">
 <g id="74_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep74}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="74_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt74_text}" onmouseover="Drop(evt)">${_74}</text>
+<text id="74_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt74_text}" >${_74}</text>
 </g>
 </g>
-<g id="75" transform="translate(30.0,-20.83) rotate(-30.0)">
+<g id="75" transform="translate(30.0,-25.0) rotate(-30.0)">
 <g id="75_casteller" class="lateral" transform="scale(.2 .2) rotate(-90)">
 ${_rep75}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="75_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt75_text}" onmouseover="Drop(evt)">${_75}</text>
+<text id="75_text" class="lateral vtext " text-anchor="middle" x="0" y="0" title="${_alt75_text}" >${_75}</text>
 </g>
 </g>
 </g>
@@ -612,7 +612,7 @@ ${_rep75}
 ${_rep76}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="76_text" class="portacrossa vtext " text-anchor="middle" x="0" y="0" title="${_alt76_text}" onmouseover="Drop(evt)">${_76}</text>
+<text id="76_text" class="portacrossa vtext " text-anchor="middle" x="0" y="0" title="${_alt76_text}" >${_76}</text>
 </g>
 </g>
 </g>
@@ -622,7 +622,7 @@ ${_rep76}
 ${_rep77}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="77_text" class="portacrossa vtext " text-anchor="middle" x="0" y="0" title="${_alt77_text}" onmouseover="Drop(evt)">${_77}</text>
+<text id="77_text" class="portacrossa vtext " text-anchor="middle" x="0" y="0" title="${_alt77_text}" >${_77}</text>
 </g>
 </g>
 </g>
@@ -632,7 +632,7 @@ ${_rep77}
 ${_rep78}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="78_text" class="portacrossa vtext " text-anchor="middle" x="0" y="0" title="${_alt78_text}" onmouseover="Drop(evt)">${_78}</text>
+<text id="78_text" class="portacrossa vtext " text-anchor="middle" x="0" y="0" title="${_alt78_text}" >${_78}</text>
 </g>
 </g>
 </g>
@@ -641,23 +641,23 @@ ${_rep78}
 ${_rep79}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="79_text" class="segon vtext " text-anchor="middle" x="0" y="0" title="${_alt79_text}" onmouseover="Drop(evt)">${_79}</text>
+<text id="79_text" class="segon vtext " text-anchor="middle" x="0" y="0" title="${_alt79_text}" >${_79}</text>
 </g>
 </g>
-<g id="80" transform="translate(-93.75,135.32) rotate(120.0)">
+<g id="80" transform="translate(-93.75,162.38) rotate(120.0)">
 <g id="80_casteller" class="segon" transform="scale(.2 .2) rotate(-90)">
 ${_rep80}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="80_text" class="segon vtext " text-anchor="middle" x="0" y="0" title="${_alt80_text}" onmouseover="Drop(evt)">${_80}</text>
+<text id="80_text" class="segon vtext " text-anchor="middle" x="0" y="0" title="${_alt80_text}" >${_80}</text>
 </g>
 </g>
-<g id="81" transform="translate(-93.75,-135.32) rotate(240.0)">
+<g id="81" transform="translate(-93.75,-162.38) rotate(240.0)">
 <g id="81_casteller" class="segon" transform="scale(.2 .2) rotate(-90)">
 ${_rep81}
 </g>
 <g transform="rotate(90) translate(0 6)">
-<text id="81_text" class="segon vtext " text-anchor="middle" x="0" y="0" title="${_alt81_text}" onmouseover="Drop(evt)">${_81}</text>
+<text id="81_text" class="segon vtext " text-anchor="middle" x="0" y="0" title="${_alt81_text}" >${_81}</text>
 </g>
 </g>
 </g>
@@ -666,199 +666,199 @@ ${_rep81}
 <g transform="translate(112.5 0.0)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel13_1}</text><text class="rel ma_ma" x="0" y="0">${_rel13_1}</text></g>
 <path class="rel ma_ma" pos_list="31_13" d="M150.0,0.0Q137.5,5.0 125.0,0.0"/>
 <g transform="translate(137.5 0.0)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel31_13}</text><text class="rel ma_ma" x="0" y="0">${_rel31_13}</text></g>
-<path class="rel vent_vent" pos_list="16_3" d="M62.5,90.21Q52.64,83.69 50.0,72.17"/>
-<g transform="translate(56.25 81.19)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel16_3}</text><text class="rel vent_vent" x="0" y="0">${_rel16_3}</text></g>
-<path class="rel vent_vent" pos_list="35_16" d="M75.0,108.25Q65.14,101.73 62.5,90.21"/>
-<g transform="translate(68.75 99.23)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel35_16}</text><text class="rel vent_vent" x="0" y="0">${_rel35_16}</text></g>
-<path class="rel ma_ma" pos_list="19_5" d="M-62.5,90.21Q-59.86,78.69 -50.0,72.17"/>
-<g transform="translate(-56.25 81.19)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel19_5}</text><text class="rel ma_ma" x="0" y="0">${_rel19_5}</text></g>
-<path class="rel ma_ma" pos_list="39_19" d="M-75.0,108.25Q-72.36,96.73 -62.5,90.21"/>
-<g transform="translate(-68.75 99.23)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel39_19}</text><text class="rel ma_ma" x="0" y="0">${_rel39_19}</text></g>
+<path class="rel vent_vent" pos_list="16_3" d="M62.5,108.25Q51.92,99.92 50.0,86.6"/>
+<g transform="translate(56.25 97.42)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel16_3}</text><text class="rel vent_vent" x="0" y="0">${_rel16_3}</text></g>
+<path class="rel vent_vent" pos_list="35_16" d="M75.0,129.9Q64.42,121.58 62.5,108.25"/>
+<g transform="translate(68.75 119.08)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel35_16}</text><text class="rel vent_vent" x="0" y="0">${_rel35_16}</text></g>
+<path class="rel ma_ma" pos_list="19_5" d="M-62.5,108.25Q-60.58,94.92 -50.0,86.6"/>
+<g transform="translate(-56.25 97.42)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel19_5}</text><text class="rel ma_ma" x="0" y="0">${_rel19_5}</text></g>
+<path class="rel ma_ma" pos_list="39_19" d="M-75.0,129.9Q-73.08,116.58 -62.5,108.25"/>
+<g transform="translate(-68.75 119.08)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel39_19}</text><text class="rel ma_ma" x="0" y="0">${_rel39_19}</text></g>
 <path class="rel vent_vent" pos_list="22_7" d="M-125.0,0.0Q-112.5,-5.0 -100.0,0.0"/>
 <g transform="translate(-112.5 0.0)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel22_7}</text><text class="rel vent_vent" x="0" y="0">${_rel22_7}</text></g>
 <path class="rel vent_vent" pos_list="43_22" d="M-150.0,0.0Q-137.5,-5.0 -125.0,0.0"/>
 <g transform="translate(-137.5 0.0)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel43_22}</text><text class="rel vent_vent" x="0" y="0">${_rel43_22}</text></g>
-<path class="rel ma_ma" pos_list="25_9" d="M-62.5,-90.21Q-52.64,-83.69 -50.0,-72.17"/>
-<g transform="translate(-56.25 -81.19)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel25_9}</text><text class="rel ma_ma" x="0" y="0">${_rel25_9}</text></g>
-<path class="rel ma_ma" pos_list="47_25" d="M-75.0,-108.25Q-65.14,-101.73 -62.5,-90.21"/>
-<g transform="translate(-68.75 -99.23)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel47_25}</text><text class="rel ma_ma" x="0" y="0">${_rel47_25}</text></g>
-<path class="rel vent_vent" pos_list="28_11" d="M62.5,-90.21Q59.86,-78.69 50.0,-72.17"/>
-<g transform="translate(56.25 -81.19)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel28_11}</text><text class="rel vent_vent" x="0" y="0">${_rel28_11}</text></g>
-<path class="rel vent_vent" pos_list="51_28" d="M75.0,-108.25Q72.36,-96.73 62.5,-90.21"/>
-<g transform="translate(68.75 -99.23)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel51_28}</text><text class="rel vent_vent" x="0" y="0">${_rel51_28}</text></g>
-<path class="rel pinya_pinya" pos_list="14_2" d="M117.46,35.63Q103.24,44.82 86.6,41.67"/>
-<g transform="translate(102.03 38.65)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel14_2}</text><text class="rel pinya_pinya" x="0" y="0">${_rel14_2}</text></g>
-<path class="rel pinya_pinya" pos_list="15_2" d="M95.76,66.96Q86.12,56.15 86.6,41.67"/>
-<g transform="translate(91.18 54.31)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel15_2}</text><text class="rel pinya_pinya" x="0" y="0">${_rel15_2}</text></g>
-<path class="rel pinya_pinya" pos_list="32_14" d="M144.89,32.35Q131.83,39.48 117.46,35.63"/>
-<g transform="translate(131.17 33.99)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel32_14}</text><text class="rel pinya_pinya" x="0" y="0">${_rel32_14}</text></g>
-<path class="rel pinya_pinya" pos_list="33_14" d="M129.9,62.5Q118.31,51.55 117.46,35.63"/>
-<g transform="translate(123.68 49.06)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel33_14}</text><text class="rel pinya_pinya" x="0" y="0">${_rel33_14}</text></g>
-<path class="rel pinya_pinya" pos_list="33_15" d="M129.9,62.5Q113.72,71.56 95.76,66.96"/>
-<g transform="translate(112.83 64.73)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel33_15}</text><text class="rel pinya_pinya" x="0" y="0">${_rel33_15}</text></g>
-<path class="rel pinya_pinya" pos_list="34_15" d="M106.07,88.39Q96.63,79.74 95.76,66.96"/>
-<g transform="translate(100.91 77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel34_15}</text><text class="rel pinya_pinya" x="0" y="0">${_rel34_15}</text></g>
-<path class="rel pinya_pinya" pos_list="17_4" d="M21.71,102.58Q7.01,97.3 0.0,83.33"/>
-<g transform="translate(10.86 92.95)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel17_4}</text><text class="rel pinya_pinya" x="0" y="0">${_rel17_4}</text></g>
-<path class="rel pinya_pinya" pos_list="18_4" d="M-21.71,102.58Q-14.71,88.61 0.0,83.33"/>
-<g transform="translate(-10.86 92.95)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel18_4}</text><text class="rel pinya_pinya" x="0" y="0">${_rel18_4}</text></g>
-<path class="rel pinya_pinya" pos_list="36_17" d="M38.82,120.74Q26.63,115.08 21.71,102.58"/>
-<g transform="translate(30.27 111.66)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel36_17}</text><text class="rel pinya_pinya" x="0" y="0">${_rel36_17}</text></g>
-<path class="rel pinya_pinya" pos_list="37_17" d="M0.0,125.0Q6.37,109.45 21.71,102.58"/>
-<g transform="translate(10.86 113.79)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel37_17}</text><text class="rel pinya_pinya" x="0" y="0">${_rel37_17}</text></g>
-<path class="rel pinya_pinya" pos_list="37_18" d="M0.0,125.0Q-15.34,118.13 -21.71,102.58"/>
-<g transform="translate(-10.86 113.79)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel37_18}</text><text class="rel pinya_pinya" x="0" y="0">${_rel37_18}</text></g>
-<path class="rel pinya_pinya" pos_list="38_18" d="M-38.82,120.74Q-33.9,108.24 -21.71,102.58"/>
-<g transform="translate(-30.27 111.66)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel38_18}</text><text class="rel pinya_pinya" x="0" y="0">${_rel38_18}</text></g>
-<path class="rel pinya_pinya" pos_list="20_6" d="M-95.76,66.96Q-96.24,52.48 -86.6,41.67"/>
-<g transform="translate(-91.18 54.31)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel20_6}</text><text class="rel pinya_pinya" x="0" y="0">${_rel20_6}</text></g>
-<path class="rel pinya_pinya" pos_list="21_6" d="M-117.46,35.63Q-100.82,32.48 -86.6,41.67"/>
-<g transform="translate(-102.03 38.65)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel21_6}</text><text class="rel pinya_pinya" x="0" y="0">${_rel21_6}</text></g>
-<path class="rel pinya_pinya" pos_list="40_20" d="M-106.07,88.39Q-105.2,75.61 -95.76,66.96"/>
-<g transform="translate(-100.91 77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel40_20}</text><text class="rel pinya_pinya" x="0" y="0">${_rel40_20}</text></g>
-<path class="rel pinya_pinya" pos_list="41_20" d="M-129.9,62.5Q-111.94,57.9 -95.76,66.96"/>
-<g transform="translate(-112.83 64.73)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel41_20}</text><text class="rel pinya_pinya" x="0" y="0">${_rel41_20}</text></g>
-<path class="rel pinya_pinya" pos_list="41_21" d="M-129.9,62.5Q-129.05,46.58 -117.46,35.63"/>
-<g transform="translate(-123.68 49.06)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel41_21}</text><text class="rel pinya_pinya" x="0" y="0">${_rel41_21}</text></g>
-<path class="rel pinya_pinya" pos_list="42_21" d="M-144.89,32.35Q-130.52,28.5 -117.46,35.63"/>
-<g transform="translate(-131.17 33.99)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel42_21}</text><text class="rel pinya_pinya" x="0" y="0">${_rel42_21}</text></g>
-<path class="rel pinya_pinya" pos_list="23_8" d="M-117.46,-35.63Q-103.24,-44.82 -86.6,-41.67"/>
-<g transform="translate(-102.03 -38.65)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel23_8}</text><text class="rel pinya_pinya" x="0" y="0">${_rel23_8}</text></g>
-<path class="rel pinya_pinya" pos_list="24_8" d="M-95.76,-66.96Q-86.12,-56.15 -86.6,-41.67"/>
-<g transform="translate(-91.18 -54.31)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel24_8}</text><text class="rel pinya_pinya" x="0" y="0">${_rel24_8}</text></g>
-<path class="rel pinya_pinya" pos_list="44_23" d="M-144.89,-32.35Q-131.83,-39.48 -117.46,-35.63"/>
-<g transform="translate(-131.17 -33.99)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel44_23}</text><text class="rel pinya_pinya" x="0" y="0">${_rel44_23}</text></g>
-<path class="rel pinya_pinya" pos_list="45_23" d="M-129.9,-62.5Q-118.31,-51.55 -117.46,-35.63"/>
-<g transform="translate(-123.68 -49.06)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel45_23}</text><text class="rel pinya_pinya" x="0" y="0">${_rel45_23}</text></g>
-<path class="rel pinya_pinya" pos_list="45_24" d="M-129.9,-62.5Q-113.72,-71.56 -95.76,-66.96"/>
-<g transform="translate(-112.83 -64.73)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel45_24}</text><text class="rel pinya_pinya" x="0" y="0">${_rel45_24}</text></g>
-<path class="rel pinya_pinya" pos_list="46_24" d="M-106.07,-88.39Q-96.63,-79.74 -95.76,-66.96"/>
-<g transform="translate(-100.91 -77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel46_24}</text><text class="rel pinya_pinya" x="0" y="0">${_rel46_24}</text></g>
-<path class="rel pinya_pinya" pos_list="26_10" d="M-21.71,-102.58Q-7.01,-97.3 0.0,-83.33"/>
-<g transform="translate(-10.86 -92.95)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel26_10}</text><text class="rel pinya_pinya" x="0" y="0">${_rel26_10}</text></g>
-<path class="rel pinya_pinya" pos_list="27_10" d="M21.71,-102.58Q14.71,-88.61 0.0,-83.33"/>
-<g transform="translate(10.86 -92.95)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel27_10}</text><text class="rel pinya_pinya" x="0" y="0">${_rel27_10}</text></g>
-<path class="rel pinya_pinya" pos_list="48_26" d="M-38.82,-120.74Q-26.63,-115.08 -21.71,-102.58"/>
-<g transform="translate(-30.27 -111.66)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel48_26}</text><text class="rel pinya_pinya" x="0" y="0">${_rel48_26}</text></g>
-<path class="rel pinya_pinya" pos_list="49_26" d="M0.0,-125.0Q-6.37,-109.45 -21.71,-102.58"/>
-<g transform="translate(-10.86 -113.79)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel49_26}</text><text class="rel pinya_pinya" x="0" y="0">${_rel49_26}</text></g>
-<path class="rel pinya_pinya" pos_list="49_27" d="M0.0,-125.0Q15.34,-118.13 21.71,-102.58"/>
-<g transform="translate(10.86 -113.79)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel49_27}</text><text class="rel pinya_pinya" x="0" y="0">${_rel49_27}</text></g>
-<path class="rel pinya_pinya" pos_list="50_27" d="M38.82,-120.74Q33.9,-108.24 21.71,-102.58"/>
-<g transform="translate(30.27 -111.66)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel50_27}</text><text class="rel pinya_pinya" x="0" y="0">${_rel50_27}</text></g>
-<path class="rel pinya_pinya" pos_list="29_12" d="M95.76,-66.96Q96.24,-52.48 86.6,-41.67"/>
-<g transform="translate(91.18 -54.31)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel29_12}</text><text class="rel pinya_pinya" x="0" y="0">${_rel29_12}</text></g>
-<path class="rel pinya_pinya" pos_list="30_12" d="M117.46,-35.63Q100.82,-32.48 86.6,-41.67"/>
-<g transform="translate(102.03 -38.65)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel30_12}</text><text class="rel pinya_pinya" x="0" y="0">${_rel30_12}</text></g>
-<path class="rel pinya_pinya" pos_list="52_29" d="M106.07,-88.39Q105.2,-75.61 95.76,-66.96"/>
-<g transform="translate(100.91 -77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel52_29}</text><text class="rel pinya_pinya" x="0" y="0">${_rel52_29}</text></g>
-<path class="rel pinya_pinya" pos_list="53_29" d="M129.9,-62.5Q111.94,-57.9 95.76,-66.96"/>
-<g transform="translate(112.83 -64.73)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel53_29}</text><text class="rel pinya_pinya" x="0" y="0">${_rel53_29}</text></g>
-<path class="rel pinya_pinya" pos_list="53_30" d="M129.9,-62.5Q129.05,-46.58 117.46,-35.63"/>
-<g transform="translate(123.68 -49.06)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel53_30}</text><text class="rel pinya_pinya" x="0" y="0">${_rel53_30}</text></g>
-<path class="rel pinya_pinya" pos_list="54_30" d="M144.89,-32.35Q130.52,-28.5 117.46,-35.63"/>
-<g transform="translate(131.17 -33.99)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel54_30}</text><text class="rel pinya_pinya" x="0" y="0">${_rel54_30}</text></g>
-<path class="rel pinya" pos_list="2" d="M86.6,41.67"/>
-<g transform="translate(86.6 41.67)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel2}</text><text class="rel pinya" x="0" y="0">${_rel2}</text></g>
-<path class="rel pinya_pinya" pos_list="14_15" d="M117.46,35.63Q112.88,55.63 95.76,66.96"/>
-<g transform="translate(106.61 51.3)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel14_15}</text><text class="rel pinya_pinya" x="0" y="0">${_rel14_15}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="32_33_34" d="M144.89,32.35Q143.42,50.42 129.9,62.5Q123.16,80.21 106.07,88.39"/>
-<g transform="translate(126.95 61.08)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel32_33_34}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel32_33_34}</text></g>
-<path class="rel pinya" pos_list="4" d="M0.0,83.33"/>
-<g transform="translate(0.0 83.33)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel4}</text><text class="rel pinya" x="0" y="0">${_rel4}</text></g>
-<path class="rel pinya_pinya" pos_list="17_18" d="M21.71,102.58Q0.0,111.26 -21.71,102.58"/>
-<g transform="translate(0.0 102.58)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel17_18}</text><text class="rel pinya_pinya" x="0" y="0">${_rel17_18}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="36_37_38" d="M38.82,120.74Q20.26,130.63 0.0,125.0Q-20.26,130.63 -38.82,120.74"/>
-<g transform="translate(0.0 122.16)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel36_37_38}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel36_37_38}</text></g>
-<path class="rel pinya" pos_list="6" d="M-86.6,41.67"/>
-<g transform="translate(-86.6 41.67)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel6}</text><text class="rel pinya" x="0" y="0">${_rel6}</text></g>
-<path class="rel pinya_pinya" pos_list="20_21" d="M-95.76,66.96Q-112.88,55.63 -117.46,35.63"/>
-<g transform="translate(-106.61 51.3)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel20_21}</text><text class="rel pinya_pinya" x="0" y="0">${_rel20_21}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="40_41_42" d="M-106.07,88.39Q-123.16,80.21 -129.9,62.5Q-143.42,50.42 -144.89,32.35"/>
-<g transform="translate(-126.95 61.08)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel40_41_42}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel40_41_42}</text></g>
-<path class="rel pinya" pos_list="8" d="M-86.6,-41.67"/>
-<g transform="translate(-86.6 -41.67)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel8}</text><text class="rel pinya" x="0" y="0">${_rel8}</text></g>
-<path class="rel pinya_pinya" pos_list="23_24" d="M-117.46,-35.63Q-112.88,-55.63 -95.76,-66.96"/>
-<g transform="translate(-106.61 -51.3)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel23_24}</text><text class="rel pinya_pinya" x="0" y="0">${_rel23_24}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="44_45_46" d="M-144.89,-32.35Q-143.42,-50.42 -129.9,-62.5Q-123.16,-80.21 -106.07,-88.39"/>
-<g transform="translate(-126.95 -61.08)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel44_45_46}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel44_45_46}</text></g>
-<path class="rel pinya" pos_list="10" d="M0.0,-83.33"/>
-<g transform="translate(0.0 -83.33)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel10}</text><text class="rel pinya" x="0" y="0">${_rel10}</text></g>
-<path class="rel pinya_pinya" pos_list="26_27" d="M-21.71,-102.58Q0.0,-111.26 21.71,-102.58"/>
-<g transform="translate(0.0 -102.58)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel26_27}</text><text class="rel pinya_pinya" x="0" y="0">${_rel26_27}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="48_49_50" d="M-38.82,-120.74Q-20.26,-130.63 0.0,-125.0Q20.26,-130.63 38.82,-120.74"/>
-<g transform="translate(0.0 -122.16)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel48_49_50}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel48_49_50}</text></g>
-<path class="rel pinya" pos_list="12" d="M86.6,-41.67"/>
-<g transform="translate(86.6 -41.67)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel12}</text><text class="rel pinya" x="0" y="0">${_rel12}</text></g>
-<path class="rel pinya_pinya" pos_list="29_30" d="M95.76,-66.96Q112.88,-55.63 117.46,-35.63"/>
-<g transform="translate(106.61 -51.3)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel29_30}</text><text class="rel pinya_pinya" x="0" y="0">${_rel29_30}</text></g>
-<path class="rel pinya_pinya_pinya" pos_list="52_53_54" d="M106.07,-88.39Q123.16,-80.21 129.9,-62.5Q143.42,-50.42 144.89,-32.35"/>
-<g transform="translate(126.95 -61.08)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel52_53_54}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel52_53_54}</text></g>
-<path class="rel baix_crossa" pos_list="55_56" d="M40.0,0.0Q45.0,12.5 40.0,25.0"/>
-<g transform="translate(40.0 12.5)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel55_56}</text><text class="rel baix_crossa" x="0" y="0">${_rel55_56}</text></g>
-<path class="rel baix_crossa" pos_list="55_57" d="M40.0,0.0Q35.0,-12.5 40.0,-25.0"/>
-<g transform="translate(40.0 -12.5)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel55_57}</text><text class="rel baix_crossa" x="0" y="0">${_rel55_57}</text></g>
-<path class="rel baix_crossa" pos_list="62_63" d="M-20.0,28.87Q-33.33,26.95 -41.65,16.37"/>
-<g transform="translate(-30.82 22.62)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel62_63}</text><text class="rel baix_crossa" x="0" y="0">${_rel62_63}</text></g>
-<path class="rel baix_crossa" pos_list="62_64" d="M-20.0,28.87Q-6.68,30.79 1.65,41.37"/>
-<g transform="translate(-9.18 35.12)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel62_64}</text><text class="rel baix_crossa" x="0" y="0">${_rel62_64}</text></g>
-<path class="rel baix_crossa" pos_list="69_70" d="M-20.0,-28.87Q-11.68,-39.45 1.65,-41.37"/>
-<g transform="translate(-9.18 -35.12)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel69_70}</text><text class="rel baix_crossa" x="0" y="0">${_rel69_70}</text></g>
-<path class="rel baix_crossa" pos_list="69_71" d="M-20.0,-28.87Q-28.32,-18.29 -41.65,-16.37"/>
-<g transform="translate(-30.82 -22.62)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel69_71}</text><text class="rel baix_crossa" x="0" y="0">${_rel69_71}</text></g>
+<path class="rel ma_ma" pos_list="25_9" d="M-62.5,-108.25Q-51.92,-99.92 -50.0,-86.6"/>
+<g transform="translate(-56.25 -97.42)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel25_9}</text><text class="rel ma_ma" x="0" y="0">${_rel25_9}</text></g>
+<path class="rel ma_ma" pos_list="47_25" d="M-75.0,-129.9Q-64.42,-121.58 -62.5,-108.25"/>
+<g transform="translate(-68.75 -119.08)"><text class="rel whiteRelText ma_ma" x="0" y="0">${_rel47_25}</text><text class="rel ma_ma" x="0" y="0">${_rel47_25}</text></g>
+<path class="rel vent_vent" pos_list="28_11" d="M62.5,-108.25Q60.58,-94.92 50.0,-86.6"/>
+<g transform="translate(56.25 -97.42)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel28_11}</text><text class="rel vent_vent" x="0" y="0">${_rel28_11}</text></g>
+<path class="rel vent_vent" pos_list="51_28" d="M75.0,-129.9Q73.08,-116.58 62.5,-108.25"/>
+<g transform="translate(68.75 -119.08)"><text class="rel whiteRelText vent_vent" x="0" y="0">${_rel51_28}</text><text class="rel vent_vent" x="0" y="0">${_rel51_28}</text></g>
+<path class="rel pinya_pinya" pos_list="14_2" d="M117.46,42.75Q103.48,52.55 86.6,50.0"/>
+<g transform="translate(102.03 46.38)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel14_2}</text><text class="rel pinya_pinya" x="0" y="0">${_rel14_2}</text></g>
+<path class="rel pinya_pinya" pos_list="15_2" d="M95.76,80.35Q85.11,67.01 86.6,50.0"/>
+<g transform="translate(91.18 65.17)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel15_2}</text><text class="rel pinya_pinya" x="0" y="0">${_rel15_2}</text></g>
+<path class="rel pinya_pinya" pos_list="32_14" d="M144.89,38.82Q131.96,46.27 117.46,42.75"/>
+<g transform="translate(131.17 40.78)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel32_14}</text><text class="rel pinya_pinya" x="0" y="0">${_rel32_14}</text></g>
+<path class="rel pinya_pinya" pos_list="33_14" d="M129.9,75.0Q117.23,61.36 117.46,42.75"/>
+<g transform="translate(123.68 58.88)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel33_14}</text><text class="rel pinya_pinya" x="0" y="0">${_rel33_14}</text></g>
+<path class="rel pinya_pinya" pos_list="33_15" d="M129.9,75.0Q113.9,84.5 95.76,80.35"/>
+<g transform="translate(112.83 77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel33_15}</text><text class="rel pinya_pinya" x="0" y="0">${_rel33_15}</text></g>
+<path class="rel pinya_pinya" pos_list="34_15" d="M106.07,106.07Q95.77,95.27 95.76,80.35"/>
+<g transform="translate(100.91 93.21)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel34_15}</text><text class="rel pinya_pinya" x="0" y="0">${_rel34_15}</text></g>
+<path class="rel pinya_pinya" pos_list="17_4" d="M21.71,123.1Q6.24,115.89 0.0,100.0"/>
+<g transform="translate(10.86 111.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel17_4}</text><text class="rel pinya_pinya" x="0" y="0">${_rel17_4}</text></g>
+<path class="rel pinya_pinya" pos_list="18_4" d="M-21.71,123.1Q-15.47,107.21 0.0,100.0"/>
+<g transform="translate(-10.86 111.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel18_4}</text><text class="rel pinya_pinya" x="0" y="0">${_rel18_4}</text></g>
+<path class="rel pinya_pinya" pos_list="36_17" d="M38.82,144.89Q25.91,137.42 21.71,123.1"/>
+<g transform="translate(30.27 134.0)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel36_17}</text><text class="rel pinya_pinya" x="0" y="0">${_rel36_17}</text></g>
+<path class="rel pinya_pinya" pos_list="37_17" d="M0.0,150.0Q5.47,132.21 21.71,123.1"/>
+<g transform="translate(10.86 136.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel37_17}</text><text class="rel pinya_pinya" x="0" y="0">${_rel37_17}</text></g>
+<path class="rel pinya_pinya" pos_list="37_18" d="M0.0,150.0Q-16.24,140.89 -21.71,123.1"/>
+<g transform="translate(-10.86 136.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel37_18}</text><text class="rel pinya_pinya" x="0" y="0">${_rel37_18}</text></g>
+<path class="rel pinya_pinya" pos_list="38_18" d="M-38.82,144.89Q-34.62,130.57 -21.71,123.1"/>
+<g transform="translate(-30.27 134.0)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel38_18}</text><text class="rel pinya_pinya" x="0" y="0">${_rel38_18}</text></g>
+<path class="rel pinya_pinya" pos_list="20_6" d="M-95.76,80.35Q-97.25,63.34 -86.6,50.0"/>
+<g transform="translate(-91.18 65.17)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel20_6}</text><text class="rel pinya_pinya" x="0" y="0">${_rel20_6}</text></g>
+<path class="rel pinya_pinya" pos_list="21_6" d="M-117.46,42.75Q-100.58,40.2 -86.6,50.0"/>
+<g transform="translate(-102.03 46.38)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel21_6}</text><text class="rel pinya_pinya" x="0" y="0">${_rel21_6}</text></g>
+<path class="rel pinya_pinya" pos_list="40_20" d="M-106.07,106.07Q-106.06,91.15 -95.76,80.35"/>
+<g transform="translate(-100.91 93.21)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel40_20}</text><text class="rel pinya_pinya" x="0" y="0">${_rel40_20}</text></g>
+<path class="rel pinya_pinya" pos_list="41_20" d="M-129.9,75.0Q-111.76,70.85 -95.76,80.35"/>
+<g transform="translate(-112.83 77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel41_20}</text><text class="rel pinya_pinya" x="0" y="0">${_rel41_20}</text></g>
+<path class="rel pinya_pinya" pos_list="41_21" d="M-129.9,75.0Q-130.13,56.39 -117.46,42.75"/>
+<g transform="translate(-123.68 58.88)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel41_21}</text><text class="rel pinya_pinya" x="0" y="0">${_rel41_21}</text></g>
+<path class="rel pinya_pinya" pos_list="42_21" d="M-144.89,38.82Q-130.39,35.3 -117.46,42.75"/>
+<g transform="translate(-131.17 40.78)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel42_21}</text><text class="rel pinya_pinya" x="0" y="0">${_rel42_21}</text></g>
+<path class="rel pinya_pinya" pos_list="23_8" d="M-117.46,-42.75Q-103.48,-52.55 -86.6,-50.0"/>
+<g transform="translate(-102.03 -46.38)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel23_8}</text><text class="rel pinya_pinya" x="0" y="0">${_rel23_8}</text></g>
+<path class="rel pinya_pinya" pos_list="24_8" d="M-95.76,-80.35Q-85.11,-67.01 -86.6,-50.0"/>
+<g transform="translate(-91.18 -65.17)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel24_8}</text><text class="rel pinya_pinya" x="0" y="0">${_rel24_8}</text></g>
+<path class="rel pinya_pinya" pos_list="44_23" d="M-144.89,-38.82Q-131.96,-46.27 -117.46,-42.75"/>
+<g transform="translate(-131.17 -40.78)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel44_23}</text><text class="rel pinya_pinya" x="0" y="0">${_rel44_23}</text></g>
+<path class="rel pinya_pinya" pos_list="45_23" d="M-129.9,-75.0Q-117.23,-61.36 -117.46,-42.75"/>
+<g transform="translate(-123.68 -58.88)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel45_23}</text><text class="rel pinya_pinya" x="0" y="0">${_rel45_23}</text></g>
+<path class="rel pinya_pinya" pos_list="45_24" d="M-129.9,-75.0Q-113.9,-84.5 -95.76,-80.35"/>
+<g transform="translate(-112.83 -77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel45_24}</text><text class="rel pinya_pinya" x="0" y="0">${_rel45_24}</text></g>
+<path class="rel pinya_pinya" pos_list="46_24" d="M-106.07,-106.07Q-95.77,-95.27 -95.76,-80.35"/>
+<g transform="translate(-100.91 -93.21)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel46_24}</text><text class="rel pinya_pinya" x="0" y="0">${_rel46_24}</text></g>
+<path class="rel pinya_pinya" pos_list="26_10" d="M-21.71,-123.1Q-6.24,-115.89 0.0,-100.0"/>
+<g transform="translate(-10.86 -111.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel26_10}</text><text class="rel pinya_pinya" x="0" y="0">${_rel26_10}</text></g>
+<path class="rel pinya_pinya" pos_list="27_10" d="M21.71,-123.1Q15.47,-107.21 0.0,-100.0"/>
+<g transform="translate(10.86 -111.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel27_10}</text><text class="rel pinya_pinya" x="0" y="0">${_rel27_10}</text></g>
+<path class="rel pinya_pinya" pos_list="48_26" d="M-38.82,-144.89Q-25.91,-137.42 -21.71,-123.1"/>
+<g transform="translate(-30.27 -134.0)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel48_26}</text><text class="rel pinya_pinya" x="0" y="0">${_rel48_26}</text></g>
+<path class="rel pinya_pinya" pos_list="49_26" d="M0.0,-150.0Q-5.47,-132.21 -21.71,-123.1"/>
+<g transform="translate(-10.86 -136.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel49_26}</text><text class="rel pinya_pinya" x="0" y="0">${_rel49_26}</text></g>
+<path class="rel pinya_pinya" pos_list="49_27" d="M0.0,-150.0Q16.24,-140.89 21.71,-123.1"/>
+<g transform="translate(10.86 -136.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel49_27}</text><text class="rel pinya_pinya" x="0" y="0">${_rel49_27}</text></g>
+<path class="rel pinya_pinya" pos_list="50_27" d="M38.82,-144.89Q34.62,-130.57 21.71,-123.1"/>
+<g transform="translate(30.27 -134.0)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel50_27}</text><text class="rel pinya_pinya" x="0" y="0">${_rel50_27}</text></g>
+<path class="rel pinya_pinya" pos_list="29_12" d="M95.76,-80.35Q97.25,-63.34 86.6,-50.0"/>
+<g transform="translate(91.18 -65.17)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel29_12}</text><text class="rel pinya_pinya" x="0" y="0">${_rel29_12}</text></g>
+<path class="rel pinya_pinya" pos_list="30_12" d="M117.46,-42.75Q100.58,-40.2 86.6,-50.0"/>
+<g transform="translate(102.03 -46.38)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel30_12}</text><text class="rel pinya_pinya" x="0" y="0">${_rel30_12}</text></g>
+<path class="rel pinya_pinya" pos_list="52_29" d="M106.07,-106.07Q106.06,-91.15 95.76,-80.35"/>
+<g transform="translate(100.91 -93.21)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel52_29}</text><text class="rel pinya_pinya" x="0" y="0">${_rel52_29}</text></g>
+<path class="rel pinya_pinya" pos_list="53_29" d="M129.9,-75.0Q111.76,-70.85 95.76,-80.35"/>
+<g transform="translate(112.83 -77.67)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel53_29}</text><text class="rel pinya_pinya" x="0" y="0">${_rel53_29}</text></g>
+<path class="rel pinya_pinya" pos_list="53_30" d="M129.9,-75.0Q130.13,-56.39 117.46,-42.75"/>
+<g transform="translate(123.68 -58.88)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel53_30}</text><text class="rel pinya_pinya" x="0" y="0">${_rel53_30}</text></g>
+<path class="rel pinya_pinya" pos_list="54_30" d="M144.89,-38.82Q130.39,-35.3 117.46,-42.75"/>
+<g transform="translate(131.17 -40.78)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel54_30}</text><text class="rel pinya_pinya" x="0" y="0">${_rel54_30}</text></g>
+<path class="rel pinya" pos_list="2" d="M86.6,50.0"/>
+<g transform="translate(86.6 50.0)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel2}</text><text class="rel pinya" x="0" y="0">${_rel2}</text></g>
+<path class="rel pinya_pinya" pos_list="14_15" d="M117.46,42.75Q114.13,65.89 95.76,80.35"/>
+<g transform="translate(106.61 61.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel14_15}</text><text class="rel pinya_pinya" x="0" y="0">${_rel14_15}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="32_33_34" d="M144.89,38.82Q144.63,59.91 129.9,75.0Q124.2,95.3 106.07,106.07"/>
+<g transform="translate(126.95 73.3)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel32_33_34}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel32_33_34}</text></g>
+<path class="rel pinya" pos_list="4" d="M0.0,100.0"/>
+<g transform="translate(0.0 100.0)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel4}</text><text class="rel pinya" x="0" y="0">${_rel4}</text></g>
+<path class="rel pinya_pinya" pos_list="17_18" d="M21.71,123.1Q0.0,131.78 -21.71,123.1"/>
+<g transform="translate(0.0 123.1)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel17_18}</text><text class="rel pinya_pinya" x="0" y="0">${_rel17_18}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="36_37_38" d="M38.82,144.89Q20.43,155.21 0.0,150.0Q-20.43,155.21 -38.82,144.89"/>
+<g transform="translate(0.0 146.59)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel36_37_38}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel36_37_38}</text></g>
+<path class="rel pinya" pos_list="6" d="M-86.6,50.0"/>
+<g transform="translate(-86.6 50.0)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel6}</text><text class="rel pinya" x="0" y="0">${_rel6}</text></g>
+<path class="rel pinya_pinya" pos_list="20_21" d="M-95.76,80.35Q-114.13,65.89 -117.46,42.75"/>
+<g transform="translate(-106.61 61.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel20_21}</text><text class="rel pinya_pinya" x="0" y="0">${_rel20_21}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="40_41_42" d="M-106.07,106.07Q-124.2,95.3 -129.9,75.0Q-144.63,59.91 -144.89,38.82"/>
+<g transform="translate(-126.95 73.3)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel40_41_42}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel40_41_42}</text></g>
+<path class="rel pinya" pos_list="8" d="M-86.6,-50.0"/>
+<g transform="translate(-86.6 -50.0)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel8}</text><text class="rel pinya" x="0" y="0">${_rel8}</text></g>
+<path class="rel pinya_pinya" pos_list="23_24" d="M-117.46,-42.75Q-114.13,-65.89 -95.76,-80.35"/>
+<g transform="translate(-106.61 -61.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel23_24}</text><text class="rel pinya_pinya" x="0" y="0">${_rel23_24}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="44_45_46" d="M-144.89,-38.82Q-144.63,-59.91 -129.9,-75.0Q-124.2,-95.3 -106.07,-106.07"/>
+<g transform="translate(-126.95 -73.3)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel44_45_46}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel44_45_46}</text></g>
+<path class="rel pinya" pos_list="10" d="M0.0,-100.0"/>
+<g transform="translate(0.0 -100.0)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel10}</text><text class="rel pinya" x="0" y="0">${_rel10}</text></g>
+<path class="rel pinya_pinya" pos_list="26_27" d="M-21.71,-123.1Q0.0,-131.78 21.71,-123.1"/>
+<g transform="translate(0.0 -123.1)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel26_27}</text><text class="rel pinya_pinya" x="0" y="0">${_rel26_27}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="48_49_50" d="M-38.82,-144.89Q-20.43,-155.21 0.0,-150.0Q20.43,-155.21 38.82,-144.89"/>
+<g transform="translate(0.0 -146.59)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel48_49_50}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel48_49_50}</text></g>
+<path class="rel pinya" pos_list="12" d="M86.6,-50.0"/>
+<g transform="translate(86.6 -50.0)"><text class="rel whiteRelText pinya" x="0" y="0">${_rel12}</text><text class="rel pinya" x="0" y="0">${_rel12}</text></g>
+<path class="rel pinya_pinya" pos_list="29_30" d="M95.76,-80.35Q114.13,-65.89 117.46,-42.75"/>
+<g transform="translate(106.61 -61.55)"><text class="rel whiteRelText pinya_pinya" x="0" y="0">${_rel29_30}</text><text class="rel pinya_pinya" x="0" y="0">${_rel29_30}</text></g>
+<path class="rel pinya_pinya_pinya" pos_list="52_53_54" d="M106.07,-106.07Q124.2,-95.3 129.9,-75.0Q144.63,-59.91 144.89,-38.82"/>
+<g transform="translate(126.95 -73.3)"><text class="rel whiteRelText pinya_pinya_pinya" x="0" y="0">${_rel52_53_54}</text><text class="rel pinya_pinya_pinya" x="0" y="0">${_rel52_53_54}</text></g>
+<path class="rel baix_crossa" pos_list="55_56" d="M40.0,0.0Q46.0,15.0 40.0,30.0"/>
+<g transform="translate(40.0 15.0)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel55_56}</text><text class="rel baix_crossa" x="0" y="0">${_rel55_56}</text></g>
+<path class="rel baix_crossa" pos_list="55_57" d="M40.0,0.0Q34.0,-15.0 40.0,-30.0"/>
+<g transform="translate(40.0 -15.0)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel55_57}</text><text class="rel baix_crossa" x="0" y="0">${_rel55_57}</text></g>
+<path class="rel baix_crossa" pos_list="62_63" d="M-20.0,34.64Q-35.99,32.34 -45.98,19.64"/>
+<g transform="translate(-32.99 27.14)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel62_63}</text><text class="rel baix_crossa" x="0" y="0">${_rel62_63}</text></g>
+<path class="rel baix_crossa" pos_list="62_64" d="M-20.0,34.64Q-4.01,36.94 5.98,49.64"/>
+<g transform="translate(-7.01 42.14)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel62_64}</text><text class="rel baix_crossa" x="0" y="0">${_rel62_64}</text></g>
+<path class="rel baix_crossa" pos_list="69_70" d="M-20.0,-34.64Q-10.01,-47.34 5.98,-49.64"/>
+<g transform="translate(-7.01 -42.14)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel69_70}</text><text class="rel baix_crossa" x="0" y="0">${_rel69_70}</text></g>
+<path class="rel baix_crossa" pos_list="69_71" d="M-20.0,-34.64Q-29.99,-21.94 -45.98,-19.64"/>
+<g transform="translate(-32.99 -27.14)"><text class="rel whiteRelText baix_crossa" x="0" y="0">${_rel69_71}</text><text class="rel baix_crossa" x="0" y="0">${_rel69_71}</text></g>
 <path class="rel baix_agulla" pos_list="55_59" d="M40.0,0.0Q30.0,4.0 20.0,0.0"/>
 <g transform="translate(30.0 0.0)"><text class="rel whiteRelText baix_agulla" x="0" y="0">${_rel55_59}</text><text class="rel baix_agulla" x="0" y="0">${_rel55_59}</text></g>
-<path class="rel baix_agulla" pos_list="62_66" d="M-20.0,28.87Q-18.46,18.21 -10.0,11.55"/>
-<g transform="translate(-15.0 20.21)"><text class="rel whiteRelText baix_agulla" x="0" y="0">${_rel62_66}</text><text class="rel baix_agulla" x="0" y="0">${_rel62_66}</text></g>
-<path class="rel baix_agulla" pos_list="69_73" d="M-20.0,-28.87Q-11.54,-22.21 -10.0,-11.55"/>
-<g transform="translate(-15.0 -20.21)"><text class="rel whiteRelText baix_agulla" x="0" y="0">${_rel69_73}</text><text class="rel baix_agulla" x="0" y="0">${_rel69_73}</text></g>
+<path class="rel baix_agulla" pos_list="62_66" d="M-20.0,34.64Q-18.46,23.98 -10.0,17.32"/>
+<g transform="translate(-15.0 25.98)"><text class="rel whiteRelText baix_agulla" x="0" y="0">${_rel62_66}</text><text class="rel baix_agulla" x="0" y="0">${_rel62_66}</text></g>
+<path class="rel baix_agulla" pos_list="69_73" d="M-20.0,-34.64Q-11.54,-27.98 -10.0,-17.32"/>
+<g transform="translate(-15.0 -25.98)"><text class="rel whiteRelText baix_agulla" x="0" y="0">${_rel69_73}</text><text class="rel baix_agulla" x="0" y="0">${_rel69_73}</text></g>
 <path class="rel baix_contrafort" pos_list="55_58" d="M40.0,0.0Q50.0,-4.0 60.0,0.0"/>
 <g transform="translate(50.0 0.0)"><text class="rel whiteRelText baix_contrafort" x="0" y="0">${_rel55_58}</text><text class="rel baix_contrafort" x="0" y="0">${_rel55_58}</text></g>
-<path class="rel baix_contrafort" pos_list="62_65" d="M-20.0,28.87Q-21.54,39.53 -30.0,46.19"/>
-<g transform="translate(-25.0 37.53)"><text class="rel whiteRelText baix_contrafort" x="0" y="0">${_rel62_65}</text><text class="rel baix_contrafort" x="0" y="0">${_rel62_65}</text></g>
-<path class="rel baix_contrafort" pos_list="69_72" d="M-20.0,-28.87Q-28.46,-35.53 -30.0,-46.19"/>
-<g transform="translate(-25.0 -37.53)"><text class="rel whiteRelText baix_contrafort" x="0" y="0">${_rel69_72}</text><text class="rel baix_contrafort" x="0" y="0">${_rel69_72}</text></g>
+<path class="rel baix_contrafort" pos_list="62_65" d="M-20.0,34.64Q-21.54,45.3 -30.0,51.96"/>
+<g transform="translate(-25.0 43.3)"><text class="rel whiteRelText baix_contrafort" x="0" y="0">${_rel62_65}</text><text class="rel baix_contrafort" x="0" y="0">${_rel62_65}</text></g>
+<path class="rel baix_contrafort" pos_list="69_72" d="M-20.0,-34.64Q-28.46,-41.3 -30.0,-51.96"/>
+<g transform="translate(-25.0 -43.3)"><text class="rel whiteRelText baix_contrafort" x="0" y="0">${_rel69_72}</text><text class="rel baix_contrafort" x="0" y="0">${_rel69_72}</text></g>
 <path class="rel ma_baix_segon" pos_list="1_55_79" d="M100.0,0.0Q70.0,12.0 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
 <g transform="translate(109.17 0.0)"><text class="rel whiteRelText ma_baix_segon" x="0" y="0">${_rel1_55_79}</text><text class="rel ma_baix_segon" x="0" y="0">${_rel1_55_79}</text></g>
-<path class="rel ma_baix_segon" pos_list="5_62_80" d="M-50.0,72.17Q-43.66,44.52 -20.0,28.87Q-35.59,96.84 -93.75,135.32"/>
-<g transform="translate(-54.58 78.79)"><text class="rel whiteRelText ma_baix_segon" x="0" y="0">${_rel5_62_80}</text><text class="rel ma_baix_segon" x="0" y="0">${_rel5_62_80}</text></g>
-<path class="rel ma_baix_segon" pos_list="9_69_81" d="M-50.0,-72.17Q-26.34,-56.52 -20.0,-28.87Q-78.16,-67.34 -93.75,-135.32"/>
-<g transform="translate(-54.58 -78.79)"><text class="rel whiteRelText ma_baix_segon" x="0" y="0">${_rel9_69_81}</text><text class="rel ma_baix_segon" x="0" y="0">${_rel9_69_81}</text></g>
-<path class="rel vent_baix_segon" pos_list="3_55_79" d="M50.0,72.17Q30.57,38.09 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
-<g transform="translate(92.5 24.06)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel3_55_79}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel3_55_79}</text></g>
-<path class="rel vent_baix_segon" pos_list="11_55_79" d="M50.0,-72.17Q59.43,-34.09 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
-<g transform="translate(92.5 -24.06)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel11_55_79}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel11_55_79}</text></g>
-<path class="rel vent_baix_segon" pos_list="7_62_80" d="M-100.0,0.0Q-54.23,-1.56 -20.0,28.87Q-35.59,96.84 -93.75,135.32"/>
-<g transform="translate(-71.25 54.73)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel7_62_80}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel7_62_80}</text></g>
-<path class="rel vent_baix_segon" pos_list="3_62_80" d="M50.0,72.17Q6.34,64.52 -20.0,28.87Q-35.59,96.84 -93.75,135.32"/>
-<g transform="translate(-21.25 78.79)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel3_62_80}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel3_62_80}</text></g>
-<path class="rel vent_baix_segon" pos_list="11_69_81" d="M50.0,-72.17Q23.66,-36.52 -20.0,-28.87Q-78.16,-67.34 -93.75,-135.32"/>
-<g transform="translate(-21.25 -78.79)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel11_69_81}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel11_69_81}</text></g>
-<path class="rel vent_baix_segon" pos_list="7_69_81" d="M-100.0,0.0Q-65.77,-30.44 -20.0,-28.87Q-78.16,-67.34 -93.75,-135.32"/>
-<g transform="translate(-71.25 -54.73)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel7_69_81}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel7_69_81}</text></g>
+<path class="rel ma_baix_segon" pos_list="5_62_80" d="M-50.0,86.6Q-45.39,54.62 -20.0,34.64Q-31.33,113.26 -93.75,162.38"/>
+<g transform="translate(-54.58 94.54)"><text class="rel whiteRelText ma_baix_segon" x="0" y="0">${_rel5_62_80}</text><text class="rel ma_baix_segon" x="0" y="0">${_rel5_62_80}</text></g>
+<path class="rel ma_baix_segon" pos_list="9_69_81" d="M-50.0,-86.6Q-24.61,-66.62 -20.0,-34.64Q-82.42,-83.76 -93.75,-162.38"/>
+<g transform="translate(-54.58 -94.54)"><text class="rel whiteRelText ma_baix_segon" x="0" y="0">${_rel9_69_81}</text><text class="rel ma_baix_segon" x="0" y="0">${_rel9_69_81}</text></g>
+<path class="rel vent_baix_segon" pos_list="3_55_79" d="M50.0,86.6Q27.68,45.3 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
+<g transform="translate(92.5 28.87)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel3_55_79}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel3_55_79}</text></g>
+<path class="rel vent_baix_segon" pos_list="11_55_79" d="M50.0,-86.6Q62.32,-41.3 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
+<g transform="translate(92.5 -28.87)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel11_55_79}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel11_55_79}</text></g>
+<path class="rel vent_baix_segon" pos_list="7_62_80" d="M-100.0,0.0Q-53.07,1.32 -20.0,34.64Q-31.33,113.26 -93.75,162.38"/>
+<g transform="translate(-71.25 65.67)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel7_62_80}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel7_62_80}</text></g>
+<path class="rel vent_baix_segon" pos_list="3_62_80" d="M50.0,86.6Q4.61,74.62 -20.0,34.64Q-31.33,113.26 -93.75,162.38"/>
+<g transform="translate(-21.25 94.54)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel3_62_80}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel3_62_80}</text></g>
+<path class="rel vent_baix_segon" pos_list="11_69_81" d="M50.0,-86.6Q25.39,-46.62 -20.0,-34.64Q-82.42,-83.76 -93.75,-162.38"/>
+<g transform="translate(-21.25 -94.54)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel11_69_81}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel11_69_81}</text></g>
+<path class="rel vent_baix_segon" pos_list="7_69_81" d="M-100.0,0.0Q-66.93,-33.32 -20.0,-34.64Q-82.42,-83.76 -93.75,-162.38"/>
+<g transform="translate(-71.25 -65.67)"><text class="rel whiteRelText vent_baix_segon" x="0" y="0">${_rel7_69_81}</text><text class="rel vent_baix_segon" x="0" y="0">${_rel7_69_81}</text></g>
 <path class="rel agulla_baix_segon" pos_list="59_55_79" d="M20.0,0.0Q30.0,-4.0 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
 <g transform="translate(82.5 0.0)"><text class="rel whiteRelText agulla_baix_segon" x="0" y="0">${_rel59_55_79}</text><text class="rel agulla_baix_segon" x="0" y="0">${_rel59_55_79}</text></g>
-<path class="rel agulla_baix_segon" pos_list="66_62_80" d="M-10.0,11.55Q-11.54,22.21 -20.0,28.87Q-35.59,96.84 -93.75,135.32"/>
-<g transform="translate(-41.25 58.58)"><text class="rel whiteRelText agulla_baix_segon" x="0" y="0">${_rel66_62_80}</text><text class="rel agulla_baix_segon" x="0" y="0">${_rel66_62_80}</text></g>
-<path class="rel agulla_baix_segon" pos_list="73_69_81" d="M-10.0,-11.55Q-18.46,-18.21 -20.0,-28.87Q-78.16,-67.34 -93.75,-135.32"/>
-<g transform="translate(-41.25 -58.58)"><text class="rel whiteRelText agulla_baix_segon" x="0" y="0">${_rel73_69_81}</text><text class="rel agulla_baix_segon" x="0" y="0">${_rel73_69_81}</text></g>
-<path class="rel baix_segon_baix_segon" pos_list="55_79_62_80" d="M40.0,0.0Q113.75,-29.5 187.5,0.0Q89.52,55.94 -20.0,28.87Q-35.59,96.84 -93.75,135.32"/>
-<g transform="translate(28.44 41.05)"><text class="rel whiteRelText baix_segon_baix_segon" x="0" y="0">${_rel55_79_62_80}</text><text class="rel baix_segon_baix_segon" x="0" y="0">${_rel55_79_62_80}</text></g>
-<path class="rel baix_segon_baix_segon" pos_list="62_80_69_81" d="M-20.0,28.87Q-35.59,96.84 -93.75,135.32Q-89.71,38.47 -20.0,-28.87Q-78.16,-67.34 -93.75,-135.32"/>
+<path class="rel agulla_baix_segon" pos_list="66_62_80" d="M-10.0,17.32Q-11.54,27.98 -20.0,34.64Q-31.33,113.26 -93.75,162.38"/>
+<g transform="translate(-41.25 71.45)"><text class="rel whiteRelText agulla_baix_segon" x="0" y="0">${_rel66_62_80}</text><text class="rel agulla_baix_segon" x="0" y="0">${_rel66_62_80}</text></g>
+<path class="rel agulla_baix_segon" pos_list="73_69_81" d="M-10.0,-17.32Q-18.46,-23.98 -20.0,-34.64Q-82.42,-83.76 -93.75,-162.38"/>
+<g transform="translate(-41.25 -71.45)"><text class="rel whiteRelText agulla_baix_segon" x="0" y="0">${_rel73_69_81}</text><text class="rel agulla_baix_segon" x="0" y="0">${_rel73_69_81}</text></g>
+<path class="rel baix_segon_baix_segon" pos_list="55_79_62_80" d="M40.0,0.0Q113.75,-29.5 187.5,0.0Q90.68,58.82 -20.0,34.64Q-31.33,113.26 -93.75,162.38"/>
+<g transform="translate(28.44 49.25)"><text class="rel whiteRelText baix_segon_baix_segon" x="0" y="0">${_rel55_79_62_80}</text><text class="rel baix_segon_baix_segon" x="0" y="0">${_rel55_79_62_80}</text></g>
+<path class="rel baix_segon_baix_segon" pos_list="62_80_69_81" d="M-20.0,34.64Q-31.33,113.26 -93.75,162.38Q-96.28,49.12 -20.0,-34.64Q-82.42,-83.76 -93.75,-162.38"/>
 <g transform="translate(-56.88 0.0)"><text class="rel whiteRelText baix_segon_baix_segon" x="0" y="0">${_rel62_80_69_81}</text><text class="rel baix_segon_baix_segon" x="0" y="0">${_rel62_80_69_81}</text></g>
-<path class="rel baix_segon_baix_segon" pos_list="69_81_55_79" d="M-20.0,-28.87Q-78.16,-67.34 -93.75,-135.32Q0.19,-94.41 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
-<g transform="translate(28.44 -41.05)"><text class="rel whiteRelText baix_segon_baix_segon" x="0" y="0">${_rel69_81_55_79}</text><text class="rel baix_segon_baix_segon" x="0" y="0">${_rel69_81_55_79}</text></g>
-<path class="rel lateral_baix_segon" pos_list="60_55_79" d="M70.0,20.83Q50.83,16.41 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
-<g transform="translate(99.17 6.94)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel60_55_79}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel60_55_79}</text></g>
-<path class="rel lateral_baix_segon" pos_list="61_55_79" d="M70.0,-20.83Q59.17,-4.41 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
-<g transform="translate(99.17 -6.94)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel61_55_79}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel61_55_79}</text></g>
-<path class="rel lateral_baix_segon" pos_list="67_62_80" d="M-53.04,44.44Q-39.63,30.05 -20.0,28.87Q-35.59,96.84 -93.75,135.32"/>
-<g transform="translate(-55.6 69.54)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel67_62_80}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel67_62_80}</text></g>
-<path class="rel lateral_baix_segon" pos_list="68_62_80" d="M-16.96,65.27Q-25.76,47.68 -20.0,28.87Q-35.59,96.84 -93.75,135.32"/>
-<g transform="translate(-43.57 76.49)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel68_62_80}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel68_62_80}</text></g>
-<path class="rel lateral_baix_segon" pos_list="74_69_81" d="M-16.96,-65.27Q-11.2,-46.46 -20.0,-28.87Q-78.16,-67.34 -93.75,-135.32"/>
-<g transform="translate(-43.57 -76.49)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel74_69_81}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel74_69_81}</text></g>
-<path class="rel lateral_baix_segon" pos_list="75_69_81" d="M-53.04,-44.44Q-33.41,-43.26 -20.0,-28.87Q-78.16,-67.34 -93.75,-135.32"/>
-<g transform="translate(-55.6 -69.54)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel75_69_81}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel75_69_81}</text></g>
+<path class="rel baix_segon_baix_segon" pos_list="69_81_55_79" d="M-20.0,-34.64Q-82.42,-83.76 -93.75,-162.38Q5.6,-107.94 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
+<g transform="translate(28.44 -49.25)"><text class="rel whiteRelText baix_segon_baix_segon" x="0" y="0">${_rel69_81_55_79}</text><text class="rel baix_segon_baix_segon" x="0" y="0">${_rel69_81_55_79}</text></g>
+<path class="rel lateral_baix_segon" pos_list="60_55_79" d="M70.0,25.0Q50.0,18.5 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
+<g transform="translate(99.17 8.33)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel60_55_79}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel60_55_79}</text></g>
+<path class="rel lateral_baix_segon" pos_list="61_55_79" d="M70.0,-25.0Q60.0,-6.5 40.0,0.0Q113.75,-29.5 187.5,0.0"/>
+<g transform="translate(99.17 -8.33)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel61_55_79}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel61_55_79}</text></g>
+<path class="rel lateral_baix_segon" pos_list="67_62_80" d="M-56.65,48.12Q-41.02,34.05 -20.0,34.64Q-31.33,113.26 -93.75,162.38"/>
+<g transform="translate(-56.8 81.71)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel67_62_80}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel67_62_80}</text></g>
+<path class="rel lateral_baix_segon" pos_list="68_62_80" d="M-13.35,73.12Q-24.37,55.21 -20.0,34.64Q-31.33,113.26 -93.75,162.38"/>
+<g transform="translate(-42.37 90.05)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel68_62_80}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel68_62_80}</text></g>
+<path class="rel lateral_baix_segon" pos_list="74_69_81" d="M-13.35,-73.12Q-8.98,-52.55 -20.0,-34.64Q-82.42,-83.76 -93.75,-162.38"/>
+<g transform="translate(-42.37 -90.05)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel74_69_81}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel74_69_81}</text></g>
+<path class="rel lateral_baix_segon" pos_list="75_69_81" d="M-56.65,-48.12Q-35.63,-48.71 -20.0,-34.64Q-82.42,-83.76 -93.75,-162.38"/>
+<g transform="translate(-56.8 -81.71)"><text class="rel whiteRelText lateral_baix_segon" x="0" y="0">${_rel75_69_81}</text><text class="rel lateral_baix_segon" x="0" y="0">${_rel75_69_81}</text></g>
 </g>
 </svg>

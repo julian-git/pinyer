@@ -185,9 +185,10 @@ def writeText(text, extra_class = ''):
         'text-anchor="' + text.getAttribute('text-anchor') + '" ' + \
         'x="0" y="0" ' + \
         'title="${_alt' + text.getAttribute('id') + '}" ' + \
-        'onmouseover="Drop(evt)">' + \
+        '>' + \
         '${_' + label + '}' + \
         '</text>'
+        #        'onmouseover="Drop(evt)" ' + 
         #        label + ' ${_' + label + '} ${_c' + label + '}' + 
 
 def handleRelations(relations, coos, svg):
